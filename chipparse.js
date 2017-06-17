@@ -57,7 +57,7 @@ function chipTagReplace(name, param) {
 				case "Wood": elcolor = "<font color=#00c96b>" + name + "</font>"; break;
 				default: elcolor = name; break;
 			}		
-			return `<img src='https://execfera.github.io/rern_chip/${name}.png'> <strong>${elcolor}</strong>${chipData[name].summ}`;
+			return `<img src='https://execfera.github.io/rern_chip/${name}.png'> <strong>${elcolor}</strong>: ${chipData[name].summ}`;
 	}
 }
 
