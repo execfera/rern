@@ -29,37 +29,12 @@ $(document).data("readyDeferred", $.Deferred()).ready(function() {
 });
 
 $.when( $(document).data("readyDeferred"), chipGet ).done (function() {
-  $('.c_post:contains("[chip="):not(:has("textarea"))').each(function() {
+  $('.c_post:contains("[chip="):not(:has("textarea")), .c_sig:contains("[chip="):not(:has("textarea"))').each(function() {
     $(this).html($(this).html().replace(/\[chip=([^,\]]*)(,(i|s|f|a))?\]/g, function(match, p1, p2, p3) {
-          if (!(p1 in chipData)) return match; else return chipTagReplace(p1,p3);
+    	if (!(p1 in chipData)) return match; else return chipTagReplace(p1,p3);
 	  }));
 	});
-  $('.c_sig:contains("[chip="):not(:has("textarea"))').each(function() {
-    $(this).html($(this).html().replace(/\[chip=([^,\]]*)(,(i|s|f|a))?\]/g, function(match, p1, p2, p3) {
-          if (!(p1 in chipData)) return match; else return chipTagReplace(p1,p3);
-	  }));
-	});
-  $(".chipbody").hide();
-  $(".chipbodysig").hide();
-  $(".chipclick").click(function(event) {
-    $(this.nextSibling).toggle();
-    event.stopPropagation();
-  });
-  $("body").click(function(event) {
-		$(".chipbody").hide();
-		$(".chipbodysig").hide();
-  });
-  $(".chipbody,.chipbodysig").click(function(event) {
-    event.stopPropagation();
-		return false;
-  });
-
-  $("div.spoiler_toggle").unbind( "click" );
-  $("div.spoiler_toggle").click(function(event) {
-    $(this.nextSibling).toggle();
-    event.stopPropagation();
-  });
-  
+  chipTagFunction();  
 });
 
 function chipTagReplace(name, param) {
@@ -82,6 +57,30 @@ function chipTagReplace(name, param) {
 				case "Wood": elcolor = "<font color=#00c96b>" + name + "</font>"; break;
 				default: elcolor = name; break;
 			}		
-			return "<img src='" + chipData[name].img + "'> <strong>" + elcolor + "</strong>: " + chipData[name].summ;
+			return `<img src='https://execfera.github.io/rern_chip/${name}.png'> <strong>${elcolor}</strong>${chipData[name].summ}`;
 	}
+}
+
+function chipTagFunction () {
+  $("body").unbind("click");
+  $("body").click(function(event) {
+  	$(".chipbody").hide();
+  }).click();
+	$(".chipclick").unbind("click");
+	$(".chipclick").click(function(event) {
+    $(this.nextSibling).toggle();
+    event.stopPropagation();
+  });
+	$(".chipbody").unbind("click");
+  $(".chipbody").click(function(event) {
+    event.stopPropagation();
+		return false;
+  }); fixZBSpoiler();
+}
+function fixZBSpoiler () {
+  $("div.spoiler_toggle").unbind("click");
+  $("div.spoiler_toggle").click(function(event) {
+    $(this.nextSibling).toggle();
+    event.stopPropagation();
+	});
 }
