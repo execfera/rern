@@ -53,7 +53,7 @@ function chipTagReplace(name, param) {
 			switch (chipData[name].elem) {
 				case "Fire": elcolor = "<font color=#d22700>" + name + "</font>"; break;
 				case "Aqua": elcolor = "<font color=#6495ed>" + name + "</font>"; break;
-				case "Elec": elcolor = "<font color=#dbcd00>" + name + "</font>"; break;
+				case "Elec": elcolor = "<font color=orange>" + name + "</font>"; break;
 				case "Wood": elcolor = "<font color=#00c96b>" + name + "</font>"; break;
 				default: elcolor = name; break;
 			}		
