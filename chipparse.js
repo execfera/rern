@@ -31,54 +31,12 @@ $(document).data("readyDeferred", $.Deferred()).ready(function() {
 $.when( $(document).data("readyDeferred"), chipGet ).done (function() {
   $('.c_post:contains("[chip="):not(:has("textarea"))').each(function() {
     $(this).html($(this).html().replace(/\[chip=([^,\]]*)(,(i|s|f|a))?\]/g, function(match, p1, p2, p3) {
-          if (!(p1 in chipData)) return match; else {
-	  switch(p3) {
-	    case "i":
-		  return `<img src='https://execfera.github.io/rern_chip/${p1}.png'>`;
-		case "s":
-		  return `${chipData[p1].summ} (Acc: ${chipData[p1].acc})`;
-		case "f":
-		  return `<img src='https://execfera.github.io/rern_chip/${p1.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${p1}</span><span class='chipbody'>${chipData[p1].desc}</span></span>`;
-		case "a":
-		  if (!("alias" in chipData[p1])) return match; 
-			else return `<img src='https://execfera.github.io/rern_chip/${p1.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${chipData[p1].alias}</span><span class='chipbody'>${chipData[p1].desc}</span></span>`;
-		default: 
-		  var elcolor; 
-		  switch (chipData[p1].elem) {
-				case "Fire": elcolor = "<font color=#d22700>" + p1 + "</font>"; break;
-				case "Aqua": elcolor = "<font color=#6495ed>" + p1 + "</font>"; break;
-				case "Elec": elcolor = "<font color=#dbcd00>" + p1 + "</font>"; break;
-				case "Wood": elcolor = "<font color=#00c96b>" + p1 + "</font>"; break;
-				default: elcolor = p1; break;
-		  }		
-		  return "<img src='" + chipData[p1].img + "'> <strong>" + elcolor + "</strong>: " + chipData[p1].summ;
-		  }}
-		}));
+          if (!(p1 in chipData)) return match; else return chipTagReplace(p1,p3);
+	  }));
 	});
   $('.c_sig:contains("[chip="):not(:has("textarea"))').each(function() {
     $(this).html($(this).html().replace(/\[chip=([^,\]]*)(,(i|s|f|a))?\]/g, function(match, p1, p2, p3) {
-          if (!(p1 in chipData)) return match; else {
-	  switch(p3) {
-	  case "i": 
-		  return `<img src='https://execfera.github.io/rern_chip/${p1.replace('+','')}.png'>`;
-	  case "s": 
-		  return `${chipData[p1].summ} (Acc: ${chipData[p1].acc})`;
-	  case "f":
-		  return `<img src='https://execfera.github.io/rern_chip/${p1.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${p1}</span><span class='chipbody'>${chipData[p1].desc}</span></span>`;
-		case "a":
-		  if (!("alias" in chipData[p1])) return match; 
-			else return `<img src='https://execfera.github.io/rern_chip/${p1.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${chipData[p1].alias}</span><span class='chipbody'>${chipData[p1].desc}</span></span>`;
-	  default:  
-		  var elcolor; 
-		  switch (chipData[p1].elem) {
-				case "Fire": elcolor = "<font color=#d22700>" + p1 + "</font>"; break;
-				case "Aqua": elcolor = "<font color=#6495ed>" + p1 + "</font>"; break;
-				case "Elec": elcolor = "<font color=#dbcd00>" + p1 + "</font>"; break;
-				case "Wood": elcolor = "<font color=#00c96b>" + p1 + "</font>"; break;
-				default: elcolor = p1; break;
-		  }		
-		  return "<img src='" + chipData[p1].img + "'> <strong>" + elcolor + "</strong>: " + chipData[p1].summ;
-		  }}
+          if (!(p1 in chipData)) return match; else return chipTagReplace(p1,p3);
 	  }));
 	});
   $(".chipbody").hide();
@@ -103,3 +61,27 @@ $.when( $(document).data("readyDeferred"), chipGet ).done (function() {
   });
   
 });
+
+function chipTagReplace(name, param) {
+	switch(param) {
+		case "i":
+			return `<img src='https://execfera.github.io/rern_chip/${p1}.png'>`;
+		case "s":
+			return `${chipData[p1].summ} (Acc: ${chipData[p1].acc})`;
+		case "f":
+			return `<img src='https://execfera.github.io/rern_chip/${p1.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${p1}</span><span class='chipbody'>${chipData[p1].desc}</span></span>`;
+		case "a":
+			if (!("alias" in chipData[p1])) return match; 
+			else return `<img src='https://execfera.github.io/rern_chip/${p1.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${chipData[p1].alias}</span><span class='chipbody'>${chipData[p1].desc}</span></span>`;
+		default: 
+			var elcolor; 
+			switch (chipData[p1].elem) {
+				case "Fire": elcolor = "<font color=#d22700>" + p1 + "</font>"; break;
+				case "Aqua": elcolor = "<font color=#6495ed>" + p1 + "</font>"; break;
+				case "Elec": elcolor = "<font color=#dbcd00>" + p1 + "</font>"; break;
+				case "Wood": elcolor = "<font color=#00c96b>" + p1 + "</font>"; break;
+				default: elcolor = p1; break;
+			}		
+			return "<img src='" + chipData[p1].img + "'> <strong>" + elcolor + "</strong>: " + chipData[p1].summ;
+	}
+}
