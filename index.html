@@ -1,4 +1,11 @@
 <html>
+    <head><style>
+    @import url('https://fonts.googleapis.com/css?family=Inconsolata');
+    body { 
+        font-family: 'Inconsolata', sans-serif;
+        font-size: 14px;
+    }
+    </style></head>
     <body>
         <div id='content'></div>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -6,7 +13,7 @@
             var content = "";
             jQuery.get("https://execfera.github.io/rern_chip/chip.json", function (chipData) {
                 for (chip in chipData) {
-                    content += `<img src="https://execfera.github.io/rern_chip/${chip.replace('+','')}.png"> `;
+                    content += `<img src="https://execfera.github.io/rern_chip/${chip.replace('+','')}.png"> ${chip}<br>${chipData[chip].desc}<br><br>`;
                 }
                 document.querySelector('#content').innerHTML += content;
             }, 'json');
