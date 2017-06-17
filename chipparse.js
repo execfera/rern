@@ -34,13 +34,14 @@ $.when( $(document).data("readyDeferred"), chipGet ).done (function() {
           if (!(p1 in chipData)) return match; else {
 	  switch(p3) {
 	    case "i":
-		  return "<img src='" + chipData[p1].img + "'>";
+		  return `<img src='https://execfera.github.io/rern_chip/${p1}.png'>`;
 		case "s":
-		  return chipData[p1].summ + " (Acc: " + chipData[p1].acc + ")";
+		  return `${chipData[p1].summ} (Acc: ${chipData[p1].acc})`;
 		case "f":
-		  return "<img src='" + chipData[p1].img + "'> " + "<span class='chip'><span class='chipclick'>" + p1 + "</span><span class='chipbody'>" + chipData[p1].desc + "</span></span>";
+		  return `<img src='https://execfera.github.io/rern_chip/${p1.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${p1}</span><span class='chipbody'>${chipData[p1].desc}</span></span>`;
 		case "a":
-		  if (!("alias" in chipData[p1])) return match; else return "<img src='" + chipData[p1].img + "'> " + "<span class='chip'><span class='chipclick'>" + chipData[p1].alias + "</span><span class='chipbody'>" + chipData[p1].desc + "</span></span>";
+		  if (!("alias" in chipData[p1])) return match; 
+			else return `<img src='https://execfera.github.io/rern_chip/${p1.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${chipData[p1].alias}</span><span class='chipbody'>${chipData[p1].desc}</span></span>`;
 		default: 
 		  var elcolor; 
 		  switch (chipData[p1].elem) {
@@ -58,15 +59,16 @@ $.when( $(document).data("readyDeferred"), chipGet ).done (function() {
     $(this).html($(this).html().replace(/\[chip=([^,\]]*)(,(i|s|f|a))?\]/g, function(match, p1, p2, p3) {
           if (!(p1 in chipData)) return match; else {
 	  switch(p3) {
-	  case "i": // image only
-		  return "<img src='" + chipData[p1].img + "'>";
-	  case "s": // summary only
-		  return chipData[p1].summ + " (Acc: " + chipData[p1].acc + ")";
-	  case "f": // full clickable description
-		  return "<img src='" + chipData[p1].img + "'> " + "<span class='chip'><span class='chipclick'>" + p1 + "</span><span class='chipbodysig'>" + chipData[p1].desc + "</span></span>";
+	  case "i": 
+		  return `<img src='https://execfera.github.io/rern_chip/${p1.replace('+','')}.png'>`;
+	  case "s": 
+		  return `${chipData[p1].summ} (Acc: ${chipData[p1].acc})`;
+	  case "f":
+		  return `<img src='https://execfera.github.io/rern_chip/${p1.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${p1}</span><span class='chipbody'>${chipData[p1].desc}</span></span>`;
 		case "a":
-		  if (!("alias" in chipData[p1])) return match; else return "<img src='" + chipData[p1].img + "'> " + "<span class='chip'><span class='chipclick'>" + chipData[p1].alias + "</span><span class='chipbodysig'>" + chipData[p1].desc + "</span></span>";
-	  default:  // image + name + summary
+		  if (!("alias" in chipData[p1])) return match; 
+			else return `<img src='https://execfera.github.io/rern_chip/${p1.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${chipData[p1].alias}</span><span class='chipbody'>${chipData[p1].desc}</span></span>`;
+	  default:  
 		  var elcolor; 
 		  switch (chipData[p1].elem) {
 				case "Fire": elcolor = "<font color=#d22700>" + p1 + "</font>"; break;
@@ -86,20 +88,18 @@ $.when( $(document).data("readyDeferred"), chipGet ).done (function() {
     event.stopPropagation();
   });
   $("body").click(function(event) {
-  $(".chipbody").hide();
-  $(".chipbodysig").hide();
+		$(".chipbody").hide();
+		$(".chipbodysig").hide();
   });
   $(".chipbody,.chipbodysig").click(function(event) {
     event.stopPropagation();
-	return false;
+		return false;
   });
 
-  // No idea why Zetaboards spoilers fuck up like this but this fix is needed.
   $("div.spoiler_toggle").unbind( "click" );
   $("div.spoiler_toggle").click(function(event) {
     $(this.nextSibling).toggle();
     event.stopPropagation();
-	//return false;
   });
   
 });
