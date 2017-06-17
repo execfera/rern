@@ -65,23 +65,23 @@ $.when( $(document).data("readyDeferred"), chipGet ).done (function() {
 function chipTagReplace(name, param) {
 	switch(param) {
 		case "i":
-			return `<img src='https://execfera.github.io/rern_chip/${p1}.png'>`;
+			return `<img src='https://execfera.github.io/rern_chip/${name}.png'>`;
 		case "s":
-			return `${chipData[p1].summ} (Acc: ${chipData[p1].acc})`;
+			return `${chipData[name].summ} (Acc: ${chipData[name].acc})`;
 		case "f":
-			return `<img src='https://execfera.github.io/rern_chip/${p1.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${p1}</span><span class='chipbody'>${chipData[p1].desc}</span></span>`;
+			return `<img src='https://execfera.github.io/rern_chip/${name.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${name}</span><span class='chipbody'>${chipData[name].desc}</span></span>`;
 		case "a":
-			if (!("alias" in chipData[p1])) return match; 
-			else return `<img src='https://execfera.github.io/rern_chip/${p1.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${chipData[p1].alias}</span><span class='chipbody'>${chipData[p1].desc}</span></span>`;
+			if (!("alias" in chipData[name])) return match; 
+			else return `<img src='https://execfera.github.io/rern_chip/${name.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${chipData[name].alias}</span><span class='chipbody'>${chipData[name].desc}</span></span>`;
 		default: 
 			var elcolor; 
-			switch (chipData[p1].elem) {
-				case "Fire": elcolor = "<font color=#d22700>" + p1 + "</font>"; break;
-				case "Aqua": elcolor = "<font color=#6495ed>" + p1 + "</font>"; break;
-				case "Elec": elcolor = "<font color=#dbcd00>" + p1 + "</font>"; break;
-				case "Wood": elcolor = "<font color=#00c96b>" + p1 + "</font>"; break;
-				default: elcolor = p1; break;
+			switch (chipData[name].elem) {
+				case "Fire": elcolor = "<font color=#d22700>" + name + "</font>"; break;
+				case "Aqua": elcolor = "<font color=#6495ed>" + name + "</font>"; break;
+				case "Elec": elcolor = "<font color=#dbcd00>" + name + "</font>"; break;
+				case "Wood": elcolor = "<font color=#00c96b>" + name + "</font>"; break;
+				default: elcolor = name; break;
 			}		
-			return "<img src='" + chipData[p1].img + "'> <strong>" + elcolor + "</strong>: " + chipData[p1].summ;
+			return "<img src='" + chipData[name].img + "'> <strong>" + elcolor + "</strong>: " + chipData[name].summ;
 	}
 }
