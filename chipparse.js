@@ -60,7 +60,6 @@ function chipTagReplace(name, param) {
 			return `<img src='https://execfera.github.io/rern_chip/${name.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${elcolor}</span><span class='chipbody'>${chipData[name].desc}</span></span>: ${chipData[name].summ} (Acc: ${chipData[name].acc})`;
 	}
 }
-
 function chipTagFunction () {
   $("body").unbind("click");
   $("body").click(function(event) {
