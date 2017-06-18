@@ -68,19 +68,18 @@ function chipTagFunction () {
   }).click();
 	$(".chipclick").unbind("click");
 	$(".chipclick").click(function(event) {
-    $(this.nextSibling).toggle();
+    $(this).next().toggle();
     event.stopPropagation();
   });
 	$(".chipbody").unbind("click");
   $(".chipbody").click(function(event) {
     event.stopPropagation();
-		return false;
   }); fixZBSpoiler();
 }
 function fixZBSpoiler () {
   $("div.spoiler_toggle").unbind("click");
   $("div.spoiler_toggle").click(function(event) {
-    $(this.nextSibling).toggle();
+    $(this).next().toggle();
     event.stopPropagation();
 	});
 }
