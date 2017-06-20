@@ -40,14 +40,14 @@ $.when( $(document).data("readyDeferred"), chipGet ).done (function() {
 function chipTagReplace(name, param) {
 	switch(param) {
 		case "i":
-			return `<img src='https://execfera.github.io/rern_chip/${name}.png'>`;
+			return `<img src='https://execfera.github.io/rern/chip/${name}.png'>`;
 		case "s":
 			return `${chipData[name].summ} (Acc: ${chipData[name].acc})`;
 		case "f":
-			return `<img src='https://execfera.github.io/rern_chip/${name.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${name}</span><span class='chipbody'>${chipData[name].desc}</span></span>`;
+			return `<img src='https://execfera.github.io/rern/chip/${name.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${name}</span><span class='chipbody'>${chipData[name].desc}</span></span>`;
 		case "a":
 			if (!("alias" in chipData[name])) return match; 
-			else return `<img src='https://execfera.github.io/rern_chip/${name.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${chipData[name].alias}</span><span class='chipbody'>${chipData[name].desc}</span></span>`;
+			else return `<img src='https://execfera.github.io/rern/chip/${name.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${chipData[name].alias}</span><span class='chipbody'>${chipData[name].desc}</span></span>`;
 		default: 
 			var elcolor; 
 			switch (chipData[name].elem) {
@@ -57,7 +57,7 @@ function chipTagReplace(name, param) {
 				case "Wood": elcolor = "<font color=#00c96b>" + name + "</font>"; break;
 				default: elcolor = name; break;
 			}		
-			return `<img src='https://execfera.github.io/rern_chip/${name.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${elcolor}</span><span class='chipbody'>${chipData[name].desc}</span></span>: ${chipData[name].summ} (Acc: ${chipData[name].acc})`;
+			return `<img src='https://execfera.github.io/rern/chip/${name.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${elcolor}</span><span class='chipbody'>${chipData[name].desc}</span></span>: ${chipData[name].summ} (Acc: ${chipData[name].acc})`;
 	}
 }
 function chipTagFunction () {
