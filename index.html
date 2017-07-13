@@ -8,15 +8,16 @@
     </style></head>
     <body>
         <div id='content'></div>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script>
             var content = "";
-            jQuery.get("https://execfera.github.io/rern/chip.json", function (chipData) {
+            fetch("/chip.json")
+            .then(res => res.json)
+            .then(chipData => {
                 for (chip in chipData) {
-                    content += `<img src="https://execfera.github.io/rern/chip/${chip.replace('+','')}.png"> ${chip}<br>${chipData[chip].desc}<br><br>`;
+                    content += `<img src="chip/${chip.replace('+','')}.png"> ${chip}<br>${chipData[chip].desc}<br><br>`;
                 }
                 document.querySelector('#content').innerHTML += content;
-            }, 'json');
+            });
         </script>
     </body>
 </html>
