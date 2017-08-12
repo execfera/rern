@@ -73,7 +73,21 @@ function chipTagFunction () {
 	$(".chipbody").unbind("click");
   $(".chipbody").click(function(event) {
     event.stopPropagation();
-  }); fixZBSpoiler();
+	}); 
+	$("[class^='bbcode-click']").each(function() {
+		$(this).attr('class').split(' ').forEach(cls => {
+			let matcl = cls.match(/bbcode-click(.+?)$/);
+			if(matcl && matcl[1]) {
+				$(".bbcode-hide"+matcl[1]).hide();
+				$(".bbcode-click"+matcl[1]).unbind("click");
+				$(".bbcode-click"+matcl[1]).css("cursor","pointer");
+				$(".bbcode-click"+matcl[1]).click(function(event) {
+					$(".bbcode-hide"+matcl[1]).toggle();
+				});
+			}
+		});
+	});
+	fixZBSpoiler();
 }
 function fixZBSpoiler () {
   $("div.spoiler_toggle").unbind("click");
