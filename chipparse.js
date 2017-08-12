@@ -78,11 +78,14 @@ function chipTagFunction () {
 		$(this).attr('class').split(' ').forEach(cls => {
 			let matcl = cls.match(/bbcode-click(.+?)$/);
 			if(matcl && matcl[1]) {
-				$(".bbcode-hide"+matcl[1]).hide();
+				if ($(".bbcode-popup"+matcl[1]).length > 0) {
+					$(".bbcode-click"+matcl[1]+", .bbcode-popup"+matcl[1]).wrapAll("<span class='bbcode-poppos'></span>");
+				}
 				$(".bbcode-click"+matcl[1]).unbind("click");
 				$(".bbcode-click"+matcl[1]).css("cursor","pointer");
 				$(".bbcode-click"+matcl[1]).click(function(event) {
 					$(".bbcode-hide"+matcl[1]).toggle();
+					$(".bbcode-popup"+matcl[1]).css('display',$(".bbcode-popup"+matcl[1]).css('display')==="none"?"block":"none");
 				});
 			}
 		});
