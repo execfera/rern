@@ -87,6 +87,11 @@ function chipTagFunction () {
 				$(".bbcode-click"+matcl[1]).click(function(event) {
 					$(".bbcode-hide"+matcl[1]).toggle();
 					$(".bbcode-popup"+matcl[1]).css('display',$(".bbcode-popup"+matcl[1]).css('display')==="none"?"block":"none");
+					if ($(".bbcode-swap"+matcl[1]).length === 1 && $(".bbcode-click"+matcl[1]).length === 1) {
+						$(".bbcode-click"+matcl[1]).replaceWith($(".bbcode-swap"+matcl[1]).clone(true));
+						$(".bbcode-swap"+matcl[1]).eq(1).empty();
+						$(".bbcode-swap"+matcl[1]).eq(0).show();
+					}
 					event.stopPropagation();
 				});
 			}
