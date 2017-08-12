@@ -63,6 +63,7 @@ function chipTagReplace(name, param) {
 function chipTagFunction () {
   $("body").unbind("click");
   $("body").click(function(event) {
+		$("[class*=' bbcode-popup'], [class^='bbcode-popup']").hide();
   	$(".chipbody").hide();
   }).click();
 	$(".chipclick").unbind("click");
@@ -70,8 +71,8 @@ function chipTagFunction () {
     $(this).next().toggle();
     event.stopPropagation();
   });
-	$(".chipbody").unbind("click");
-  $(".chipbody").click(function(event) {
+	$(".chipbody, [class*=' bbcode-popup'], [class^='bbcode-popup']").unbind("click");
+  $(".chipbody, [class*=' bbcode-popup'], [class^='bbcode-popup']").click(function(event) {
     event.stopPropagation();
 	}); 
 	$("[class^='bbcode-click']").each(function() {
@@ -86,6 +87,7 @@ function chipTagFunction () {
 				$(".bbcode-click"+matcl[1]).click(function(event) {
 					$(".bbcode-hide"+matcl[1]).toggle();
 					$(".bbcode-popup"+matcl[1]).css('display',$(".bbcode-popup"+matcl[1]).css('display')==="none"?"block":"none");
+					event.stopPropagation();
 				});
 			}
 		});
