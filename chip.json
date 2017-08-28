@@ -1633,6 +1633,30 @@
 		"elem": "Fire",
 		"type": "Other"
 	},
+	"Asteroid1": {
+		"dmg": 40,
+		"summ": "40 x 4 + Drop Attack + Blast Zone",
+		"desc": "Damage: 40 x 4 + Drop Attack + Blast Zone<br>Accuracy: D<br>Description: The user selects a target, then flaming meteors crash down onto and around them.<br>Duration: Once<br>Element: Fire<br>Special: Drop Attack: This attack originates above the battlefield, and falls to the ground. It gains one rank of accuracy against High Altitude targets.<br>Special: Blast Zone: The area this chip can target in is the equivalent of a Blast 3 area, centered on the chosen target. It will randomly target anything within this area, including the user if they are in that area. Mass Destruction does not affect Blast Zone's size.",
+		"acc": "D",
+		"elem": "Fire",
+		"type": "Other"
+	},
+	"Asteroid2": {
+		"dmg": 40,
+		"summ": "40 x 5 + Drop Attack + Blast Zone",
+		"desc": "Damage: 40 x 5 + Drop Attack + Blast Zone<br>Accuracy: D<br>Description: The user selects a target, then flaming meteors crash down onto and around them.<br>Duration: Once<br>Element: Fire<br>Special: Drop Attack: This attack originates above the battlefield, and falls to the ground. It gains one rank of accuracy against High Altitude targets.<br>Special: Blast Zone: The area this chip can target in is the equivalent of a Blast 3 area, centered on the chosen target. It will randomly target anything within this area, including the user if they are in that area. Mass Destruction does not affect Blast Zone's size.",
+		"acc": "D",
+		"elem": "Fire",
+		"type": "Other"
+	},
+	"Asteroid3": {
+		"dmg": 40,
+		"summ": "40 x 6 + Drop Attack + Blast Zone",
+		"desc": "Damage: 40 x 6 + Drop Attack + Blast Zone<br>Accuracy: D<br>Description: The user selects a target, then flaming meteors crash down onto and around them.<br>Duration: Once<br>Element: Fire<br>Special: Drop Attack: This attack originates above the battlefield, and falls to the ground. It gains one rank of accuracy against High Altitude targets.<br>Special: Blast Zone: The area this chip can target in is the equivalent of a Blast 3 area, centered on the chosen target. It will randomly target anything within this area, including the user if they are in that area. Mass Destruction does not affect Blast Zone's size.",
+		"acc": "D",
+		"elem": "Fire",
+		"type": "Other"
+	},
 	"TwinFang1": {
 		"dmg": 70,
 		"summ": "70 x 2 targets",
@@ -6745,7 +6769,7 @@
 	"FireHit2": {
 		"dmg": 90,
 		"summ": "90 + Impact + Double Attack",
-		"desc": "Damage: 90 + Impact + Double Attack<br>Accuracy: A<br>Description: Throws a blazing punch from a distance, Hadoken style.<br>Duration: Up to 2 uses before the end of the turn<br>Element: Fire<br>Special: Double Attack: After spending an action to attack with this chip, you may choose to spend a second action and attack with it again before the end of the turn.<br>Note: Shot Attack.",
+		"desc": "Damage: 90 + Impact + Double Attack<br>Accuracy: A<br>Description: Throws a blazing punch from a distance, Hadoken style.<br>Duration: Up to 2 uses before the end of the turn<br>Element: Fire<br>Special: Double Attack: After spending an action to attack with this chip, you may choose to spend a second action and attack with it again before the end of the turn.",
 		"acc": "A",
 		"elem": "Fire",
 		"type": "Melee"
@@ -6753,7 +6777,7 @@
 	"FireHit3": {
 		"dmg": 120,
 		"summ": "120 + Impact + Double Attack",
-		"desc": "Damage: 120 + Impact + Double Attack<br>Accuracy: A<br>Description: Throws a blazing punch from a distance, Hadoken style.<br>Duration: Up to 2 uses before the end of the turn<br>Element: Fire<br>Special: Double Attack: After spending an action to attack with this chip, you may choose to spend a second action and attack with it again before the end of the turn.<br>Note: Shot Attack.",
+		"desc": "Damage: 120 + Impact + Double Attack<br>Accuracy: A<br>Description: Throws a blazing punch from a distance, Hadoken style.<br>Duration: Up to 2 uses before the end of the turn<br>Element: Fire<br>Special: Double Attack: After spending an action to attack with this chip, you may choose to spend a second action and attack with it again before the end of the turn.",
 		"acc": "A",
 		"elem": "Fire",
 		"type": "Melee"
