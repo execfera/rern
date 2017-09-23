@@ -2149,6 +2149,14 @@
 		"elem": "Null",
 		"type": "Other"
 	},
+	"ColonelForce": {
+		"dmg": 30,
+		"summ": "30 x Normal/5% Shots + Variable Targeting",
+		"desc": "Damage: 30 x Normal/5% Shots + Variable Targeting<br>Accuracy: A<br>Description: Can only be activated if there are normal panels on the field. Summons a soldier that snipes an enemy. For every 5% of the field that is normal, an added soldier appears and attacks. Each soldier can be separately directed. Rare<br>Duration: Once<br>Element: Null<br>Special: Variable Targeting: Allows the user to select a target for each individual hit of an attack. This means they may strike the same target multiple times, multiple different targets, or a mix of the two as they wish.",
+		"acc": "A",
+		"elem": "Null",
+		"type": "Other"
+	},
 	"OmegaRocket": {
 		"dmg": 150,
 		"summ": "150 + Blast5",
