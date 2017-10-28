@@ -36,8 +36,10 @@ if (md.mobile() && window.location.href.indexOf("/topic/") > -1) {
     $("tr.c_postfoot td:first-child").css("display", "none");
     $(".post_sep, .c_view, .c_foot").removeProp("colspan");
     $("img[src$='house_logo.png']").css({
-        height: "auto",
-        width: "90%"
+        "height": "auto",
+        "max-height": "80px",
+        "width": "90%",
+        "max-width": "300px"
     }).parent().next().hide().parent().css("width","auto");
     $(".c_sig img").css({
         height: "auto", 
