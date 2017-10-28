@@ -16,7 +16,7 @@ else $("#topic_viewer .right a:contains('Edit Topic Title')").after(" · <a href
 
 // Mobile Scaling
 var md = new MobileDetect(window.navigator.userAgent);
-if (md.mobile() && window.location.href.indexOf("/topic/") > -1) {
+if ((md.mobile() || window.innerWidth < 600) && window.location.href.indexOf("/topic/") > -1) {
     $("#main_content img").css({
         height: "auto", 
         width: "100%"
