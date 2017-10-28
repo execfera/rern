@@ -15,7 +15,8 @@ if ($("#topic_viewer .right a:contains('Delete Topic')").length > 0) $("#topic_v
 else $("#topic_viewer .right a:contains('Edit Topic Title')").after(" · <a href='"+main_url + 'topic/' + $('.exclusivebutton:last input[name="t"]').val() + "/?x=100'>View 100 Posts</a>");
 
 // Mobile Scaling
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && window.location.href.indexOf("/topic/") > -1) {
+var md = new MobileDetect(window.navigator.userAgent);
+if (md.mobile() && window.location.href.indexOf("/topic/") > -1) {
     $("#main_content img").css({
         height: "auto", 
         width: "100%"
