@@ -32,7 +32,10 @@ if ((md.mobile() || window.innerWidth < 600) && window.location.href.indexOf("/t
         width: "auto",
         "margin-right": "10px"
     });
-    $("td.c_post").css("display", "block");
+    $("td.c_post").css({
+        "display": "block",
+        "font-size": "2.2vmin"
+    });
     $("tr.c_postfoot td:first-child").css("display", "none");
     $(".post_sep, .c_view, .c_foot").removeProp("colspan");
     $("img[src$='house_logo.png']").css({
