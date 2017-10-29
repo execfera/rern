@@ -34,7 +34,7 @@ if ((md.mobile() || window.innerWidth < 600) && window.location.href.indexOf("/t
     });
     $("td.c_post").css({
         "display": "block",
-        "font-size": "2.2vmin"
+        "font-size": "2.5vmin"
     });
     $("tr.c_postfoot td:first-child").css("display", "none");
     $(".post_sep, .c_view, .c_foot").removeProp("colspan");
