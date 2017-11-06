@@ -64,8 +64,8 @@ $(document).ready(function() {
 	}));
   });
   $('.c_post:contains("[virus="):not(:has("textarea"))').each(function() {
-    $(this).html($(this).html().replace(\[virus=([^[]*)]([^[]*)\[\/virus]g, function(match, p1, p2) {
-		return `<span class='vr_tag2' name='${p1}'>${p2}</span>`;
+    $(this).html($(this).html().replace(/\[virus=([^[]*)]([^[]*)\[\/virus]/g, function(match, p1, p2) {
+		return `<span class="vr_tag2" name="${p1}">${p2}</span>`;
 	}));
   });
   $('.c_post:contains("[furl"):not(:has("textarea")), .c_sig:contains("[furl"):not(:has("textarea"))').each(function() {
