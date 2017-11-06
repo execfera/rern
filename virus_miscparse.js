@@ -62,8 +62,6 @@ $(document).ready(function() {
     $(this).html($(this).html().replace(/\[virus]([^[]*)\[\/virus]/g, function(match, p1) {
 		return "<span class='vr_tag'>" + p1 + "</span>";
 	}));
-  });
-  $('.c_post:contains("[virus="):not(:has("textarea"))').each(function() {
     $(this).html($(this).html().replace(/\[virus=([^[]*)]([^[]*)\[\/virus]/g, function(match, p1, p2) {
 		return "<span class='vr_tag' name=" + p1 + ">" + p2 + "</span>";
 	}));
