@@ -63,6 +63,11 @@ $(document).ready(function() {
 		return "<span class='vr_tag'>" + p1 + "</span>";
 	}));
   });
+  $('.c_post:contains("[virus="):not(:has("textarea"))').each(function() {
+    $(this).html($(this).html().replace(\[virus=([^[]*)]([^[]*)\[\/virus]g, function(match, p1, p2) {
+		return `<span class='vr_tag2' name='${p1}'>${p2}</span>`;
+	}));
+  });
   $('.c_post:contains("[furl"):not(:has("textarea")), .c_sig:contains("[furl"):not(:has("textarea"))').each(function() {
     $(this).html($(this).html().replace(/\[furl=([0-9]*)(,([0-9]*),([0-9]*))?](.+?(?=\[\/furl]))\[\/furl]/g, function(match, topic, p1, page, post, text) {
 		if (!p1) return "<a href ='" + $.zb.stat.url + "topic/" + topic + "/1/' target='_blank' rel='nofollow'>" + text + "</a>";
@@ -77,6 +82,9 @@ $(document).ready(function() {
   if(localStorage.getItem("vDataCache1")){
 		$(".vr_tag").css("cursor", "pointer").click(function() {
 			OpenVrWnd($(this).text());
+		});
+		$(".vr_tag2").css("cursor", "pointer").click(function() {
+			OpenVrWnd($(this).attr("name"));
 		});
   }
 
