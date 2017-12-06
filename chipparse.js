@@ -17,10 +17,6 @@ if((localStorage.getItem("cDataCache")) && (parseInt(localStorage.getItem("cCach
   } else {
 	$.get("https://api.myjson.com/bins/1c6zx", function (data, textStatus, jqXHR) {
 	chipData = data;
-	reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
-		keys[k.toLowerCase()] = k; 
-		return keys;
-	}, {});
 	localStorage.setItem("cDataCache", JSON.stringify(data));
 	localStorage.setItem("cCacheTime", remoteChipTime.toString());
 	}) .done(function(){ chipGet.resolve(); });
@@ -29,6 +25,10 @@ if((localStorage.getItem("cDataCache")) && (parseInt(localStorage.getItem("cCach
 });
 
 $(document).data("readyDeferred", $.Deferred()).ready(function() {
+		reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
+			keys[k.toLowerCase()] = k; 
+			return keys;
+		}, {});
     $(document).data("readyDeferred").resolve();
 });
 
