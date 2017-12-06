@@ -1,6 +1,6 @@
 // Outer Heaven - Chip Parse Code 1.0
 
-var chipData = {};
+var chipData = {}, reduceChip = {};
 var remoteChipTime;
 var chipGet = $.Deferred();
 
@@ -17,6 +17,10 @@ if((localStorage.getItem("cDataCache")) && (parseInt(localStorage.getItem("cCach
   } else {
 	$.get("https://api.myjson.com/bins/1c6zx", function (data, textStatus, jqXHR) {
 	chipData = data;
+	reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
+		keys[k.toLowerCase()] = k; 
+		return keys;
+	}, {});
 	localStorage.setItem("cDataCache", JSON.stringify(data));
 	localStorage.setItem("cCacheTime", remoteChipTime.toString());
 	}) .done(function(){ chipGet.resolve(); });
@@ -31,7 +35,7 @@ $(document).data("readyDeferred", $.Deferred()).ready(function() {
 $.when( $(document).data("readyDeferred"), chipGet ).done (function() {
   $('.c_post:contains("[chip="):not(:has("textarea")), .c_sig:contains("[chip="):not(:has("textarea"))').each(function() {
     $(this).html($(this).html().replace(/\[chip=([^,\]]*)(,(i|s|f|a))?\]/g, function(match, p1, p2, p3) {
-    	if (!(p1 in chipData)) return match; else return chipTagReplace(p1,p3);
+    	if (!(p1.toLowerCase() in reduceChip)) return match; else return chipTagReplace(chipData[reduceChip[p1.toLowerCase()]],p3);
 	  }));
 	});
   chipTagFunction();  
