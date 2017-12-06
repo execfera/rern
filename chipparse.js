@@ -39,7 +39,7 @@ $(document).data("readyDeferred", $.Deferred()).ready(function() {
 $.when( $(document).data("readyDeferred"), chipGet ).done (function() {
   $('.c_post:contains("[chip="):not(:has("textarea")), .c_sig:contains("[chip="):not(:has("textarea"))').each(function() {
     $(this).html($(this).html().replace(/\[chip=([^,\]]*)(,(i|s|f|a))?\]/g, function(match, p1, p2, p3) {
-    	if (!(p1.toLowerCase() in reduceChip)) return match; else return chipTagReplace(chipData[reduceChip[p1.toLowerCase()]],p3);
+    	if (!(p1.toLowerCase() in reduceChip)) return match; else return chipTagReplace(reduceChip[p1.toLowerCase()],p3);
 	  }));
 	});
   chipTagFunction();  
