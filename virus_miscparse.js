@@ -62,6 +62,9 @@ $(document).ready(function() {
     $(this).html($(this).html().replace(/\[virus]([^[]*)\[\/virus]/g, function(match, p1) {
 		return "<span class='vr_tag'>" + p1 + "</span>";
 	}));
+    $(this).html($(this).html().replace(/\[virus=([^[]*)]([^[]*)\[\/virus]/g, function(match, p1, p2) {
+		return "<span class='vr_tag' name=" + p1 + ">" + p2 + "</span>";
+	}));
   });
   $('.c_post:contains("[furl"):not(:has("textarea")), .c_sig:contains("[furl"):not(:has("textarea"))').each(function() {
     $(this).html($(this).html().replace(/\[furl=([0-9]*)(,([0-9]*),([0-9]*))?](.+?(?=\[\/furl]))\[\/furl]/g, function(match, topic, p1, page, post, text) {
@@ -76,7 +79,7 @@ $(document).ready(function() {
   });
   if(localStorage.getItem("vDataCache1")){
 		$(".vr_tag").css("cursor", "pointer").click(function() {
-			OpenVrWnd($(this).text());
+			OpenVrWnd($(this).attr("name") ? $(this).attr("name") : $(this).text());
 		});
   }
 
