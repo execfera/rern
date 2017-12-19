@@ -56,6 +56,16 @@ function chipTagReplace(name, param) {
 		case "a":
 			if (!("alias" in chipData[name])) return match; 
 			else return `<img src='https://execfera.github.io/rern/chip/${name.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${chipData[name].alias}</span><span class='chipbody'>${chipData[name].desc}<br>Trader Rank: ${chipData[name].rank}</span></span>`;
+		case "c": 
+			var elcolor; 
+			switch (chipData[name].elem) {
+				case "Fire": elcolor = "<font color=#d22700>" + name + "</font>"; break;
+				case "Aqua": elcolor = "<font color=#6495ed>" + name + "</font>"; break;
+				case "Elec": elcolor = "<font color=orange>" + name + "</font>"; break;
+				case "Wood": elcolor = "<font color=#00c96b>" + name + "</font>"; break;
+				default: elcolor = name; break;
+			}		
+			return `<img src='https://execfera.github.io/rern/chip/${name.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${elcolor}</span><span class='chipbody'>${chipData[name].desc}<br>Trader Rank: ${chipData[name].rank}</span></span>`; break;
 		default: 
 			var elcolor; 
 			switch (chipData[name].elem) {
