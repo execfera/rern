@@ -10,7 +10,7 @@
         <div id='content'></div>
         <script>
             var content = "";
-            fetch("/chip.json")
+            fetch("/rern/chip.json")
             .then(res => res.json)
             .then(chipData => {
                 for (chip in chipData) {
