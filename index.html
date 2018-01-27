@@ -11,7 +11,7 @@
         <script>
             var content = "";
             fetch("/rern/chip.json")
-            .then(res => res.json)
+            .then(res => res.json())
             .then(chipData => {
                 for (chip in chipData) {
                     content += `<img src="rern/chip/${chip.replace('+','')}.png"> ${chip}<br>${chipData[chip].desc}<br><br>`;
