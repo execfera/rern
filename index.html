@@ -14,7 +14,7 @@
             .then(res => res.json())
             .then(chipData => {
                 for (chip in chipData) {
-                    content += `<img src="rern/chip/${chip.replace('+','')}.png"> ${chip}<br>${chipData[chip].desc}<br><br>`;
+                    content += `<img src="chip/${chip.replace('+','')}.png"> ${chip}<br>${chipData[chip].desc}<br><br>`;
                     console.log(`${chip} loaded`);
                 }
                 document.querySelector('#content').innerHTML += content;
