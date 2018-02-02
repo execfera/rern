@@ -14,7 +14,9 @@ timeGet.done(function() {
 if((localStorage.getItem("cDataCache")) && (parseInt(localStorage.getItem("cCacheTime"), 10) === remoteChipTime)) {
 		chipData = JSON.parse(localStorage.getItem("cDataCache"));
 		reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
-			keys[k.toLowerCase()] = k; 
+			var lowerkey = k.toLowerCase();
+			keys[lowerkey] = k;
+			if (lowerkey[lowerkey.length-1] === '1') keys[lowerkey.slice(0,-1)] = k; 
 			return keys;
 		}, {});
 	chipGet.resolve();
