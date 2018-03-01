@@ -10,11 +10,12 @@
         <div id='content'></div>
         <script>
             var content = "";
-            fetch("/chip.json")
-            .then(res => res.json)
+            fetch("/rern/chip.json")
+            .then(res => res.json())
             .then(chipData => {
                 for (chip in chipData) {
                     content += `<img src="chip/${chip.replace('+','')}.png"> ${chip}<br>${chipData[chip].desc}<br><br>`;
+                    console.log(`${chip} loaded`);
                 }
                 document.querySelector('#content').innerHTML += content;
             });
