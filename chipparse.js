@@ -4,11 +4,6 @@ var chipData = {}, reduceChip = {};
 var remoteChipTime;
 var chipGet = $.Deferred();
 
-var timeGet = $.get("https://api.myjson.com/bins/10uw9", function (data, textStatus, jqXHR) {
-remoteChipTime = data.timestamp;
-if (!(localStorage.getItem("cCacheTime"))) localStorage.setItem("cCacheTime", data.timestamp.toString()); 
-});
-
 var terrain = {
   "Normal": "<ul><li>No effects.</li></ul>",
   "Lava": "<ul><li>Non-Fire Elementals lose 5 HP/action standing, 10 HP/action submerged. Doubled for Wood Elementals, nullified for Fire Elementals.</li><li>Aqua attacks: Panel explodes, +100% Source Aqua Damage, change terrain hit to Normal.</li><li>PanelShot: Imbue Fire.</li></ul>",
@@ -35,30 +30,13 @@ var terrain = {
   "Missing": "<ul><li>Permanent bottomless hole.</li><li>Doubles dodge penalties for bad RP.</li><li>EJO if you fall in.</li></ul>"
 }
 
-timeGet.done(function() { 
-
-if((localStorage.getItem("cDataCache")) && (parseInt(localStorage.getItem("cCacheTime"), 10) === remoteChipTime)) {
-		chipData = JSON.parse(localStorage.getItem("cDataCache"));
-		reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
-			var lowerkey = k.toLowerCase();
-			keys[lowerkey] = k;
-			if (lowerkey[lowerkey.length-1] === '1') keys[lowerkey.slice(0,-1)] = k; 
-			return keys;
-		}, {});
-	chipGet.resolve();
-  } else {
-	$.get("https://api.myjson.com/bins/1c6zx", function (data, textStatus, jqXHR) {
+$.get("https://execfera.github.io/rern/chip.json", function (data, textStatus, jqXHR) {
 	chipData = data;
 	reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
 		keys[k.toLowerCase()] = k; 
 		return keys;
 	}, {});
-	localStorage.setItem("cDataCache", JSON.stringify(data));
-	localStorage.setItem("cCacheTime", remoteChipTime.toString());
-	}) .done(function(){ chipGet.resolve(); });
-}
-
-});
+}) .done(function(){ chipGet.resolve(); });
 
 $(document).data("readyDeferred", $.Deferred()).ready(function() {
     $(document).data("readyDeferred").resolve();
