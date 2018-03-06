@@ -37,3 +37,6 @@ jspm_packages
 .node_repl_history
 database.sqlite3
 config.json
+
+# Personal file
+rern.txt
