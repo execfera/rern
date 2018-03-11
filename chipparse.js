@@ -1,8 +1,6 @@
 // Outer Heaven - Chip Parse Code (Last Update 2018/02/08)
 
 var chipData = {}, reduceChip = {};
-var remoteChipTime;
-var chipGet = $.Deferred();
 
 var terrain = {
   "Normal": "<ul><li>No effects.</li></ul>",
@@ -30,20 +28,18 @@ var terrain = {
   "Missing": "<ul><li>Permanent bottomless hole.</li><li>Doubles dodge penalties for bad RP.</li><li>EJO if you fall in.</li></ul>"
 }
 
-$.get("https://execfera.github.io/rern/chip.json", function (data, textStatus, jqXHR) {
-	chipData = data;
-	reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
-		keys[k.toLowerCase()] = k; 
-		return keys;
-	}, {});
-}) .done(function(){ chipGet.resolve(); });
+function chipTagInit() {
+	fetch("https://execfera.github.io/rern/chip.json")
+		.then(res => res.json())
+		.then(data => {
+			chipData = data;
+			reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
+				keys[k.toLowerCase()] = k; 
+				return keys;
+			}, {});
+		});
 
-$(document).data("readyDeferred", $.Deferred()).ready(function() {
-    $(document).data("readyDeferred").resolve();
-});
-
-$.when( $(document).data("readyDeferred"), chipGet ).done (function() {
-  $('.c_post:contains("[chip="):not(:has("textarea")), .c_sig:contains("[chip="):not(:has("textarea"))').each(function() {
+	$('.c_post:contains("[chip="):not(:has("textarea")), .c_sig:contains("[chip="):not(:has("textarea"))').each(function() {
     $(this).html($(this).html().replace(/\[chip=([^,\]]*)(,(i|s|f|a|c))?\]/g, function(match, p1, p2, p3) {
     	if (!(p1.toLowerCase() in reduceChip)) return match; else return chipTagReplace(reduceChip[p1.toLowerCase()],p3);
 	  }));
@@ -53,9 +49,10 @@ $.when( $(document).data("readyDeferred"), chipGet ).done (function() {
       if (!(p1 in terrain)) return p1;
 		  return `<span class='chip'><span class='chipclick'>${p1}</span><span class='chipbody'>${terrain[p1]}</span></span>`;
     }));
-  });
+	});
+
   chipTagFunction();
-});
+}
 
 function chipTagReplace(name, param) {
 	switch(param) {
@@ -90,6 +87,7 @@ function chipTagReplace(name, param) {
 			return `<img src='https://execfera.github.io/rern/chip/${name.replace('+','')}.png'> <span class='chip'><span class='chipclick'>${elcolor}</span><span class='chipbody'>${chipData[name].desc}</span></span>: ${chipData[name].summ} (Acc: ${chipData[name].acc})`;
 	}
 }
+
 function chipTagFunction () {
   $("body").unbind("click");
   $("body").click(function(event) {
@@ -129,6 +127,7 @@ function chipTagFunction () {
 	});
 	fixZBSpoiler();
 }
+
 function fixZBSpoiler () {
   $("div.spoiler_toggle").unbind("click");
   $("div.spoiler_toggle").click(function(event) {
@@ -136,3 +135,5 @@ function fixZBSpoiler () {
     event.stopPropagation();
 	});
 }
+
+window.onload = chipTagInit;

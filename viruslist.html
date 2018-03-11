@@ -118,48 +118,47 @@ var virusClone = false;
 var virusData1 = {};
 var virusData2 = {};
 var virusData = {};
-var virusGet1 = $.Deferred();
-var virusGet2 = $.Deferred();
-var virusGet = $.Deferred();
 
-$.get("https://execfera.github.io/rern/virus1.json", function (data, textStatus, jqXHR) {
-  virusData1 = data;
-  localStorage.setItem("vDataCache1", JSON.stringify(data));
-}) .done(function(){ virusGet1.resolve(); });
+var virusGet1 = fetch("https://execfera.github.io/rern/virus1.json", { mode: 'nocors' })
+	.then(res => res.json())
+	.then(data => {
+		virusData1 = data;
+		localStorage.setItem("vDataCache1", JSON.stringify(data));
+	});
 
+var virusGet2 = fetch("https://execfera.github.io/rern/virus2.json")
+	.then(res => res.json())
+	.then(data => {
+		virusData2 = data;
+		localStorage.setItem("vDataCache2", JSON.stringify(data));
+	});
 
-$.get("https://execfera.github.io/rern/virus2.json", function (data, textStatus, jqXHR) {
-  virusData2 = data;
-  localStorage.setItem("vDataCache2", JSON.stringify(data));
-}) .done(function(){ virusGet2.resolve(); });
+var virusGet = Promise.all([virusGet1, virusGet2])
+	.then(() => {
+		virusData = Object.assign(virusData1, virusData2);
+	});
 
-$.when( virusGet1, virusGet2 ).done(function() {
-	virusData = Object.assign(virusData1, virusData2);
-	virusGet.resolve();
-});
+function listDeinit() {
+	$('select option').remove();
+}
 
-$(window).unload(function() {
-  $('select option').remove();
-});
-localStorage.removeItem('vDataCache');
-localStorage.removeItem('vCacheTime');
-$('#vlist_rank').removeProp('disabled');
-$('#vlist_battle').removeProp('disabled');
-$('#vlist_info1, #vlist_info2, #vlist_md, #vlist_mmc, #vlist_rmmc, #vlist_reset, #vlist_meta, #vlist_random, #vlist_addsp, #vlist_addobj, #vlist_clear').hide();
-$('#vlist_resex').show();
-$('#vlist_area').change(function() {
-	netarea = $('#vlist_area').val();
-	if (netarea === "Undernet") {
-		$('#vlist_rank').val('6');
-		$('#vlist_rank').prop('disabled', true);
-	}
-	if (netarea != "Undernet" && $('#vlist_rank').prop('disabled')) {
-		$('#vlist_rank').removeProp('disabled');
-		$('#vlist_rank').val('1');
-	}
-});
+function listInit () {
+	$('#vlist_rank').removeProp('disabled');
+	$('#vlist_battle').removeProp('disabled');
+	$('#vlist_info1, #vlist_info2, #vlist_md, #vlist_mmc, #vlist_rmmc, #vlist_reset, #vlist_meta, #vlist_random, #vlist_addsp, #vlist_addobj, #vlist_clear').hide();
+	$('#vlist_resex').show();
+	$('#vlist_area').change(function() {
+		netarea = $('#vlist_area').val();
+		if (netarea === "Undernet") {
+			$('#vlist_rank').val('6');
+			$('#vlist_rank').prop('disabled', true);
+		}
+		if (netarea != "Undernet" && $('#vlist_rank').prop('disabled')) {
+			$('#vlist_rank').removeProp('disabled');
+			$('#vlist_rank').val('1');
+		}
+	});
 
-virusGet.done (function() {
 	$('#vlist_search').click(function() {
 		netarea = $('#vlist_area').val();
 		netrank = parseInt($('#vlist_rank').val(), 10);
@@ -610,7 +609,7 @@ virusGet.done (function() {
 		});
 	});
 	
-});
+}
 
 function shuffle(array) {
   var m = array.length, t, i;
@@ -676,5 +675,8 @@ function GetVirusBounty(virusID) {
 
 	$('#vlist_genres').html(bounty);
 }
+
+window.onload = listInit;
+window.onunload = listDeinit;
 
 </script>
