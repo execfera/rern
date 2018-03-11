@@ -37,21 +37,21 @@ function chipTagInit() {
 				keys[k.toLowerCase()] = k; 
 				return keys;
 			}, {});
+
+			$('.c_post:contains("[chip="):not(:has("textarea")), .c_sig:contains("[chip="):not(:has("textarea"))').each(function() {
+				$(this).html($(this).html().replace(/\[chip=([^,\]]*)(,(i|s|f|a|c))?\]/g, function(match, p1, p2, p3) {
+					if (!(p1.toLowerCase() in reduceChip)) return match; else return chipTagReplace(reduceChip[p1.toLowerCase()],p3);
+				}));
+			});
+			$('.c_post:contains("[terrain"):not(:has("textarea"))').each(function() {
+				$(this).html($(this).html().replace(/\[terrain]([^[]*)\[\/terrain]/g, function(match, p1) {
+					if (!(p1 in terrain)) return p1;
+					return `<span class='chip'><span class='chipclick'>${p1}</span><span class='chipbody'>${terrain[p1]}</span></span>`;
+				}));
+			});
+
+			chipTagFunction();
 		});
-
-	$('.c_post:contains("[chip="):not(:has("textarea")), .c_sig:contains("[chip="):not(:has("textarea"))').each(function() {
-    $(this).html($(this).html().replace(/\[chip=([^,\]]*)(,(i|s|f|a|c))?\]/g, function(match, p1, p2, p3) {
-    	if (!(p1.toLowerCase() in reduceChip)) return match; else return chipTagReplace(reduceChip[p1.toLowerCase()],p3);
-	  }));
-  });
-  $('.c_post:contains("[terrain"):not(:has("textarea"))').each(function() {
-    $(this).html($(this).html().replace(/\[terrain]([^[]*)\[\/terrain]/g, function(match, p1) {
-      if (!(p1 in terrain)) return p1;
-		  return `<span class='chip'><span class='chipclick'>${p1}</span><span class='chipbody'>${terrain[p1]}</span></span>`;
-    }));
-	});
-
-  chipTagFunction();
 }
 
 function chipTagReplace(name, param) {
