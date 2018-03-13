@@ -222,7 +222,7 @@ function tagInit() {
 function virusTagFunction() {
   if(localStorage.getItem("vDataCache1")){
     document.querySelectorAll('.vr_tag').forEach(el => {
-      el.style.cursor = pointer;
+      el.style.cursor = 'pointer';
       el.addEventListener('click', (ev) => openVrWnd(ev.target.getAttribute('name') || ev.target.textContent));
     });
   }
