@@ -6,10 +6,6 @@ else {
     document.querySelector('link[rel="shortcut icon"]').href = "http://z6.ifrm.com/8164/173/0/v1/favicon.gif"; 
 }
 
-// Spoiler Tag Makeshift Fix
-$(".go_top").unbind("click").click(function(e) {chipTagFunction();});
-setInterval(function() { if($('div.spoiler_toggle').length && !($('div.spoiler_toggle').data('events'))){chipTagFunction(); } }, 1500);
-
 // Replace Delete Topic with View 100 Posts
 if ($("#topic_viewer .right a:contains('Delete Topic')").length > 0) $("#topic_viewer .right a:contains('Delete Topic')").text('View 100 Posts').attr('href',main_url + 'topic/' + $('.exclusivebutton:last input[name="t"]').val() + "/?x=100").attr('onclick','');
 else $("#topic_viewer .right a:contains('Edit Topic Title')").after(" · <a href='"+main_url + 'topic/' + $('.exclusivebutton:last input[name="t"]').val() + "/?x=100'>View 100 Posts</a>");

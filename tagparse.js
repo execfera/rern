@@ -29,7 +29,7 @@ var terrain = {
 }
 
 function chipTagInit() {
-	fetch("https://execfera.github.io/rern/chip.json")
+	return fetch("https://execfera.github.io/rern/chip.json")
 		.then(res => res.json())
 		.then(data => {
 			chipData = data;
@@ -194,29 +194,32 @@ if(localStorage.getItem("vDataCache1") && localStorage.getItem("vDataCache2")) {
 }
 
 function tagInit() {
-	chipTagInit();
+	chipTagInit().then(() => {
+    $('.c_post:contains("[virus"):not(:has("textarea"))').each(function() {
+      $(this).html($(this).html().replace(/\[virus]([^[]*)\[\/virus]/g, function(match, p1) {
+        return "<span class='vr_tag'>" + p1 + "</span>";
+      }));
 
-  $('.c_post:contains("[virus"):not(:has("textarea"))').each(function() {
-    $(this).html($(this).html().replace(/\[virus]([^[]*)\[\/virus]/g, function(match, p1) {
-		return "<span class='vr_tag'>" + p1 + "</span>";
-	}));
-    $(this).html($(this).html().replace(/\[virus=([^[]*)]([^[]*)\[\/virus]/g, function(match, p1, p2) {
-		return "<span class='vr_tag' name=" + p1 + ">" + p2 + "</span>";
-	}));
-  });
-  $('.c_post:contains("[furl"):not(:has("textarea")), .c_sig:contains("[furl"):not(:has("textarea"))').each(function() {
-    $(this).html($(this).html().replace(/\[furl=([0-9]*)(,([0-9]*),([0-9]*))?](.+?(?=\[\/furl]))\[\/furl]/g, function(match, topic, p1, page, post, text) {
-		if (!p1) return "<a href ='" + $.zb.stat.url + "topic/" + topic + "/1/' target='_blank' rel='nofollow'>" + text + "</a>";
-		else return "<a href ='" + $.zb.stat.url + "topic/" + topic + "/" + page + "/#post-" + post + "' target='_blank' rel='nofollow'>" + text + "</a>";
-	}));
-  });
-  $('.c_post:contains("[imgur"):not(:has("textarea")), .c_sig:contains("[imgur"):not(:has("textarea"))').each(function() {
-    $(this).html($(this).html().replace(/\[imgur=([^\]]*)]/g, function(match, id) {
-		return "<img src='http://i.imgur.com/" + id + ".png' alt='Posted Image'>";
-	}));
-  });
+      $(this).html($(this).html().replace(/\[virus=([^[]*)]([^[]*)\[\/virus]/g, function(match, p1, p2) {
+        return "<span class='vr_tag' name=" + p1 + ">" + p2 + "</span>";
+      }));
+    });
 
-  virusTagFunction();
+    $('.c_post:contains("[furl"):not(:has("textarea")), .c_sig:contains("[furl"):not(:has("textarea"))').each(function() {
+      $(this).html($(this).html().replace(/\[furl=([0-9]*)(,([0-9]*),([0-9]*))?](.+?(?=\[\/furl]))\[\/furl]/g, function(match, topic, p1, page, post, text) {
+        if (!p1) return "<a href ='" + $.zb.stat.url + "topic/" + topic + "/1/' target='_blank' rel='nofollow'>" + text + "</a>";
+        else return "<a href ='" + $.zb.stat.url + "topic/" + topic + "/" + page + "/#post-" + post + "' target='_blank' rel='nofollow'>" + text + "</a>";
+      }));
+    });
+
+    $('.c_post:contains("[imgur"):not(:has("textarea")), .c_sig:contains("[imgur"):not(:has("textarea"))').each(function() {
+      $(this).html($(this).html().replace(/\[imgur=([^\]]*)]/g, function(match, id) {
+        return "<img src='http://i.imgur.com/" + id + ".png' alt='Posted Image'>";
+      }));
+    });
+  
+    virusTagFunction();
+  });
 };
 
 function virusTagFunction() {
