@@ -215,11 +215,17 @@ function tagInit() {
 		return "<img src='http://i.imgur.com/" + id + ".png' alt='Posted Image'>";
 	}));
   });
-  if(localStorage.getItem("vDataCache1")){
-		$(".vr_tag").css("cursor", "pointer").click(function() {
-			openVrWnd($(this).attr("name") ? $(this).attr("name") : $(this).text());
-		});
-  }
+
+  virusTagFunction();
 };
+
+function virusTagFunction() {
+  if(localStorage.getItem("vDataCache1")){
+    document.querySelectorAll('.vr_tag').forEach(el => {
+      el.style.cursor = pointer;
+      el.addEventListener('click', (ev) => openVrWnd(ev.target.getAttribute('name') || ev.target.textContent));
+    });
+  }
+}
 
 window.addEventListener('DOMContentLoaded', tagInit, false);
