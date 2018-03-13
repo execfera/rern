@@ -1,6 +1,6 @@
 // Outer Heaven - Chip Parse Code (Last Update 2018/02/08)
 
-var chipData = {}, reduceChip = {};
+var chipData = {}, reduceChip = {}, virusData = {};
 
 var terrain = {
   "Normal": "<ul><li>No effects.</li></ul>",
@@ -26,32 +26,6 @@ var terrain = {
   "Cracked": "<ul><li>Changes to Broken when stepped on, chance to fall in when triggered.</li><li>Burrow: Change terrain to Broken, Null 50 to burrower.</li><li>Panel Crack attacks, >100 Damage Break/Impact/Drop attacks: Change terrain hit to Broken.</li><li>PanelShot: Splash1.</ul>",
   "Broken": "<ul><li>Not bottomless.</li><li>Reverts to Normal after a time, if no one is inside.</li><li>Doubles dodge penalties for bad RP.</li><li>1-4 Movements actions to climb back out depending on method.</li></ul>",
   "Missing": "<ul><li>Permanent bottomless hole.</li><li>Doubles dodge penalties for bad RP.</li><li>EJO if you fall in.</li></ul>"
-}
-
-function chipTagInit() {
-	return fetch("https://execfera.github.io/rern/chip.json")
-		.then(res => res.json())
-		.then(data => {
-			chipData = data;
-			reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
-				keys[k.toLowerCase()] = k; 
-				return keys;
-			}, {});
-
-			$('.c_post:contains("[chip="):not(:has("textarea")), .c_sig:contains("[chip="):not(:has("textarea"))').each(function() {
-				$(this).html($(this).html().replace(/\[chip=([^,\]]*)(,(i|s|f|a|c))?\]/g, function(match, p1, p2, p3) {
-					if (!(p1.toLowerCase() in reduceChip)) return match; else return chipTagReplace(reduceChip[p1.toLowerCase()],p3);
-				}));
-			});
-			$('.c_post:contains("[terrain"):not(:has("textarea"))').each(function() {
-				$(this).html($(this).html().replace(/\[terrain]([^[]*)\[\/terrain]/g, function(match, p1) {
-					if (!(p1 in terrain)) return p1;
-					return `<span class='chip'><span class='chipclick'>${p1}</span><span class='chipbody'>${terrain[p1]}</span></span>`;
-				}));
-			});
-
-			chipTagFunction();
-		});
 }
 
 function chipTagReplace(name, param) {
@@ -187,43 +161,62 @@ function openVrWnd(srcname) {
 	else alert("Virus entry not found.");
 }
 
-if(localStorage.getItem("vDataCache1") && localStorage.getItem("vDataCache2")) {
-	var virusData1 = JSON.parse(localStorage.getItem("vDataCache1"));
-	var virusData2 = JSON.parse(localStorage.getItem("vDataCache2"));
-	var virusData = Object.assign(virusData1, virusData2);
-}
-
 function tagInit() {
-	chipTagInit().then(() => {
-    $('.c_post:contains("[virus"):not(:has("textarea"))').each(function() {
-      $(this).html($(this).html().replace(/\[virus]([^[]*)\[\/virus]/g, function(match, p1) {
-        return "<span class='vr_tag'>" + p1 + "</span>";
-      }));
+  fetch("https://execfera.github.io/rern/chip.json")
+		.then(res => res.json())
+		.then(data => {
+			chipData = data;
+			reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
+				keys[k.toLowerCase()] = k; 
+				return keys;
+			}, {});
+    })
+    .then(() => {
+      $('.c_post:contains("[chip="):not(:has("textarea")), .c_sig:contains("[chip="):not(:has("textarea"))').each(function() {
+        $(this).html($(this).html().replace(/\[chip=([^,\]]*)(,(i|s|f|a|c))?\]/g, function(match, p1, p2, p3) {
+          if (!(p1.toLowerCase() in reduceChip)) return match; else return chipTagReplace(reduceChip[p1.toLowerCase()],p3);
+        }));
+      });
 
-      $(this).html($(this).html().replace(/\[virus=([^[]*)]([^[]*)\[\/virus]/g, function(match, p1, p2) {
-        return "<span class='vr_tag' name=" + p1 + ">" + p2 + "</span>";
-      }));
-    });
+      $('.c_post:contains("[terrain"):not(:has("textarea"))').each(function() {
+        $(this).html($(this).html().replace(/\[terrain]([^[]*)\[\/terrain]/g, function(match, p1) {
+          if (!(p1 in terrain)) return p1;
+          return `<span class='chip'><span class='chipclick'>${p1}</span><span class='chipbody'>${terrain[p1]}</span></span>`;
+        }));
+      });
 
-    $('.c_post:contains("[furl"):not(:has("textarea")), .c_sig:contains("[furl"):not(:has("textarea"))').each(function() {
-      $(this).html($(this).html().replace(/\[furl=([0-9]*)(,([0-9]*),([0-9]*))?](.+?(?=\[\/furl]))\[\/furl]/g, function(match, topic, p1, page, post, text) {
-        if (!p1) return "<a href ='" + $.zb.stat.url + "topic/" + topic + "/1/' target='_blank' rel='nofollow'>" + text + "</a>";
-        else return "<a href ='" + $.zb.stat.url + "topic/" + topic + "/" + page + "/#post-" + post + "' target='_blank' rel='nofollow'>" + text + "</a>";
-      }));
-    });
+      $('.c_post:contains("[virus"):not(:has("textarea"))').each(function() {
+        $(this).html($(this).html().replace(/\[virus]([^[]*)\[\/virus]/g, function(match, p1) {
+          return "<span class='vr_tag'>" + p1 + "</span>";
+        }));
 
-    $('.c_post:contains("[imgur"):not(:has("textarea")), .c_sig:contains("[imgur"):not(:has("textarea"))').each(function() {
-      $(this).html($(this).html().replace(/\[imgur=([^\]]*)]/g, function(match, id) {
-        return "<img src='http://i.imgur.com/" + id + ".png' alt='Posted Image'>";
-      }));
+        $(this).html($(this).html().replace(/\[virus=([^[]*)]([^[]*)\[\/virus]/g, function(match, p1, p2) {
+          return "<span class='vr_tag' name=" + p1 + ">" + p2 + "</span>";
+        }));
+      });
+
+      $('.c_post:contains("[furl"):not(:has("textarea")), .c_sig:contains("[furl"):not(:has("textarea"))').each(function() {
+        $(this).html($(this).html().replace(/\[furl=([0-9]*)(,([0-9]*),([0-9]*))?](.+?(?=\[\/furl]))\[\/furl]/g, function(match, topic, p1, page, post, text) {
+          if (!p1) return "<a href ='" + $.zb.stat.url + "topic/" + topic + "/1/' target='_blank' rel='nofollow'>" + text + "</a>";
+          else return "<a href ='" + $.zb.stat.url + "topic/" + topic + "/" + page + "/#post-" + post + "' target='_blank' rel='nofollow'>" + text + "</a>";
+        }));
+      });
+
+      $('.c_post:contains("[imgur"):not(:has("textarea")), .c_sig:contains("[imgur"):not(:has("textarea"))').each(function() {
+        $(this).html($(this).html().replace(/\[imgur=([^\]]*)]/g, function(match, id) {
+          return "<img src='http://i.imgur.com/" + id + ".png' alt='Posted Image'>";
+        }));
+      });
+    
+      chipTagFunction();
+      virusTagFunction();
     });
-  
-    virusTagFunction();
-  });
 };
 
 function virusTagFunction() {
-  if(localStorage.getItem("vDataCache1")){
+  if(localStorage.getItem("vDataCache1") && localStorage.getItem("vDataCache2")){
+    virusData = Object.assign(JSON.parse(localStorage.getItem("vDataCache1")), JSON.parse(localStorage.getItem("vDataCache2")));
+
     document.querySelectorAll('.vr_tag').forEach(el => {
       el.style.cursor = 'pointer';
       el.addEventListener('click', (ev) => openVrWnd(ev.target.getAttribute('name') || ev.target.textContent));
