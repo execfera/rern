@@ -168,6 +168,7 @@ function tagInit() {
 			chipData = data;
 			reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
 				keys[k.toLowerCase()] = k; 
+  				if (k[k.length - 1] === '1') keys[k.toLowerCase().slice(0, -1)] = k;
 				return keys;
 			}, {});
     })
