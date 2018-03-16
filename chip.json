@@ -8350,8 +8350,8 @@
 	"RageClaw1": {
 		"dmg": 40,
 		"summ": "40 + Slashing (Attack) OR 20 + Impacting (Throw)",
-		"desc": "Damage: 40 + Slashing (Attack) OR 20 + Impacting (Throw)<br>Accuracy: B / B<br>Description: Creates an impressive bear claw. Can be used to slash or throw enemies or objects.<br>Duration: Until Overridden/Broken. Breaks automatically after 6 uses.<br>Element: Null<br>Special: Throw deals damage to both target and thrown object/enemy. Success is entirely dependent upon RP Quality. This chip has a variety of uses.",
-		"acc": "B / B",
+		"desc": "Damage: 40 + Slashing (Attack) OR 20 + Impacting (Throw)<br>Accuracy: B / B then B<br>Description: Creates an impressive bear claw. Can be used to slash or throw enemies or objects.<br>Duration: Until Overridden/Broken. Breaks automatically after 6 uses.<br>Element: Null<br>Special: Throw: The wielder must first grab the target to be thrown, then the target is thrown in the direction/area indicated. A second check is made if against another object/enemy. Throw deals damage to both thrown object/enemy and the second object/enemy. Damage occurs at point of collision with the ground/wall/ceiling/etc. or an object/enemy, not during initial grab attempt. Objects deal their max HP in damage (instead of the chip's damage) if they hit an object/enemy, then break. If they miss, the object just takes the chip's damage. This chip has a variety of uses.",
+		"acc": "B / B then B",
 		"elem": "Null",
 		"type": "Sword",
 		"rank": "D"
@@ -8359,8 +8359,8 @@
 	"RageClaw2": {
 		"dmg": 70,
 		"summ": "70 + Slashing (Attack) OR 35 + Impacting (Throw)",
-		"desc": "Damage: 70 + Slashing (Attack) OR 35 + Impacting (Throw)<br>Accuracy: B / B<br>Description: Creates an impressive bear claw. Can be used to slash or throw enemies or objects.<br>Duration: Until Overridden/Broken. Breaks automatically after 6 uses.<br>Element: Null<br>Special: Throw deals damage to both target and thrown object/enemy. Success is entirely dependent upon RP Quality. This chip has a variety of uses.",
-		"acc": "B / B",
+		"desc": "Damage: 70 + Slashing (Attack) OR 35 + Impacting (Throw)<br>Accuracy: B / B then B<br>Description: Creates an impressive bear claw. Can be used to slash or throw enemies or objects.<br>Duration: Until Overridden/Broken. Breaks automatically after 6 uses.<br>Element: Null<br>Special: Throw: The wielder must first grab the target to be thrown, then the target is thrown in the direction/area indicated. A second check is made if against another object/enemy. Throw deals damage to both thrown object/enemy and the second object/enemy. Damage occurs at point of collision with the ground/wall/ceiling/etc. or an object/enemy, not during initial grab attempt. Objects deal their max HP in damage (instead of the chip's damage) if they hit an object/enemy, then break. If they miss, the object just takes the chip's damage. This chip has a variety of uses.",
+		"acc": "B / B then B",
 		"elem": "Null",
 		"type": "Sword",
 		"rank": "C"
@@ -8368,8 +8368,8 @@
 	"RageClaw3": {
 		"dmg": 100,
 		"summ": "100 + Slashing (Attack) OR 50 + Impacting (Throw)",
-		"desc": "Damage: 100 + Slashing (Attack) OR 50 + Impacting (Throw)<br>Accuracy: B / B<br>Description: Creates an impressive bear claw. Can be used to slash or throw enemies or objects.<br>Duration: Until Overridden/Broken. Breaks automatically after 6 uses.<br>Element: Null<br>Special: Throw deals damage to both target and thrown object/enemy. Success is entirely dependent upon RP Quality. This chip has a variety of uses.",
-		"acc": "B / B",
+		"desc": "Damage: 100 + Slashing (Attack) OR 50 + Impacting (Throw)<br>Accuracy: B / B then B<br>Description: Creates an impressive bear claw. Can be used to slash or throw enemies or objects.<br>Duration: Until Overridden/Broken. Breaks automatically after 6 uses.<br>Element: Null<br>Special: Throw: The wielder must first grab the target to be thrown, then the target is thrown in the direction/area indicated. A second check is made if against another object/enemy. Throw deals damage to both thrown object/enemy and the second object/enemy. Damage occurs at point of collision with the ground/wall/ceiling/etc. or an object/enemy, not during initial grab attempt. Objects deal their max HP in damage (instead of the chip's damage) if they hit an object/enemy, then break. If they miss, the object just takes the chip's damage. This chip has a variety of uses.",
+		"acc": "B / B then B",
 		"elem": "Null",
 		"type": "Sword",
 		"rank": "B"
