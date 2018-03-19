@@ -293,7 +293,7 @@ function listInit () {
 					}
 				}
 			$('#vlist_info1').append(virusData[i1key].virus[i1rank].desc);
-			$('#vlist_infopop1').click(function () { OpenVrWnd(virusData[i1key].virus[i1rank].name); });
+			$('#vlist_infopop1').click(function () { openVrWnd(virusData[i1key].virus[i1rank].name); });
 		});
 
 		$('.vlist_info2').click(function() {
@@ -311,7 +311,7 @@ function listInit () {
 					}
 				}
 			$('#vlist_info2').append(virusData[i2key].virus[i2rank].desc);
-			$('#vlist_infopop2').click(function () {OpenVrWnd(virusData[i2key].virus[i2rank].name); });
+			$('#vlist_infopop2').click(function () {openVrWnd(virusData[i2key].virus[i2rank].name); });
 		});
 	});
 	
@@ -397,7 +397,7 @@ function listInit () {
 					}
 				}
 				$('#vlist_info1').append(virusData[i1key].virus[i1rank].desc);
-				$('#vlist_infopop1').click(function () {OpenVrWnd(virusData[i1key].virus[i1rank].name); });
+				$('#vlist_infopop1').click(function () {openVrWnd(virusData[i1key].virus[i1rank].name); });
 			});
 
 			$('.vlist_info2').click(function() {
@@ -415,7 +415,7 @@ function listInit () {
 					}
 				}
 				$('#vlist_info2').append(virusData[i2key].virus[i2rank].desc);
-				$('#vlist_infopop2').click(function () {OpenVrWnd(virusData[i2key].virus[i2rank].name); });
+				$('#vlist_infopop2').click(function () {openVrWnd(virusData[i2key].virus[i2rank].name); });
 			});
 		}
 	});
@@ -452,7 +452,7 @@ function listInit () {
 			$('#vlist_info1').append(virusData['Mimic'].family_note, "<br><br>");
 			$('#vlist_info1').append("Area: All<br><br>");
 			$('#vlist_info1').append(virusData['Mimic'].virus[mmctype].desc);
-			$('#vlist_infopop1').click(function () {OpenVrWnd(virusData['Mimic'].virus[mmctype].name); });
+			$('#vlist_infopop1').click(function () {openVrWnd(virusData['Mimic'].virus[mmctype].name); });
 		}
 	});
 		
@@ -476,7 +476,7 @@ function listInit () {
 			$('#vlist_info1').append(virusData['Mimic'].family_note, "<br><br>");
 			$('#vlist_info1').append("Area: All<br><br>");
 			$('#vlist_info1').append(virusData['Mimic'].virus[mmctype].desc);
-			$('#vlist_infopop1').click(function () {OpenVrWnd(virusData['Mimic'].virus[mmctype].name); });
+			$('#vlist_infopop1').click(function () {openVrWnd(virusData['Mimic'].virus[mmctype].name); });
 		}
 	});
 	
@@ -572,7 +572,7 @@ function listInit () {
 						else document.getElementById('vlist_queryres').innerHTML += " <span class='mini'>[_]</span>"
 						document.getElementById('vlist_queryres').innerHTML += " <span>" + virusData[key].virus[i].name + "</span> (" + key + ")<br>";
 						$('.vq_res').click(function() {
-							OpenVrWnd($(this).next().next().text());
+							openVrWnd($(this).next().next().text());
 						});
 						$('.vlist_huntgen').click(function(){
 							GetVirusBounty($(this).attr('id'));
