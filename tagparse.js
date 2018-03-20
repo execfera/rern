@@ -1,6 +1,6 @@
 // Outer Heaven - Custom Tag Parse Code (2018-03-20)
 
-const chipData = {}, reduceChip = {}, virusData = {}, terrainData = {};
+let chipData = {}, reduceChip = {}, virusData = {}, terrainData = {};
 
 const chipFetch = fetch("https://execfera.github.io/rern/chip.json")
 	.then(res => res.json())
