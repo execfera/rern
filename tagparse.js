@@ -173,20 +173,20 @@ function tagInit() {
 			}, {});
     })
     .then(() => {
-      $('.c_post:contains("[chip="):not(:has("textarea")), .c_sig:contains("[chip="):not(:has("textarea"))').each(function() {
+      $('.c_post:contains("[chip="):not(:has("textarea")), .c_sig:contains("[chip="):not(:has("textarea")), #topic_review:contains("[chip=")').each(function() {
         $(this).html($(this).html().replace(/\[chip=([^,\]]*)(,(i|s|f|a|c))?\]/g, function(match, p1, p2, p3) {
           if (!(p1.toLowerCase() in reduceChip)) return match; else return chipTagReplace(reduceChip[p1.toLowerCase()],p3);
         }));
       });
 
-      $('.c_post:contains("[terrain"):not(:has("textarea"))').each(function() {
+      $('.c_post:contains("[terrain"):not(:has("textarea")), #topic_review:contains("[terrain")').each(function() {
         $(this).html($(this).html().replace(/\[terrain]([^[]*)\[\/terrain]/g, function(match, p1) {
           if (!(p1 in terrain)) return p1;
           return `<span class='chip'><span class='chipclick'>${p1}</span><span class='chipbody'>${terrain[p1]}</span></span>`;
         }));
       });
 
-      $('.c_post:contains("[virus"):not(:has("textarea"))').each(function() {
+      $('.c_post:contains("[virus"):not(:has("textarea")), #topic_review:contains("[virus")').each(function() {
         $(this).html($(this).html().replace(/\[virus]([^[]*)\[\/virus]/g, function(match, p1) {
           return "<span class='vr_tag'>" + p1 + "</span>";
         }));
@@ -196,14 +196,14 @@ function tagInit() {
         }));
       });
 
-      $('.c_post:contains("[furl"):not(:has("textarea")), .c_sig:contains("[furl"):not(:has("textarea"))').each(function() {
+      $('.c_post:contains("[furl"):not(:has("textarea")), .c_sig:contains("[furl"):not(:has("textarea")), #topic_review:contains("[furl")').each(function() {
         $(this).html($(this).html().replace(/\[furl=([0-9]*)(,([0-9]*),([0-9]*))?](.+?(?=\[\/furl]))\[\/furl]/g, function(match, topic, p1, page, post, text) {
           if (!p1) return "<a href ='" + $.zb.stat.url + "topic/" + topic + "/1/' target='_blank' rel='nofollow'>" + text + "</a>";
           else return "<a href ='" + $.zb.stat.url + "topic/" + topic + "/" + page + "/#post-" + post + "' target='_blank' rel='nofollow'>" + text + "</a>";
         }));
       });
 
-      $('.c_post:contains("[imgur"):not(:has("textarea")), .c_sig:contains("[imgur"):not(:has("textarea"))').each(function() {
+      $('.c_post:contains("[imgur"):not(:has("textarea")), .c_sig:contains("[imgur"):not(:has("textarea")), #topic_review:contains("[imgur")').each(function() {
         $(this).html($(this).html().replace(/\[imgur=([^\]]*)]/g, function(match, id) {
           return "<img src='http://i.imgur.com/" + id + ".png' alt='Posted Image'>";
         }));
