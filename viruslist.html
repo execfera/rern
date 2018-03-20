@@ -115,29 +115,6 @@ var netmax = [4, 5, 6, 7, 0, 7, 7, 8, 9, 0, 10, 11, 12, 13, 0, 14, 15, 16, 16];
 var minbat, maxbat;
 var virusClone = false;
 
-var virusData1 = {};
-var virusData2 = {};
-var virusData = {};
-
-var virusGet1 = fetch("https://execfera.github.io/rern/virus1.json", { mode: 'nocors' })
-	.then(res => res.json())
-	.then(data => {
-		virusData1 = data;
-		localStorage.setItem("vDataCache1", JSON.stringify(data));
-	});
-
-var virusGet2 = fetch("https://execfera.github.io/rern/virus2.json")
-	.then(res => res.json())
-	.then(data => {
-		virusData2 = data;
-		localStorage.setItem("vDataCache2", JSON.stringify(data));
-	});
-
-var virusGet = Promise.all([virusGet1, virusGet2])
-	.then(() => {
-		virusData = Object.assign(virusData1, virusData2);
-	});
-
 function listDeinit() {
 	$('select option').remove();
 }
