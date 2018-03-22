@@ -135,7 +135,7 @@ function openVrWnd(srcname) {
 		write("");
 		write("<title>"+srcname+"<\/title>");
 		write("<\/head>");
-		write("<body style=\"background-color: #eeeeee; font-family: \'Helvetica\', \'Arial\', \'Bitstream Vera Sans\', \'Verdana\', sans-serif; font-size:93.3%;\">");
+		write("<body style=\"background-color: #eeeeee; font-family: \'Inconsolata\', \'Helvetica\', \'Arial\', \'Bitstream Vera Sans\', \'Verdana\', sans-serif; font-size:93.3%;\">");
 		write(foundentry1);
 		write(encodeURI(virusData[foundkey].family_url));
 		write(foundentry2);
@@ -152,39 +152,31 @@ function openVrWnd(srcname) {
 function tagInit() {
 	Promise.all([chipFetch, virusFetch, terrainFetch])
     .then(() => {
-      $('.c_post:contains("[chip="):not(:has("textarea")), .c_sig:contains("[chip="):not(:has("textarea")), #topic_review:contains("[chip=")').each(function() {
-        $(this).html($(this).html().replace(/\[chip=([^,\]]*)(,(i|s|f|a|c))?\]/g, function(match, p1, p2, p3) {
+      $('.c_post:not(:has("textarea")), .c_sig:not(:has("textarea")), #topic_review').each(function() {
+        $(this).html($(this).html().replace(/\[chip=([^,\]]*)(,(i|s|f|a|c))?\]/gi, function(match, p1, p2, p3) {
 					if (!(p1.toLowerCase() in reduceChip)) return match;
 					return chipTagReplace(reduceChip[p1.toLowerCase()],p3);
         }));
-      });
 
-      $('.c_post:contains("[terrain"):not(:has("textarea")), #topic_review:contains("[terrain")').each(function() {
-        $(this).html($(this).html().replace(/\[terrain]([^[]*)\[\/terrain]/g, function(match, p1) {
+        $(this).html($(this).html().replace(/\[terrain]([^[]*)\[\/terrain]/gi, function(match, p1) {
           if (!(p1 in terrainData)) return p1;
           return `<span class='chip'><span class='chipclick'>${p1}</span><span class='chipbody'>${terrainData[p1]}</span></span>`;
         }));
-      });
 
-      $('.c_post:contains("[virus"):not(:has("textarea")), #topic_review:contains("[virus")').each(function() {
-        $(this).html($(this).html().replace(/\[virus]([^[]*)\[\/virus]/g, function(match, p1) {
+        $(this).html($(this).html().replace(/\[virus]([^[]*)\[\/virus]/gi, function(match, p1) {
           return "<span class='vr_tag'>" + p1 + "</span>";
         }));
 
-        $(this).html($(this).html().replace(/\[virus=([^[]*)]([^[]*)\[\/virus]/g, function(match, p1, p2) {
+        $(this).html($(this).html().replace(/\[virus=([^[]*)]([^[]*)\[\/virus]/gi, function(match, p1, p2) {
           return "<span class='vr_tag' name=" + p1 + ">" + p2 + "</span>";
         }));
-      });
 
-      $('.c_post:contains("[furl"):not(:has("textarea")), .c_sig:contains("[furl"):not(:has("textarea")), #topic_review:contains("[furl")').each(function() {
-        $(this).html($(this).html().replace(/\[furl=([0-9]*)(,([0-9]*),([0-9]*))?](.+?(?=\[\/furl]))\[\/furl]/g, function(match, topic, p1, page, post, text) {
+        $(this).html($(this).html().replace(/\[furl=([0-9]*)(,([0-9]*),([0-9]*))?](.+?(?=\[\/furl]))\[\/furl]/gi, function(match, topic, p1, page, post, text) {
           if (!p1) return "<a href ='" + $.zb.stat.url + "topic/" + topic + "/1/' target='_blank' rel='nofollow'>" + text + "</a>";
           else return "<a href ='" + $.zb.stat.url + "topic/" + topic + "/" + page + "/#post-" + post + "' target='_blank' rel='nofollow'>" + text + "</a>";
         }));
-      });
 
-      $('.c_post:contains("[imgur"):not(:has("textarea")), .c_sig:contains("[imgur"):not(:has("textarea")), #topic_review:contains("[imgur")').each(function() {
-        $(this).html($(this).html().replace(/\[imgur=([^\]]*)]/g, function(match, id) {
+        $(this).html($(this).html().replace(/\[imgur=([^\]]*)]/gi, function(match, id) {
           return "<img src='http://i.imgur.com/" + id + ".png' alt='Posted Image'>";
         }));
       });
