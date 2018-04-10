@@ -95,7 +95,7 @@ var netland = {
 var netzenny = {
 	"ACDC": [30, 150, 120],
 	"SciLab": [40, 200, 160],
-	"Electown": [40, 200, 160],
+	"Electown": [50, 250, 200],
 	"Yoka": [50, 250, 200],
 	"Netopia": [50, 250, 200],
 	"Dentech": [50, 250, 200],
@@ -561,13 +561,40 @@ function listInit () {
 		if($(this).val().length === 0) document.getElementById('vlist_queryres').innerHTML ='';
 	});
 
+	$('#vlist_querychip').bind('input', function() {
+		var cQuery = $(this).val();
+		if(cQuery.length > 2){
+			document.getElementById('vlist_queryres').innerHTML ='';
+			for (key in chipData) {
+				let queryok = 0;
+				queryok += virusData[key].virus[i].name.toLowerCase().indexOf(vQuery.toLowerCase()) > -1 ? 1 : 0;
+				queryok += key.toLowerCase().indexOf(vQuery.toLowerCase()) > -1 ? 1 : 0;
+				if (queryok) {
+					document.getElementById('vlist_queryres').innerHTML += "<span style='cursor: pointer;' class='mini vq_res'>[&#8593;]</span>"; 
+					if (!('family_meta' in virusData[key]) && key != "Mimic" && key != "Rush" && i % 2 === 0) {
+						document.getElementById('vlist_queryres').innerHTML += ` <span style='cursor: pointer;' class='mini vlist_huntgen' id='${key}--${i}'>[x]</span>`; 
+					}
+					else document.getElementById('vlist_queryres').innerHTML += " <span class='mini'>[_]</span>"
+					document.getElementById('vlist_queryres').innerHTML += " <span>" + virusData[key].virus[i].name + "</span> (" + key + ")<br>";
+					$('.vq_res').click(function() {
+						openVrWnd($(this).next().next().text());
+					});
+					$('.vlist_huntgen').click(function(){
+						GetVirusBounty($(this).attr('id'));
+					});
+				}
+			}
+		}
+		if($(this).val().length === 0) document.getElementById('vlist_queryres').innerHTML ='';
+	});
+
 	$('#vlist_huntinit').click(function() {
 		var huntinit = [];
 		var hunttier = parseInt($('#vlist_hunttier').val(), 10);
 		var huntchips = [];
 		for (var key in virusData) {
 			if (!('family_meta' in virusData[key]) && key != "Mimic" && key != "Rush") {
-				var virusentry = virusData[key].virus[hunttier].name + " (" + key + ")</span>";
+				var virusentry = "[virus]" + virusData[key].virus[hunttier].name + "[/virus] (" + key + ")</span>";
 				huntchips = [];
 				for (let i = 0; i < virusData[key].virus[hunttier].rslt.length; i++) {
 					var huntchip = `[chip=${virusData[key].virus[hunttier].rslt[i]},f]`;
