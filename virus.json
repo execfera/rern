@@ -5356,49 +5356,49 @@
 			"name": "PulseBat",
 			"hpts": 80,
 			"elem": "Null",
-			"desc": "HP: 80<br>Attack Damage/Effect: 30 + Seeking<br>Attack Accuracy: A<br>Attack Description: Uses a sonic screech to damage its opponents.<br>Secondary Attack Effect: EchoLocation<br>Secondary Attack Description: Launches a sonic pulse to reveal hidden or illusory targets.<br>Element: None<br>Possible Rewards (Per Virus): Pulsar1, EchoLocation, Zenny.<br>Special: Airshoes. If PulseBat hits an object, its attack spreads to up to 8 other targets at ? damage while dealing full damage to that object. Every other turn, this virus enters High Altitude (dropdown) status and does not attack.",
+			"desc": "HP: 80<br>Attack Damage/Effect: 30 + Seeking<br>Attack Accuracy: A<br>Attack Description: Uses a sonic screech to damage its opponents.<br>Secondary Attack Effect: EchoLocation<br>Secondary Attack Description: Launches a sonic pulse to reveal hidden or illusory targets.<br>Element: None<br>Possible Rewards (Per Virus): Pulsar1, EchoLocation, Zenny.<br>Special: Airshoes. If PulseBat hits an object, its attack spreads to up to 8 other targets at half damage while dealing full damage to that object. Every other turn, this virus enters High Altitude (dropdown) status and does not attack.",
 			"rslt": ["Pulsar1", "EchoLocation"],
 			"rare": [0, 0]
 		}, {
 			"name": "PulseBat EX",
 			"hpts": 120,
 			"elem": "Null",
-			"desc": "HP: 120<br>Attack Damage/Effect: 50 + Seeking<br>Attack Accuracy: A<br>Attack Description: Uses a sonic screech to damage its opponents.<br>Secondary Attack Effect: EchoLocation<br>Secondary Attack Description: Launches a sonic pulse to reveal hidden or illusory targets.<br>Element: None<br>Possible Rewards (Per Virus): Pulsar1, EchoLocation, Zenny.<br>Special: Airshoes. If PulseBat hits an object, its attack spreads to up to 8 other targets at ? damage while dealing full damage to that object. Every other turn, this virus enters High Altitude (dropdown) status and does not attack.",
+			"desc": "HP: 120<br>Attack Damage/Effect: 50 + Seeking<br>Attack Accuracy: A<br>Attack Description: Uses a sonic screech to damage its opponents.<br>Secondary Attack Effect: EchoLocation<br>Secondary Attack Description: Launches a sonic pulse to reveal hidden or illusory targets.<br>Element: None<br>Possible Rewards (Per Virus): Pulsar1, EchoLocation, Zenny.<br>Special: Airshoes. If PulseBat hits an object, its attack spreads to up to 8 other targets at half damage while dealing full damage to that object. Every other turn, this virus enters High Altitude (dropdown) status and does not attack.",
 			"rslt": ["Pulsar1", "EchoLocation"],
 			"rare": [0, 0]
 		}, {
 			"name": "PulseBat2",
 			"hpts": 160,
 			"elem": "Null",
-			"desc": "HP: 160<br>Attack Damage/Effect: 70 + Seeking<br>Attack Accuracy: A<br>Attack Description: Uses a sonic screech to damage its opponents.<br>Secondary Attack Effect: EchoLocation<br>Secondary Attack Description: Launches a sonic pulse to reveal hidden or illusory targets.<br>Element: None<br>Possible Rewards (Per Virus): Pulsar2, EchoLocation, Zenny.<br>Special: Airshoes. If PulseBat hits an object, its attack spreads to up to 8 other targets at ? damage while dealing full damage to that object. Every other turn, this virus enters High Altitude (dropdown) status and does not attack.",
+			"desc": "HP: 160<br>Attack Damage/Effect: 70 + Seeking<br>Attack Accuracy: A<br>Attack Description: Uses a sonic screech to damage its opponents.<br>Secondary Attack Effect: EchoLocation<br>Secondary Attack Description: Launches a sonic pulse to reveal hidden or illusory targets.<br>Element: None<br>Possible Rewards (Per Virus): Pulsar2, EchoLocation, Zenny.<br>Special: Airshoes. If PulseBat hits an object, its attack spreads to up to 8 other targets at half damage while dealing full damage to that object. Every other turn, this virus enters High Altitude (dropdown) status and does not attack.",
 			"rslt": ["Pulsar2", "EchoLocation"],
 			"rare": [0, 0]
 		}, {
 			"name": "PulseBat2 EX",
 			"hpts": 200,
 			"elem": "Null",
-			"desc": "HP: 200<br>Attack Damage/Effect: 90 + Seeking<br>Attack Accuracy: A<br>Attack Description: Uses a sonic screech to damage its opponents.<br>Secondary Attack Effect: EchoLocation<br>Secondary Attack Description: Launches a sonic pulse to reveal hidden or illusory targets.<br>Element: None<br>Possible Rewards (Per Virus): Pulsar2, EchoLocation, Zenny.<br>Special: Airshoes. If PulseBat hits an object, its attack spreads to up to 8 other targets at ? damage while dealing full damage to that object. Every other turn, this virus enters High Altitude (dropdown) status and does not attack.",
+			"desc": "HP: 200<br>Attack Damage/Effect: 90 + Seeking<br>Attack Accuracy: A<br>Attack Description: Uses a sonic screech to damage its opponents.<br>Secondary Attack Effect: EchoLocation<br>Secondary Attack Description: Launches a sonic pulse to reveal hidden or illusory targets.<br>Element: None<br>Possible Rewards (Per Virus): Pulsar2, EchoLocation, Zenny.<br>Special: Airshoes. If PulseBat hits an object, its attack spreads to up to 8 other targets at half damage while dealing full damage to that object. Every other turn, this virus enters High Altitude (dropdown) status and does not attack.",
 			"rslt": ["Pulsar2", "EchoLocation"],
 			"rare": [0, 0]
 		}, {
 			"name": "PulseBat3",
 			"hpts": 240,
 			"elem": "Null",
-			"desc": "HP: 240<br>Attack Damage/Effect: 120 + Seeking<br>Attack Accuracy: A<br>Attack Description: Uses a sonic screech to damage its opponents.<br>Secondary Attack Effect: EchoLocation<br>Secondary Attack Description: Launches a sonic pulse to reveal hidden or illusory targets.<br>Element: None<br>Possible Rewards (Per Virus): Pulsar3, EchoLocation, Zenny.<br>Special: Airshoes. If PulseBat hits an object, its attack spreads to up to 8 other targets at ? damage while dealing full damage to that object. Every other turn, this virus enters High Altitude (dropdown) status and does not attack. Can use Rockcube chip once per battle.",
+			"desc": "HP: 240<br>Attack Damage/Effect: 120 + Seeking<br>Attack Accuracy: A<br>Attack Description: Uses a sonic screech to damage its opponents.<br>Secondary Attack Effect: EchoLocation<br>Secondary Attack Description: Launches a sonic pulse to reveal hidden or illusory targets.<br>Element: None<br>Possible Rewards (Per Virus): Pulsar3, EchoLocation, Zenny.<br>Special: Airshoes. If PulseBat hits an object, its attack spreads to up to 8 other targets at half damage while dealing full damage to that object. Every other turn, this virus enters High Altitude (dropdown) status and does not attack. Can use Rockcube chip once per battle.",
 			"rslt": ["Pulsar3", "EchoLocation"],
 			"rare": [0, 0]
 		}, {
 			"name": "PulseBat3 EX",
 			"hpts": 280,
 			"elem": "Null",
-			"desc": "HP: 280<br>Attack Damage/Effect: 140 + Seeking<br>Attack Accuracy: A<br>Attack Description: Uses a sonic screech to damage its opponents.<br>Secondary Attack Effect: EchoLocation<br>Secondary Attack Description: Launches a sonic pulse to reveal hidden or illusory targets.<br>Element: None<br>Possible Rewards (Per Virus): Pulsar3, EchoLocation, Zenny.<br>Special: Airshoes. If PulseBat hits an object, its attack spreads to up to 8 other targets at ? damage while dealing full damage to that object. Every other turn, this virus enters High Altitude (dropdown) status and does not attack. Can use Rockcube chip once per battle.",
+			"desc": "HP: 280<br>Attack Damage/Effect: 140 + Seeking<br>Attack Accuracy: A<br>Attack Description: Uses a sonic screech to damage its opponents.<br>Secondary Attack Effect: EchoLocation<br>Secondary Attack Description: Launches a sonic pulse to reveal hidden or illusory targets.<br>Element: None<br>Possible Rewards (Per Virus): Pulsar3, EchoLocation, Zenny.<br>Special: Airshoes. If PulseBat hits an object, its attack spreads to up to 8 other targets at half damage while dealing full damage to that object. Every other turn, this virus enters High Altitude (dropdown) status and does not attack. Can use Rockcube chip once per battle.",
 			"rslt": ["Pulsar3", "EchoLocation"],
 			"rare": [0, 0]
 		}, {
 			"name": "PulseBat DS",
 			"hpts": 350,
 			"elem": "Null",
-			"desc": "HP: 350<br>Attack Damage/Effect: 150 + Seeking<br>Attack Accuracy: A<br>Attack Description: Uses a sonic screech to damage its opponents.<br>Secondary Attack Effect: EchoLocation<br>Secondary Attack Description: Launches a sonic pulse to reveal hidden or illusory targets.<br>Element: None<br>Possible Rewards (Per Virus): Pulsar3, EchoLocation, Zenny.<br>Special: Airshoes. If PulseBat hits an object, its attack spreads to up to 8 other targets at ? damage while dealing full damage to that object. Every other turn, this virus enters High Altitude (dropdown) status and does not attack. Can use Knight chip once per battle.",
+			"desc": "HP: 350<br>Attack Damage/Effect: 150 + Seeking<br>Attack Accuracy: A<br>Attack Description: Uses a sonic screech to damage its opponents.<br>Secondary Attack Effect: EchoLocation<br>Secondary Attack Description: Launches a sonic pulse to reveal hidden or illusory targets.<br>Element: None<br>Possible Rewards (Per Virus): Pulsar3, EchoLocation, Zenny.<br>Special: Airshoes. If PulseBat hits an object, its attack spreads to up to 8 other targets at half damage while dealing full damage to that object. Every other turn, this virus enters High Altitude (dropdown) status and does not attack. Can use Knight chip once per battle.",
 			"rslt": ["Pulsar3", "EchoLocation"],
 			"rare": [0, 0]
 		}],
