@@ -3223,7 +3223,7 @@
 		"dmg": 100,
 		"summ": "100HP Anchored Object, 3-Turn: 100 + Blast2 + Drop Attack",
 		"desc": "HP: 100<br>Properties: Anchored<br>Object damage: 10 Fire<br>Damage method: Telekinesis<br>Attack Damage: 100 Fire + Blast 2 + Drop Attack<br>Accuracy: A<br>Description: SSummons a staff that floats in place. Drops an explosive meteor that's very easy to aim for 3 turns.<br>Duration: 3 turns or Until destroyed<br>Element: Fire<br>Special: Drop Attack: This attack originates above the battlefield, and falls to the ground. It gains one rank of accuracy against High Altitude targets.",
-		"acc": "E",
+		"acc": "A",
 		"elem": "Fire",
 		"type": "Object",
 		"rank": "B"
