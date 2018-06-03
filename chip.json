@@ -3704,14 +3704,6 @@
 		"type": "Defense",
 		"rank": "B"
 	},
-	"IronBody": {
-		"summ": "IronBody + 2-Turn",
-		"desc": "Effect: IronBody<br>Accuracy: S<br>Description: Turns the user to Iron, which ignores Non-Break damage, but also prevents them from Dodging.<br>Duration: 2 turns<br>Element: Null",
-		"acc": "S",
-		"elem": "Null",
-		"type": "Defense",
-		"rank": "B"
-	},
 	"FlameScales1": {
 		"summ": "5 HP Fire Element StoneBody Casing + Status, Slow + Mobility Down.",
 		"desc": "Effect: 5 HP Fire Element StoneBody Casing, Slow + Mobility Down.<br>Accuracy: S.<br>Description: Armors the user in a layer of diamond-hard Salamander's scales. The scales sustain only 1 damage per hit from non-aqua/non-break attacks, but their extreme weight decreases evasion capability by 1 rank and reduces overall movement ability while worn.<br>Duration: Until destroyed.<br>Element: Fire.<br>Special: Status Guard: This chip blocks debuffs.<br>Special: Casing is instantly destroyed by Aqua and/or Break attacks.",
