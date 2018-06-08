@@ -3472,6 +3472,14 @@
 		"type": "Defense",
 		"rank": "A"
 	},
+	"Aura": {
+		"summ": "Protects: Any attack lower than 50 HP + Status + 3-Turn",
+		"desc": "Protection: Any attack lower than 50 HP<br>Accuracy: S<br>Description: Negates any attack less than 50HP. Rare<br>Duration: Three turns, or until destroyed<br>Element: Null<br>Special: Status Guard: This chip blocks debuffs.",
+		"acc": "S",
+		"elem": "Null",
+		"type": "Defense",
+		"rank": "S"
+	},
 	"LifeAura1": {
 		"summ": "Protects: Any attack lower than 100 HP + Status + 3-Turn",
 		"desc": "Protection: Any attack lower than 100 HP<br>Accuracy: S<br>Description: Negates any attack less than 100HP. Rare<br>Duration: Three turns, or until destroyed<br>Element: Null<br>Special: Status Guard: This chip blocks debuffs.",
