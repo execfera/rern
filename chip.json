@@ -3478,7 +3478,7 @@
 		"acc": "S",
 		"elem": "Null",
 		"type": "Defense",
-		"rank": "C"
+		"rank": "B"
 	},
 	"LifeAura1": {
 		"summ": "Protects: Any attack lower than 100 HP + Status + 3-Turn",
