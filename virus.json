@@ -9186,49 +9186,49 @@
 			"name": "FortFighter",
 			"hpts": 50,
 			"elem": "Aqua",
-			"desc": "HP: 50<br>Attack Damage/Effect: 15 Aqua<br>Attack Accuracy: C<br>Attack Description: Throws a snowball.<br>Element: Aqua<br>Possible Rewards (Per Virus): SnowFort1, Zenny<br>Special: Creates a 1-hit aquabody shield at the beginning of each turn. Becomes a 2-hit aquabody shield on ice terrain.<br>- Immobile when shielded.<br>- Higher dodge rate when unshielded.",
+			"desc": "HP: 50<br>Attack Damage/Effect: 15 Aqua<br>Attack Accuracy: C<br>Attack Description: Throws a snowball.<br>Element: Aqua<br>Possible Rewards (Per Virus): SnowFort1, Zenny<br>Special: SnowFort: Creates a 1-hit AquaBody shield at the beginning of each turn. Becomes a 2-hit AquaBody shield on Ice and Snow terrain. While considered Aqua element, the shield is negated and pierced by Fire instead of Elec, and will auto-fail on Fire elemental terrain. The shield spawns on the field like an object, and remains in place until destroyed. It cannot be equipped.<br>Special: If there is already a shield in place at the beginning of a turn, this virus will make a new shield. It cannot simply refresh an existing shield to maximum strength.<br>Special: This virus has Haste (+10%) when unshielded.<br>Special: Immobile when shielded.",
 			"rslt": ["SnowFort1"],
 			"rare": [0]
 		}, {
 			"name": "FortFighter EX",
 			"hpts": 60,
 			"elem": "Aqua",
-			"desc": "HP: 60<br>Attack Damage/Effect: 25 Aqua<br>Attack Accuracy: C<br>Attack Description: Throws a snowball.<br>Element: Aqua<br>Possible Rewards (Per Virus): SnowFort1, Zenny<br>Special: Creates a 1-hit aquabody shield at the beginning of each turn. Becomes a 2-hit aquabody shield on ice terrain.<br>- Immobile when shielded.<br>- Higher dodge rate when unshielded.",
+			"desc": "HP: 60<br>Attack Damage/Effect: 25 Aqua<br>Attack Accuracy: C<br>Attack Description: Throws a snowball.<br>Element: Aqua<br>Possible Rewards (Per Virus): SnowFort1, Zenny<br>Special: SnowFort: Creates a 1-hit AquaBody shield at the beginning of each turn. Becomes a 2-hit AquaBody shield on Ice and Snow terrain. While considered Aqua element, the shield is negated and pierced by Fire instead of Elec, and will auto-fail on Fire elemental terrain. The shield spawns on the field like an object, and remains in place until destroyed. It cannot be equipped.<br>Special: If there is already a shield in place at the beginning of a turn, this virus will make a new shield. It cannot simply refresh an existing shield to maximum strength.<br>Special: This virus has Haste (+10%) when unshielded.<br>Special: Immobile when shielded.",
 			"rslt": ["SnowFort1"],
 			"rare": [0]
 		}, {
 			"name": "FortWarrior",
 			"hpts": 80,
 			"elem": "Aqua",
-			"desc": "HP: 80<br>Attack Damage/Effect: 30 Aqua<br>Attack Accuracy: C<br>Attack Description: Throws a snowball.<br>Element: Aqua<br>Possible Rewards (Per Virus): SnowFort2, Zenny<br>Special: Creates a 1-hit aquabody shield at the beginning of each turn. Becomes a 2-hit aquabody shield on ice terrain.<br>- Immobile when shielded.<br>- Higher dodge rate when unshielded.",
+			"desc": "HP: 80<br>Attack Damage/Effect: 30 Aqua<br>Attack Accuracy: C<br>Attack Description: Throws a snowball.<br>Element: Aqua<br>Possible Rewards (Per Virus): SnowFort2, Zenny<br>Special: SnowFort: Creates a 1-hit AquaBody shield at the beginning of each turn. Becomes a 2-hit AquaBody shield on Ice and Snow terrain. While considered Aqua element, the shield is negated and pierced by Fire instead of Elec, and will auto-fail on Fire elemental terrain. The shield spawns on the field like an object, and remains in place until destroyed. It cannot be equipped.<br>Special: If there is already a shield in place at the beginning of a turn, this virus will make a new shield. It cannot simply refresh an existing shield to maximum strength.<br>Special: This virus has Haste (+10%) when unshielded.<br>Special: Immobile when shielded.",
 			"rslt": ["SnowFort2"],
 			"rare": [0]
 		}, {
 			"name": "FortWarrior EX",
 			"hpts": 90,
 			"elem": "Aqua",
-			"desc": "HP: 90<br>Attack Damage/Effect: 40 Aqua<br>Attack Accuracy: C<br>Attack Description: Throws a snowball.<br>Element: Aqua<br>Possible Rewards (Per Virus): SnowFort2, Zenny<br>Special: Creates a 1-hit aquabody shield at the beginning of each turn. Becomes a 2-hit aquabody shield on ice terrain.<br>- Immobile when shielded.<br>- Higher dodge rate when unshielded.",
+			"desc": "HP: 90<br>Attack Damage/Effect: 40 Aqua<br>Attack Accuracy: C<br>Attack Description: Throws a snowball.<br>Element: Aqua<br>Possible Rewards (Per Virus): SnowFort2, Zenny<br>Special: SnowFort: Creates a 1-hit AquaBody shield at the beginning of each turn. Becomes a 2-hit AquaBody shield on Ice and Snow terrain. While considered Aqua element, the shield is negated and pierced by Fire instead of Elec, and will auto-fail on Fire elemental terrain. The shield spawns on the field like an object, and remains in place until destroyed. It cannot be equipped.<br>Special: If there is already a shield in place at the beginning of a turn, this virus will make a new shield. It cannot simply refresh an existing shield to maximum strength.<br>Special: This virus has Haste (+10%) when unshielded.<br>Special: Immobile when shielded.",
 			"rslt": ["SnowFort2"],
 			"rare": [0]
 		}, {
 			"name": "FortChampion",
 			"hpts": 110,
 			"elem": "Aqua",
-			"desc": "HP: 110<br>Attack Damage/Effect: 45 Aqua<br>Attack Accuracy: C<br>Attack Description: Throws a snowball.<br>Element: Aqua<br>Possible Rewards (Per Virus): SnowFort3, Zenny<br>Special: Creates a 1-hit aquabody shield at the beginning of each turn. Becomes a 2-hit aquabody shield on ice terrain.<br>- Immobile when shielded.<br>- Higher dodge rate when unshielded.",
+			"desc": "HP: 110<br>Attack Damage/Effect: 45 Aqua<br>Attack Accuracy: C<br>Attack Description: Throws a snowball.<br>Element: Aqua<br>Possible Rewards (Per Virus): SnowFort3, Zenny<br>Special: SnowFort: Creates a 1-hit AquaBody shield at the beginning of each turn. Becomes a 2-hit AquaBody shield on Ice and Snow terrain. While considered Aqua element, the shield is negated and pierced by Fire instead of Elec, and will auto-fail on Fire elemental terrain. The shield spawns on the field like an object, and remains in place until destroyed. It cannot be equipped.<br>Special: If there is already a shield in place at the beginning of a turn, this virus will make a new shield. It cannot simply refresh an existing shield to maximum strength.<br>Special: This virus has Haste (+10%) when unshielded.<br>Special: Immobile when shielded.",
 			"rslt": ["SnowFort3"],
 			"rare": [0]
 		}, {
 			"name": "FortChampion EX",
 			"hpts": 120,
 			"elem": "Aqua",
-			"desc": "HP: 120<br>Attack Damage/Effect: 55 Aqua<br>Attack Accuracy: C<br>Attack Description: Throws a snowball.<br>Element: Aqua<br>Possible Rewards (Per Virus): SnowFort3, Zenny<br>Special: Creates a 1-hit aquabody shield at the beginning of each turn. Becomes a 2-hit aquabody shield on ice terrain.<br>- Immobile when shielded.<br>- Higher dodge rate when unshielded.",
+			"desc": "HP: 120<br>Attack Damage/Effect: 55 Aqua<br>Attack Accuracy: C<br>Attack Description: Throws a snowball.<br>Element: Aqua<br>Possible Rewards (Per Virus): SnowFort3, Zenny<br>Special: SnowFort: Creates a 1-hit AquaBody shield at the beginning of each turn. Becomes a 2-hit AquaBody shield on Ice and Snow terrain. While considered Aqua element, the shield is negated and pierced by Fire instead of Elec, and will auto-fail on Fire elemental terrain. The shield spawns on the field like an object, and remains in place until destroyed. It cannot be equipped.<br>Special: If there is already a shield in place at the beginning of a turn, this virus will make a new shield. It cannot simply refresh an existing shield to maximum strength.<br>Special: This virus has Haste (+10%) when unshielded.<br>Special: Immobile when shielded.",
 			"rslt": ["SnowFort3"],
 			"rare": [0]
 		}, {
 			"name": "FortFighter Omega",
 			"hpts": 200,
 			"elem": "Aqua",
-			"desc": "HP: 200<br>Attack Damage/Effect: 80 Aqua<br>Attack Accuracy: C<br>Attack Description: Throws a snowball.<br>Element: Aqua<br>Possible Rewards (Per Virus): SnowFort3, FreezeBomb (Rare), Zenny<br>Special: Creates a 1-hit aquabody shield at the beginning of each turn. Becomes a 2-hit aquabody shield on ice terrain.<br>- Immobile when shielded.<br>- Higher dodge rate when unshielded.",
+			"desc": "HP: 200<br>Attack Damage/Effect: 80 Aqua<br>Attack Accuracy: C<br>Attack Description: Throws a snowball.<br>Element: Aqua<br>Possible Rewards (Per Virus): SnowFort3, FreezeBomb (Rare), Zenny<br>Special: SnowFort: Creates a 1-hit AquaBody shield at the beginning of each turn. Becomes a 2-hit AquaBody shield on Ice and Snow terrain. While considered Aqua element, the shield is negated and pierced by Fire instead of Elec, and will auto-fail on Fire elemental terrain. The shield spawns on the field like an object, and remains in place until destroyed. It cannot be equipped.<br>Special: If there is already a shield in place at the beginning of a turn, this virus will make a new shield. It cannot simply refresh an existing shield to maximum strength.<br>Special: This virus has Haste (+10%) when unshielded.<br>Special: Immobile when shielded.",
 			"rslt": ["SnowFort3", "FreezeBomb"],
 			"rare": [0, 1]
 		}],
