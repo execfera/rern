@@ -3594,7 +3594,7 @@
 	},
 	"Invis1": {
 		"summ": "Invisibility + 1-Turn",
-		"desc": "Effect: Invisibility<br>Accuracy: S<br>Description: Grants the user invisibility. This reduces the chance of being hit by non-Seeking attacks by 50%.<br>Duration: One turn<br>Element: Null",
+		"desc": "Effect: Invisibility<br>Accuracy: S<br>Description: Grants the user invisibility. This reduces the chance of being hit by non-Seeking attacks by 50%, but the user will also be susceptible to Area of Effect attacks.<br>Duration: One turn<br>Element: Null",
 		"acc": "S",
 		"elem": "Null",
 		"type": "Defense",
@@ -3602,7 +3602,7 @@
 	},
 	"Invis2": {
 		"summ": "Invisibility + 1-Turn",
-		"desc": "Effect: Invisibility<br>Accuracy: S<br>Description: Grants the user invisibility. This reduces the chance of being hit by non-Seeking attacks by 50%.<br>Duration: 2 turns<br>Element: Null",
+		"desc": "Effect: Invisibility<br>Accuracy: S<br>Description: Grants the user invisibility. This reduces the chance of being hit by non-Seeking attacks by 50%, but the user will also be susceptible to Area of Effect attacks.<br>Duration: 2 turns<br>Element: Null",
 		"acc": "S",
 		"elem": "Null",
 		"type": "Defense",
@@ -3610,7 +3610,7 @@
 	},
 	"Invis3": {
 		"summ": "Invisibility + 1-Turn",
-		"desc": "Effect: Invisibility<br>Accuracy: S<br>Description: Grants the user invisibility. This reduces the chance of being hit by non-Seeking attacks by 50%.<br>Duration: 3 turns<br>Element: Null",
+		"desc": "Effect: Invisibility<br>Accuracy: S<br>Description: Grants the user invisibility. This reduces the chance of being hit by non-Seeking attacks by 50%, but the user will also be susceptible to Area of Effect attacks.<br>Duration: 3 turns<br>Element: Null",
 		"acc": "S",
 		"elem": "Null",
 		"type": "Defense",
@@ -3674,7 +3674,7 @@
 	},
 	"Shadow1": {
 		"summ": "Shadow + 1-Turn",
-		"desc": "Effect: Shadow<br>Accuracy: S<br>Description: Grants the user Shadow. This reduces the chance of being hit by non-Slashing attacks by 50%.<br>Duration: One turn<br>Element: Null",
+		"desc": "Effect: Shadow<br>Accuracy: S<br>Description: Grants the user Shadow. This reduces all incoming non-Slashing attacks to 0 damage, and reduces accuracy on ranged attacks by 20%.<br>Duration: One turn<br>Element: Null",
 		"acc": "S",
 		"elem": "Null",
 		"type": "Defense",
@@ -3682,7 +3682,7 @@
 	},
 	"Shadow2": {
 		"summ": "Shadow + 2-Turn",
-		"desc": "Effect: Shadow<br>Accuracy: S<br>Description: Grants the user Shadow. This reduces the chance of being hit by non-Slashing attacks by 50%.<br>Duration: 2 turns<br>Element: Null",
+		"desc": "Effect: Shadow<br>Accuracy: S<br>Description: Grants the user Shadow. This reduces all incoming non-Slashing attacks to 0 damage, and reduces accuracy on ranged attacks by 20%.<br>Duration: 2 turns<br>Element: Null",
 		"acc": "S",
 		"elem": "Null",
 		"type": "Defense",
@@ -3690,7 +3690,7 @@
 	},
 	"Shadow3": {
 		"summ": "Shadow + 3-Turn",
-		"desc": "Effect: Shadow<br>Accuracy: S<br>Description: Grants the user Shadow. This reduces the chance of being hit by non-Slashing attacks by 50%.<br>Duration: 3 turns<br>Element: Null",
+		"desc": "Effect: Shadow<br>Accuracy: S<br>Description: Grants the user Shadow. This reduces all incoming non-Slashing attacks to 0 damage, and reduces accuracy on ranged attacks by 20%.<br>Duration: 3 turns<br>Element: Null",
 		"acc": "S",
 		"elem": "Null",
 		"type": "Defense",
