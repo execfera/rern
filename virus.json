@@ -5142,9 +5142,9 @@
 		"family_area": ["SciLab", "Yoka", "Netopia", "NetVegas"],
 		"virus": [{
 			"name": "Rush",
-			"hpts": 4,
+			"hpts": 50,
 			"elem": "Null",
-			"desc": "HP: 4<br>Attack Damage/Effect: None<br>Attack Accuracy: N/A<br>Attack Description: N/A<br>Element: None<br>Possible Rewards (Per Virus): Popup, Any Level 1 Chip, Zenny (high)<br>Special: Takes only 1 point of damage per attack. If a turn goes by where it is not hit, it will escape. Attacks have a one-in-three chance of hitting, though this can be increased by using multi-targeting chips. Counted as having 1 free dodge. Can use NormalStage as a free action an infinite number of times a turn.",
+			"desc": "HP: 50<br>Attack Damage/Effect: None<br>Attack Accuracy: N/A<br>Attack Description: N/A<br>Element: None<br>Possible Rewards (Per Virus): Popup, Any RARE chip for current network tier, Zenny (10x normal)<br>Special: Only ONE Rush may appear in any given battle. This virus is rare.<br>Special: Immune to terrain effects besides damage multiplication.<br>Special: One free dodge per turn.<br>Special: Will always survive with 1 HP no matter how much damage is done to it. If it has more than 1 HP at the end of a turn, it will automatically escape. After it checks for escape, it will be restored to full HP if still present in battle. When it is the last virus remaining in a battle, it will leave its rewards behind and flee the battle.",
 			"rslt": ["PopUp"],
 			"rare": [0]
 		}, {
@@ -5152,9 +5152,9 @@
 			"desc": "Description: N/A"
 		}, {
 			"name": "Rush2",
-			"hpts": 6,
+			"hpts": 100,
 			"elem": "Null",
-			"desc": "HP: 6<br>Attack Damage/Effect: None<br>Attack Accuracy: N/A<br>Attack Description: N/A<br>Element: None<br>Possible Rewards (Per Virus): Popup, Any Level 2 Chip, Zenny (high)<br>Special: Takes only 1 point of damage per attack. If a turn goes by where it is not hit, it will escape. Attacks have a one-in-three chance of hitting, though this can be increased by using multi-targeting chips. Counted as having 2 free dodges. Can use NormalStage as a free action an infinite number of times a turn. Can use ShockWave battle chip once per battle.",
+			"desc": "HP: 100<br>Attack Damage/Effect: None<br>Attack Accuracy: N/A<br>Attack Description: N/A<br>Element: None<br>Possible Rewards (Per Virus): Popup, Any RARE chip for current network tier, Zenny (10x normal)<br>Special: Only ONE Rush may appear in any given battle. This virus is rare.<br>Special: Immune to terrain effects besides damage multiplication.<br>Special: One free dodge per turn.<br>Special: Will always survive with 1 HP no matter how much damage is done to it. If it has more than 1 HP at the end of a turn, it will automatically escape. After it checks for escape, it will be restored to full HP if still present in battle. When it is the last virus remaining in a battle, it will leave its rewards behind and flee the battle.",
 			"rslt": ["PopUp"],
 			"rare": [0]
 		}, {
@@ -5162,9 +5162,9 @@
 			"desc": "Description: N/A"
 		}, {
 			"name": "Rush3",
-			"hpts": 8,
+			"hpts": 150,
 			"elem": "Null",
-			"desc": "HP: 8<br>Attack Damage/Effect: None<br>Attack Accuracy: N/A<br>Attack Description: N/A<br>Element: None<br>Possible Rewards (Per Virus): Popup, Any Level 3 Chip, Zenny (high)<br>Special: Takes only 1 point of damage per attack. If a turn goes by where it is not hit, it will escape. Attacks have a one-in-three chance of hitting, though this can be increased by using multi-targeting chips. Counted as having 2 free dodges. Can use NormalStage as a free action an infinite number of times a turn. Can use WaveArm1 battle chip once per battle.",
+			"desc": "HP: 150<br>Attack Damage/Effect: None<br>Attack Accuracy: N/A<br>Attack Description: N/A<br>Element: None<br>Possible Rewards (Per Virus): Popup, Any RARE chip for current network tier, Zenny (10x normal)<br>Special: Only ONE Rush may appear in any given battle. This virus is rare.<br>Special: Immune to terrain effects besides damage multiplication.<br>Special: One free dodge per turn.<br>Special: Will always survive with 1 HP no matter how much damage is done to it. If it has more than 1 HP at the end of a turn, it will automatically escape. After it checks for escape, it will be restored to full HP if still present in battle. When it is the last virus remaining in a battle, it will leave its rewards behind and flee the battle.",
 			"rslt": ["PopUp"],
 			"rare": [0]
 		}, {
@@ -5174,7 +5174,7 @@
 			"name": "Rush Omega",
 			"hpts": 10,
 			"elem": "Null",
-			"desc": "HP: 10<br>Attack Damage/Effect: None<br>Attack Accuracy: N/A<br>Attack Description: N/A<br>Element: None<br>Possible Rewards (Per Virus): PopUp, Any Rare Chip, Zenny (high)<br>Special: Takes only 1 point of damage per attack. If a turn goes by where it is not hit, it will escape. Attacks have a one-in-three chance of hitting, though this can be increased by using multi-targeting chips. Counted as having 3 free dodges. Can use NormalStage as a free action an infinite number of times a turn. Can use Gaia2 battle chip once per battle.",
+			"desc": "HP: 250<br>Attack Damage/Effect: None<br>Attack Accuracy: N/A<br>Attack Description: N/A<br>Element: None<br>Possible Rewards (Per Virus): Popup, Any RARE chip for current network tier, Zenny (10x normal)<br>Special: Only ONE Rush may appear in any given battle. This virus is rare.<br>Special: Immune to terrain effects besides damage multiplication.<br>Special: One free dodge per turn.<br>Special: Will always survive with 1 HP no matter how much damage is done to it. If it has more than 1 HP at the end of a turn, it will automatically escape. After it checks for escape, it will be restored to full HP if still present in battle. When it is the last virus remaining in a battle, it will leave its rewards behind and flee the battle.",
 			"rslt": ["PopUp"],
 			"rare": [0]
 		}],
