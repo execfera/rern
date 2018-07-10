@@ -66,6 +66,9 @@
 <div id="vlist_huntres"></div>
 <div id="vlist_genres"></div>
 
+<br><b>Rush Rare Chip Reward Generator: </b>
+<input type="button" value="Rush" onclick="getRushReward(1)"> <input type="button" value="Rush2" onclick="getRushReward(2)"> <input type="button" value="Rush3" onclick="getRushReward(3)"> <input type="button" value="Rush Omega" onclick="getRushReward(4)">
+
 <script>
 var netarea = "";
 var netrank = 0;
@@ -84,7 +87,7 @@ var netland = {
 	"Okuden Valley": ["Normal", "Grass", "Soil", "Mud"],
 	"Kotobuki Town": ["Normal", "Lava", "Furnace", "Grass"],
 	"Sharo": ["Normal", "Ice", "Snow", "Cracked", "Missing"],
-	"Yumland": ["Normal", "Grass", "Soil", "Mud", "Poison", "Snare"],
+	"Yumland": ["Normal", "Grass", "Soil", "Mud", "Poison"],
 	"Netfrica": ["Normal", "Grass", "Soil", "Sand"],
 	"Hades Isle": ["Normal", "Lava", "Coal", "Furnace", "Metal", "Sand"],
 	"NAXA": ["Normal", "Metal", "Magnet", "Solar", "Missing"],
@@ -678,6 +681,21 @@ function GetVirusBounty(virusID) {
 	`
 
 	$('#vlist_genres').html(bounty);
+}
+
+function getRushReward(tier) {
+  const viruses = Object.assign({}, virusData);
+  delete viruses.Rush; delete viruses.Mimic;
+
+  const lowEnd = (tier - 1) * 2;
+  const highEnd = lowEnd + 2;
+
+  const rareChipSet = new Set();
+  Object.values(viruses).forEach(virusFamily => virusFamily.virus.slice(lowEnd, highEnd).forEach(vrs => vrs.rslt.forEach((chip, idx) => vrs.rare[idx] ? rareChipSet.add(chip) : '')));
+  const rareChipsArray = Array.from(rareChipSet);
+  const item = rareChipsArray[Math.floor(Math.random()*rareChipsArray.length)];
+
+  alert(`Rare chip result: ${item}`);
 }
 
 window.onload = listInit;
