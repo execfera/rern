@@ -2,7 +2,7 @@ var hkorigin = window.location.href;
 if (modhook && posthook && hkorigin.indexOf("post/?mode=3") === -1 && hkorigin.indexOf("/home/") === -1 && hkorigin.indexOf("/msg/") === -1) {
 	$('.exclusivebutton').last().submit(function (e) {
     let hkhook = 'https://discordapp.com/api/webhooks/hookId/hookToken';
-		var hkuser = $('#top_info a').first().text(), hkhook = '';
+		var hkuser = $('#top_info a').first().text();
 		var hkurl = main_url + 'topic/' + $('.exclusivebutton:last input[name="t"]').val() + '/#new';
 		if (window.location.href.indexOf("post/?mode=2") !== -1){ 
 			var hkthread = $('li','#nav').eq(-3).text(), hkarea = $('li','#nav').eq(-5).text();
