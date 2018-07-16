@@ -1,6 +1,7 @@
-var hkorigin = window.location.href, hkhook;
-if (hkorigin.indexOf("post/?mode=3") === -1 && hkorigin.indexOf("/home/") === -1 && hkorigin.indexOf("/msg/") === -1){	
+var hkorigin = window.location.href;
+if (modhook && posthook && hkorigin.indexOf("post/?mode=3") === -1 && hkorigin.indexOf("/home/") === -1 && hkorigin.indexOf("/msg/") === -1) {
 	$('.exclusivebutton').last().submit(function (e) {
+    let hkhook = 'https://discordapp.com/api/webhooks/hookId/hookToken';
 		var hkuser = $('#top_info a').first().text(), hkhook = '';
 		var hkurl = main_url + 'topic/' + $('.exclusivebutton:last input[name="t"]').val() + '/#new';
 		if (window.location.href.indexOf("post/?mode=2") !== -1){ 
@@ -13,8 +14,8 @@ if (hkorigin.indexOf("post/?mode=3") === -1 && hkorigin.indexOf("/home/") === -1
 		else { var hkthread = $('title').text(), hkarea = $('li','#nav').eq(-3).text(); }
 		var content = { content: "User: `" + hkuser + "` Thread: `" + hkthread + "` Area: `" + hkarea + "`\nURL: <" + hkurl + ">"};
 		if (hkthread.indexOf("Posting reply to") === -1 && hkarea !== "Admin Council") { 
-      if ($('li','#nav').eq(5).text() === "Mod Cave" ) hkhook = "https://discordapp.com/api/webhooks/275471962011074561/jqx51rmGcyQQBALxVYMkWTN9fyiX9tB6OkIOKK6K1Hci79SZSCyEDOrG0Gn42ncjQMK0";
-      else hkhook = "https://discordapp.com/api/webhooks/266821624915951616/z7_sauLbBZ9yu_lB3rQiNCVg7PUBeaD8azxOaqScZ1k2pghSpOsA-sBM_JMLnD3o3tNb?wait=true";
+      if ($('li','#nav').eq(5).text() === "Mod Cave" ) hkhook = hkhook.replace('hookId', modhook.id).replace('hookToken', modhook.token);
+      else hkhook = hkhook.replace('hookId', posthook.id).replace('hookToken', posthook.token);
       $.ajax({ url: hkhook, type: "POST", method: "POST", data: JSON.stringify(content), contentType: "application/json; charset=utf-8", async: false}); 
     }
 	});
