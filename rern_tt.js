@@ -186,9 +186,11 @@ function tagInit() {
 };
 
 function scriptInit() {
-  if (document.readyState !== 'complete') {
+  if (document.readyState === 'loading') {
+    console.log('document is not complete yet');
     window.addEventListener('DOMContentLoaded', tagInit, false);
   } else {
+    console.log('document is already complete');
     tagInit();
   }
 }
