@@ -186,7 +186,7 @@ function tagInit() {
 };
 
 function scriptInit() {
-  if (document.readyState !== complete) {
+  if (document.readyState !== 'complete') {
     window.addEventListener('DOMContentLoaded', tagInit, false);
   } else {
     tagInit();
