@@ -186,5 +186,9 @@ function tagInit() {
 };
 
 function scriptInit() {
-  window.addEventListener('DOMContentLoaded', tagInit, false);
+  if (document.readyState !== complete) {
+    window.addEventListener('DOMContentLoaded', tagInit, false);
+  } else {
+    tagInit();
+  }
 }
