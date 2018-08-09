@@ -1,74 +1,120 @@
-<hr><center><b><font size="7">Interactive Virus List v3.0</font></b></center><hr><br />
-<b>Area Virus Search:</b> <ul><li>Input all relevant information, and click <strong>[Search]</strong>. Post-5 viruses are filtered automatically.</li>
-<li>Roll for MD with <strong>[MD Roll]</strong>. Summon a Mimic with <strong>[Add Mimic]</strong> or <strong>[Add Rare Mimic]</strong>. Add Meta-Viruses to the list with <strong>[Metavirus].</strong>.</li>
-<li>Add viruses to the template with <strong>[+]</strong> next to their name. Click <strong>[1]</strong> or <strong>[2]</strong> to view virus info. <strong>[&#8593;]</strong> inside virus info to pop out into separate window.</li>
-<li>Add SPs with <strong>[Add SP]</strong>, or objects with <strong>[Add Object]</strong>.</li>
-<li>You can edit the text parts in the template that have a dark grey color.</li>
-<li>Remove viruses by clicking on them in the template. Remove terrain, SPs or objects by double clicking them.</li>
-<li>Randomize battles by using <strong>[Randomize]</strong>. Note that you'll need to add metaviruses to the result table if you want them.</li>
-<li>Use <strong>[Clear]</strong> to empty the virus result table, and <strong>[Reset]</strong> to clear the entire template.</li></ul>
-<table border=1>
-  <tr>
-    <td id="virus_options" colspan="2">Net Area: <select id="vlist_area">
-		<option value="ACDC">ACDC</option>
-		<option value="SciLab">SciLab</option>
-		<option value="Electown">Electown</option>
-		<option value="Yoka">Yoka</option>
-		<option value="Netopia">Netopia</option>
-		<option value="Dentech">Dentech</option>
-		<option value="Beach">Beach</option>
-		<option value="Okuden Valley">Okuden</option>
-		<option value="Kotobuki Town">Kotobuki</option>
-		<option value="Sharo">Sharo</option>
-		<option value="Yumland">Yumland</option>
-		<option value="Netfrica">Netfrica</option>
-		<option value="Hades Isle">Hades</option>
-		<option value="NAXA">NAXA</option>
-		<option value="NetVegas">NetVegas</option>
-		<option value="Undernet">Undernet</option>
-		<option value="All">All Nets</option>
-	</select> Net Rank: <select id="vlist_rank">
-		<option value=0 selected>Normal</option>
-		<option value=2>Rogue</option>
-		<option value=4>Chaos</option>
-		<option value=6 disabled>Undernet</option>
-	</select> Battle No: <select id="vlist_battle">
-		<option value=1>1</option><option value=2>2</option><option value=3>3</option><option value=4>4</option><option value=5 disabled>5</option><option value=6>6</option><option value=7>7</option><option value=8>8</option><option value=9>9</option><option value=10 disabled>10</option><option value=11>11</option><option value=12>12</option><option value=13>13</option><option value=14>14</option><option value=15 disabled>15</option><option value=16>16</option><option value=17>17</option><option value=18>18</option><option value=19>19</option><option value=20 disabled>20</option>
-	</select> Participants: <select id="vlist_navi">
-		<option value=1>1</option><option value=2>2</option><option value=3>3</option><option value=4>4</option><option value=5>5</option>
-	</select> <input type="button" id="vlist_search" value="Search"> <input type="button" id="vlist_clear" value="Clear"> <input type="button" id="vlist_reset" value="Reset"><br> <input type="button" id="vlist_md" value="MD Roll"> <input type="button" id="vlist_meta" value="Metavirus"> <input type="button" id="vlist_addsp" value="Add SP"> <input type="button" id="vlist_addobj" value="Add Object"> <input type="button" id="vlist_mmc" value="Add Mimic"> <input type="button" id="vlist_rmmc" value="Add Rare Mimic"> <input type="button" id="vlist_random" value="Randomize"></td>
-    <td id="vlist_template" rowspan="3"></td>
-  </tr>
-  <tr>
-	<td id="vlist_terrain" colspan="2">Terrain and zenny for net area and suggested virus count listed here.</td>
-  </tr>
-  <tr>
-    <td id="vlist_res">Virus search results here.<br>(Contains clickable virus names that pop out<br>description and stats and can be added<br>to the template on the right)</td>
-    <td id="vlist_resex">EX Viruses go here if Battle 6 option is selected<br>(if option is deselected, table cell disappears<br>and is merged with left cell)</td>
-  </tr>
-</table>
-<br><br>
-<table id="vlist_info" border=1><tr>
-	<td id="vlist_info1" class="vlist_info"></td>
-	<td id="vlist_info2" class="vlist_info"></td>
-</tr></table>
+<style>
+	body { display: flex; align-items: center; flex-direction: column; background: #efebe9; min-height: 100vh; margin: 0; padding: 0; }
+	.container { width: 90vw; background: #fff; min-height: 100vh; }
+	.content { margin-left: 12px; }
+	.mini { color:grey; font-size:0.7em; }
+	table { width: calc(100% - 72px); margin-left: 24px; }
+	.vlist_add, .vlist_addland, .vlist_remv, .vlist_remland, .vlist_info1, .vlist_info2 { cursor:pointer; }
+	.vlist_entm { font-weight: bold; color:firebrick !important; }
+	.vlist_addland { text-decoration:underline; } 
+	td.vlist_info { width: 50%; }
+	.lastpadding { height: 12px; }
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+	let chipData = {}, reduceChip = {}, virusData = {}, terrainData = {};
 
-<br><b>Individual Virus Search:</b> <input id="vlist_query" type="text" name="fname"> <input type="button" id="vlist_queryclear" value="Clear"> <ul><li>Put in virus name or family name and results will appear automatically. Click [&#8593;] to popout virus info and [x] for bounty info. </li></ul>
-<div id="vlist_queryres"></div>
+	const chipFetch = fetch("https://execfera.github.io/rern/chip.json")
+		.then(res => res.json())
+		.then(data => {
+			chipData = data;
+			reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
+				keys[k.toLowerCase()] = k; 
+					if (k[k.length - 1] === '1') keys[k.toLowerCase().slice(0, -1)] = k;
+				return keys;
+			}, {});
+		});
 
-<br><b>Virus Hunt List Generator: </b> <select id="vlist_hunttier">
-		<option value=0 selected>Normal Net</option>
-		<option value=2>Rogue Net</option>
-		<option value=4>Chaos Net</option>
-		<option value=6>Undernet</option>
-</select> <input type="button" id="vlist_huntinit" value="Generate"> <ul><li>Select a network tier and hit Generate to produce a 12-item list for use with Virus Hunt. </li>
-<li>After the hunt requester chooses a virus, check their bounty by using the above Individual Virus Search and hitting the [x] button.</li></ul>
-<div id="vlist_huntres"></div>
-<div id="vlist_genres"></div>
+	const virusFetch = fetch("https://execfera.github.io/rern/virus.json")
+		.then(res => res.json())
+		.then(data => virusData = data);
 
-<br><b>Rush Rare Chip Reward Generator: </b>
-<input type="button" value="Rush" onclick="getRushReward(1)"> <input type="button" value="Rush2" onclick="getRushReward(2)"> <input type="button" value="Rush3" onclick="getRushReward(3)"> <input type="button" value="Rush Omega" onclick="getRushReward(4)">
+	const terrainFetch = fetch("https://execfera.github.io/rern/terrain.json")
+		.then(res => res.json())
+		.then(data => terrainData = data);
 
+	function tagInit() { Promise.all([chipFetch, virusFetch, terrainFetch]); }
+
+	window.addEventListener('DOMContentLoaded', tagInit, false);
+</script>
+<div class="container">
+	<div class="title">
+		<hr><center><b><font size="7">Interactive Virus List v3.0</font></b></center><hr><br/>
+	</div>
+	<div class="content">
+		<b>Area Virus Search:</b> <ul><li>Input all relevant information, and click <strong>[Search]</strong>. Post-5 viruses are filtered automatically.</li>
+		<li>Roll for MD with <strong>[MD Roll]</strong>. Summon a Mimic with <strong>[Add Mimic]</strong> or <strong>[Add Rare Mimic]</strong>. Add Meta-Viruses to the list with <strong>[Metavirus].</strong>.</li>
+		<li>Add viruses to the template with <strong>[+]</strong> next to their name. Click <strong>[1]</strong> or <strong>[2]</strong> to view virus info. <strong>[&#8593;]</strong> inside virus info to pop out into separate window.</li>
+		<li>Add SPs with <strong>[Add SP]</strong>, or objects with <strong>[Add Object]</strong>.</li>
+		<li>You can edit the text parts in the template that have a dark grey color.</li>
+		<li>Remove viruses by clicking on them in the template. Remove terrain, SPs or objects by double clicking them.</li>
+		<li>Randomize battles by using <strong>[Randomize]</strong>. Note that you'll need to add metaviruses to the result table if you want them.</li>
+		<li>Use <strong>[Clear]</strong> to empty the virus result table, and <strong>[Reset]</strong> to clear the entire template.</li></ul>
+		<table border=1>
+			<tr>
+				<td id="virus_options" colspan="2">Net Area: <select id="vlist_area">
+				<option value="ACDC">ACDC</option>
+				<option value="SciLab">SciLab</option>
+				<option value="Electown">Electown</option>
+				<option value="Yoka">Yoka</option>
+				<option value="Netopia">Netopia</option>
+				<option value="Dentech">Dentech</option>
+				<option value="Beach">Beach</option>
+				<option value="Okuden Valley">Okuden</option>
+				<option value="Kotobuki Town">Kotobuki</option>
+				<option value="Sharo">Sharo</option>
+				<option value="Yumland">Yumland</option>
+				<option value="Netfrica">Netfrica</option>
+				<option value="Hades Isle">Hades</option>
+				<option value="NAXA">NAXA</option>
+				<option value="NetVegas">NetVegas</option>
+				<option value="Undernet">Undernet</option>
+				<option value="All">All Nets</option>
+			</select> Net Rank: <select id="vlist_rank">
+				<option value=0 selected>Normal</option>
+				<option value=2>Rogue</option>
+				<option value=4>Chaos</option>
+				<option value=6 disabled>Undernet</option>
+			</select> Battle No: <select id="vlist_battle">
+				<option value=1>1</option><option value=2>2</option><option value=3>3</option><option value=4>4</option><option value=5 disabled>5</option><option value=6>6</option><option value=7>7</option><option value=8>8</option><option value=9>9</option><option value=10 disabled>10</option><option value=11>11</option><option value=12>12</option><option value=13>13</option><option value=14>14</option><option value=15 disabled>15</option><option value=16>16</option><option value=17>17</option><option value=18>18</option><option value=19>19</option><option value=20 disabled>20</option>
+			</select> Participants: <select id="vlist_navi">
+				<option value=1>1</option><option value=2>2</option><option value=3>3</option><option value=4>4</option><option value=5>5</option>
+			</select> <input type="button" id="vlist_search" value="Search"> <input type="button" id="vlist_clear" value="Clear"> <input type="button" id="vlist_reset" value="Reset"><br> <input type="button" id="vlist_md" value="MD Roll"> <input type="button" id="vlist_meta" value="Metavirus"> <input type="button" id="vlist_addsp" value="Add SP"> <input type="button" id="vlist_addobj" value="Add Object"> <input type="button" id="vlist_mmc" value="Add Mimic"> <input type="button" id="vlist_rmmc" value="Add Rare Mimic"> <input type="button" id="vlist_random" value="Randomize"></td>
+				<td id="vlist_template" rowspan="3"></td>
+			</tr>
+			<tr>
+			<td id="vlist_terrain" colspan="2">Terrain and zenny for net area and suggested virus count listed here.</td>
+			</tr>
+			<tr>
+				<td id="vlist_res">Virus search results here.<br>(Contains clickable virus names that pop out<br>description and stats and can be added<br>to the template on the right)</td>
+				<td id="vlist_resex">EX Viruses go here if Battle 6 option is selected<br>(if option is deselected, table cell disappears<br>and is merged with left cell)</td>
+			</tr>
+		</table>
+		<br><br>
+		<table id="vlist_info" border=1><tr>
+			<td id="vlist_info1" class="vlist_info"></td>
+			<td id="vlist_info2" class="vlist_info"></td>
+		</tr></table>
+		
+		<br><b>Individual Virus Search:</b> <input id="vlist_query" type="text" name="fname"> <input type="button" id="vlist_queryclear" value="Clear"> <ul><li>Put in virus name or family name and results will appear automatically. Click [&#8593;] to popout virus info and [x] for bounty info. </li></ul>
+		<div id="vlist_queryres"></div>
+		
+		<br><b>Virus Hunt List Generator: </b> <select id="vlist_hunttier">
+				<option value=0 selected>Normal Net</option>
+				<option value=2>Rogue Net</option>
+				<option value=4>Chaos Net</option>
+				<option value=6>Undernet</option>
+		</select> <input type="button" id="vlist_huntinit" value="Generate"> <ul><li>Select a network tier and hit Generate to produce a 12-item list for use with Virus Hunt. </li>
+		<li>After the hunt requester chooses a virus, check their bounty by using the above Individual Virus Search and hitting the [x] button.</li></ul>
+		<div id="vlist_huntres"></div>
+		<div id="vlist_genres"></div>
+		
+		<br><b>Rush Rare Chip Reward Generator: </b>
+		<input type="button" value="Rush" onclick="getRushReward(1)"> <input type="button" value="Rush2" onclick="getRushReward(2)"> <input type="button" value="Rush3" onclick="getRushReward(3)"> <input type="button" value="Rush Omega" onclick="getRushReward(4)">
+
+		<div class="lastpadding"></div>
+	</div>
+</div>
 <script>
 var netarea = "";
 var netrank = 0;
