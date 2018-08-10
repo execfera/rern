@@ -1,0 +1,123 @@
+<style>
+	body { display: flex; align-items: center; flex-direction: column; background: #efebe9; min-height: 100vh; margin: 0; padding: 0; }
+	.container { width: 90vw; background: #fff; min-height: 100vh; }
+	.content { margin-left: 12px; }
+	.mini { color:grey; font-size:0.7em; }
+	table { width: calc(100% - 72px); margin-left: 24px; }
+	.lastpadding { height: 12px; }
+  h3:not(.normal) { cursor: pointer; }
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+	let chipData = {}, reduceChip = {};
+  const traderData = {
+    "E": [],
+    "D": [],
+    "C": [],
+    "B": [],
+    "A": [],
+    "S": []
+  };
+
+  function chipFetch() {
+    return fetch("https://execfera.github.io/rern/chip.json")
+      .then(res => res.json())
+      .then(data => {
+        chipData = data;
+        reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
+          keys[k.toLowerCase()] = k; 
+            if (k[k.length - 1] === '1') keys[k.toLowerCase().slice(0, -1)] = k;
+          return keys;
+        }, {});
+      });
+  }
+
+  function random(number) {
+    return (Math.random() * number) << 0;
+  }
+
+  function tradeInit() {
+    for (chip in chipData) {
+      let chiptier = chipData[chip].rank;
+      traderData[chiptier].push(chip);
+    }
+
+    Object.keys(traderData).forEach(rank => {
+      const div = document.querySelector(`#rank${rank}`);
+      traderData[rank].forEach(chip => {
+        div.insertAdjacentHTML('beforeend', `${chip}<br>`);
+      });
+    });
+  }
+  
+  function chipTrade(rank) {
+    const items = traderData[rank];
+    const number = Math.floor(Math.random()*items.length);
+    alert(`Rank ${rank} roll: ${items[number]} (${number + 1})`);
+  }
+
+	function tagInit() { chipFetch().then(() => tradeInit()) }
+	window.addEventListener('DOMContentLoaded', tagInit, false);
+</script>
+<div class="container">
+	<div class="title">
+		<hr><center><b><font size="7">Chip Trader Tables</font></b></center><hr><br/>
+	</div>
+	<div class="content">
+    <h3 class="normal">How to use:</h3>
+    <ul>
+      <li>Roll a <button onclick="alert(random(20))">d20</button>.</li><br>
+      <li>Regular Chip Trader: Start from the rank of the first of the three chips.
+        <ul>
+          <li>1-7: Downgrade a rank if possible.</li>
+          <li>8-16: Same rank.</li>
+          <li>17-20: Upgrade a rank.</li>
+        </ul>
+      </li>
+      <br>
+      <li>Christmas Trader: Start from the rank of the donated chip.
+        <ul>
+          <li>1-7: Downgrade a rank, unless Junk Tier, then reroll.</li>
+          <li>8-16: Same rank.</li>
+          <li>17-20: Upgrade a rank.</li>
+        </ul>
+      </li>
+      <br>
+      <li>Monthly Chip Raffle: Start from rank D (500z) rank C (1000z) or rank B (2000z).
+        <ul>
+          <li>1-6: Downgrade a rank.</li>
+          <li>7-15: Same rank.</li>
+          <li>16-20: Upgrade a rank.</li>
+        </ul>
+      </li>
+      <br>
+      <li>BugFrag Trader: Bypass the d20.
+        <ul>
+          <li>200 frags: Rank D.</li>
+          <li>350 frags: Rank C.</li>
+          <li>500 frags: Rank B.</li>
+        </ul>
+      </li>
+      <br>
+      <li>After rolling for rank, click on the chips header text to roll a random chip.</li>
+    </ul>
+
+    <h3 onclick="chipTrade('E')">Rank E (Junk) Chips</h3>
+    <div id="rankE"></div>
+    <h3 onclick="chipTrade('D')">Rank D Chips</h3>
+    <div id="rankD"></div>
+    <h3 onclick="chipTrade('C')">Rank C Chips</h3>
+    <div id="rankC"></div>
+    <h3 onclick="chipTrade('B')">Rank B Chips</h3>
+    <div id="rankB"></div>
+    <h3 onclick="chipTrade('A')">Rank A Chips</h3>
+    <div id="rankA"></div>
+    <h3 onclick="chipTrade('S')">Rank S Chips</h3>
+    <div id="rankS"></div>
+		
+		<!-- <br><b>Rush Rare Chip Reward Generator: </b>
+		<input type="button" value="Rush" onclick="getRushReward(1)"> <input type="button" value="Rush2" onclick="getRushReward(2)"> <input type="button" value="Rush3" onclick="getRushReward(3)"> <input type="button" value="Rush Omega" onclick="getRushReward(4)"> -->
+
+		<div class="lastpadding"></div>
+	</div>
+</div>
