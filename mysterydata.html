@@ -1,0 +1,43 @@
+<style>
+	body { display: flex; align-items: center; flex-direction: column; background: #efebe9; min-height: 100vh; margin: 0; padding: 0; }
+	.container { width: 90vw; background: #fff; min-height: 100vh; }
+	.content { margin-left: 12px; }
+	.mini { color:grey; font-size:0.7em; }
+	table { width: calc(100% - 72px); margin-left: 24px; }
+	.lastpadding { height: 12px; }
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+	let chipData = {}, reduceChip = {}, virusData = {}, terrainData = {};
+
+	const chipFetch = fetch("https://execfera.github.io/rern/chip.json")
+		.then(res => res.json())
+		.then(data => {
+			chipData = data;
+			reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
+				keys[k.toLowerCase()] = k; 
+					if (k[k.length - 1] === '1') keys[k.toLowerCase().slice(0, -1)] = k;
+				return keys;
+			}, {});
+		});
+
+	const virusFetch = fetch("https://execfera.github.io/rern/virus.json")
+		.then(res => res.json())
+    .then(data => virusData = data);
+  
+  function fncInit() {}
+
+	function tagInit() { Promise.all([chipFetch, virusFetch, terrainFetch]).then(() => fncInit()); }
+
+	window.addEventListener('DOMContentLoaded', tagInit, false);
+</script>
+<div class="container">
+	<div class="title">
+		<hr><center><b><font size="7">Interactive Virus List v3.0</font></b></center><hr><br/>
+	</div>
+	<div class="content">
+		<div class="lastpadding"></div>
+	</div>
+</div>
+<script>
+</script>
