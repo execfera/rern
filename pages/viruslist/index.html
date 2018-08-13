@@ -1,801 +1,811 @@
-<style>
-	body { display: flex; align-items: center; flex-direction: column; background: #efebe9; min-height: 100vh; margin: 0; padding: 0; }
-	.container { width: 90vw; background: #fff; min-height: 100vh; }
-	.content { margin-left: 12px; }
-	.mini { color:grey; font-size:0.7em; }
-	table { width: calc(100% - 72px); margin-left: 24px; }
-	.vlist_add, .vlist_addland, .vlist_remv, .vlist_remland, .vlist_info1, .vlist_info2 { cursor:pointer; }
-	.vlist_entm { font-weight: bold; color:firebrick !important; }
-	.vlist_addland { text-decoration:underline; } 
-	td.vlist_info { width: 50%; }
-	.lastpadding { height: 12px; }
-</style>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script>
-	let chipData = {}, reduceChip = {}, virusData = {}, terrainData = {};
-
-	const chipFetch = fetch("https://execfera.github.io/rern/chip.json")
-		.then(res => res.json())
-		.then(data => {
-			chipData = data;
-			reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
-				keys[k.toLowerCase()] = k; 
-					if (k[k.length - 1] === '1') keys[k.toLowerCase().slice(0, -1)] = k;
-				return keys;
-			}, {});
-		});
-
-	const virusFetch = fetch("https://execfera.github.io/rern/virus.json")
-		.then(res => res.json())
-		.then(data => virusData = data);
-
-	const terrainFetch = fetch("https://execfera.github.io/rern/terrain.json")
-		.then(res => res.json())
-		.then(data => terrainData = data);
-
-	function tagInit() { Promise.all([chipFetch, virusFetch, terrainFetch]); }
-
-	function openVrWnd(srcname) {
-		var found = false;
-		var foundidx = 0;
-		var foundkey = "";
-		var foundentry1 = "";
-		var foundentry2 = "";
-		for (var key in virusData) {
-			for (var i = 0; i <= 6; i++) { 
-				if (virusData[key].virus[i].name === srcname) { 
-					found = true; 
-					foundkey = key;
-					foundidx = i;
-					break; 
-				}
-			}
-		}
-		if (found === true) {
-		foundentry1 = "<strong>" + virusData[foundkey].virus[foundidx].name + "</strong> <a href='javascript:window.open(\"" 
-		foundentry2 = "\", window.opener, false); window.close();'>(" + foundkey + ")</a><br><br>";
-		if (virusData[foundkey].family_note !== "") foundentry2 += (virusData[foundkey].family_note + "<br><br>");
-		foundentry2 += "Area:";
-		if (virusData[foundkey].family_area.length === 0) { foundentry2 += " All<br><br>"; }
-			else if (foundidx === 6) { foundentry2 += " Undernet<br><br>"; }
-		else {
-			for (var i = 0; i < virusData[foundkey].family_area.length; i++) {
-				if (i === virusData[foundkey].family_area.length-1) foundentry2 += " " + virusData[foundkey].family_area[i] + "<br><br>";
-				else foundentry2 += " " + virusData[foundkey].family_area[i] + ",";
-			}
-		}
-		foundentry2 += virusData[foundkey].virus[foundidx].desc;
-		
-		var oWindow = window.open("", "", "height=640,width=480"); 
-		with (oWindow.document) {
-			write("");
-			write("");
-			write("<title>"+srcname+"<\/title>");
-			write("<\/head>");
-			write("<body style=\"background-color: #eeeeee; font-family: \'Inconsolata\', \'Helvetica\', \'Arial\', \'Bitstream Vera Sans\', \'Verdana\', sans-serif; font-size:93.3%;\">");
-			write(foundentry1);
-			write(encodeURI(virusData[foundkey].family_url));
-			write(foundentry2);
-			write("<hr>");
-			write("<input type='button' value='Close' onclick='window.close()'>");
-			write("<\/body>");
-			write("<\/html>");
-			close(); 
-			}
-		}
-		else alert("Virus entry not found.");
-	}
-
-	window.addEventListener('DOMContentLoaded', tagInit, false);
-</script>
-<div class="container">
-	<div class="title">
-		<hr><center><b><font size="7">Interactive Virus List v3.0</font></b></center><hr><br/>
-	</div>
-	<div class="content">
-		<b>Area Virus Search:</b> <ul><li>Input all relevant information, and click <strong>[Search]</strong>. Post-5 viruses are filtered automatically.</li>
-		<li>Roll for MD with <strong>[MD Roll]</strong>. Summon a Mimic with <strong>[Add Mimic]</strong> or <strong>[Add Rare Mimic]</strong>. Add Meta-Viruses to the list with <strong>[Metavirus].</strong>.</li>
-		<li>Add viruses to the template with <strong>[+]</strong> next to their name. Click <strong>[1]</strong> or <strong>[2]</strong> to view virus info. <strong>[&#8593;]</strong> inside virus info to pop out into separate window.</li>
-		<li>Add SPs with <strong>[Add SP]</strong>, or objects with <strong>[Add Object]</strong>.</li>
-		<li>You can edit the text parts in the template that have a dark grey color.</li>
-		<li>Remove viruses by clicking on them in the template. Remove terrain, SPs or objects by double clicking them.</li>
-		<li>Randomize battles by using <strong>[Randomize]</strong>. Note that you'll need to add metaviruses to the result table if you want them.</li>
-		<li>Use <strong>[Clear]</strong> to empty the virus result table, and <strong>[Reset]</strong> to clear the entire template.</li></ul>
-		<table border=1>
-			<tr>
-				<td id="virus_options" colspan="2">Net Area: <select id="vlist_area">
-				<option value="ACDC">ACDC</option>
-				<option value="SciLab">SciLab</option>
-				<option value="Electown">Electown</option>
-				<option value="Yoka">Yoka</option>
-				<option value="Netopia">Netopia</option>
-				<option value="Dentech">Dentech</option>
-				<option value="Beach">Beach</option>
-				<option value="Okuden Valley">Okuden</option>
-				<option value="Kotobuki Town">Kotobuki</option>
-				<option value="Sharo">Sharo</option>
-				<option value="Yumland">Yumland</option>
-				<option value="Netfrica">Netfrica</option>
-				<option value="Hades Isle">Hades</option>
-				<option value="NAXA">NAXA</option>
-				<option value="NetVegas">NetVegas</option>
-				<option value="Undernet">Undernet</option>
-				<option value="All">All Nets</option>
-			</select> Net Rank: <select id="vlist_rank">
-				<option value=0 selected>Normal</option>
-				<option value=2>Rogue</option>
-				<option value=4>Chaos</option>
-				<option value=6 disabled>Undernet</option>
-			</select> Battle No: <select id="vlist_battle">
-				<option value=1>1</option><option value=2>2</option><option value=3>3</option><option value=4>4</option><option value=5 disabled>5</option><option value=6>6</option><option value=7>7</option><option value=8>8</option><option value=9>9</option><option value=10 disabled>10</option><option value=11>11</option><option value=12>12</option><option value=13>13</option><option value=14>14</option><option value=15 disabled>15</option><option value=16>16</option><option value=17>17</option><option value=18>18</option><option value=19>19</option><option value=20 disabled>20</option>
-			</select> Participants: <select id="vlist_navi">
-				<option value=1>1</option><option value=2>2</option><option value=3>3</option><option value=4>4</option><option value=5>5</option>
-			</select> <input type="button" id="vlist_search" value="Search"> <input type="button" id="vlist_clear" value="Clear"> <input type="button" id="vlist_reset" value="Reset"><br> <input type="button" id="vlist_md" value="MD Roll"> <input type="button" id="vlist_meta" value="Metavirus"> <input type="button" id="vlist_addsp" value="Add SP"> <input type="button" id="vlist_addobj" value="Add Object"> <input type="button" id="vlist_mmc" value="Add Mimic"> <input type="button" id="vlist_rmmc" value="Add Rare Mimic"> <input type="button" id="vlist_random" value="Randomize"></td>
-				<td id="vlist_template" rowspan="3"></td>
-			</tr>
-			<tr>
-			<td id="vlist_terrain" colspan="2">Terrain and zenny for net area and suggested virus count listed here.</td>
-			</tr>
-			<tr>
-				<td id="vlist_res">Virus search results here.<br>(Contains clickable virus names that pop out<br>description and stats and can be added<br>to the template on the right)</td>
-				<td id="vlist_resex">EX Viruses go here if Battle 6 option is selected<br>(if option is deselected, table cell disappears<br>and is merged with left cell)</td>
-			</tr>
-		</table>
-		<br><br>
-		<table id="vlist_info" border=1><tr>
-			<td id="vlist_info1" class="vlist_info"></td>
-			<td id="vlist_info2" class="vlist_info"></td>
-		</tr></table>
-		
-		<br><b>Individual Virus Search:</b> <input id="vlist_query" type="text" name="fname"> <input type="button" id="vlist_queryclear" value="Clear"> <ul><li>Put in virus name or family name and results will appear automatically. Click [&#8593;] to popout virus info and [x] for bounty info. </li></ul>
-		<div id="vlist_queryres"></div>
-		
-		<br><b>Virus Hunt List Generator: </b> <select id="vlist_hunttier">
-				<option value=0 selected>Normal Net</option>
-				<option value=2>Rogue Net</option>
-				<option value=4>Chaos Net</option>
-				<option value=6>Undernet</option>
-		</select> <input type="button" id="vlist_huntinit" value="Generate"> <ul><li>Select a network tier and hit Generate to produce a 12-item list for use with Virus Hunt. </li>
-		<li>After the hunt requester chooses a virus, check their bounty by using the above Individual Virus Search and hitting the [x] button.</li></ul>
-		<div id="vlist_huntres"></div>
-		<div id="vlist_genres"></div>
-		
-		<br><b>Rush Rare Chip Reward Generator: </b>
-		<input type="button" value="Rush" onclick="getRushReward(1)"> <input type="button" value="Rush2" onclick="getRushReward(2)"> <input type="button" value="Rush3" onclick="getRushReward(3)"> <input type="button" value="Rush Omega" onclick="getRushReward(4)">
-
-		<div class="lastpadding"></div>
-	</div>
-</div>
-<script>
-var netarea = "";
-var netrank = 0;
-var netrankx = 1;
-var netranktx = "";
-var netbat = 1;
-var netnavi = 1;
-var netland = {
-	"ACDC": ["Normal", "Cracked", "Missing"],
-	"SciLab": ["Normal", "Metal", "Glass", "Solar"],
-	"Electown": ["Normal", "Metal", "Magnet", "Solar"],
-	"Yoka": ["Normal", "Sea", "Onsen", "Coal"],
-	"Netopia": ["Normal", "Holy", "Poison", "Cracked"],
-	"Dentech": ["Normal", "Glass", "Cursed", "Magnet"],
-	"Beach": ["Normal", "Sea", "Sand", "Mud", "Grass"],
-	"Okuden Valley": ["Normal", "Grass", "Soil", "Mud"],
-	"Kotobuki Town": ["Normal", "Lava", "Furnace", "Grass"],
-	"Sharo": ["Normal", "Ice", "Snow", "Cracked", "Missing"],
-	"Yumland": ["Normal", "Grass", "Soil", "Mud", "Poison"],
-	"Netfrica": ["Normal", "Grass", "Soil", "Sand"],
-	"Hades Isle": ["Normal", "Lava", "Coal", "Furnace", "Metal", "Sand"],
-	"NAXA": ["Normal", "Metal", "Magnet", "Solar", "Missing"],
-	"NetVegas": ["Normal", "Lava", "Coal", "Furnace", "Sea", "Ice", "Snow", "Metal", "Magnet", "Solar", "Grass", "Soil", "Mud", "Sand", "Quicksand", "Glass", "Poison", "Holy", "Cursed", "Cracked", "Broken", "Missing"],
-	"Undernet": ["Normal", "Lava", "Coal", "Furnace", "Sea", "Ice", "Snow", "Metal", "Magnet", "Solar", "Grass", "Soil", "Mud", "Sand", "Quicksand", "Glass", "Poison", "Holy", "Cursed", "Cracked", "Broken", "Glitched", "Missing"],
-	"All": ["Normal", "Lava", "Coal", "Furnace", "Sea", "Ice", "Snow", "Metal", "Magnet", "Solar", "Grass", "Soil", "Mud", "Sand", "Quicksand", "Glass", "Poison", "Holy", "Cursed", "Cracked", "Broken", "Glitched", "Missing"]
-};
-var netzenny = {
-	"ACDC": [30, 150, 120],
-	"SciLab": [40, 200, 160],
-	"Electown": [50, 250, 200],
-	"Yoka": [50, 250, 200],
-	"Netopia": [50, 250, 200],
-	"Dentech": [50, 250, 200],
-	"Beach": [50, 250, 200],
-	"Okuden Valley": [50, 250, 200],
-	"Kotobuki Town": [50, 250, 200],
-	"Sharo": [60, 300, 240],
-	"Yumland": [60, 300, 240],
-	"Netfrica": [60, 300, 240],
-	"Hades Isle": [70, 350, 280],
-	"NAXA": [70, 350, 280],
-	"NetVegas": [70, 350, 280],
-	"Undernet": [600, 3000, 2400]
-}
-var netmin = [3, 4, 4, 5, 0, 6, 6, 7, 7, 0, 9, 10, 9, 10, 0, 11, 12, 13, 14];
-var netmax = [4, 5, 6, 7, 0, 7, 7, 8, 9, 0, 10, 11, 12, 13, 0, 14, 15, 16, 16];
-var minbat, maxbat;
-var virusClone = false;
-
-function listDeinit() {
-	$('select option').remove();
-}
-
-function listInit () {
-	$('#vlist_rank').removeProp('disabled');
-	$('#vlist_battle').removeProp('disabled');
-	$('#vlist_info1, #vlist_info2, #vlist_md, #vlist_mmc, #vlist_rmmc, #vlist_reset, #vlist_meta, #vlist_random, #vlist_addsp, #vlist_addobj, #vlist_clear').hide();
-	$('#vlist_resex').show();
-	$('#vlist_area').change(function() {
-		netarea = $('#vlist_area').val();
-		if (netarea === "Undernet") {
-			$('#vlist_rank').val('6');
-			$('#vlist_rank').prop('disabled', true);
-		}
-		if (netarea != "Undernet" && $('#vlist_rank').prop('disabled')) {
-			$('#vlist_rank').removeProp('disabled');
-			$('#vlist_rank').val('1');
-		}
-	});
-
-	$('#vlist_search').click(function() {
-		netarea = $('#vlist_area').val();
-		netrank = parseInt($('#vlist_rank').val(), 10);
-		netnavi = parseInt($('#vlist_navi').val(), 10);
-		netrankx = netrank+1;
-		switch (netrank) {
-			case 0: netranktx = ""; break;
-			case 2: netranktx = "Rogue "; break;
-			case 4: netranktx = "Chaos "; break;
-			case 6: netranktx = "Undernet "; break;
-		}
-		netbat = parseInt($('#vlist_battle').val(), 10);		
-		$('#vlist_res, #vlist_resex').empty();
-		$('#vlist_res').attr('colspan','1');
-		$('#vlist_md, #vlist_mmc, #vlist_reset, #vlist_meta, #vlist_random, #vlist_addsp, #vlist_addobj, #vlist_clear').show();
-		if (netbat > 11) $('#vlist_rmmc').show();
-		$('#vlist_terrain').html("Terrain: ");
-		$('#vlist_template').html("<div id='vlist_tempvirus'></div><div id='vlist_tempnavi'></div><div id='vlist_tempterr'></div><div id='vlist_tempobj'></div><div id='vlist_tempstart'></div>");
-		$('#vlist_tempvirus').html("<strong>[b]-- <span contenteditable='true' style='color:darkgrey'>Viruses</span> --[/b]</strong><br>");
-		$('#vlist_tempnavi').html("<br><strong>[b]-- <span contenteditable='true' style='color:darkgrey'>Navis</span> --[/b]</strong><br>");
-		for (var i = 0; i < netnavi; i++) { 
-			$('#vlist_tempnavi').append("<span contenteditable='true' style='color:darkgrey'>Battler</span>.EXE: <span contenteditable='true' style='color:darkgrey'>100</span> HP<br>");
-		}
-		$('#vlist_tempterr').html("<br><strong>[b]-- Terrain --[/b]</strong><br>");
-		$('#vlist_tempobj').html("<br><strong>[b]-- Objects --[/b]</strong><br>");
-		$('#vlist_tempstart').html("<br><strong>[b]-- " + netranktx + "Battle " + netbat + " Ready? Start!! --[/b]</strong><br>");
-		
-		for (var i = 0; i < netland[netarea].length; i++) {
-			var landentry = "<span class='vlist_addland'>" + netland[netarea][i] + "</span>";
-			if (i === netland[netarea].length-1) $('#vlist_terrain').append(landentry, " &#124; "); 
-			else $('#vlist_terrain').append(landentry, ", "); 
-		}
-		maxbat = netmax[$('#vlist_battle').val()-1];
-		minbat = netmin[$('#vlist_battle').val()-1];
-		$('#vlist_terrain').append("Virus Count: ", netmin[$('#vlist_battle').val()-1]*netnavi, "-", maxbat*netnavi, " &#124; ");
-		if (netarea === "Undernet") $('#vlist_terrain').append("Zenny: ", netzenny["Undernet"][0], "-", netzenny["Undernet"][1]);
-		else if (netarea === "All");
-		else $('#vlist_terrain').append("Zenny: ", netzenny[netarea][0]*(netrank+1), "-", netzenny[netarea][1]*(netrank+1));
-		for (var key in virusData) {
-			var virusentry = virusData[key].virus[netrank].name + " <span class='mini'>(" + key + ")</span><br>";
-			var virusopt = "<span class='mini' id='" + key + "-" + netrank + "'><span class='vlist_add'>[+]</span> <span class='vlist_info1'>[1]</span> <span class='vlist_info2'>[2]</span> </span>";
-			if (netarea === "Undernet") {
-				$('#vlist_resex').hide();
-				$('#vlist_res').attr('colspan','2');
-				if (!('family_meta' in virusData[key])) {
-					if (netbat < 5) { if (virusData[key].pre6) $('#vlist_res').append(virusopt, virusentry); }
-					else $('#vlist_res').append(virusopt, virusentry);
-				}
-			}
-			else if (netarea === "All") {
-				var virusentryx = virusData[key].virus[netrankx].name + " <span class='mini'>(" + key + ")</span><br>";
-				var virusoptx = "<span class='mini' id='" + key + "-" + netrankx + "'><span class='vlist_add'>[+]</span> <span class='vlist_info1'>[1]</span> <span class='vlist_info2'>[2]</span> </span>";
-				$('#vlist_resex').show();
-				$('#vlist_resex').append(virusoptx, virusentryx); 
-				$('#vlist_res').append(virusopt, virusentry);
-				
-			}
-			else if ($.inArray(netarea, virusData[key].family_area) > -1) {
-				if (netbat > 5) { 
-					var virusentryx = virusData[key].virus[netrankx].name + " <span class='mini'>(" + key + ")</span><br>";
-					var virusoptx = "<span class='mini' id='" + key + "-" + netrankx + "'><span class='vlist_add'>[+]</span> <span class='vlist_info1'>[1]</span> <span class='vlist_info2'>[2]</span> </span>";
-					$('#vlist_resex').show();
-					$('#vlist_resex').append(virusoptx, virusentryx); 
-					$('#vlist_res').append(virusopt, virusentry);
-				}
-				else { 
-				$('#vlist_resex').hide();
-				$('#vlist_res').attr('colspan','2');
-				if (virusData[key].pre6) $('#vlist_res').append(virusopt, virusentry);
-				}
-			}
-		}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mystery Data Tables</title>
+</head>
+<body>
+		<style>
+				body { display: flex; align-items: center; flex-direction: column; background: #efebe9; min-height: 100vh; margin: 0; padding: 0; }
+				.container { width: 90vw; background: #fff; min-height: 100vh; }
+				.content { margin-left: 12px; }
+				.mini { color:grey; font-size:0.7em; }
+				table { width: calc(100% - 72px); margin-left: 24px; }
+				.vlist_add, .vlist_addland, .vlist_remv, .vlist_remland, .vlist_info1, .vlist_info2 { cursor:pointer; }
+				.vlist_entm { font-weight: bold; color:firebrick !important; }
+				.vlist_addland { text-decoration:underline; } 
+				td.vlist_info { width: 50%; }
+				.lastpadding { height: 12px; }
+			</style>
+			<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+			<script>
+				let chipData = {}, reduceChip = {}, virusData = {}, terrainData = {};
 			
-		$('.vlist_add').click(function() {
-			var akey = $(this).parent().prop("id").slice(0, -2);
-			var arank = parseInt($(this).parent().prop("id").slice(-1), 10);
-			var ainst = virusData[akey].virus[arank];
-			var avirus = "<span class='vlist_remv'>[virus]<span class='vlist_entv'>" + ainst.name + "</span>[/virus]<span class='vlist_entvi'></span>: "+ ainst.hpts + " HP" + "<br></span>";
-			if ($('.vlist_entv').filter(function() { return $(this).text() === ainst.name; }).length > 0) {
-				$('.vlist_entv').filter(function() { return $(this).text() === ainst.name; }).parent().last().after(avirus);
-			}
-			else $('#vlist_tempvirus').append(avirus);
-			$('.vlist_entv').filter(function() { return $(this).text() === ainst.name; }).next(".vlist_entvi").empty();
-			if ($(".vlist_entv").filter(function() { return $(this).text() === ainst.name; }).length > 1) {
-				$(".vlist_entv").filter(function() { return $(this).text() === ainst.name; }).each(function(index) {
-					$(this).next(".vlist_entvi").html(" " + String.fromCharCode(65 + index));
-				});
-			}
-			$('.vlist_mdhp').html($('.vlist_entv').length*5);
-			$(".vlist_remv").unbind( "click" );
-			$('.vlist_remv').click(function() {
-				avirus = $(".vlist_entv", this).text();
-				$('.vlist_entv').filter(function() { return $(this).text() === avirus; }).next(".vlist_entvi").empty();
-				$(this).remove();
-				if ($('.vlist_entv').filter(function() { return $(this).text() === avirus; }).length > 1) {
-					$('.vlist_entv').filter(function() { return $(this).text() === avirus; }).each(function(index) {
-						$(this).next(".vlist_entvi").html(" " + String.fromCharCode(65 + index));
+				const chipFetch = fetch("https://execfera.github.io/rern/chip.json")
+					.then(res => res.json())
+					.then(data => {
+						chipData = data;
+						reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
+							keys[k.toLowerCase()] = k; 
+								if (k[k.length - 1] === '1') keys[k.toLowerCase().slice(0, -1)] = k;
+							return keys;
+						}, {});
 					});
-				}
-				$('.vlist_mdhp').html($('#vlist_tempvirus .vlist_entv').length*5);
-			});
-			if (!virusClone) {
-				switch (akey) {
-					case "Twins": virusClone = true; $('#Twins-' + arank).find('.vlist_add').click(); break;
-					case "Solarite": virusClone = true; $('#Lunaroid-' + arank).find('.vlist_add').click(); break;
-					case "Lunaroid": virusClone = true; $('#Solarite-' + arank).find('.vlist_add').click(); break;
-					default: break;
-				}
-			}
-			virusClone = false;
-		});
-		
-		$('.vlist_addland').click(function() {
-			var templand = "<span class='vlist_remd'><span class='vlist_landq' contenteditable='true' style='color:darkgray'>0</span>% [terrain]" + $(this).text() + "[/terrain]<br></span>";
-			$('#vlist_tempterr').append(templand);
-			$('.vlist_remd').unbind('dblclick');
-			$('.vlist_remd').dblclick(function() {	$(this).remove();	});
-		});
-
-		$('.vlist_info1').click(function() {
-			$('#vlist_info1').show();
-			var i1key = $(this).parent().prop("id").slice(0, -2);
-			var i1rank = parseInt($(this).parent().prop("id").slice(-1), 10);
-			$('#vlist_info1').html("<span id='vlist_infopop1' style='cursor:pointer'>[&#8593;]</span> <strong>" + virusData[i1key].virus[i1rank].name + "</strong> <a href='" + virusData[i1key].family_url + "'>("+ i1key +")</a><br><br>");
-			if (virusData[i1key].family_note !== "") $('#vlist_info1').append(virusData[i1key].family_note, "<br><br>");
-			$('#vlist_info1').append("Area:");
-				if (virusData[i1key].family_area.length === 0) { $('#vlist_info1').append(" All<br><br>"); }
-				else {
-					for (var i = 0; i < virusData[i1key].family_area.length; i++) {
-						if (i === virusData[i1key].family_area.length-1) $('#vlist_info1').append(" " + virusData[i1key].family_area[i] + "<br><br>");
-						else $('#vlist_info1').append(" " + virusData[i1key].family_area[i] + ",");
+			
+				const virusFetch = fetch("https://execfera.github.io/rern/virus.json")
+					.then(res => res.json())
+					.then(data => virusData = data);
+			
+				const terrainFetch = fetch("https://execfera.github.io/rern/terrain.json")
+					.then(res => res.json())
+					.then(data => terrainData = data);
+			
+				function tagInit() { Promise.all([chipFetch, virusFetch, terrainFetch]); }
+			
+				function openVrWnd(srcname) {
+					var found = false;
+					var foundidx = 0;
+					var foundkey = "";
+					var foundentry1 = "";
+					var foundentry2 = "";
+					for (var key in virusData) {
+						for (var i = 0; i <= 6; i++) { 
+							if (virusData[key].virus[i].name === srcname) { 
+								found = true; 
+								foundkey = key;
+								foundidx = i;
+								break; 
+							}
+						}
 					}
-				}
-			$('#vlist_info1').append(virusData[i1key].virus[i1rank].desc);
-			$('#vlist_infopop1').click(function () { openVrWnd(virusData[i1key].virus[i1rank].name); });
-		});
-
-		$('.vlist_info2').click(function() {
-			$('#vlist_info2').show();
-			var i2key = $(this).parent().prop("id").slice(0, -2);
-			var i2rank = parseInt($(this).parent().prop("id").slice(-1), 10);
-			$('#vlist_info2').html("<span id='vlist_infopop2' style='cursor:pointer'>[&#8593;]</span> <strong>" + virusData[i2key].virus[i2rank].name + "</strong> <a href='" + virusData[i2key].family_url + "'>("+ i2key +")</a><br><br>");
-			if (virusData[i2key].family_note !== "") $('#vlist_info2').append(virusData[i2key].family_note, "<br><br>");
-			$('#vlist_info2').append("Area:");
-			if (virusData[i2key].family_area.length === 0) { $('#vlist_info2').append(" All<br><br>"); }
-				else {
-					for (var i = 0; i < virusData[i2key].family_area.length; i++) {
-						if (i === virusData[i2key].family_area.length-1) $('#vlist_info2').append(" " + virusData[i2key].family_area[i] + "<br><br>");
-						else $('#vlist_info2').append(" " + virusData[i2key].family_area[i] + ",");
-					}
-				}
-			$('#vlist_info2').append(virusData[i2key].virus[i2rank].desc);
-			$('#vlist_infopop2').click(function () {openVrWnd(virusData[i2key].virus[i2rank].name); });
-		});
-	});
-	
-	$('#vlist_reset').click(function() {
-			$('#vlist_tempvirus').html("<strong>[b]-- Viruses --[/b]</strong><br>");
-			$('#vlist_tempnavi').html("<br><strong>[b]-- Navis --[/b]</strong><br>");
-			for (var i = 0; i < netnavi; i++) { 
-			$('#vlist_tempnavi').append("<span contenteditable='true' style='color:darkgrey'>Battler</span>.EXE: <span contenteditable='true' style='color:darkgrey'>100</span> HP<br>");
-			}
-			$('#vlist_tempterr').html("<br><strong>[b]-- Terrain --[/b]</strong><br>");
-			$('#vlist_tempobj').html("<br><strong>[b]-- Objects --[/b]</strong><br>");
-			$('#vlist_tempstart').html("<br><strong>[b]-- " + netranktx + "Battle " + netbat + " Ready? Start!! --[/b]</strong><br>");
-		}); 
-	
-	$('#vlist_meta').click(function() {
-		if($('.vlist_entm').length > 0) alert("Metaviruses already added!")
-		else {
-			for (var key in virusData) {
-				if ('family_meta' in virusData[key]) 
-				{
-					var virusentry = virusData[key].virus[netrank].name + " <span class='mini vlist_entm'>(" + key + ")</span><br>";
-					var virusopt = "<span class='mini' id='" + key + "-" + netrank + "'><span class='vlist_add vlist_addm'>[+]</span> <span class='vlist_info1'>[1]</span> <span class='vlist_info2'>[2]</span> </span>";
-					if (netarea === "Undernet") {
-						$('#vlist_resex').hide();
-						$('#vlist_res').attr('colspan','2');
-						if (netbat < 5) { if (virusData[key].pre6) $('#vlist_res').append(virusopt, virusentry); }
-						else { $('#vlist_res').append(virusopt, virusentry); }
-					}
+					if (found === true) {
+					foundentry1 = "<strong>" + virusData[foundkey].virus[foundidx].name + "</strong> <a href='javascript:window.open(\"" 
+					foundentry2 = "\", window.opener, false); window.close();'>(" + foundkey + ")</a><br><br>";
+					if (virusData[foundkey].family_note !== "") foundentry2 += (virusData[foundkey].family_note + "<br><br>");
+					foundentry2 += "Area:";
+					if (virusData[foundkey].family_area.length === 0) { foundentry2 += " All<br><br>"; }
+						else if (foundidx === 6) { foundentry2 += " Undernet<br><br>"; }
 					else {
-						if (netbat > 5) { 
-							var virusentryx = virusData[key].virus[netrankx].name + " <span class='mini vlist_entm'>(" + key + ")</span><br>";
-							var virusoptx = "<span class='mini' id='" + key + "-" + netrankx + "'><span class='vlist_add vlist_addm'>[+]</span> <span class='vlist_info1'>[1]</span> <span class='vlist_info2'>[2]</span> </span>";
+						for (var i = 0; i < virusData[foundkey].family_area.length; i++) {
+							if (i === virusData[foundkey].family_area.length-1) foundentry2 += " " + virusData[foundkey].family_area[i] + "<br><br>";
+							else foundentry2 += " " + virusData[foundkey].family_area[i] + ",";
+						}
+					}
+					foundentry2 += virusData[foundkey].virus[foundidx].desc;
+					
+					var oWindow = window.open("", "", "height=640,width=480"); 
+					with (oWindow.document) {
+						write("");
+						write("");
+						write("<title>"+srcname+"<\/title>");
+						write("<\/head>");
+						write("<body style=\"background-color: #eeeeee; font-family: \'Inconsolata\', \'Helvetica\', \'Arial\', \'Bitstream Vera Sans\', \'Verdana\', sans-serif; font-size:93.3%;\">");
+						write(foundentry1);
+						write(encodeURI(virusData[foundkey].family_url));
+						write(foundentry2);
+						write("<hr>");
+						write("<input type='button' value='Close' onclick='window.close()'>");
+						write("<\/body>");
+						write("<\/html>");
+						close(); 
+						}
+					}
+					else alert("Virus entry not found.");
+				}
+			
+				window.addEventListener('DOMContentLoaded', tagInit, false);
+			</script>
+			<div class="container">
+				<div class="title">
+					<hr><center><b><font size="7">Interactive Virus List v3.0</font></b></center><hr><br/>
+				</div>
+				<div class="content">
+					<b>Area Virus Search:</b> <ul><li>Input all relevant information, and click <strong>[Search]</strong>. Post-5 viruses are filtered automatically.</li>
+					<li>Roll for MD with <strong>[MD Roll]</strong>. Summon a Mimic with <strong>[Add Mimic]</strong> or <strong>[Add Rare Mimic]</strong>. Add Meta-Viruses to the list with <strong>[Metavirus].</strong>.</li>
+					<li>Add viruses to the template with <strong>[+]</strong> next to their name. Click <strong>[1]</strong> or <strong>[2]</strong> to view virus info. <strong>[&#8593;]</strong> inside virus info to pop out into separate window.</li>
+					<li>Add SPs with <strong>[Add SP]</strong>, or objects with <strong>[Add Object]</strong>.</li>
+					<li>You can edit the text parts in the template that have a dark grey color.</li>
+					<li>Remove viruses by clicking on them in the template. Remove terrain, SPs or objects by double clicking them.</li>
+					<li>Randomize battles by using <strong>[Randomize]</strong>. Note that you'll need to add metaviruses to the result table if you want them.</li>
+					<li>Use <strong>[Clear]</strong> to empty the virus result table, and <strong>[Reset]</strong> to clear the entire template.</li></ul>
+					<table border=1>
+						<tr>
+							<td id="virus_options" colspan="2">Net Area: <select id="vlist_area">
+							<option value="ACDC">ACDC</option>
+							<option value="SciLab">SciLab</option>
+							<option value="Electown">Electown</option>
+							<option value="Yoka">Yoka</option>
+							<option value="Netopia">Netopia</option>
+							<option value="Dentech">Dentech</option>
+							<option value="Beach">Beach</option>
+							<option value="Okuden Valley">Okuden</option>
+							<option value="Kotobuki Town">Kotobuki</option>
+							<option value="Sharo">Sharo</option>
+							<option value="Yumland">Yumland</option>
+							<option value="Netfrica">Netfrica</option>
+							<option value="Hades Isle">Hades</option>
+							<option value="NAXA">NAXA</option>
+							<option value="NetVegas">NetVegas</option>
+							<option value="Undernet">Undernet</option>
+							<option value="All">All Nets</option>
+						</select> Net Rank: <select id="vlist_rank">
+							<option value=0 selected>Normal</option>
+							<option value=2>Rogue</option>
+							<option value=4>Chaos</option>
+							<option value=6 disabled>Undernet</option>
+						</select> Battle No: <select id="vlist_battle">
+							<option value=1>1</option><option value=2>2</option><option value=3>3</option><option value=4>4</option><option value=5 disabled>5</option><option value=6>6</option><option value=7>7</option><option value=8>8</option><option value=9>9</option><option value=10 disabled>10</option><option value=11>11</option><option value=12>12</option><option value=13>13</option><option value=14>14</option><option value=15 disabled>15</option><option value=16>16</option><option value=17>17</option><option value=18>18</option><option value=19>19</option><option value=20 disabled>20</option>
+						</select> Participants: <select id="vlist_navi">
+							<option value=1>1</option><option value=2>2</option><option value=3>3</option><option value=4>4</option><option value=5>5</option>
+						</select> <input type="button" id="vlist_search" value="Search"> <input type="button" id="vlist_clear" value="Clear"> <input type="button" id="vlist_reset" value="Reset"><br> <input type="button" id="vlist_md" value="MD Roll"> <input type="button" id="vlist_meta" value="Metavirus"> <input type="button" id="vlist_addsp" value="Add SP"> <input type="button" id="vlist_addobj" value="Add Object"> <input type="button" id="vlist_mmc" value="Add Mimic"> <input type="button" id="vlist_rmmc" value="Add Rare Mimic"> <input type="button" id="vlist_random" value="Randomize"></td>
+							<td id="vlist_template" rowspan="3"></td>
+						</tr>
+						<tr>
+						<td id="vlist_terrain" colspan="2">Terrain and zenny for net area and suggested virus count listed here.</td>
+						</tr>
+						<tr>
+							<td id="vlist_res">Virus search results here.<br>(Contains clickable virus names that pop out<br>description and stats and can be added<br>to the template on the right)</td>
+							<td id="vlist_resex">EX Viruses go here if Battle 6 option is selected<br>(if option is deselected, table cell disappears<br>and is merged with left cell)</td>
+						</tr>
+					</table>
+					<br><br>
+					<table id="vlist_info" border=1><tr>
+						<td id="vlist_info1" class="vlist_info"></td>
+						<td id="vlist_info2" class="vlist_info"></td>
+					</tr></table>
+					
+					<br><b>Individual Virus Search:</b> <input id="vlist_query" type="text" name="fname"> <input type="button" id="vlist_queryclear" value="Clear"> <ul><li>Put in virus name or family name and results will appear automatically. Click [&#8593;] to popout virus info and [x] for bounty info. </li></ul>
+					<div id="vlist_queryres"></div>
+					
+					<br><b>Virus Hunt List Generator: </b> <select id="vlist_hunttier">
+							<option value=0 selected>Normal Net</option>
+							<option value=2>Rogue Net</option>
+							<option value=4>Chaos Net</option>
+							<option value=6>Undernet</option>
+					</select> <input type="button" id="vlist_huntinit" value="Generate"> <ul><li>Select a network tier and hit Generate to produce a 12-item list for use with Virus Hunt. </li>
+					<li>After the hunt requester chooses a virus, check their bounty by using the above Individual Virus Search and hitting the [x] button.</li></ul>
+					<div id="vlist_huntres"></div>
+					<div id="vlist_genres"></div>
+					
+					<br><b>Rush Rare Chip Reward Generator: </b>
+					<input type="button" value="Rush" onclick="getRushReward(1)"> <input type="button" value="Rush2" onclick="getRushReward(2)"> <input type="button" value="Rush3" onclick="getRushReward(3)"> <input type="button" value="Rush Omega" onclick="getRushReward(4)">
+			
+					<div class="lastpadding"></div>
+				</div>
+			</div>
+			<script>
+			var netarea = "";
+			var netrank = 0;
+			var netrankx = 1;
+			var netranktx = "";
+			var netbat = 1;
+			var netnavi = 1;
+			var netland = {
+				"ACDC": ["Normal", "Cracked", "Missing"],
+				"SciLab": ["Normal", "Metal", "Glass", "Solar"],
+				"Electown": ["Normal", "Metal", "Magnet", "Solar"],
+				"Yoka": ["Normal", "Sea", "Onsen", "Coal"],
+				"Netopia": ["Normal", "Holy", "Poison", "Cracked"],
+				"Dentech": ["Normal", "Glass", "Cursed", "Magnet"],
+				"Beach": ["Normal", "Sea", "Sand", "Mud", "Grass"],
+				"Okuden Valley": ["Normal", "Grass", "Soil", "Mud"],
+				"Kotobuki Town": ["Normal", "Lava", "Furnace", "Grass"],
+				"Sharo": ["Normal", "Ice", "Snow", "Cracked", "Missing"],
+				"Yumland": ["Normal", "Grass", "Soil", "Mud", "Poison"],
+				"Netfrica": ["Normal", "Grass", "Soil", "Sand"],
+				"Hades Isle": ["Normal", "Lava", "Coal", "Furnace", "Metal", "Sand"],
+				"NAXA": ["Normal", "Metal", "Magnet", "Solar", "Missing"],
+				"NetVegas": ["Normal", "Lava", "Coal", "Furnace", "Sea", "Ice", "Snow", "Metal", "Magnet", "Solar", "Grass", "Soil", "Mud", "Sand", "Quicksand", "Glass", "Poison", "Holy", "Cursed", "Cracked", "Broken", "Missing"],
+				"Undernet": ["Normal", "Lava", "Coal", "Furnace", "Sea", "Ice", "Snow", "Metal", "Magnet", "Solar", "Grass", "Soil", "Mud", "Sand", "Quicksand", "Glass", "Poison", "Holy", "Cursed", "Cracked", "Broken", "Glitched", "Missing"],
+				"All": ["Normal", "Lava", "Coal", "Furnace", "Sea", "Ice", "Snow", "Metal", "Magnet", "Solar", "Grass", "Soil", "Mud", "Sand", "Quicksand", "Glass", "Poison", "Holy", "Cursed", "Cracked", "Broken", "Glitched", "Missing"]
+			};
+			var netzenny = {
+				"ACDC": [30, 150, 120],
+				"SciLab": [40, 200, 160],
+				"Electown": [50, 250, 200],
+				"Yoka": [50, 250, 200],
+				"Netopia": [50, 250, 200],
+				"Dentech": [50, 250, 200],
+				"Beach": [50, 250, 200],
+				"Okuden Valley": [50, 250, 200],
+				"Kotobuki Town": [50, 250, 200],
+				"Sharo": [60, 300, 240],
+				"Yumland": [60, 300, 240],
+				"Netfrica": [60, 300, 240],
+				"Hades Isle": [70, 350, 280],
+				"NAXA": [70, 350, 280],
+				"NetVegas": [70, 350, 280],
+				"Undernet": [600, 3000, 2400]
+			}
+			var netmin = [3, 4, 4, 5, 0, 6, 6, 7, 7, 0, 9, 10, 9, 10, 0, 11, 12, 13, 14];
+			var netmax = [4, 5, 6, 7, 0, 7, 7, 8, 9, 0, 10, 11, 12, 13, 0, 14, 15, 16, 16];
+			var minbat, maxbat;
+			var virusClone = false;
+			
+			function listDeinit() {
+				$('select option').remove();
+			}
+			
+			function listInit () {
+				$('#vlist_rank').removeProp('disabled');
+				$('#vlist_battle').removeProp('disabled');
+				$('#vlist_info1, #vlist_info2, #vlist_md, #vlist_mmc, #vlist_rmmc, #vlist_reset, #vlist_meta, #vlist_random, #vlist_addsp, #vlist_addobj, #vlist_clear').hide();
+				$('#vlist_resex').show();
+				$('#vlist_area').change(function() {
+					netarea = $('#vlist_area').val();
+					if (netarea === "Undernet") {
+						$('#vlist_rank').val('6');
+						$('#vlist_rank').prop('disabled', true);
+					}
+					if (netarea != "Undernet" && $('#vlist_rank').prop('disabled')) {
+						$('#vlist_rank').removeProp('disabled');
+						$('#vlist_rank').val('1');
+					}
+				});
+			
+				$('#vlist_search').click(function() {
+					netarea = $('#vlist_area').val();
+					netrank = parseInt($('#vlist_rank').val(), 10);
+					netnavi = parseInt($('#vlist_navi').val(), 10);
+					netrankx = netrank+1;
+					switch (netrank) {
+						case 0: netranktx = ""; break;
+						case 2: netranktx = "Rogue "; break;
+						case 4: netranktx = "Chaos "; break;
+						case 6: netranktx = "Undernet "; break;
+					}
+					netbat = parseInt($('#vlist_battle').val(), 10);		
+					$('#vlist_res, #vlist_resex').empty();
+					$('#vlist_res').attr('colspan','1');
+					$('#vlist_md, #vlist_mmc, #vlist_reset, #vlist_meta, #vlist_random, #vlist_addsp, #vlist_addobj, #vlist_clear').show();
+					if (netbat > 11) $('#vlist_rmmc').show();
+					$('#vlist_terrain').html("Terrain: ");
+					$('#vlist_template').html("<div id='vlist_tempvirus'></div><div id='vlist_tempnavi'></div><div id='vlist_tempterr'></div><div id='vlist_tempobj'></div><div id='vlist_tempstart'></div>");
+					$('#vlist_tempvirus').html("<strong>[b]-- <span contenteditable='true' style='color:darkgrey'>Viruses</span> --[/b]</strong><br>");
+					$('#vlist_tempnavi').html("<br><strong>[b]-- <span contenteditable='true' style='color:darkgrey'>Navis</span> --[/b]</strong><br>");
+					for (var i = 0; i < netnavi; i++) { 
+						$('#vlist_tempnavi').append("<span contenteditable='true' style='color:darkgrey'>Battler</span>.EXE: <span contenteditable='true' style='color:darkgrey'>100</span> HP<br>");
+					}
+					$('#vlist_tempterr').html("<br><strong>[b]-- Terrain --[/b]</strong><br>");
+					$('#vlist_tempobj').html("<br><strong>[b]-- Objects --[/b]</strong><br>");
+					$('#vlist_tempstart').html("<br><strong>[b]-- " + netranktx + "Battle " + netbat + " Ready? Start!! --[/b]</strong><br>");
+					
+					for (var i = 0; i < netland[netarea].length; i++) {
+						var landentry = "<span class='vlist_addland'>" + netland[netarea][i] + "</span>";
+						if (i === netland[netarea].length-1) $('#vlist_terrain').append(landentry, " &#124; "); 
+						else $('#vlist_terrain').append(landentry, ", "); 
+					}
+					maxbat = netmax[$('#vlist_battle').val()-1];
+					minbat = netmin[$('#vlist_battle').val()-1];
+					$('#vlist_terrain').append("Virus Count: ", netmin[$('#vlist_battle').val()-1]*netnavi, "-", maxbat*netnavi, " &#124; ");
+					if (netarea === "Undernet") $('#vlist_terrain').append("Zenny: ", netzenny["Undernet"][0], "-", netzenny["Undernet"][1]);
+					else if (netarea === "All");
+					else $('#vlist_terrain').append("Zenny: ", netzenny[netarea][0]*(netrank+1), "-", netzenny[netarea][1]*(netrank+1));
+					for (var key in virusData) {
+						var virusentry = virusData[key].virus[netrank].name + " <span class='mini'>(" + key + ")</span><br>";
+						var virusopt = "<span class='mini' id='" + key + "-" + netrank + "'><span class='vlist_add'>[+]</span> <span class='vlist_info1'>[1]</span> <span class='vlist_info2'>[2]</span> </span>";
+						if (netarea === "Undernet") {
+							$('#vlist_resex').hide();
+							$('#vlist_res').attr('colspan','2');
+							if (!('family_meta' in virusData[key])) {
+								if (netbat < 5) { if (virusData[key].pre6) $('#vlist_res').append(virusopt, virusentry); }
+								else $('#vlist_res').append(virusopt, virusentry);
+							}
+						}
+						else if (netarea === "All") {
+							var virusentryx = virusData[key].virus[netrankx].name + " <span class='mini'>(" + key + ")</span><br>";
+							var virusoptx = "<span class='mini' id='" + key + "-" + netrankx + "'><span class='vlist_add'>[+]</span> <span class='vlist_info1'>[1]</span> <span class='vlist_info2'>[2]</span> </span>";
+							$('#vlist_resex').show();
 							$('#vlist_resex').append(virusoptx, virusentryx); 
 							$('#vlist_res').append(virusopt, virusentry);
+							
 						}
-						else { 
-						if (virusData[key].pre6) $('#vlist_res').append(virusopt, virusentry);
+						else if ($.inArray(netarea, virusData[key].family_area) > -1) {
+							if (netbat > 5) { 
+								var virusentryx = virusData[key].virus[netrankx].name + " <span class='mini'>(" + key + ")</span><br>";
+								var virusoptx = "<span class='mini' id='" + key + "-" + netrankx + "'><span class='vlist_add'>[+]</span> <span class='vlist_info1'>[1]</span> <span class='vlist_info2'>[2]</span> </span>";
+								$('#vlist_resex').show();
+								$('#vlist_resex').append(virusoptx, virusentryx); 
+								$('#vlist_res').append(virusopt, virusentry);
+							}
+							else { 
+							$('#vlist_resex').hide();
+							$('#vlist_res').attr('colspan','2');
+							if (virusData[key].pre6) $('#vlist_res').append(virusopt, virusentry);
+							}
 						}
 					}
-				}
-			}
-			$('.vlist_add, .vlist_info1, .vlist_info2').unbind("click");
-			$('.vlist_add').click(function() {
-				var akey = $(this).parent().prop("id").slice(0, -2);
-				var arank = parseInt($(this).parent().prop("id").slice(-1), 10);
-				var tvirus = "<span class='vlist_remv'>[virus]<span class='vlist_entv'>" + virusData[akey].virus[arank].name + "</span>[/virus]<span class='vlist_entvi'></span>: "+ virusData[akey].virus[arank].hpts + " HP" + "<br></span>";
-				if ($('.vlist_entv').filter(function() { return $(this).text() === virusData[akey].virus[arank].name; }).length > 0) {
-					$('.vlist_entv').filter(function() { return $(this).text() === virusData[akey].virus[arank].name; }).parent().last().after(tvirus);
-				}
-				else $('#vlist_tempvirus').append(tvirus);
-				$('.vlist_entv').filter(function() { return $(this).text() === virusData[akey].virus[arank].name; }).next(".vlist_entvi").empty();
-				if ($(".vlist_entv").filter(function() { return $(this).text() === virusData[akey].virus[arank].name; }).length > 1) {
-					$(".vlist_entv").filter(function() { return $(this).text() === virusData[akey].virus[arank].name; }).each(function(index) {
-						$(this).next(".vlist_entvi").html(" " + String.fromCharCode(65 + index));
-					});
-				}
-				$('.vlist_mdhp').html($('.vlist_entv').length*5);
-				$(".vlist_remv").unbind( "click" );
-				$('.vlist_remv').click(function() {
-					tvirus = $(".vlist_entv", this).text();
-					$('.vlist_entv').filter(function() { return $(this).text() === tvirus; }).next(".vlist_entvi").empty();
-					$(this).remove();
-					if ($('.vlist_entv').filter(function() { return $(this).text() === tvirus; }).length > 1) {
-						$('.vlist_entv').filter(function() { return $(this).text() === tvirus; }).each(function(index) {
-							$(this).next(".vlist_entvi").html(" " + String.fromCharCode(65 + index));
+						
+					$('.vlist_add').click(function() {
+						var akey = $(this).parent().prop("id").slice(0, -2);
+						var arank = parseInt($(this).parent().prop("id").slice(-1), 10);
+						var ainst = virusData[akey].virus[arank];
+						var avirus = "<span class='vlist_remv'>[virus]<span class='vlist_entv'>" + ainst.name + "</span>[/virus]<span class='vlist_entvi'></span>: "+ ainst.hpts + " HP" + "<br></span>";
+						if ($('.vlist_entv').filter(function() { return $(this).text() === ainst.name; }).length > 0) {
+							$('.vlist_entv').filter(function() { return $(this).text() === ainst.name; }).parent().last().after(avirus);
+						}
+						else $('#vlist_tempvirus').append(avirus);
+						$('.vlist_entv').filter(function() { return $(this).text() === ainst.name; }).next(".vlist_entvi").empty();
+						if ($(".vlist_entv").filter(function() { return $(this).text() === ainst.name; }).length > 1) {
+							$(".vlist_entv").filter(function() { return $(this).text() === ainst.name; }).each(function(index) {
+								$(this).next(".vlist_entvi").html(" " + String.fromCharCode(65 + index));
+							});
+						}
+						$('.vlist_mdhp').html($('.vlist_entv').length*5);
+						$(".vlist_remv").unbind( "click" );
+						$('.vlist_remv').click(function() {
+							avirus = $(".vlist_entv", this).text();
+							$('.vlist_entv').filter(function() { return $(this).text() === avirus; }).next(".vlist_entvi").empty();
+							$(this).remove();
+							if ($('.vlist_entv').filter(function() { return $(this).text() === avirus; }).length > 1) {
+								$('.vlist_entv').filter(function() { return $(this).text() === avirus; }).each(function(index) {
+									$(this).next(".vlist_entvi").html(" " + String.fromCharCode(65 + index));
+								});
+							}
+							$('.vlist_mdhp').html($('#vlist_tempvirus .vlist_entv').length*5);
 						});
-					}
-					$('.vlist_mdhp').html($('#vlist_tempvirus .vlist_entv').length*5);
+						if (!virusClone) {
+							switch (akey) {
+								case "Twins": virusClone = true; $('#Twins-' + arank).find('.vlist_add').click(); break;
+								case "Solarite": virusClone = true; $('#Lunaroid-' + arank).find('.vlist_add').click(); break;
+								case "Lunaroid": virusClone = true; $('#Solarite-' + arank).find('.vlist_add').click(); break;
+								default: break;
+							}
+						}
+						virusClone = false;
+					});
+					
+					$('.vlist_addland').click(function() {
+						var templand = "<span class='vlist_remd'><span class='vlist_landq' contenteditable='true' style='color:darkgray'>0</span>% [terrain]" + $(this).text() + "[/terrain]<br></span>";
+						$('#vlist_tempterr').append(templand);
+						$('.vlist_remd').unbind('dblclick');
+						$('.vlist_remd').dblclick(function() {	$(this).remove();	});
+					});
+			
+					$('.vlist_info1').click(function() {
+						$('#vlist_info1').show();
+						var i1key = $(this).parent().prop("id").slice(0, -2);
+						var i1rank = parseInt($(this).parent().prop("id").slice(-1), 10);
+						$('#vlist_info1').html("<span id='vlist_infopop1' style='cursor:pointer'>[&#8593;]</span> <strong>" + virusData[i1key].virus[i1rank].name + "</strong> <a href='" + virusData[i1key].family_url + "'>("+ i1key +")</a><br><br>");
+						if (virusData[i1key].family_note !== "") $('#vlist_info1').append(virusData[i1key].family_note, "<br><br>");
+						$('#vlist_info1').append("Area:");
+							if (virusData[i1key].family_area.length === 0) { $('#vlist_info1').append(" All<br><br>"); }
+							else {
+								for (var i = 0; i < virusData[i1key].family_area.length; i++) {
+									if (i === virusData[i1key].family_area.length-1) $('#vlist_info1').append(" " + virusData[i1key].family_area[i] + "<br><br>");
+									else $('#vlist_info1').append(" " + virusData[i1key].family_area[i] + ",");
+								}
+							}
+						$('#vlist_info1').append(virusData[i1key].virus[i1rank].desc);
+						$('#vlist_infopop1').click(function () { openVrWnd(virusData[i1key].virus[i1rank].name); });
+					});
+			
+					$('.vlist_info2').click(function() {
+						$('#vlist_info2').show();
+						var i2key = $(this).parent().prop("id").slice(0, -2);
+						var i2rank = parseInt($(this).parent().prop("id").slice(-1), 10);
+						$('#vlist_info2').html("<span id='vlist_infopop2' style='cursor:pointer'>[&#8593;]</span> <strong>" + virusData[i2key].virus[i2rank].name + "</strong> <a href='" + virusData[i2key].family_url + "'>("+ i2key +")</a><br><br>");
+						if (virusData[i2key].family_note !== "") $('#vlist_info2').append(virusData[i2key].family_note, "<br><br>");
+						$('#vlist_info2').append("Area:");
+						if (virusData[i2key].family_area.length === 0) { $('#vlist_info2').append(" All<br><br>"); }
+							else {
+								for (var i = 0; i < virusData[i2key].family_area.length; i++) {
+									if (i === virusData[i2key].family_area.length-1) $('#vlist_info2').append(" " + virusData[i2key].family_area[i] + "<br><br>");
+									else $('#vlist_info2').append(" " + virusData[i2key].family_area[i] + ",");
+								}
+							}
+						$('#vlist_info2').append(virusData[i2key].virus[i2rank].desc);
+						$('#vlist_infopop2').click(function () {openVrWnd(virusData[i2key].virus[i2rank].name); });
+					});
 				});
-			});
-			$('.vlist_info1').click(function() {
-				$('#vlist_info1').show();
-				var i1key = $(this).parent().prop("id").slice(0, -2);
-				var i1rank = parseInt($(this).parent().prop("id").slice(-1), 10);
-				$('#vlist_info1').html("<span id='vlist_infopop1' style='cursor:pointer'>[&#8593;]</span> <strong>" + virusData[i1key].virus[i1rank].name + "</strong> <a href='" + virusData[i1key].family_url + "'>("+ i1key +")</a><br><br>");
-				if (virusData[i1key].family_note !== "") $('#vlist_info1').append(virusData[i1key].family_note, "<br><br>");
-				$('#vlist_info1').append("Area:");
-				if (virusData[i1key].family_area.length === 0) { $('#vlist_info1').append(" All<br><br>"); }
-				else {
-					for (var i = 0; i < virusData[i1key].family_area.length; i++) {
-						if (i === virusData[i1key].family_area.length-1) $('#vlist_info1').append(" " + virusData[i1key].family_area[i] + "<br><br>");
-						else $('#vlist_info1').append(" " + virusData[i1key].family_area[i] + ",");
-					}
-				}
-				$('#vlist_info1').append(virusData[i1key].virus[i1rank].desc);
-				$('#vlist_infopop1').click(function () {openVrWnd(virusData[i1key].virus[i1rank].name); });
-			});
-
-			$('.vlist_info2').click(function() {
-				$('#vlist_info2').show();
-				var i2key = $(this).parent().prop("id").slice(0, -2);
-				var i2rank = parseInt($(this).parent().prop("id").slice(-1), 10);
-				$('#vlist_info2').html("<span id='vlist_infopop2' style='cursor:pointer'>[&#8593;]</span> <strong>" + virusData[i2key].virus[i2rank].name + "</strong> <a href='" + virusData[i2key].family_url + "'>("+ i2key +")</a><br><br>");
-				if (virusData[i2key].family_note !== "") $('#vlist_info2').append(virusData[i2key].family_note, "<br><br>");
-				$('#vlist_info2').append("Area:");
-				if (virusData[i2key].family_area.length === 0) { $('#vlist_info2').append(" All<br><br>"); }
-				else {
-					for (var i = 0; i < virusData[i2key].family_area.length; i++) {
-						if (i === virusData[i2key].family_area.length-1) $('#vlist_info2').append(" " + virusData[i2key].family_area[i] + "<br><br>");
-						else $('#vlist_info2').append(" " + virusData[i2key].family_area[i] + ",");
-					}
-				}
-				$('#vlist_info2').append(virusData[i2key].virus[i2rank].desc);
-				$('#vlist_infopop2').click(function () {openVrWnd(virusData[i2key].virus[i2rank].name); });
-			});
-		}
-	});
-	
-	$('#vlist_addsp').click(function() {
-		$('#vlist_tempnavi').append("<span class='vlist_remd'><span contenteditable='true' style='color:darkgrey'>BattleProg</span>.SP: <span contenteditable='true' style='color:darkgrey'>40</span> HP<br></span>");
-		$('.vlist_remd').unbind('dblclick');
-		$('.vlist_remd').dblclick(function() {	$(this).remove();	});
-	});
-		
-	$('#vlist_addobj').click(function() {
-		$('#vlist_tempobj').append("<span class='vlist_remd'><span contenteditable='true' style='color:darkgrey'>FieldObject</span>: <span contenteditable='true' style='color:darkgrey'>40</span> HP<br></span>");
-		$('.vlist_remd').unbind('dblclick');
-		$('.vlist_remd').dblclick(function() {	$(this).remove();	});
-	});
-	
-	$('#vlist_mmc').click(function() {
-		var mmctype = netrank;
-		if (netrank === 6) mmctype--;
-		if ($(".vlist_entv:contains('" + virusData['Mimic'].virus[mmctype].name + "')").length > 0) {
-			alert("No more than one Mimic per battle!");
-		}
-		else {
-			var tvirus = "<span class='vlist_remv'>[virus]<span class='vlist_entv'>" + virusData['Mimic'].virus[mmctype].name + "</span>[/virus]: "+ virusData['Mimic'].virus[mmctype].hpts + " HP" + "<br></span>";
-			$('#vlist_tempvirus').append(tvirus);
-			$('.vlist_mdhp').html($('.vlist_entv').length*5);
-			$(".vlist_remv").unbind( "click" );
-			$('.vlist_remv').click(function() {
-				$(this).remove();
-				$('.vlist_mdhp').html($('#vlist_tempvirus .vlist_entv').length*5);
-			});
-			$('#vlist_info1').show();
-			$('#vlist_info1').html("<span id='vlist_infopop1' style='cursor:pointer'>[&#8593;]</span> <strong>" + virusData['Mimic'].virus[mmctype].name + "</strong> <a href='" + virusData['Mimic'].family_url + "'>(Mimic)</a><br><br>");
-			$('#vlist_info1').append(virusData['Mimic'].family_note, "<br><br>");
-			$('#vlist_info1').append("Area: All<br><br>");
-			$('#vlist_info1').append(virusData['Mimic'].virus[mmctype].desc);
-			$('#vlist_infopop1').click(function () {openVrWnd(virusData['Mimic'].virus[mmctype].name); });
-		}
-	});
-		
-	$('#vlist_rmmc').click(function() {
-		var mmctype = netrank+1;
-		if (netrank === 6) mmctype--;
-		if ($(".vlist_entv:contains('" + virusData['Mimic'].virus[mmctype].name + "')").length > 0) {
-			alert("No more than one Mimic per battle!");
-		}
-		else {
-			var tvirus = "<span class='vlist_remv'>[virus]<span class='vlist_entv'>" + virusData['Mimic'].virus[mmctype].name + "</span>[/virus]: "+ virusData['Mimic'].virus[mmctype].hpts + " HP" + "<br></span>";
-			$('#vlist_tempvirus').append(tvirus);
-			$('.vlist_mdhp').html($('.vlist_entv').length*5);
-			$(".vlist_remv").unbind( "click" );
-			$('.vlist_remv').click(function() {
-				$(this).remove();
-				$('.vlist_mdhp').html($('#vlist_tempvirus .vlist_entv').length*5);
-			});
-			$('#vlist_info1').show();
-			$('#vlist_info1').html("<span id='vlist_infopop1' style='cursor:pointer'>[&#8593;]</span> <strong>" + virusData['Mimic'].virus[mmctype].name + "</strong> <a href='" + virusData['Mimic'].family_url + "'>(Mimic)</a><br><br>");
-			$('#vlist_info1').append(virusData['Mimic'].family_note, "<br><br>");
-			$('#vlist_info1').append("Area: All<br><br>");
-			$('#vlist_info1').append(virusData['Mimic'].virus[mmctype].desc);
-			$('#vlist_infopop1').click(function () {openVrWnd(virusData['Mimic'].virus[mmctype].name); });
-		}
-	});
-	
-	$('#vlist_random').click(function() {
-		$('#vlist_reset').click();
-		var randbat = Math.floor(Math.random() * (maxbat*netnavi - minbat*netnavi + 1)) + minbat*netnavi;
-		for (i = 0; i < randbat; i++) {
-			if (randbat - i < 3) { 
-				randi = Math.floor(Math.random()*$('.vlist_add').not('.vlist_addm').length);
-				$('.vlist_add').not('.vlist_addm').eq(randi).click();
-			}
-			else {
-				randi = Math.floor(Math.random()*$('.vlist_add').length);
-				$('.vlist_add').eq(randi).click();
-				if ($('.vlist_add').eq(randi).hasClass('vlist_addm')) i += 2;
-			}
-			switch ($('.vlist_add').eq(randi).parent().prop("id").slice(0, -2)) {
-					case "Lunaroid": case "Solarite": case "Twins": i++; break;
-					default: break;
-			}
-		}
-		var totalterr = 100;
-		var rterr = 0;
-		shuffle($(".vlist_addland")).slice(0, 4).each(function(index, entry){
-			entry.click();
-			rterr = Math.round(Math.random()*totalterr/5)*5;
-			$('.vlist_landq').last().html(rterr);
-			totalterr -= rterr;
-		});
-		if (totalterr > 0) {
-			var remterr = parseInt($('.vlist_landq').last().html(), 10);
-			$('.vlist_landq').last().html(remterr + totalterr);
-		}
-		$('.vlist_landq').each(function() {
-			if (parseInt($(this).html()) === 0) $(this).parent().remove();
-		});
-		$('#vlist_md').click();
-		randi = Math.floor(Math.random()*4);
-		while (randi--) $('#vlist_addobj').click();
-	});
-	
-	$('#vlist_clear').click(function() {
-		$('#vlist_res').empty();
-		$('#vlist_resex').empty();
-	});
-	
-	$('#vlist_md').click(function() {
-		if ($('.vlist_mdhp').length > 0) alert ("No more than one Mystery Data per battle!");
-		else {
-			var rollmd = Math.floor(6*Math.random())+1;
-			var typemd = 0;
-			var textmd = "";
-			if (rollmd > 3) {
-				alert("Mystery Data roll failed. 2 optional MDs may still be awarded per thread.");
-			}
-			else {
-				if (rollmd === 1 && netbat > 10) typemd += 2;
-				typemd += netrank;
-				switch (typemd) {
-					case 0: textmd = "GMD: "; alert("Green Mystery Data found!"); break;
-					case 2: textmd = "BMD: "; alert("Blue Mystery Data found!"); break;
-					case 4: textmd = "PMD: "; alert("Purple Mystery Data found!"); break;
-					case 6: textmd = "RMD: "; alert("Red Mystery Data found!"); break;
-					case 8: textmd = "YMD: "; alert("Yellow Mystery Data found!"); break;
-				}
-				var mdhp;
-				if ($('#vlist_tempvirus').html === "") mdhp = 0;
-				else mdhp = $('.vlist_entv').length*5;
-				var tempmd = "<span class='vlist_remd'>" + textmd + "<span class='vlist_mdhp'>" + mdhp + "</span> HP<br></span>";
-				$('#vlist_tempobj').append(tempmd);
-				$('.vlist_remd').unbind('dblclick');
-				$('.vlist_remd').dblclick(function() {	$(this).remove();	});
-			}
-		}
-	});
-	
-	$('#vlist_query').bind('input', function() {
-		var vQuery = $(this).val();
-		var omegafilter = vQuery.toLowerCase().indexOf('meg') > -1 && vQuery.length < 5;
-		if(vQuery.length > 2 && !omegafilter){
-			var vQuery = $(this).val();
-			document.getElementById('vlist_queryres').innerHTML ='';
-			for (key in virusData) {
-				for (var i = 0; i < virusData[key].virus.length; i++) {
-					let queryok = 0;
-					queryok += virusData[key].virus[i].name.toLowerCase().indexOf(vQuery.toLowerCase()) > -1 ? 1 : 0;
-					queryok += key.toLowerCase().indexOf(vQuery.toLowerCase()) > -1 ? 1 : 0;
-					if (queryok) {
-						document.getElementById('vlist_queryres').innerHTML += "<span style='cursor: pointer;' class='mini vq_res'>[&#8593;]</span>"; 
-						if (!('family_meta' in virusData[key]) && key != "Mimic" && key != "Rush" && i % 2 === 0) {
-							document.getElementById('vlist_queryres').innerHTML += ` <span style='cursor: pointer;' class='mini vlist_huntgen' id='${key}--${i}'>[x]</span>`; 
+				
+				$('#vlist_reset').click(function() {
+						$('#vlist_tempvirus').html("<strong>[b]-- Viruses --[/b]</strong><br>");
+						$('#vlist_tempnavi').html("<br><strong>[b]-- Navis --[/b]</strong><br>");
+						for (var i = 0; i < netnavi; i++) { 
+						$('#vlist_tempnavi').append("<span contenteditable='true' style='color:darkgrey'>Battler</span>.EXE: <span contenteditable='true' style='color:darkgrey'>100</span> HP<br>");
 						}
-						else document.getElementById('vlist_queryres').innerHTML += " <span class='mini'>[_]</span>"
-						document.getElementById('vlist_queryres').innerHTML += " <span>" + virusData[key].virus[i].name + "</span> (" + key + ")<br>";
-						$('.vq_res').click(function() {
-							openVrWnd($(this).next().next().text());
+						$('#vlist_tempterr').html("<br><strong>[b]-- Terrain --[/b]</strong><br>");
+						$('#vlist_tempobj').html("<br><strong>[b]-- Objects --[/b]</strong><br>");
+						$('#vlist_tempstart').html("<br><strong>[b]-- " + netranktx + "Battle " + netbat + " Ready? Start!! --[/b]</strong><br>");
+					}); 
+				
+				$('#vlist_meta').click(function() {
+					if($('.vlist_entm').length > 0) alert("Metaviruses already added!")
+					else {
+						for (var key in virusData) {
+							if ('family_meta' in virusData[key]) 
+							{
+								var virusentry = virusData[key].virus[netrank].name + " <span class='mini vlist_entm'>(" + key + ")</span><br>";
+								var virusopt = "<span class='mini' id='" + key + "-" + netrank + "'><span class='vlist_add vlist_addm'>[+]</span> <span class='vlist_info1'>[1]</span> <span class='vlist_info2'>[2]</span> </span>";
+								if (netarea === "Undernet") {
+									$('#vlist_resex').hide();
+									$('#vlist_res').attr('colspan','2');
+									if (netbat < 5) { if (virusData[key].pre6) $('#vlist_res').append(virusopt, virusentry); }
+									else { $('#vlist_res').append(virusopt, virusentry); }
+								}
+								else {
+									if (netbat > 5) { 
+										var virusentryx = virusData[key].virus[netrankx].name + " <span class='mini vlist_entm'>(" + key + ")</span><br>";
+										var virusoptx = "<span class='mini' id='" + key + "-" + netrankx + "'><span class='vlist_add vlist_addm'>[+]</span> <span class='vlist_info1'>[1]</span> <span class='vlist_info2'>[2]</span> </span>";
+										$('#vlist_resex').append(virusoptx, virusentryx); 
+										$('#vlist_res').append(virusopt, virusentry);
+									}
+									else { 
+									if (virusData[key].pre6) $('#vlist_res').append(virusopt, virusentry);
+									}
+								}
+							}
+						}
+						$('.vlist_add, .vlist_info1, .vlist_info2').unbind("click");
+						$('.vlist_add').click(function() {
+							var akey = $(this).parent().prop("id").slice(0, -2);
+							var arank = parseInt($(this).parent().prop("id").slice(-1), 10);
+							var tvirus = "<span class='vlist_remv'>[virus]<span class='vlist_entv'>" + virusData[akey].virus[arank].name + "</span>[/virus]<span class='vlist_entvi'></span>: "+ virusData[akey].virus[arank].hpts + " HP" + "<br></span>";
+							if ($('.vlist_entv').filter(function() { return $(this).text() === virusData[akey].virus[arank].name; }).length > 0) {
+								$('.vlist_entv').filter(function() { return $(this).text() === virusData[akey].virus[arank].name; }).parent().last().after(tvirus);
+							}
+							else $('#vlist_tempvirus').append(tvirus);
+							$('.vlist_entv').filter(function() { return $(this).text() === virusData[akey].virus[arank].name; }).next(".vlist_entvi").empty();
+							if ($(".vlist_entv").filter(function() { return $(this).text() === virusData[akey].virus[arank].name; }).length > 1) {
+								$(".vlist_entv").filter(function() { return $(this).text() === virusData[akey].virus[arank].name; }).each(function(index) {
+									$(this).next(".vlist_entvi").html(" " + String.fromCharCode(65 + index));
+								});
+							}
+							$('.vlist_mdhp').html($('.vlist_entv').length*5);
+							$(".vlist_remv").unbind( "click" );
+							$('.vlist_remv').click(function() {
+								tvirus = $(".vlist_entv", this).text();
+								$('.vlist_entv').filter(function() { return $(this).text() === tvirus; }).next(".vlist_entvi").empty();
+								$(this).remove();
+								if ($('.vlist_entv').filter(function() { return $(this).text() === tvirus; }).length > 1) {
+									$('.vlist_entv').filter(function() { return $(this).text() === tvirus; }).each(function(index) {
+										$(this).next(".vlist_entvi").html(" " + String.fromCharCode(65 + index));
+									});
+								}
+								$('.vlist_mdhp').html($('#vlist_tempvirus .vlist_entv').length*5);
+							});
 						});
-						$('.vlist_huntgen').click(function(){
-							GetVirusBounty($(this).attr('id'));
+						$('.vlist_info1').click(function() {
+							$('#vlist_info1').show();
+							var i1key = $(this).parent().prop("id").slice(0, -2);
+							var i1rank = parseInt($(this).parent().prop("id").slice(-1), 10);
+							$('#vlist_info1').html("<span id='vlist_infopop1' style='cursor:pointer'>[&#8593;]</span> <strong>" + virusData[i1key].virus[i1rank].name + "</strong> <a href='" + virusData[i1key].family_url + "'>("+ i1key +")</a><br><br>");
+							if (virusData[i1key].family_note !== "") $('#vlist_info1').append(virusData[i1key].family_note, "<br><br>");
+							$('#vlist_info1').append("Area:");
+							if (virusData[i1key].family_area.length === 0) { $('#vlist_info1').append(" All<br><br>"); }
+							else {
+								for (var i = 0; i < virusData[i1key].family_area.length; i++) {
+									if (i === virusData[i1key].family_area.length-1) $('#vlist_info1').append(" " + virusData[i1key].family_area[i] + "<br><br>");
+									else $('#vlist_info1').append(" " + virusData[i1key].family_area[i] + ",");
+								}
+							}
+							$('#vlist_info1').append(virusData[i1key].virus[i1rank].desc);
+							$('#vlist_infopop1').click(function () {openVrWnd(virusData[i1key].virus[i1rank].name); });
+						});
+			
+						$('.vlist_info2').click(function() {
+							$('#vlist_info2').show();
+							var i2key = $(this).parent().prop("id").slice(0, -2);
+							var i2rank = parseInt($(this).parent().prop("id").slice(-1), 10);
+							$('#vlist_info2').html("<span id='vlist_infopop2' style='cursor:pointer'>[&#8593;]</span> <strong>" + virusData[i2key].virus[i2rank].name + "</strong> <a href='" + virusData[i2key].family_url + "'>("+ i2key +")</a><br><br>");
+							if (virusData[i2key].family_note !== "") $('#vlist_info2').append(virusData[i2key].family_note, "<br><br>");
+							$('#vlist_info2').append("Area:");
+							if (virusData[i2key].family_area.length === 0) { $('#vlist_info2').append(" All<br><br>"); }
+							else {
+								for (var i = 0; i < virusData[i2key].family_area.length; i++) {
+									if (i === virusData[i2key].family_area.length-1) $('#vlist_info2').append(" " + virusData[i2key].family_area[i] + "<br><br>");
+									else $('#vlist_info2').append(" " + virusData[i2key].family_area[i] + ",");
+								}
+							}
+							$('#vlist_info2').append(virusData[i2key].virus[i2rank].desc);
+							$('#vlist_infopop2').click(function () {openVrWnd(virusData[i2key].virus[i2rank].name); });
 						});
 					}
-				}
-			}
-		}
-		if($(this).val().length === 0) document.getElementById('vlist_queryres').innerHTML ='';
-	});
-
-	$('#vlist_querychip').bind('input', function() {
-		var cQuery = $(this).val();
-		if(cQuery.length > 2){
-			document.getElementById('vlist_queryres').innerHTML ='';
-			for (key in chipData) {
-				let queryok = 0;
-				queryok += virusData[key].virus[i].name.toLowerCase().indexOf(vQuery.toLowerCase()) > -1 ? 1 : 0;
-				queryok += key.toLowerCase().indexOf(vQuery.toLowerCase()) > -1 ? 1 : 0;
-				if (queryok) {
-					document.getElementById('vlist_queryres').innerHTML += "<span style='cursor: pointer;' class='mini vq_res'>[&#8593;]</span>"; 
-					if (!('family_meta' in virusData[key]) && key != "Mimic" && key != "Rush" && i % 2 === 0) {
-						document.getElementById('vlist_queryres').innerHTML += ` <span style='cursor: pointer;' class='mini vlist_huntgen' id='${key}--${i}'>[x]</span>`; 
+				});
+				
+				$('#vlist_addsp').click(function() {
+					$('#vlist_tempnavi').append("<span class='vlist_remd'><span contenteditable='true' style='color:darkgrey'>BattleProg</span>.SP: <span contenteditable='true' style='color:darkgrey'>40</span> HP<br></span>");
+					$('.vlist_remd').unbind('dblclick');
+					$('.vlist_remd').dblclick(function() {	$(this).remove();	});
+				});
+					
+				$('#vlist_addobj').click(function() {
+					$('#vlist_tempobj').append("<span class='vlist_remd'><span contenteditable='true' style='color:darkgrey'>FieldObject</span>: <span contenteditable='true' style='color:darkgrey'>40</span> HP<br></span>");
+					$('.vlist_remd').unbind('dblclick');
+					$('.vlist_remd').dblclick(function() {	$(this).remove();	});
+				});
+				
+				$('#vlist_mmc').click(function() {
+					var mmctype = netrank;
+					if (netrank === 6) mmctype--;
+					if ($(".vlist_entv:contains('" + virusData['Mimic'].virus[mmctype].name + "')").length > 0) {
+						alert("No more than one Mimic per battle!");
 					}
-					else document.getElementById('vlist_queryres').innerHTML += " <span class='mini'>[_]</span>"
-					document.getElementById('vlist_queryres').innerHTML += " <span>" + virusData[key].virus[i].name + "</span> (" + key + ")<br>";
-					$('.vq_res').click(function() {
-						openVrWnd($(this).next().next().text());
+					else {
+						var tvirus = "<span class='vlist_remv'>[virus]<span class='vlist_entv'>" + virusData['Mimic'].virus[mmctype].name + "</span>[/virus]: "+ virusData['Mimic'].virus[mmctype].hpts + " HP" + "<br></span>";
+						$('#vlist_tempvirus').append(tvirus);
+						$('.vlist_mdhp').html($('.vlist_entv').length*5);
+						$(".vlist_remv").unbind( "click" );
+						$('.vlist_remv').click(function() {
+							$(this).remove();
+							$('.vlist_mdhp').html($('#vlist_tempvirus .vlist_entv').length*5);
+						});
+						$('#vlist_info1').show();
+						$('#vlist_info1').html("<span id='vlist_infopop1' style='cursor:pointer'>[&#8593;]</span> <strong>" + virusData['Mimic'].virus[mmctype].name + "</strong> <a href='" + virusData['Mimic'].family_url + "'>(Mimic)</a><br><br>");
+						$('#vlist_info1').append(virusData['Mimic'].family_note, "<br><br>");
+						$('#vlist_info1').append("Area: All<br><br>");
+						$('#vlist_info1').append(virusData['Mimic'].virus[mmctype].desc);
+						$('#vlist_infopop1').click(function () {openVrWnd(virusData['Mimic'].virus[mmctype].name); });
+					}
+				});
+					
+				$('#vlist_rmmc').click(function() {
+					var mmctype = netrank+1;
+					if (netrank === 6) mmctype--;
+					if ($(".vlist_entv:contains('" + virusData['Mimic'].virus[mmctype].name + "')").length > 0) {
+						alert("No more than one Mimic per battle!");
+					}
+					else {
+						var tvirus = "<span class='vlist_remv'>[virus]<span class='vlist_entv'>" + virusData['Mimic'].virus[mmctype].name + "</span>[/virus]: "+ virusData['Mimic'].virus[mmctype].hpts + " HP" + "<br></span>";
+						$('#vlist_tempvirus').append(tvirus);
+						$('.vlist_mdhp').html($('.vlist_entv').length*5);
+						$(".vlist_remv").unbind( "click" );
+						$('.vlist_remv').click(function() {
+							$(this).remove();
+							$('.vlist_mdhp').html($('#vlist_tempvirus .vlist_entv').length*5);
+						});
+						$('#vlist_info1').show();
+						$('#vlist_info1').html("<span id='vlist_infopop1' style='cursor:pointer'>[&#8593;]</span> <strong>" + virusData['Mimic'].virus[mmctype].name + "</strong> <a href='" + virusData['Mimic'].family_url + "'>(Mimic)</a><br><br>");
+						$('#vlist_info1').append(virusData['Mimic'].family_note, "<br><br>");
+						$('#vlist_info1').append("Area: All<br><br>");
+						$('#vlist_info1').append(virusData['Mimic'].virus[mmctype].desc);
+						$('#vlist_infopop1').click(function () {openVrWnd(virusData['Mimic'].virus[mmctype].name); });
+					}
+				});
+				
+				$('#vlist_random').click(function() {
+					$('#vlist_reset').click();
+					var randbat = Math.floor(Math.random() * (maxbat*netnavi - minbat*netnavi + 1)) + minbat*netnavi;
+					for (i = 0; i < randbat; i++) {
+						if (randbat - i < 3) { 
+							randi = Math.floor(Math.random()*$('.vlist_add').not('.vlist_addm').length);
+							$('.vlist_add').not('.vlist_addm').eq(randi).click();
+						}
+						else {
+							randi = Math.floor(Math.random()*$('.vlist_add').length);
+							$('.vlist_add').eq(randi).click();
+							if ($('.vlist_add').eq(randi).hasClass('vlist_addm')) i += 2;
+						}
+						switch ($('.vlist_add').eq(randi).parent().prop("id").slice(0, -2)) {
+								case "Lunaroid": case "Solarite": case "Twins": i++; break;
+								default: break;
+						}
+					}
+					var totalterr = 100;
+					var rterr = 0;
+					shuffle($(".vlist_addland")).slice(0, 4).each(function(index, entry){
+						entry.click();
+						rterr = Math.round(Math.random()*totalterr/5)*5;
+						$('.vlist_landq').last().html(rterr);
+						totalterr -= rterr;
 					});
+					if (totalterr > 0) {
+						var remterr = parseInt($('.vlist_landq').last().html(), 10);
+						$('.vlist_landq').last().html(remterr + totalterr);
+					}
+					$('.vlist_landq').each(function() {
+						if (parseInt($(this).html()) === 0) $(this).parent().remove();
+					});
+					$('#vlist_md').click();
+					randi = Math.floor(Math.random()*4);
+					while (randi--) $('#vlist_addobj').click();
+				});
+				
+				$('#vlist_clear').click(function() {
+					$('#vlist_res').empty();
+					$('#vlist_resex').empty();
+				});
+				
+				$('#vlist_md').click(function() {
+					if ($('.vlist_mdhp').length > 0) alert ("No more than one Mystery Data per battle!");
+					else {
+						var rollmd = Math.floor(6*Math.random())+1;
+						var typemd = 0;
+						var textmd = "";
+						if (rollmd > 3) {
+							alert("Mystery Data roll failed. 2 optional MDs may still be awarded per thread.");
+						}
+						else {
+							if (rollmd === 1 && netbat > 10) typemd += 2;
+							typemd += netrank;
+							switch (typemd) {
+								case 0: textmd = "GMD: "; alert("Green Mystery Data found!"); break;
+								case 2: textmd = "BMD: "; alert("Blue Mystery Data found!"); break;
+								case 4: textmd = "PMD: "; alert("Purple Mystery Data found!"); break;
+								case 6: textmd = "RMD: "; alert("Red Mystery Data found!"); break;
+								case 8: textmd = "YMD: "; alert("Yellow Mystery Data found!"); break;
+							}
+							var mdhp;
+							if ($('#vlist_tempvirus').html === "") mdhp = 0;
+							else mdhp = $('.vlist_entv').length*5;
+							var tempmd = "<span class='vlist_remd'>" + textmd + "<span class='vlist_mdhp'>" + mdhp + "</span> HP<br></span>";
+							$('#vlist_tempobj').append(tempmd);
+							$('.vlist_remd').unbind('dblclick');
+							$('.vlist_remd').dblclick(function() {	$(this).remove();	});
+						}
+					}
+				});
+				
+				$('#vlist_query').bind('input', function() {
+					var vQuery = $(this).val();
+					var omegafilter = vQuery.toLowerCase().indexOf('meg') > -1 && vQuery.length < 5;
+					if(vQuery.length > 2 && !omegafilter){
+						var vQuery = $(this).val();
+						document.getElementById('vlist_queryres').innerHTML ='';
+						for (key in virusData) {
+							for (var i = 0; i < virusData[key].virus.length; i++) {
+								let queryok = 0;
+								queryok += virusData[key].virus[i].name.toLowerCase().indexOf(vQuery.toLowerCase()) > -1 ? 1 : 0;
+								queryok += key.toLowerCase().indexOf(vQuery.toLowerCase()) > -1 ? 1 : 0;
+								if (queryok) {
+									document.getElementById('vlist_queryres').innerHTML += "<span style='cursor: pointer;' class='mini vq_res'>[&#8593;]</span>"; 
+									if (!('family_meta' in virusData[key]) && key != "Mimic" && key != "Rush" && i % 2 === 0) {
+										document.getElementById('vlist_queryres').innerHTML += ` <span style='cursor: pointer;' class='mini vlist_huntgen' id='${key}--${i}'>[x]</span>`; 
+									}
+									else document.getElementById('vlist_queryres').innerHTML += " <span class='mini'>[_]</span>"
+									document.getElementById('vlist_queryres').innerHTML += " <span>" + virusData[key].virus[i].name + "</span> (" + key + ")<br>";
+									$('.vq_res').click(function() {
+										openVrWnd($(this).next().next().text());
+									});
+									$('.vlist_huntgen').click(function(){
+										GetVirusBounty($(this).attr('id'));
+									});
+								}
+							}
+						}
+					}
+					if($(this).val().length === 0) document.getElementById('vlist_queryres').innerHTML ='';
+				});
+			
+				$('#vlist_querychip').bind('input', function() {
+					var cQuery = $(this).val();
+					if(cQuery.length > 2){
+						document.getElementById('vlist_queryres').innerHTML ='';
+						for (key in chipData) {
+							let queryok = 0;
+							queryok += virusData[key].virus[i].name.toLowerCase().indexOf(vQuery.toLowerCase()) > -1 ? 1 : 0;
+							queryok += key.toLowerCase().indexOf(vQuery.toLowerCase()) > -1 ? 1 : 0;
+							if (queryok) {
+								document.getElementById('vlist_queryres').innerHTML += "<span style='cursor: pointer;' class='mini vq_res'>[&#8593;]</span>"; 
+								if (!('family_meta' in virusData[key]) && key != "Mimic" && key != "Rush" && i % 2 === 0) {
+									document.getElementById('vlist_queryres').innerHTML += ` <span style='cursor: pointer;' class='mini vlist_huntgen' id='${key}--${i}'>[x]</span>`; 
+								}
+								else document.getElementById('vlist_queryres').innerHTML += " <span class='mini'>[_]</span>"
+								document.getElementById('vlist_queryres').innerHTML += " <span>" + virusData[key].virus[i].name + "</span> (" + key + ")<br>";
+								$('.vq_res').click(function() {
+									openVrWnd($(this).next().next().text());
+								});
+								$('.vlist_huntgen').click(function(){
+									GetVirusBounty($(this).attr('id'));
+								});
+							}
+						}
+					}
+					if($(this).val().length === 0) document.getElementById('vlist_queryres').innerHTML ='';
+				});
+			
+				$('#vlist_huntinit').click(function() {
+					var huntinit = [];
+					var hunttier = parseInt($('#vlist_hunttier').val(), 10);
+					var huntchips = [];
+					for (var key in virusData) {
+						if (!('family_meta' in virusData[key]) && key != "Mimic" && key != "Rush") {
+							var virusentry = "[virus]" + virusData[key].virus[hunttier].name + "[/virus] (" + key + ")</span>";
+							huntchips = [];
+							for (let i = 0; i < virusData[key].virus[hunttier].rslt.length; i++) {
+								var huntchip = `[chip=${virusData[key].virus[hunttier].rslt[i]},f]`;
+								huntchip += virusData[key].virus[hunttier].rare[i] ? " (Rare)" : "";
+								huntchips.push(huntchip);
+							}
+							huntinit.push(`[b]${virusentry}[/b] - ${huntchips.join(', ')}</span>`);
+						}
+						else continue;
+					}
+					huntinit = shuffle(huntinit);
+					$('#vlist_huntres').empty();
+					$('#vlist_huntres').html(huntinit.slice(0,12).join('<br>'));
 					$('.vlist_huntgen').click(function(){
 						GetVirusBounty($(this).attr('id'));
 					});
-				}
+				});
+				
 			}
-		}
-		if($(this).val().length === 0) document.getElementById('vlist_queryres').innerHTML ='';
-	});
-
-	$('#vlist_huntinit').click(function() {
-		var huntinit = [];
-		var hunttier = parseInt($('#vlist_hunttier').val(), 10);
-		var huntchips = [];
-		for (var key in virusData) {
-			if (!('family_meta' in virusData[key]) && key != "Mimic" && key != "Rush") {
-				var virusentry = "[virus]" + virusData[key].virus[hunttier].name + "[/virus] (" + key + ")</span>";
-				huntchips = [];
-				for (let i = 0; i < virusData[key].virus[hunttier].rslt.length; i++) {
-					var huntchip = `[chip=${virusData[key].virus[hunttier].rslt[i]},f]`;
-					huntchip += virusData[key].virus[hunttier].rare[i] ? " (Rare)" : "";
-					huntchips.push(huntchip);
+			
+			function shuffle(array) {
+				var m = array.length, t, i;
+			
+				// While there remain elements to shuffle…
+				while (m) {
+			
+					// Pick a remaining element…
+					i = Math.floor(Math.random() * m--);
+			
+					// And swap it with the current element.
+					t = array[m];
+					array[m] = array[i];
+					array[i] = t;
 				}
-				huntinit.push(`[b]${virusentry}[/b] - ${huntchips.join(', ')}</span>`);
+			
+				return array;
 			}
-			else continue;
-		}
-		huntinit = shuffle(huntinit);
-		$('#vlist_huntres').empty();
-		$('#vlist_huntres').html(huntinit.slice(0,12).join('<br>'));
-		$('.vlist_huntgen').click(function(){
-			GetVirusBounty($(this).attr('id'));
-		});
-	});
-	
-}
-
-function shuffle(array) {
-  var m = array.length, t, i;
-
-  // While there remain elements to shuffle…
-  while (m) {
-
-    // Pick a remaining element…
-    i = Math.floor(Math.random() * m--);
-
-    // And swap it with the current element.
-    t = array[m];
-    array[m] = array[i];
-    array[i] = t;
-  }
-
-  return array;
-}
-
-function GetVirusBounty(virusID) {
-	var hkey = virusID.slice(0,-3), htier = Number(virusID.slice(-1));
-	var hzenny = netzenny.Undernet[2], temp;
-	var hchips = [], hrares = [], hchips2 = [];
-	for (let i = 0; i < virusData[hkey].virus[htier].rslt.length; i++) {
-		if (!virusData[hkey].virus[htier].rare[i]) hchips.push(virusData[hkey].virus[htier].rslt[i]);
-		else hrares.push(virusData[hkey].virus[htier].rslt[i]);
-	}
-	if (htier !== 6) {
-		for (let i = 0; i < virusData[hkey].virus[htier+2].rslt.length; i++) {
-			if (!virusData[hkey].virus[htier+2].rare[i]) hchips2.push(virusData[hkey].virus[htier+2].rslt[i]);
-		}
-		hrares = hrares.filter(e => hchips2.indexOf(e) === -1);
-		hchips2 = hchips2.filter(e => hchips.indexOf(e) === -1);
-		for (let i = 0; i < virusData[hkey].family_area.length; i++) {
-			temp = netzenny[virusData[hkey].family_area[i]][2] * (htier+1);
-			hzenny = temp <= hzenny ? temp : hzenny;
-		}
-	}
-	hchips = hchips.map(e => `[chip=${e},f]`);
-	hchips2 = hchips2.map(e => `[chip=${e},f]`);
-	hrares = hrares.map(e => `[chip=${e},f]`);
-
-	var hkill5 = hchips.length > 0 ? hchips.join('; OR ') + '; OR ' + (hzenny*5)+'z' : hzenny*5+'z';
-	var hkill20 = hchips2.length > 0 ? hchips2.join('; OR ') + '; OR ' : '';
-	hkill20 += hchips.length > 0 ? hchips.join(` + ${hzenny*15}z; OR `) + ` + ${hzenny*15}z; OR ` + (hzenny*20)+'z' : hzenny*20+'z';
-	
-	var hkill50 = hrares.length > 0 ? hrares.join('; OR ') + '; OR ' : '';
-	hkill50 += hchips2.length > 0 ? hchips2.join(` + ${hzenny*15}z; OR `) + ` + ${hzenny*15}z; OR ` : '';
-	hkill50 += hchips.length > 0 ? hchips.join(` + ${hzenny*20}z; OR `) + ` + ${hzenny*20}z; OR ` + (hzenny*35)+'z' : hzenny*35+'z';
-
-	var bounty = `<br><b>Bounty Info:</b><br><br>[b]Bounty Reward for ${virusData[hkey].virus[htier].name} (${hkey})[/b]<br><br>
-
-	Area: ${htier === 6 ? 'Undernet' : virusData[hkey].family_area.join(', ')}<br><br>
-
-	2 kills: ${hzenny*2}z, turn-in available<br>
-	5 kills: ${hkill5}<br>
-	10 kills: ${hzenny*8}z<br>
-	15 kills: ${hzenny*12}z<br>
-	20 kills: ${hkill20}<br>
-	30 kills: ${hzenny*25}z<br>
-	50 kills: ${hkill50}<br>
-	`
-
-	$('#vlist_genres').html(bounty);
-}
-
-function getRushReward(tier) {
-  const viruses = Object.assign({}, virusData);
-  delete viruses.Rush; delete viruses.Mimic;
-
-  const lowEnd = (tier - 1) * 2;
-  const highEnd = lowEnd + 2;
-
-  const rareChipSet = new Set();
-  Object.values(viruses).forEach(virusFamily => virusFamily.virus.slice(lowEnd, highEnd).forEach(vrs => vrs.rslt.forEach((chip, idx) => vrs.rare[idx] ? rareChipSet.add(chip) : '')));
-  const rareChipsArray = Array.from(rareChipSet);
-  const item = rareChipsArray[Math.floor(Math.random()*rareChipsArray.length)];
-
-  alert(`Rare chip result: ${item}`);
-}
-
-window.onload = listInit;
-window.onunload = listDeinit;
-
-</script>
+			
+			function GetVirusBounty(virusID) {
+				var hkey = virusID.slice(0,-3), htier = Number(virusID.slice(-1));
+				var hzenny = netzenny.Undernet[2], temp;
+				var hchips = [], hrares = [], hchips2 = [];
+				for (let i = 0; i < virusData[hkey].virus[htier].rslt.length; i++) {
+					if (!virusData[hkey].virus[htier].rare[i]) hchips.push(virusData[hkey].virus[htier].rslt[i]);
+					else hrares.push(virusData[hkey].virus[htier].rslt[i]);
+				}
+				if (htier !== 6) {
+					for (let i = 0; i < virusData[hkey].virus[htier+2].rslt.length; i++) {
+						if (!virusData[hkey].virus[htier+2].rare[i]) hchips2.push(virusData[hkey].virus[htier+2].rslt[i]);
+					}
+					hrares = hrares.filter(e => hchips2.indexOf(e) === -1);
+					hchips2 = hchips2.filter(e => hchips.indexOf(e) === -1);
+					for (let i = 0; i < virusData[hkey].family_area.length; i++) {
+						temp = netzenny[virusData[hkey].family_area[i]][2] * (htier+1);
+						hzenny = temp <= hzenny ? temp : hzenny;
+					}
+				}
+				hchips = hchips.map(e => `[chip=${e},f]`);
+				hchips2 = hchips2.map(e => `[chip=${e},f]`);
+				hrares = hrares.map(e => `[chip=${e},f]`);
+			
+				var hkill5 = hchips.length > 0 ? hchips.join('; OR ') + '; OR ' + (hzenny*5)+'z' : hzenny*5+'z';
+				var hkill20 = hchips2.length > 0 ? hchips2.join('; OR ') + '; OR ' : '';
+				hkill20 += hchips.length > 0 ? hchips.join(` + ${hzenny*15}z; OR `) + ` + ${hzenny*15}z; OR ` + (hzenny*20)+'z' : hzenny*20+'z';
+				
+				var hkill50 = hrares.length > 0 ? hrares.join('; OR ') + '; OR ' : '';
+				hkill50 += hchips2.length > 0 ? hchips2.join(` + ${hzenny*15}z; OR `) + ` + ${hzenny*15}z; OR ` : '';
+				hkill50 += hchips.length > 0 ? hchips.join(` + ${hzenny*20}z; OR `) + ` + ${hzenny*20}z; OR ` + (hzenny*35)+'z' : hzenny*35+'z';
+			
+				var bounty = `<br><b>Bounty Info:</b><br><br>[b]Bounty Reward for ${virusData[hkey].virus[htier].name} (${hkey})[/b]<br><br>
+			
+				Area: ${htier === 6 ? 'Undernet' : virusData[hkey].family_area.join(', ')}<br><br>
+			
+				2 kills: ${hzenny*2}z, turn-in available<br>
+				5 kills: ${hkill5}<br>
+				10 kills: ${hzenny*8}z<br>
+				15 kills: ${hzenny*12}z<br>
+				20 kills: ${hkill20}<br>
+				30 kills: ${hzenny*25}z<br>
+				50 kills: ${hkill50}<br>
+				`
+			
+				$('#vlist_genres').html(bounty);
+			}
+			
+			function getRushReward(tier) {
+				const viruses = Object.assign({}, virusData);
+				delete viruses.Rush; delete viruses.Mimic;
+			
+				const lowEnd = (tier - 1) * 2;
+				const highEnd = lowEnd + 2;
+			
+				const rareChipSet = new Set();
+				Object.values(viruses).forEach(virusFamily => virusFamily.virus.slice(lowEnd, highEnd).forEach(vrs => vrs.rslt.forEach((chip, idx) => vrs.rare[idx] ? rareChipSet.add(chip) : '')));
+				const rareChipsArray = Array.from(rareChipSet);
+				const item = rareChipsArray[Math.floor(Math.random()*rareChipsArray.length)];
+			
+				alert(`Rare chip result: ${item}`);
+			}
+			
+			window.onload = listInit;
+			window.onunload = listDeinit;
+			
+			</script>
+			
+</body>
+</html>

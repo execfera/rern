@@ -1,109 +1,119 @@
-<style>
-	body { display: flex; align-items: center; flex-direction: column; background: #efebe9; min-height: 100vh; margin: 0; padding: 0; }
-	.container { width: 90vw; background: #fff; min-height: 100vh; }
-	.content { margin-left: 12px; }
-	.mini { color:grey; font-size:0.7em; }
-	table { width: calc(100% - 72px); margin-left: 24px; }
-	.lastpadding { height: 12px; }
-  h3:not(.normal) { cursor: pointer; }
-</style>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script>
-	let chipData = {}, reduceChip = {};
-  const traderData = {
-    "E": [],
-    "D": [],
-    "C": [],
-    "B": [],
-    "A": [],
-    "S": []
-  };
-
-  function chipFetch() {
-    return fetch("https://execfera.github.io/rern/chip.json")
-      .then(res => res.json())
-      .then(data => {
-        chipData = data;
-        reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
-          keys[k.toLowerCase()] = k; 
-            if (k[k.length - 1] === '1') keys[k.toLowerCase().slice(0, -1)] = k;
-          return keys;
-        }, {});
-      });
-  }
-
-  function random(number) {
-    return ((Math.random() * number) << 0) + 1;
-  }
-
-  function tradeInit() {
-    for (chip in chipData) {
-      let chiptier = chipData[chip].rank;
-      traderData[chiptier].push(chip);
-    }
-
-    delete traderData.E;
-
-    Object.keys(traderData).forEach(rank => {
-      const div = document.querySelector(`#rank${rank}`);
-      traderData[rank].forEach(chip => {
-        div.insertAdjacentHTML('beforeend', `${chip}<br>`);
-      });
-    });
-  }
-  
-  function chipTrade(rank) {
-    const items = traderData[rank];
-    const number = Math.floor(Math.random()*items.length);
-    alert(`Rank ${rank} roll: ${items[number]} (${number + 1})`);
-  }
-
-	function tagInit() { chipFetch().then(() => tradeInit()) }
-	window.addEventListener('DOMContentLoaded', tagInit, false);
-</script>
-<div class="container">
-	<div class="title">
-		<hr><center><b><font size="7">Mystery Data Tables</font></b></center><hr><br/>
-	</div>
-	<div class="content">
-    <h3 class="normal">How to use:</h3>
-    <ul>
-      <li>Note: The spawning part of this is already implemented in the Interactive Virus List, and is only here for purpose of clarity.</li><br>
-      <li>Mystery Data normally appear once every 5 battles in a thread, plus two extra per thread at mod's discretion.</li>
-      <li>They have HP equal to 5x the amount of viruses. A Metavirus counts as 3 viruses for this purpose.</li><br>
-      <li>Spawning an MD: Roll a <button onclick="alert(random(6))">d6</button>. If it's 4-6, give an MD out, but if it's a 6 and the battle is 10+, give a rare MD out.</li>
-      <li>Rolling an MD reward: Roll a <button onclick="alert(random(10))">d10</button>.
-        <ul>
-          <li>1-2: Give the player a Mimic. Cannot be overridden by Millions/Collector/Bugger NCPs, unless the MD was Untrapped. If Untrap was used, convert the reward to Zenny, or the appropriate reward if they are equipped with Collector/Bugger NCPs.</li>
-          <li>3-6: Zenny reward. Regular MDs give 10x zenny that the player received from a normal virus from the most recent battle. Rare MDs give 20x. Override if they have Collector or Bugger NCPs.</li>
-          <li>7-10: Chip reward, according to MD type. Override if they have Millions or Bugger NCPs.</li>
-        </ul>
-      <br>
-      <li>Green Mystery Data: Normal Net regular. Gives Rank D chips.</li>
-      <li>Blue Mystery Data: Rogue Net regular, Normal Net rare. Gives Rank C chips.</li>
-      <li>Purple Mystery Data: Chaos Net regular, Rogue Net rare. Gives Rank B chips.</li>
-      <li>Red Mystery Data: Undernet regular, Chaos Net rare. Gives Rank A chips.</li>
-      <li>Yellow Mystery Data: Undernet rare. Gives Rank S chips.</li>
-      <br>
-      <li>If the MD result is a chip roll, click one of the buttons below to roll it.<br>
-        <button onclick="chipTrade('D')">Rank D</button> <button onclick="chipTrade('C')">Rank C</button> <button onclick="chipTrade('B')">Rank B</button> <button onclick="chipTrade('A')">Rank A</button> <button onclick="chipTrade('S')">Rank S</button> 
-      </li>
-    </ul>
-
-    <h3 onclick="chipTrade('D')">Rank D Chips</h3>
-    <div id="rankD"></div>
-    <h3 onclick="chipTrade('C')">Rank C Chips</h3>
-    <div id="rankC"></div>
-    <h3 onclick="chipTrade('B')">Rank B Chips</h3>
-    <div id="rankB"></div>
-    <h3 onclick="chipTrade('A')">Rank A Chips</h3>
-    <div id="rankA"></div>
-    <h3 onclick="chipTrade('S')">Rank S Chips</h3>
-    <div id="rankS"></div>
-		
-		<!-- <br><b>Rush Rare Chip Reward Generator: </b>
-		<input type="button" value="Rush" onclick="getRushReward(1)"> <input type="button" value="Rush2" onclick="getRushReward(2)"> <input type="button" value="Rush3" onclick="getRushReward(3)"> <input type="button" value="Rush Omega" onclick="getRushReward(4)"> -->
-
-		<div class="lastpadding"></div>
-	</div>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mystery Data Tables</title>
+</head>
+<body>
+    <style>
+        body { display: flex; align-items: center; flex-direction: column; background: #efebe9; min-height: 100vh; margin: 0; padding: 0; }
+        .container { width: 90vw; background: #fff; min-height: 100vh; }
+        .content { margin-left: 12px; }
+        .mini { color:grey; font-size:0.7em; }
+        table { width: calc(100% - 72px); margin-left: 24px; }
+        .lastpadding { height: 12px; }
+        h3:not(.normal) { cursor: pointer; }
+      </style>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script>
+        let chipData = {}, reduceChip = {};
+        const traderData = {
+          "E": [],
+          "D": [],
+          "C": [],
+          "B": [],
+          "A": [],
+          "S": []
+        };
+      
+        function chipFetch() {
+          return fetch("https://execfera.github.io/rern/chip.json")
+            .then(res => res.json())
+            .then(data => {
+              chipData = data;
+              reduceChip = Object.keys(chipData).reduce(function (keys, k) { 
+                keys[k.toLowerCase()] = k; 
+                  if (k[k.length - 1] === '1') keys[k.toLowerCase().slice(0, -1)] = k;
+                return keys;
+              }, {});
+            });
+        }
+      
+        function random(number) {
+          return ((Math.random() * number) << 0) + 1;
+        }
+      
+        function tradeInit() {
+          for (chip in chipData) {
+            let chiptier = chipData[chip].rank;
+            traderData[chiptier].push(chip);
+          }
+      
+          delete traderData.E;
+      
+          Object.keys(traderData).forEach(rank => {
+            const div = document.querySelector(`#rank${rank}`);
+            traderData[rank].forEach(chip => {
+              div.insertAdjacentHTML('beforeend', `${chip}<br>`);
+            });
+          });
+        }
+        
+        function chipTrade(rank) {
+          const items = traderData[rank];
+          const number = Math.floor(Math.random()*items.length);
+          alert(`Rank ${rank} roll: ${items[number]} (${number + 1})`);
+        }
+      
+        function tagInit() { chipFetch().then(() => tradeInit()) }
+        window.addEventListener('DOMContentLoaded', tagInit, false);
+      </script>
+      <div class="container">
+        <div class="title">
+          <hr><center><b><font size="7">Mystery Data Tables</font></b></center><hr><br/>
+        </div>
+        <div class="content">
+          <h3 class="normal">How to use:</h3>
+          <ul>
+            <li>Note: The spawning part of this is already implemented in the Interactive Virus List, and is only here for purpose of clarity.</li><br>
+            <li>Mystery Data normally appear once every 5 battles in a thread, plus two extra per thread at mod's discretion.</li>
+            <li>They have HP equal to 5x the amount of viruses. A Metavirus counts as 3 viruses for this purpose.</li><br>
+            <li>Spawning an MD: Roll a <button onclick="alert(random(6))">d6</button>. If it's 4-6, give an MD out, but if it's a 6 and the battle is 10+, give a rare MD out.</li>
+            <li>Rolling an MD reward: Roll a <button onclick="alert(random(10))">d10</button>.
+              <ul>
+                <li>1-2: Give the player a Mimic. Cannot be overridden by Millions/Collector/Bugger NCPs, unless the MD was Untrapped. If Untrap was used, convert the reward to Zenny, or the appropriate reward if they are equipped with Collector/Bugger NCPs.</li>
+                <li>3-6: Zenny reward. Regular MDs give 10x zenny that the player received from a normal virus from the most recent battle. Rare MDs give 20x. Override if they have Collector or Bugger NCPs.</li>
+                <li>7-10: Chip reward, according to MD type. Override if they have Millions or Bugger NCPs.</li>
+              </ul>
+            <br>
+            <li>Green Mystery Data: Normal Net regular. Gives Rank D chips.</li>
+            <li>Blue Mystery Data: Rogue Net regular, Normal Net rare. Gives Rank C chips.</li>
+            <li>Purple Mystery Data: Chaos Net regular, Rogue Net rare. Gives Rank B chips.</li>
+            <li>Red Mystery Data: Undernet regular, Chaos Net rare. Gives Rank A chips.</li>
+            <li>Yellow Mystery Data: Undernet rare. Gives Rank S chips.</li>
+            <br>
+            <li>If the MD result is a chip roll, click one of the buttons below to roll it.<br>
+              <button onclick="chipTrade('D')">Rank D</button> <button onclick="chipTrade('C')">Rank C</button> <button onclick="chipTrade('B')">Rank B</button> <button onclick="chipTrade('A')">Rank A</button> <button onclick="chipTrade('S')">Rank S</button> 
+            </li>
+          </ul>
+      
+          <h3 onclick="chipTrade('D')">Rank D Chips</h3>
+          <div id="rankD"></div>
+          <h3 onclick="chipTrade('C')">Rank C Chips</h3>
+          <div id="rankC"></div>
+          <h3 onclick="chipTrade('B')">Rank B Chips</h3>
+          <div id="rankB"></div>
+          <h3 onclick="chipTrade('A')">Rank A Chips</h3>
+          <div id="rankA"></div>
+          <h3 onclick="chipTrade('S')">Rank S Chips</h3>
+          <div id="rankS"></div>
+          
+          <!-- <br><b>Rush Rare Chip Reward Generator: </b>
+          <input type="button" value="Rush" onclick="getRushReward(1)"> <input type="button" value="Rush2" onclick="getRushReward(2)"> <input type="button" value="Rush3" onclick="getRushReward(3)"> <input type="button" value="Rush Omega" onclick="getRushReward(4)"> -->
+      
+          <div class="lastpadding"></div>
+        </div>
+      </div>
+      
+</body>
+</html>
