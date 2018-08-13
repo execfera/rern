@@ -61,7 +61,7 @@
 </script>
 <div class="container">
 	<div class="title">
-		<hr><center><b><font size="7">Chip Trader Tables</font></b></center><hr><br/>
+		<hr><center><b><font size="7">Chip Rolling Tables</font></b></center><hr><br/>
 	</div>
 	<div class="content">
     <h3 class="normal">How to use:</h3>
@@ -91,15 +91,17 @@
         </ul>
       </li>
       <br>
-      <li>BugFrag Trader: Bypass the d20.
+      <li>BugFrag Trader: Bypass the d20 and roll a chip rank directly.
         <ul>
-          <li>200 frags: Rank D.</li>
-          <li>350 frags: Rank C.</li>
-          <li>500 frags: Rank B.</li>
+          <li>200 frags: 1 Rank D chip.</li>
+          <li>350 frags: 1 Rank C chip.</li>
+          <li>500 frags: 1 Rank B chip.</li>
         </ul>
       </li>
       <br>
-      <li>After rolling for rank, click on the chips header text to roll a random chip.</li>
+      <li>After rolling for rank, click on the chips header text to roll a random chip, or one of the buttons below.<br>
+        <button onclick="chipTrade('E')">Rank E</button> <button onclick="chipTrade('D')">Rank D</button> <button onclick="chipTrade('C')">Rank C</button> <button onclick="chipTrade('B')">Rank B</button> <button onclick="chipTrade('A')">Rank A</button> <button onclick="chipTrade('S')">Rank S</button> 
+      </li>
     </ul>
 
     <h3 onclick="chipTrade('E')">Rank E (Junk) Chips</h3>
