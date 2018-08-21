@@ -246,7 +246,8 @@
 			
 				$('#vlist_search').click(function() {
 					netarea = $('#vlist_area').val();
-					netrank = parseInt($('#vlist_rank').val(), 10) || 6;
+					netrank = parseInt($('#vlist_rank').val(), 10);
+					netrank = isNaN(netrank) ? 6 : netrank;
 					netnavi = parseInt($('#vlist_navi').val(), 10);
 					netrankx = netrank+1;
 					switch (netrank) {
