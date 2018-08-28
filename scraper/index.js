@@ -1,31 +1,23 @@
-(async () => {
-  const webdriver = require('selenium-webdriver'),
-    By = webdriver.By,
-    until = webdriver.until;
-  const firefox = require('selenium-webdriver/firefox');
+const webdriver = require('selenium-webdriver'),
+  By = webdriver.By,
+  until = webdriver.until;
+const firefox = require('selenium-webdriver/firefox');
 
-  const driver = new webdriver.Builder()
-    .forBrowser('firefox')
-    .setFirefoxOptions(new firefox.Options()
-      .headless()
-      .windowSize({ width: 1920, height: 1080 })
-    )
-    .build();
+const driver = new webdriver.Builder()
+  .withCapabilities(webdriver.Capabilities.firefox())
+  .usingServer('http://127.0.0.1:2828')
+  /* .setFirefoxOptions(new firefox.Options()
+    .headless()
+    .windowSize({ width: 1920, height: 1080 })
+    .setProfile('C:\\Users\\Amir\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\boks55u5.dev-edition-default')
+  ) */
+  .build();
 
-  await driver.get('https://www.tapatalk.com/groups/rockmanchaosnetwork/');
+driver.catch(err => console.error(`build error: ${err}`));
 
-  await driver.findElement(By.css('.dropdown-trigger')).click();
-  const elements = await driver.findElements(By.css('a[role="menuitem"]'));
-  for (const el of elements) {
-    const text = await el.getAttribute('href');
-    console.log(`inner href ${text}`);
-  }
-
-  const title = await driver.getTitle();
-  const url = await driver.getCurrentUrl();
-  console.log(`title: ${title}, url: ${url}`);
-  driver.quit();
-
-})().catch(err => {
-  console.error(err);
-})
+driver.get('https://www.tapatalk.com/groups/rockmanchaosnetwork/')
+  .then(() => driver.findElements(By.css('a[role="menuitem"]')))
+  .then((elements) => elements.map(el => el.getAttribute('href')))
+  .then((stringArr) => stringArr.forEach(str => console.log(`href: ${str}`)))
+  .then((driver) => { driver.quit() })
+  .catch((err) => console.error(`fetch error: ${err}`));
