@@ -260,7 +260,7 @@ async function postLog() {
 function postLogInit() {
   if (modhook && posthook && !hkorigin.includes("ucp.php") && !hkorigin.includes('posting.php?mode=edit')) {
     console.log('RE:RN Script: Initializing posting log');
-    $('#qr_full_editor').click(() => hkdone = true);
+    $('.submit-buttons input[name="preview"], .submit-buttons input[name="save"]').click(() => hkdone = true);
     $('#postform, #qr_postform').submit(function(event) {
       if (hkdone) {
         hkdone = false;
