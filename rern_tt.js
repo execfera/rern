@@ -3,10 +3,10 @@
  */
 
 /**
- * Fetch external JSON data to load Battlechip, Virus, and Terrain info.
+ * Fetch external JSON data to load Battlechip, Virus, Terrain info, and Discord hook tokens.
  */
 
-let chipData = {}, reduceChip = {}, virusData = {}, terrainData = {};
+let chipData = {}, reduceChip = {}, virusData = {}, terrainData = {}, modhook = {}, posthook = {};
 
 const chipFetch = fetch("https://execfera.github.io/rern/chip.json")
   .then(res => res.json())
@@ -26,6 +26,13 @@ const virusFetch = fetch("https://execfera.github.io/rern/virus.json")
 const terrainFetch = fetch("https://execfera.github.io/rern/terrain.json")
   .then(res => res.json())
   .then(data => terrainData = data);
+
+const tokensFetch = fetch("https://execfera.github.io/rern/tokens.json")
+  .then(res => res.json())
+  .then(data => {
+    data.mod = modhook;
+    data.post = posthook;
+  });
 
 /**
  * Replace custom BBcode tags with clickable Battlechip data and text-hiding tags.
@@ -208,15 +215,6 @@ function tagInit() {
 /**
  * Log all posts to Discord.
  */
-
-const modhook = {
-  id: '468229103800287232',
-  token: 'sCWB3TsrVL8aUmfJo8P7m2bXof_5WiAnELn5R_7q6LgODjgJMHhV81qmD7pt2D-rOiR1',
-};
-const posthook = {
-  id: '468228941719797771',
-  token: 'N9lXCHw0sdhF_CJ44oo23kN8vm4rmiN852jhlIjz_edGt7rs8_Mj7Xf9ttcoH45PkCkn',
-};
 let hkhook = 'https://discordapp.com/api/webhooks/hookId/hookToken';
 let hkdone = false;
 const hkorigin = window.location.href;
@@ -258,27 +256,29 @@ async function postLog() {
 }
 
 function postLogInit() {
-  if (modhook && posthook && !hkorigin.includes("ucp.php") && !hkorigin.includes('posting.php?mode=edit')) {
-    console.log('RE:RN Script: Initializing posting log');
-    $('.submit-buttons input[name="preview"], .submit-buttons input[name="save"]').click(() => hkdone = true);
-    $('#postform, #qr_postform').submit(function(event) {
-      if (hkdone) {
-        hkdone = false;
-        return true;
-      }
-      event.preventDefault();
-      postLog().then(() => {
-        hkdone = true;
-        $('input.loadSubmit').removeAttr('hasDisabled');
-        $('input.loadSubmit').click();
-      }).catch(err => {
-        console.error(err);
-        hkdone = true;
-        $('input.loadSubmit').removeAttr('hasDisabled');
-        $('input.loadSubmit').click();
+  if (!hkorigin.includes("ucp.php") && !hkorigin.includes('posting.php?mode=edit')) {
+    tokensFetch.then(() => {
+      console.log('RE:RN Script: Initializing posting log');
+      $('.submit-buttons input[name="preview"], .submit-buttons input[name="save"]').click(() => hkdone = true);
+      $('#postform, #qr_postform').submit(function(event) {
+        if (hkdone) {
+          hkdone = false;
+          return true;
+        }
+        event.preventDefault();
+        postLog().then(() => {
+          hkdone = true;
+          $('input.loadSubmit').removeAttr('hasDisabled');
+          $('input.loadSubmit').click();
+        }).catch(err => {
+          console.error(err);
+          hkdone = true;
+          $('input.loadSubmit').removeAttr('hasDisabled');
+          $('input.loadSubmit').click();
+        });
       });
+      console.log('RE:RN Script: Finished initializing posting log');
     });
-    console.log('RE:RN Script: Finished initializing posting log');
   }
 }
 
