@@ -27,7 +27,7 @@ const terrainFetch = fetch("https://execfera.github.io/rern/terrain.json")
   .then(res => res.json())
   .then(data => terrainData = data);
 
-const tokensFetch = fetch("https://execfera.github.io/rern/tokens.json")
+const tokensFetch = fetch("https://execfera.github.io/rern/hooks.json")
   .then(res => res.json())
   .then(data => {
     data.mod = modhook;
