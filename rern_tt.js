@@ -271,6 +271,10 @@ function postLogInit() {
         hkdone = true;
         $('input.loadSubmit').removeAttr('hasDisabled');
         $('input.loadSubmit').click();
+      }).catch(() => {
+        hkdone = true;
+        $('input.loadSubmit').removeAttr('hasDisabled');
+        $('input.loadSubmit').click();
       });
     });
     console.log('RE:RN Script: Finished initializing posting log');
