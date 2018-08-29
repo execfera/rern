@@ -222,26 +222,26 @@ let hkdone = false;
 const hkorigin = window.location.href;
 
 async function postLog() {
-  const hkuser = document.querySelector('.username-coloured').textContent;
+  const hkuser = $('.username-coloured, .username').first().text() || 'User Error';
   const hktype = hkorigin.includes('posting.php') ? 'posting' : 'topic';
-  const hkurl = document.querySelector(`.${hktype}-title a`).href;
+  const hkurl = $(`.${hktype}-title a`).attr('href') || 'Error retrieving URL';
   let hkthread = '', hkarea = '';
 
   if (hkorigin.includes("posting.php?mode=post")) {
-    hkthread = document.querySelector('#subject').value;
-    hkarea = document.querySelector(`.${hktype}-title a`).textContent;
+    hkthread = $('#subject').val() || 'Thread Error';
+    hkarea = $(`.${hktype}-title a`).text() || 'Area Error';
   } else {
-    hkthread = document.querySelector(`.${hktype}-title a`).textContent;
-    hkarea = document.querySelector('.nav-breadcrumbs .crumb:last-of-type a').textContent.trim();
+    hkthread = $(`.${hktype}-title a`).text() || 'Thread Error';
+    hkarea = $('.nav-breadcrumbs .crumb:last-of-type a').text().trim() || 'Area Error';
   }
 
   if (hkarea !== "Admin Council") { 
     const content = {
       content: `User: \`${hkuser}\` Thread: \`${hkthread}\` Area: \`${hkarea}\`\nURL: <${hkurl}>`
     };
-    const thirdLink = document.querySelector('.nav-breadcrumbs .crumb:nth-of-type(3) a');
+    const thirdLink = $('.nav-breadcrumbs .crumb:nth-of-type(3) a');
 
-    if (thirdLink && thirdLink.textContent.trim() === "Mod Cave") {
+    if (thirdLink && thirdLink.text().trim() === "Mod Cave") {
       hkhook = hkhook.replace('hookId', modhook.id).replace('hookToken', modhook.token);
     } else {
       hkhook = hkhook.replace('hookId', posthook.id).replace('hookToken', posthook.token);
@@ -271,7 +271,8 @@ function postLogInit() {
         hkdone = true;
         $('input.loadSubmit').removeAttr('hasDisabled');
         $('input.loadSubmit').click();
-      }).catch(() => {
+      }).catch(err => {
+        console.error(err);
         hkdone = true;
         $('input.loadSubmit').removeAttr('hasDisabled');
         $('input.loadSubmit').click();
