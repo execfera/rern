@@ -40,3 +40,7 @@ config.json
 
 # Personal file
 rern.txt
+
+# Scraper stuff
+auth.json
+log.txt
