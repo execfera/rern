@@ -1,10 +1,7 @@
 const superagent = require('superagent');
-const cheerio = require('cheerio');
 const agent = superagent.agent();
+const cheerio = require('cheerio');
 const fs = require('fs');
-let logBuffer = '';
-let sessionId = '';
-let acpSessionId = '';
 
 /**
  * Forum parameters to be used.
@@ -13,10 +10,16 @@ let acpSessionId = '';
  */
 const forumParams = require('./auth.json');
 
+let logBuffer = '';
+let sessionId = '';
+let acpSessionId = '';
+let memberIdCount = 0;
+
 async function getMainIndex() {
   /**
    * Login to get session ID, and pass cookies to agent.
    */
+  
   const loginPage = cheerio.load((await agent.get(`${forumParams.url}ucp.php?mode=login`)).text);
   sessionId = loginPage('input[name="sid"]').val();
 
@@ -30,6 +33,8 @@ async function getMainIndex() {
     .field('username', forumParams.user)
     .field('redirect', `${forumParams.url}index.php`)
     .field('sid', sessionId);
+
+  /* testWriteFile('loginRes.txt', loginRes); */
 
   /**
    * Parse the resulting main page.
@@ -49,16 +54,20 @@ async function getMainIndex() {
           title: mainPage(this).find('.forumtitle').text(),
           forumId: numberConv(mainPage(this).find('.forumtitle').attr('href').match(/f(\d+)\/$/)[1]),
           desc: mainPage(this).find('.forum_description').text(),
-          posts: numberConv(mainPage(this).find('.posts').contents().filter(function() { return this.nodeType === 3 }).text()),
-          topics: numberConv(mainPage(this).find('.topics').contents().filter(function() { return this.nodeType === 3 }).text()),
         };
-        index.lastPost = mainPage(this).find('.lastpost .lastsubject').text() ? {
-          title: mainPage(this).find('.lastpost .lastsubject').text(),
-          poster: mainPage(this).find('.display_username a').text(),
-          posterId: numberConv(mainPage(this).find('.display_username a').attr('href').match(/u=(\d+)$/)[1]),
-          threadId: numberConv(mainPage(this).find('.lastpost .lastsubject').attr('href').match(/-t(\d+)(\.|\-)/)[1]),
-          postId: numberConv(mainPage(this).find('.lastpost .lastsubject').attr('href').match(/#p(\d+)$/)[1]),
-        } : undefined;
+        const lastPostTitle = mainPage(this).find('.lastpost .lastsubject').text();
+        if (lastPostTitle) {
+          index.lastPost = {
+            title: lastPostTitle,
+            poster: mainPage(this).find('.display_username a').text(),
+            posterId: numberConv(mainPage(this).find('.display_username a').attr('href').match(/u=(\d+)$/)[1]),
+            threadId: numberConv(mainPage(this).find('.lastpost .lastsubject').attr('href').match(/-t(\d+)(\.|\-)/)[1]),
+            postId: numberConv(mainPage(this).find('.lastpost .lastsubject').attr('href').match(/#p(\d+)$/)[1]),
+            time: dateConv(mainPage(this).find('.lastpost > span').contents().filter(function() { return this.nodeType === 3 }).eq(-1).text()),
+          };
+          index.posts = numberConv(mainPage(this).find('.posts').contents().filter(function() { return this.nodeType === 3 }).text());
+          index.topics = numberConv(mainPage(this).find('.topics').contents().filter(function() { return this.nodeType === 3 }).text());
+        }
         return index;
       } catch (err) {
         log(`Error parsing forum ${mainPage(this).find('.forumtitle').text()}`);
@@ -66,9 +75,9 @@ async function getMainIndex() {
       }
     }).get();
   const admLink = mainPage('.dropdown a').first().attr('href');
+  memberIdCount = Number(mainPage('.stat-block.statistics strong').last().children().attr('href').match(/u=(\d+)$/)[1]);
 
-  log(`Forum: ${forumName}`)
-  log(`Description: ${forumDesc}`);
+  log(`Forum: ${forumName} | Description: ${forumDesc} | Member ID Count: ${memberIdCount}`);
   log(`Logged in as User: ${loggedUser} | Avatar ${loggedAvatar} | Session ID: ${sessionId}`);
   log(`Admin console link: ${admLink}`);
   line();
@@ -90,15 +99,54 @@ async function getMainIndex() {
     .field('redirect', admLink)
     .field('sid', acpSessionId);
 
+  /* testWriteFile('acpLogin.txt', acpLoginRes); */
+
   const acpMainPage = cheerio.load(acpLoginRes.text);
   const firstRowIP = acpMainPage('.zebra-table td').eq(1).text();
 
   log(`Logged in as Admin: ${loggedUser} | IP: ${firstRowIP} | Credential: ${credential} | Session ID: ${acpSessionId}`);
   line();
 
-  log('Forum index:');
+  /**
+   * Member backup.
+   */
+
+  /* const members = [{ id: 0 }];
+
+  for (let i = 1; i <= memberIdCount; i++) {
+    const userPage = cheerio.load((await agent.get(`${forumParams.url}memberlist.php?mode=viewprofile&u=${i}`)).text);
+    if (userPage('.operation a').length) {
+      const userPageAdmUrl = userPage('.operation a').filter(function() { return userPage(this).attr('href').includes('/adm/') }).attr('href');
+      const name = userPage('.profile .username').text().trim();
+      const userPageAdm = cheerio.load((await agent.get(userPageAdmUrl)).text);
+      const currentSid = userPageAdmUrl.match(/&sid=(\w+)$/)[1];
+      const userPageAdmSig = cheerio.load((await agent.get(`${forumParams.url}adm/index.php?i=users&mode=sig&u=${i}&sid=${currentSid}`)).text);
+
+      log(`Getting ACP user info of user ${name} id ${i}`);
+
+      const user = {
+        id: i,
+        name,
+        avatar: userPage('.profile .avatar-bg').css('background-image').slice(4).slice(0, -1),
+        email: userPageAdm('#user_email_search').val(),
+        reg: dateConv(userPage('.profile .group .clear-after').filter(function() { return userPage(this).text().includes('Joined') }).find('.right').text()),
+        sig: userPageAdmSig('textarea[name="signature"]').val(),
+      };
+      members.push(user);
+    } else {
+      members.push({ id: i });
+    }
+  }
+
+  testWriteFile('memberData.json', members);
+
+  /**
+   * Forum index backup.
+   */
+
+  /* log('Forum index:');
   line();
-  log(JSON.stringify(forumIndex, null, 2));
+  log(JSON.stringify(forumIndex, null, 2)); */
 }
 
 async function main() {
@@ -115,7 +163,7 @@ async function main() {
     log(err);
   }
 
-  fs.writeFileSync('log.txt', logBuffer);
+  testWriteFile('log.txt', logBuffer);
 }
 
 main();
@@ -128,4 +176,22 @@ function numberConv(str) { return Number(str.trim().replace(',', '')); }
 function log(str) {
   console.log(str);
   logBuffer += `${str}\n`;
+}
+function dateConv(str) {
+  if (!str) return undefined;
+  const now = new Date();
+  let dateStr = str.replace('Today', now.toDateString());
+  now.setDate(now.getDate() - 1);
+  dateStr = dateStr.replace('Yesterday', now.toDateString());
+  return new Date(dateStr);
+}
+function testWriteFile(filename, data) {
+  line();
+  log(`Writing to test file ${filename}`);
+  line();
+  if (typeof data !== 'string') {
+    fs.writeFileSync(filename, JSON.stringify(data, null, 2));
+  } else {
+    fs.writeFileSync(`./output/${filename}`, data);
+  }
 }

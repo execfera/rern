@@ -44,3 +44,4 @@ rern.txt
 # Scraper stuff
 auth.json
 log.txt
+/scraper/output/*
