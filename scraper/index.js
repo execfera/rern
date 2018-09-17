@@ -1,7 +1,10 @@
 const superagent = require('superagent');
+require('superagent-retry-delay')(superagent);
 const agent = superagent.agent();
 const cheerio = require('cheerio');
 const fs = require('fs');
+const asyncPool = require('tiny-async-pool');
+const sanitize = require('sanitize-filename');
 
 /**
  * Forum parameters to be used.
@@ -110,35 +113,10 @@ async function getMainIndex() {
   /**
    * Member backup.
    */
+  const memberIds = Array.from({ length: memberIdCount + 1 }, (_, i) => i);
+  const members = await asyncPool(2, memberIds, getMember);
 
-  /* const members = [{ id: 0 }];
-
-  for (let i = 1; i <= memberIdCount; i++) {
-    const userPage = cheerio.load((await agent.get(`${forumParams.url}memberlist.php?mode=viewprofile&u=${i}`)).text);
-    if (userPage('.operation a').length) {
-      const userPageAdmUrl = userPage('.operation a').filter(function() { return userPage(this).attr('href').includes('/adm/') }).attr('href');
-      const name = userPage('.profile .username').text().trim();
-      const userPageAdm = cheerio.load((await agent.get(userPageAdmUrl)).text);
-      const currentSid = userPageAdmUrl.match(/&sid=(\w+)$/)[1];
-      const userPageAdmSig = cheerio.load((await agent.get(`${forumParams.url}adm/index.php?i=users&mode=sig&u=${i}&sid=${currentSid}`)).text);
-
-      log(`Getting ACP user info of user ${name} id ${i}`);
-
-      const user = {
-        id: i,
-        name,
-        avatar: userPage('.profile .avatar-bg').css('background-image').slice(4).slice(0, -1),
-        email: userPageAdm('#user_email_search').val(),
-        reg: dateConv(userPage('.profile .group .clear-after').filter(function() { return userPage(this).text().includes('Joined') }).find('.right').text()),
-        sig: userPageAdmSig('textarea[name="signature"]').val(),
-      };
-      members.push(user);
-    } else {
-      members.push({ id: i });
-    }
-  }
-
-  testWriteFile('memberData.json', members);
+  testWriteFile(`memberData(${new Date().toISOString()}).json`, members);
 
   /**
    * Forum index backup.
@@ -149,7 +127,44 @@ async function getMainIndex() {
   log(JSON.stringify(forumIndex, null, 2)); */
 }
 
+async function getMember(userId) {
+  if (userId === 0) {
+    return { id: 0 };
+  }
+  const userPage = cheerio.load((await agent.get(`${forumParams.url}memberlist.php?mode=viewprofile&u=${userId}`)).text);
+  if (userPage('.operation a').length) {
+    const name = userPage('.profile .username').text().trim();
+    log(`Getting ACP user info of user ${name} id ${userId}`);
+
+    const userPageAdmUrl = userPage('.operation a').filter(function() { return userPage(this).attr('href').includes('/adm/') }).attr('href');
+    const userPageAdm = cheerio.load((await agent.get(userPageAdmUrl)).text);
+    const currentSid = userPageAdmUrl.match(/&sid=(\w+)$/)[1];
+    const userPageAdmSig = cheerio.load((await agent.get(`${forumParams.url}adm/index.php?i=users&mode=sig&u=${userId}&sid=${currentSid}`)).text);
+    const userPageAdmProf = cheerio.load((await agent.get(`${forumParams.url}adm/index.php?i=users&mode=profile&u=${userId}&sid=${currentSid}`)).text);
+
+    const userProfile = userPage('.profile .group .clear-after');
+    const user = {
+      id: userId,
+      name,
+      avatar: userPage('.profile .avatar-bg').css('background-image').slice(4).slice(0, -1),
+      email: userPageAdm('#user_email_search').val(),
+      reg: dateConv(userProfile.filter(function() { return userPage(this).text().includes('Joined') }).find('.right').text()),
+      sig: userPageAdmSig('textarea[name="signature"]').val(),
+      int: userProfile.filter(function() { return userPage(this).text().includes('Interests') }).length ? userProfile.filter(function() { return userPage(this).text().includes('Interests') }).find('.right').html().replace('<br>', '\n') : "",
+      birth: {
+        year: parseInt(userPageAdmProf('select[name="bday_year"]').val()),
+        month: parseInt(userPageAdmProf('select[name="bday_month"]').val()),
+        day: parseInt(userPageAdmProf('select[name="bday_day"]').val()),
+      },
+    };
+    log(`Done getting ACP user info of user ${name} id ${userId}`);
+    return user;
+  }
+  return { id: userId };
+}
+
 async function main() {
+  const now = new Date().getTime();
   line();
   log(`Forum Scraper Starting...`);
   log(new Date().toString());
@@ -162,8 +177,9 @@ async function main() {
     line();
     log(err);
   }
+  log(`Time taken: ${timeCounter(new Date().getTime() - now)}`);
 
-  testWriteFile('log.txt', logBuffer);
+  testWriteFile(`log(${new Date().toISOString()}).txt`, logBuffer);
 }
 
 main();
@@ -186,12 +202,31 @@ function dateConv(str) {
   return new Date(dateStr);
 }
 function testWriteFile(filename, data) {
+  let file = sanitize(filename.replace(/:/g, '_'));
   line();
-  log(`Writing to test file ${filename}`);
+  log(`Writing to test file ${file}`);
   line();
-  if (typeof data !== 'string') {
-    fs.writeFileSync(filename, JSON.stringify(data, null, 2));
-  } else {
-    fs.writeFileSync(`./output/${filename}`, data);
-  }
+  fs.writeFileSync(`./output/${file}`, typeof data === 'string' ? data : JSON.stringify(data, null, 2));
+}
+
+function timeCounter(msecond) {
+  let t = Math.floor(msecond/1000);
+  const years = Math.floor(t / 31536000);
+  t = t - (years * 31536000);
+  const months = Math.floor(t / 2592000);
+  t = t - (months * 2592000);
+  const days = Math.floor(t / 86400);
+  t = t - (days * 86400);
+  const hours = Math.floor(t / 3600);
+  t = t - (hours * 3600);
+  const minutes = Math.floor(t / 60);
+  t = t - (minutes * 60);
+  const content = [];
+  if (years) content.push(years + " year" + (years > 1 ? "s" : ""));
+  if (months) content.push(months + " month" + (months > 1 ? "s" : ""));
+  if (days) content.push(days + " day" + (days > 1 ? "s" : ""));
+  if (hours) content.push(hours + " hour"  + (hours > 1 ? "s" : ""));
+  if (minutes) content.push(minutes + " minute" + (minutes > 1 ? "s" : ""));
+  if (t) content.push(t + " second" + (t > 1 ? "s" : ""));
+  return content.slice(0,3).join(', ');
 }
