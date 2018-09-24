@@ -175,6 +175,7 @@ function openVrWnd(srcname) {
  */
 
 function tagInit() {
+  if ($('.navbar-forum-name').text() !== 'Rockman EXE: Rogue Network') { return; }
   console.log('RE:RN Script: Initializing tags');
   Promise.all([chipFetch, virusFetch, terrainFetch])
     .then(() => {
@@ -256,6 +257,7 @@ async function postLog() {
 }
 
 function postLogInit() {
+  if ($('.navbar-forum-name').text() !== 'Rockman EXE: Rogue Network') { return; }
   if (!hkorigin.includes("ucp.php") && !hkorigin.includes('posting.php?mode=edit')) {
     tokensFetch.then(() => {
       console.log('RE:RN Script: Initializing posting log');
