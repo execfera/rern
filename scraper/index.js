@@ -111,18 +111,22 @@ async function start() {
   /**
    * Member backup.
    */
-  const memberIds = Array.from({ length: memberIdCount + 1 }, (_, i) => i);
-  const members = await asyncPool(3, memberIds, getMember);
+  /* const memberIds = Array.from({ length: memberIdCount + 1 }, (_, i) => i);
+  const members = await asyncPool(2, memberIds, getMember);
 
-  testWriteFile(`memberData(${new Date().toISOString()}).json`, members);
+  testWriteFile(`memberData(${new Date().toISOString()}).json`, members); */
 
   /**
    * Thread info backup test.
    */
+  // const testThreadId = 4936; // Birthdays: ~32 pages
+  const testThreadId = 9781; // Hare-Raising Magic: ~3 pages
   line();
-  log('Testing thread info backup for thread 897');
+  log(`Testing thread info backup for thread ${testThreadId}`);
   line();
-  await getPostsFromThread(897);
+  const postInfo = await getPostsFromThread(testThreadId);
+
+  testWriteFile(`postData(${new Date().toISOString()}).json`, postInfo);
 
   /**
    * Forum index backup.
@@ -134,11 +138,87 @@ async function start() {
 }
 
 /**
- * Get info for a specified member.
+ * Get info for forum structure.
  */
 async function getForumStructure() {
   const manForumPageUrl = `${forumParams.url}adm/index.php?sid=${acpSessionId}&i=acp_forums&icat=6&mode=manage`;
-  const manForumPage = cheerio.load((await agent.get(manForumPageUrl)).text);
+  const manForumPage = await loadAcpPage(manForumPageUrl);
+}
+
+/**
+ * Get post info from thread.
+ */
+async function getPostsFromThread(threadId) {
+
+  const firstPageUrl = `${forumParams.url}x-t${threadId}.html`;
+  const firstPage = await loadForumPage(firstPageUrl);
+  const threadName = firstPage('h2.topic-title a').text();
+
+  log(`Parsing thread ID ${threadId}: ${threadName}`);
+
+  const pageUrls = firstPage('.postcontent_button a')
+    .filter(function(){ return firstPage(this).attr('href') && firstPage(this).attr('href').includes('mode=edit'); })
+    .map(function() { return firstPage(this).attr('href') })
+    .get();
+  const forumId = pageUrls[0].match(/&f=(\d+)&/)[1];
+
+  const postIds = pageUrls
+    .map(str => str.split('&p=')[1]);
+  const posterIds = firstPage('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
+    .map(function() { return firstPage(this).attr('href') || '' })
+    .get()
+    .map(url => url.split('&u=')[1] || '');
+  const posterNames = firstPage('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
+    .map(function() { return firstPage(this).text() })
+    .get();
+  const postTimes = firstPage('.author time')
+    .map(function() { return firstPage(this).text() })
+    .get();
+
+  if (firstPage('.pagination ul').length) {
+    const postQty = Number(firstPage('.pagination').first().text().match(/\s(\d+)\spost(s?)\s/)[1]);
+    const postQtyPerPage = firstPage('.postbody').length;
+    const otherPages = Array.from({ length: Math.floor(postQty / postQtyPerPage) }, (_, i) => postQtyPerPage * (i + 1))
+      .map(postQtyPage => `${forumParams.url}x-t${threadId}-s${postQtyPage}.html`);
+
+    for (const pageUrl of otherPages) {
+      const page = await loadForumPage(pageUrl);
+      postIds.push(...page('.postcontent_button a')
+        .filter(function(){ return page(this).attr('href') && page(this).attr('href').includes('mode=edit'); })
+        .map(function() { return page(this).attr('href') })
+        .get()
+        .map(str => str.split('&p=')[1]));
+      posterIds.push(...page('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
+        .map(function() { return page(this).attr('href') || '' })
+        .get()
+        .map(url => url.split('&u=')[1] || ''));
+      posterNames.push(...page('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
+        .map(function() { return page(this).text() })
+        .get());
+      postTimes.push(...page('.author time')
+        .map(function() { return page(this).text() })
+        .get());
+    }
+  }
+
+  const postContent = await asyncPool(5, postIds, (postId) => getPostContent(forumId, postId));
+  return postIds.map((val, idx) => {
+    return {
+      postId: val,
+      forumId,
+      poster: posterNames[idx],
+      posterId: posterIds[idx],
+      time: postTimes[idx],
+      content: postContent[idx],
+    };
+  });
+}
+
+async function getPostContent(forumId, postId) {
+  log(`Getting post ${postId}`);
+  const editPage = await loadForumPage(`${forumParams.url}posting.php?mode=edit&f=${forumId}&p=${postId}`);
+  await sleep(5000);
+  return editPage('#message').val();
 }
 
 async function getMember(userId) {
@@ -173,17 +253,9 @@ async function getMember(userId) {
         day: parseInt(userPageAdmProf('select[name="bday_day"]').val()),
       },
     };
-    log(`Done getting ACP user info of user ${name} id ${userId}`);
     return user;
   }
   return { id: userId };
-}
-
-/**
- * Get info for a specific forum thread.
- */
-async function getThreadData(threadId) {
-  const firstPage = await loadForumPage(`${forumParams.url}null-t${threadId}.html`);
 }
 
 /**
@@ -196,22 +268,22 @@ async function loadForumPage(pageUrl, limit = 1) {
     const page = cheerio.load((await agent.get(pageUrl)).text);
     if (!page('.navbar-forum-name').text()) {
       if (limit !== maxlimit) {
-        testWriteFile('errPageRes.txt', page);
-        throw new Error(`Error loading page ${pageUrl}, limit exceeded ${maxlimit}. Ending scrape session and writing errored page to disk.`);
+        log(`Error loading page ${pageUrl} attempt #${limit}, delaying next attempt by ${50000 + 10000 * limit}ms`);
+        await sleep(50000 + 10000 * limit);
+        return loadForumPage(pageUrl, limit + 1);
       }
-      log(`Error loading page ${pageUrl}, attempt #${limit}, delaying next attempt by ${2000 * limit}ms`);
-      await sleep(2000 * limit);
-      return loadForumPage(pageUrl, limit + 1);
+      testWriteFile('errPageRes.txt', page);
+      throw new Error(`Error loading page ${pageUrl}, limit exceeded ${maxlimit}. Ending scrape session and writing errored page to disk.`);
     }
     return page;
   } catch (err) {
     if (limit !== maxlimit) {
-      log(`Error loading page ${pageUrl}, limit exceeded ${maxlimit}. Ending scrape session.`);
-      throw err;
+      log(`Error loading page ${pageUrl}, attempt #${limit} delaying next attempt by ${50000 + 10000 * limit}ms`);
+      await sleep(50000 + 10000 * limit);
+      return loadForumPage(pageUrl, limit + 1);
     }
-    log(`Error loading page ${pageUrl}, attempt #${limit}, delaying next attempt by ${2000 * limit}ms`);
-    await sleep(2000 * limit);
-    return loadForumPage(pageUrl, limit + 1);
+    log(`Error loading page ${pageUrl}, limit exceeded ${maxlimit}. Ending scrape session.`);
+    throw err;
   }
 }
 
@@ -221,98 +293,23 @@ async function loadAcpPage(pageUrl, limit = 1) {
     const page = cheerio.load((await agent.get(pageUrl)).text);
     if (page('#page-header h1').text() !== 'Administration Control Panel') {
       if (limit !== maxlimit) {
-        testWriteFile('errPageRes.txt', page);
-        throw new Error(`Error loading page ${pageUrl}, limit exceeded ${maxlimit}. Ending scrape session and writing errored page to disk.`);
+        log(`Error loading page ${pageUrl} attempt #${limit}, delaying next attempt by ${10000 * limit}ms`);
+        await sleep(10000 * limit);
+        return loadAcpPage(pageUrl, limit + 1);
       }
-      log(`Error loading page ${pageUrl}, attempt #${limit}, delaying next attempt by ${2000 * limit}ms`);
-      await sleep(2000 * limit);
-      return loadAcpPage(pageUrl, limit + 1);
+      testWriteFile('errPageRes.txt', page);
+      throw new Error(`Error loading page ${pageUrl} limit exceeded ${maxlimit}. Ending scrape session and writing errored page to disk.`);
     }
     return page;
   } catch (err) {
     if (limit !== maxlimit) {
-      log(`Error loading page ${pageUrl}, limit exceeded ${maxlimit}. Ending scrape session.`);
-      throw err;
+      log(`Error loading page ${pageUrl} attempt #${limit}, delaying next attempt by ${10000 * limit}ms`);
+      await sleep(10000 * limit);
+      return loadAcpPage(pageUrl, limit + 1);
     }
-    log(err.toString());
-    log(`Error loading page ${pageUrl}, attempt #${limit}, delaying next attempt by ${2000 * limit}ms`);
-    await sleep(2000 * limit);
-    return loadAcpPage(pageUrl, limit + 1);
+    log(`Error loading page ${pageUrl} limit exceeded ${maxlimit}. Ending scrape session.`);
+    throw err;
   }
-}
-async function getPostsFromThread(threadId) {
-  log(`Parsing thread ID ${threadId}`);
-
-  const firstPageUrl = `${forumParams.url}x-t${threadId}.html`;
-  const firstPage = cheerio.load((await agent.get(firstPageUrl)).text);
-
-  const pageUrls = firstPage('.postcontent_button a')
-    .filter(function(){ return firstPage(this).attr('href') && firstPage(this).attr('href').includes('mode=edit'); })
-    .map(function() { return firstPage(this).attr('href') })
-    .get();
-  const forumId = pageUrls[0].match(/&f=(\d+)&/)[1];
-
-  const postIds = pageUrls
-    .map(str => str.split('&p=')[1]);
-  const posterIds = firstPage('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
-    .map(function() { return firstPage(this).attr('href') || '' })
-    .get()
-    .map(url => url.split('&u=')[1] || '');
-  const posterNames = firstPage('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
-    .map(function() { return firstPage(this).text() })
-    .get();
-  const postTimes = firstPage('.author time')
-    .map(function() { return firstPage(this).text() })
-    .get();
-
-  if (firstPage('.pagination ul').length) {
-    log(`Paginating thread ID ${threadId}`);
-    const otherPages = firstPage('.pagination ul li')
-      .first()
-      .find('li')
-      .not('.active, .arrow')
-      .find('a')
-      .map(function() { return firstPage(this).attr('href') })
-      .get();
-
-    for (const pageUrl of otherPages) {
-      const page = cheerio.load((await agent.get(pageUrl)).text);
-      postIds.push(...page('.postcontent_button a')
-        .filter(function(){ return page(this).attr('href') && $(this).attr('href').includes('mode=edit'); })
-        .map(function() { return page(this).attr('href') })
-        .get()
-        .map(str => str.split('&p=')[1]));
-      posterIds.push(...page('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
-        .map(function() { return page(this).attr('href') || '' })
-        .get()
-        .map(url => url.split('&u=')[1] || ''));
-      posterNames.push(...page('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
-        .map(function() { return page(this).text() })
-        .get());
-      postTimes.push(...page('.author time')
-        .map(function() { return page(this).text() })
-        .get());
-    }
-  }
-  const postContent = [];
-  log(`Post IDs: ${postIds.join(', ')}`);
-  for (const postId of postIds) {
-    log(`Getting post ${postId}`);
-    const editPage = cheerio.load((await agent.get(`${forumParams.url}posting.php?mode=edit&f=${forumId}&p=${postId}`)).text);
-    postContent.push(editPage('#message').val());
-  }
-  const postInfos = postIds.map((val, idx) => {
-    return {
-      postId: val,
-      forumId,
-      poster: posterNames[idx],
-      posterId: posterIds[idx],
-      time: postTimes[idx],
-      content: postContent[idx],
-    };
-  });
-  log(`Debug post info in thread ID ${threadId} forum ID ${forumId}:`);
-  log(JSON.stringify(postInfos, null, 2));
 }
 
 /**
