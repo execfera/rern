@@ -47,7 +47,7 @@ async function start() {
   const forumDesc = mainPage('#site-description p a').text();
   const loggedUser = mainPage('.username-coloured, .username').first().text();
   const loggedAvatar = mainPage('.avatar-bg').css('background-image').slice(4).slice(0, -1);
-  const forumIndex = mainPage('.forums .row')
+  /* const forumIndex = mainPage('.forums .row')
     .filter(function () {
       return mainPage(this).find('.forumtitle').text();
     })
@@ -76,7 +76,7 @@ async function start() {
         log(`Error parsing forum ${mainPage(this).find('.forumtitle').text()}`);
         throw err;
       }
-    }).get();
+    }).get(); */
   const admLink = mainPage('.dropdown a').first().attr('href');
   memberIdCount = Number(mainPage('.stat-block.statistics a').last().attr('href').match(/u=(\d+)$/)[1]);
 
@@ -153,8 +153,9 @@ async function getPostsFromThread(threadId) {
   const firstPageUrl = `${forumParams.url}x-t${threadId}.html`;
   const firstPage = await loadForumPage(firstPageUrl);
   const threadName = firstPage('h2.topic-title a').text();
+  const postQty = Number(firstPage('.pagination').first().text().match(/\s(\d+)\spost(s?)\s/)[1]);
 
-  log(`Parsing thread ID ${threadId}: ${threadName}`);
+  log(`Parsing thread ID ${threadId}: ${threadName} (${postQty} posts)`);
 
   const pageUrls = firstPage('.postcontent_button a')
     .filter(function(){ return firstPage(this).attr('href') && firstPage(this).attr('href').includes('mode=edit'); })
@@ -176,7 +177,6 @@ async function getPostsFromThread(threadId) {
     .get();
 
   if (firstPage('.pagination ul').length) {
-    const postQty = Number(firstPage('.pagination').first().text().match(/\s(\d+)\spost(s?)\s/)[1]);
     const postQtyPerPage = firstPage('.postbody').length;
     const otherPages = Array.from({ length: Math.floor(postQty / postQtyPerPage) }, (_, i) => postQtyPerPage * (i + 1))
       .map(postQtyPage => `${forumParams.url}x-t${threadId}-s${postQtyPage}.html`);
@@ -217,7 +217,7 @@ async function getPostsFromThread(threadId) {
 async function getPostContent(forumId, postId) {
   log(`Getting post ${postId}`);
   const editPage = await loadForumPage(`${forumParams.url}posting.php?mode=edit&f=${forumId}&p=${postId}`);
-  await sleep(5000);
+  await sleep(18000);
   return editPage('#message').val();
 }
 
@@ -268,8 +268,8 @@ async function loadForumPage(pageUrl, limit = 1) {
     const page = cheerio.load((await agent.get(pageUrl)).text);
     if (!page('.navbar-forum-name').text()) {
       if (limit !== maxlimit) {
-        log(`Error loading page ${pageUrl} attempt #${limit}, delaying next attempt by ${50000 + 10000 * limit}ms`);
-        await sleep(50000 + 10000 * limit);
+        log(`Error loading page ${pageUrl} attempt #${limit}, delaying next attempt by ${20000 + 10000 * limit}ms`);
+        await sleep(20000 + 10000 * limit);
         return loadForumPage(pageUrl, limit + 1);
       }
       testWriteFile('errPageRes.txt', page);
@@ -278,8 +278,8 @@ async function loadForumPage(pageUrl, limit = 1) {
     return page;
   } catch (err) {
     if (limit !== maxlimit) {
-      log(`Error loading page ${pageUrl}, attempt #${limit} delaying next attempt by ${50000 + 10000 * limit}ms`);
-      await sleep(50000 + 10000 * limit);
+      log(`Error loading page ${pageUrl}, attempt #${limit} delaying next attempt by ${20000 + 10000 * limit}ms`);
+      await sleep(20000 + 10000 * limit);
       return loadForumPage(pageUrl, limit + 1);
     }
     log(`Error loading page ${pageUrl}, limit exceeded ${maxlimit}. Ending scrape session.`);
