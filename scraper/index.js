@@ -42,45 +42,16 @@ async function start() {
   /**
    * Parse the resulting main page.
    */
-  const mainPage = cheerio.load(loginRes.text);
+  let mainPage = cheerio.load(loginRes.text);
   const forumName = mainPage('#site-description h1 a').text();
   const forumDesc = mainPage('#site-description p a').text();
   const loggedUser = mainPage('.username-coloured, .username').first().text();
   const loggedAvatar = mainPage('.avatar-bg').css('background-image').slice(4).slice(0, -1);
-  /* const forumIndex = mainPage('.forums .row')
-    .filter(function () {
-      return mainPage(this).find('.forumtitle').text();
-    })
-    .map(function() {
-      try {
-        const index = {
-          title: mainPage(this).find('.forumtitle').text(),
-          forumId: numberConv(mainPage(this).find('.forumtitle').attr('href').match(/f(\d+)\/$/)[1]),
-          desc: mainPage(this).find('.forum_description').text(),
-        };
-        const lastPostTitle = mainPage(this).find('.lastpost .lastsubject').text();
-        if (lastPostTitle) {
-          index.lastPost = {
-            title: lastPostTitle,
-            poster: mainPage(this).find('.display_username a').text(),
-            posterId: numberConv(mainPage(this).find('.display_username a').attr('href').match(/u=(\d+)$/)[1]),
-            threadId: numberConv(mainPage(this).find('.lastpost .lastsubject').attr('href').match(/-t(\d+)(\.|\-)/)[1]),
-            postId: numberConv(mainPage(this).find('.lastpost .lastsubject').attr('href').match(/#p(\d+)$/)[1]),
-            time: dateConv(mainPage(this).find('.lastpost > span').contents().filter(function() { return this.nodeType === 3 }).eq(-1).text()),
-          };
-          index.posts = numberConv(mainPage(this).find('.posts').contents().filter(function() { return this.nodeType === 3 }).text());
-          index.topics = numberConv(mainPage(this).find('.topics').contents().filter(function() { return this.nodeType === 3 }).text());
-        }
-        return index;
-      } catch (err) {
-        log(`Error parsing forum ${mainPage(this).find('.forumtitle').text()}`);
-        throw err;
-      }
-    }).get(); */
   const admLink = mainPage('.dropdown a').first().attr('href');
+  const threadCount = mainPage('.stat-block.statistics').text().match(/\sTotal\stopics\s(\d+)\s/)[1];
   memberIdCount = Number(mainPage('.stat-block.statistics a').last().attr('href').match(/u=(\d+)$/)[1]);
 
-  log(`Forum: ${forumName} | Description: ${forumDesc} | Member ID Count: ${memberIdCount}`);
+  log(`Forum: ${forumName} | Description: ${forumDesc} | Member ID Count: ${memberIdCount} | Thread Count: ${threadCount}`);
   log(`Logged in as User: ${loggedUser} | Avatar ${loggedAvatar} | Session ID: ${sessionId}`);
   log(`Admin console link: ${admLink}`);
   line();
@@ -104,37 +75,34 @@ async function start() {
 
   const acpMainPage = cheerio.load(acpLoginRes.text);
   const firstRowIP = acpMainPage('.zebra-table td').eq(1).text();
+  mainPage = await loadForumPage(forumParams.url);
+  sessionId = acpSessionId = mainPage('.dropdown a').first().attr('href').match(/sid\=(\w+)/)[1];
 
   log(`Logged in as Admin: ${loggedUser} | IP: ${firstRowIP} | Credential: ${credential} | Session ID: ${acpSessionId}`);
   line();
 
   /**
-   * Member backup.
-   */
-  /* const memberIds = Array.from({ length: memberIdCount + 1 }, (_, i) => i);
-  const members = await asyncPool(2, memberIds, getMember);
-
-  testWriteFile(`memberData(${new Date().toISOString()}).json`, members); */
-
-  /**
-   * Thread info backup test.
-   */
-  // const testThreadId = 4936; // Birthdays: ~32 pages
-  const testThreadId = 9781; // Hare-Raising Magic: ~3 pages
-  line();
-  log(`Testing thread info backup for thread ${testThreadId}`);
-  line();
-  const postInfo = await getPostsFromThread(testThreadId);
-
-  testWriteFile(`postData(${new Date().toISOString()}).json`, postInfo);
-
-  /**
    * Forum index backup.
    */
+  const forumData = await getForumStructure();
 
-  /* log('Forum index:');
-  line();
-  log(JSON.stringify(forumIndex, null, 2)); */
+  testWriteFile(`forumStruct(${new Date().toISOString()}).json`, forumData);
+
+  /**
+   * Member backup.
+   */
+  const memberIds = Array.from({ length: memberIdCount + 1 }, (_, i) => i).slice(1);
+  const members = await asyncPool(2, memberIds, getMember);
+
+  testWriteFile(`memberData(${new Date().toISOString()}).json`, members);
+
+  /**
+   * Thread info backup.
+   */
+  const threadIds = Array.from({ length: threadCount + 1 }, (_, i) => i).slice(1);
+  const postInfo = await asyncPool(1, threadIds, getPostsFromThread);
+
+  testWriteFile(`postData(${new Date().toISOString()}).json`, postInfo);
 }
 
 /**
@@ -143,6 +111,63 @@ async function start() {
 async function getForumStructure() {
   const manForumPageUrl = `${forumParams.url}adm/index.php?sid=${acpSessionId}&i=acp_forums&icat=6&mode=manage`;
   const manForumPage = await loadAcpPage(manForumPageUrl);
+  const forumIds = manForumPage('#fselect option').map(function() { return Number(manForumPage(this).val()); }).get();
+
+  const forumAcpData = await asyncPool(3, forumIds, getAcpForumInfo);
+  const parentForumIds = Array.from(new Set(forumAcpData.filter(data => data.parentId).map(data => data.parentId)));
+  const forumIndexData = [].concat(...await asyncPool(3, parentForumIds, getForumInfo));
+
+  return forumAcpData.map(acpData => Object.assign({}, acpData, forumIndexData.find(indexData => indexData.id === acpData.id)));
+}
+
+/**
+ * Get ACP info for a single forum.
+ */
+async function getAcpForumInfo(forumId) {
+  log(`Getting forum ACP info for forum index ${forumId}`);
+  const forumAdmUrl = `${forumParams.url}adm/index.php?i=acp_forums&sid=${acpSessionId}&mode=manage&f=${forumId}&action=edit`;
+  const forumAdmPage = await loadAcpPage(forumAdmUrl);
+  return {
+    id: forumId,
+    parentId: Number(forumAdmPage('#parent').val()),
+    type: forumAdmPage('#forum_type option[selected="selected"]').text(),
+    name: forumAdmPage('#forum_name').val(),
+    desc: forumAdmPage('#forum_desc').val(),
+    link: forumAdmPage('#forum_link').val(),
+  };
+}
+
+async function getForumInfo(forumId) {
+  log(`Getting forum last post info for forum index ${forumId}`);
+  const mainPage = await loadForumPage(`${forumParams.url}x-f${forumId}/`);
+  return mainPage('.forums .row')
+    .filter(function () {
+      return mainPage(this).find('.forumtitle').text();
+    })
+    .map(function() {
+      try {
+        const index = {
+          id: numberConv(mainPage(this).find('.forumtitle').attr('href').match(/f(\d+)\/$/)[1]),
+        };
+        const lastPostTitle = mainPage(this).find('.lastpost .lastsubject').text();
+        if (lastPostTitle) {
+          index.lastPost = {
+            title: lastPostTitle,
+            poster: mainPage(this).find('.display_username .username, .display_username .username-coloured').text(),
+            posterId: Number(mainPage(this).find('.display_username a').attr('href') ? mainPage(this).find('.display_username a').attr('href').match(/u=(\d+)$/)[1] : 0),
+            threadId: Number(mainPage(this).find('.lastpost .lastsubject').attr('href').match(/-t(\d+)(\.|\-)/)[1]),
+            postId: Number(mainPage(this).find('.lastpost .lastsubject').attr('href').match(/#p(\d+)$/)[1]),
+            time: dateConv(mainPage(this).find('.lastpost > span').contents().filter(function() { return this.nodeType === 3 }).eq(-1).text()),
+          };
+          index.posts = numberConv(mainPage(this).find('.posts').contents().filter(function() { return this.nodeType === 3 }).text());
+          index.topics = numberConv(mainPage(this).find('.topics').contents().filter(function() { return this.nodeType === 3 }).text());
+        }
+        return index;
+      } catch (err) {
+        log(`Error parsing forum ${mainPage(this).find('.forumtitle').text()}`);
+        throw err;
+      }
+    }).get();
 }
 
 /**
