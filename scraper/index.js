@@ -117,6 +117,14 @@ async function start() {
   testWriteFile(`memberData(${new Date().toISOString()}).json`, members);
 
   /**
+   * Thread info backup test.
+   */
+  line();
+  log('Testing thread info backup for thread 897');
+  line();
+  await getPostsFromThread(897);
+
+  /**
    * Forum index backup.
    */
 
@@ -128,6 +136,11 @@ async function start() {
 /**
  * Get info for a specified member.
  */
+async function getForumStructure() {
+  const manForumPageUrl = `${forumParams.url}adm/index.php?sid=${acpSessionId}&i=acp_forums&icat=6&mode=manage`;
+  const manForumPage = cheerio.load((await agent.get(manForumPageUrl)).text);
+}
+
 async function getMember(userId) {
   if (userId === 0) {
     return { id: 0 };
@@ -227,6 +240,80 @@ async function loadAcpPage(pageUrl, limit = 1) {
     return loadAcpPage(pageUrl, limit + 1);
   }
 }
+async function getPostsFromThread(threadId) {
+  log(`Parsing thread ID ${threadId}`);
+
+  const firstPageUrl = `${forumParams.url}x-t${threadId}.html`;
+  const firstPage = cheerio.load((await agent.get(firstPageUrl)).text);
+
+  const pageUrls = firstPage('.postcontent_button a')
+    .filter(function(){ return firstPage(this).attr('href') && firstPage(this).attr('href').includes('mode=edit'); })
+    .map(function() { return firstPage(this).attr('href') })
+    .get();
+  const forumId = pageUrls[0].match(/&f=(\d+)&/)[1];
+
+  const postIds = pageUrls
+    .map(str => str.split('&p=')[1]);
+  const posterIds = firstPage('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
+    .map(function() { return firstPage(this).attr('href') || '' })
+    .get()
+    .map(url => url.split('&u=')[1] || '');
+  const posterNames = firstPage('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
+    .map(function() { return firstPage(this).text() })
+    .get();
+  const postTimes = firstPage('.author time')
+    .map(function() { return firstPage(this).text() })
+    .get();
+
+  if (firstPage('.pagination ul').length) {
+    log(`Paginating thread ID ${threadId}`);
+    const otherPages = firstPage('.pagination ul li')
+      .first()
+      .find('li')
+      .not('.active, .arrow')
+      .find('a')
+      .map(function() { return firstPage(this).attr('href') })
+      .get();
+
+    for (const pageUrl of otherPages) {
+      const page = cheerio.load((await agent.get(pageUrl)).text);
+      postIds.push(...page('.postcontent_button a')
+        .filter(function(){ return page(this).attr('href') && $(this).attr('href').includes('mode=edit'); })
+        .map(function() { return page(this).attr('href') })
+        .get()
+        .map(str => str.split('&p=')[1]));
+      posterIds.push(...page('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
+        .map(function() { return page(this).attr('href') || '' })
+        .get()
+        .map(url => url.split('&u=')[1] || ''));
+      posterNames.push(...page('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
+        .map(function() { return page(this).text() })
+        .get());
+      postTimes.push(...page('.author time')
+        .map(function() { return page(this).text() })
+        .get());
+    }
+  }
+  const postContent = [];
+  log(`Post IDs: ${postIds.join(', ')}`);
+  for (const postId of postIds) {
+    log(`Getting post ${postId}`);
+    const editPage = cheerio.load((await agent.get(`${forumParams.url}posting.php?mode=edit&f=${forumId}&p=${postId}`)).text);
+    postContent.push(editPage('#message').val());
+  }
+  const postInfos = postIds.map((val, idx) => {
+    return {
+      postId: val,
+      forumId,
+      poster: posterNames[idx],
+      posterId: posterIds[idx],
+      time: postTimes[idx],
+      content: postContent[idx],
+    };
+  });
+  log(`Debug post info in thread ID ${threadId} forum ID ${forumId}:`);
+  log(JSON.stringify(postInfos, null, 2));
+}
 
 /**
  * Main startup function.
@@ -303,7 +390,6 @@ function timeCounter(msecond) {
   if (t) content.push(t + " second" + (t > 1 ? "s" : ""));
   return content.slice(0,3).join(', ');
 }
-
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
