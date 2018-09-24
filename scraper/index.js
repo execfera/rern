@@ -81,12 +81,14 @@ async function start() {
   log(`Logged in as Admin: ${loggedUser} | IP: ${firstRowIP} | Credential: ${credential} | Session ID: ${acpSessionId}`);
   line();
 
+  const timeStr = new Date().toISOString();
+
   /**
    * Forum index backup.
    */
   const forumData = await getForumStructure();
 
-  testWriteFile(`forumStruct(${new Date().toISOString()}).json`, forumData);
+  testWriteFile(`forumStruct(${timeStr}).json`, forumData);
 
   /**
    * Member backup.
@@ -94,7 +96,7 @@ async function start() {
   const memberIds = Array.from({ length: memberIdCount + 1 }, (_, i) => i).slice(1);
   const members = await asyncPool(2, memberIds, getMember);
 
-  testWriteFile(`memberData(${new Date().toISOString()}).json`, members);
+  testWriteFile(`memberData(${timeStr}).json`, members);
 
   /**
    * Thread info backup.
@@ -102,7 +104,7 @@ async function start() {
   const threadIds = Array.from({ length: threadCount + 1 }, (_, i) => i).slice(1);
   const postInfo = await asyncPool(1, threadIds, getPostsFromThread);
 
-  testWriteFile(`postData(${new Date().toISOString()}).json`, postInfo);
+  testWriteFile(`postData(${timeStr}).json`, postInfo);
 }
 
 /**
