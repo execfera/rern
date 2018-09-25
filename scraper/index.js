@@ -86,17 +86,17 @@ async function start() {
   /**
    * Forum index backup.
    */
-  const forumData = await getForumStructure();
+  /* const forumData = await getForumStructure();
 
-  testWriteFile(`categoryData(${timeStr}).json`, forumData);
+  testWriteFile(`categoryData(${timeStr}).json`, forumData); */
 
   /**
    * Member backup.
    */
-  const memberIds = Array.from({ length: memberIdCount + 1 }, (_, i) => i).slice(1);
+  /* const memberIds = Array.from({ length: memberIdCount + 1 }, (_, i) => i).slice(1);
   const members = await asyncPool(2, memberIds, getMember);
 
-  testWriteFile(`memberData(${timeStr}).json`, members);
+  testWriteFile(`memberData(${timeStr}).json`, members); */
 
   /**
    * Thread and post info backup.
@@ -192,6 +192,18 @@ async function getThreadInfo(threadId) {
   const firstPageUrl = `${forumParams.url}x-t${threadId}.html`;
   const firstPage = await loadForumPage(firstPageUrl);
   const threadName = firstPage('h2.topic-title a').text();
+
+  if (!threadName) {
+    log(`Thread ID ${threadId} 404'd`);
+    return {
+      _tid: threadId,
+      _content: '',
+      _cid: Number(firstPage('.breadcrumbs .crumb').last().attr('data-forum-id')),
+      _deleted: 1,
+      __postInfos: [],
+    };
+  }
+
   const postQty = Number(firstPage('.pagination').first().text().match(/\s(\d+)\spost(s?)\s/)[1]);
 
   log(`Parsing thread ID ${threadId}: ${threadName} (${postQty} posts)`);
@@ -299,6 +311,7 @@ async function getMember(userId) {
     let birthStr = '';
     birthStr += birth.month ? `${birth.day}/${birth.month}` : '';
     birthStr += birth.year ? `/${birth.year}` : '';
+    birthStr = birth.year && !birth.day ? '' : birthStr;
     const user = {
       id: userId,
       name,
@@ -346,16 +359,19 @@ async function loadForumPage(pageUrl, limit = 1) {
     const page = cheerio.load((await agent.get(pageUrl)).text);
     if (!page('.navbar-forum-name').text()) {
       if (limit !== maxlimit) {
-        log(`Error loading page ${pageUrl} attempt #${limit}, delaying next attempt by ${20000 + 10000 * limit}ms`);
+        log(`Unexpected page loaded, retry ${pageUrl} attempt #${limit}, delaying next attempt by ${20000 + 10000 * limit}ms`);
         await sleep(20000 + 10000 * limit);
         return loadForumPage(pageUrl, limit + 1);
       }
       testWriteFile('errPageRes.txt', page);
-      throw new Error(`Error loading page ${pageUrl}, limit exceeded ${maxlimit}. Ending scrape session and writing errored page to disk.`);
+      throw new Error(`Unexpected page loaded, retry ${pageUrl}, limit exceeded ${maxlimit}. Ending scrape session and writing errored page to disk.`);
     }
     return page;
   } catch (err) {
     if (limit !== maxlimit) {
+      if (err.status !== 502 && err.status !== 429) { // not Bad Gateway or Too Many Requests
+        return cheerio.load(err.response.res.text);
+      }
       log(`Error loading page ${pageUrl}, attempt #${limit} delaying next attempt by ${20000 + 10000 * limit}ms`);
       await sleep(20000 + 10000 * limit);
       return loadForumPage(pageUrl, limit + 1);
@@ -371,16 +387,19 @@ async function loadAcpPage(pageUrl, limit = 1) {
     const page = cheerio.load((await agent.get(pageUrl)).text);
     if (page('#page-header h1').text() !== 'Administration Control Panel') {
       if (limit !== maxlimit) {
-        log(`Error loading page ${pageUrl} attempt #${limit}, delaying next attempt by ${10000 * limit}ms`);
+        log(`Unexpected page loaded, retry ${pageUrl} attempt #${limit}, delaying next attempt by ${10000 * limit}ms`);
         await sleep(10000 * limit);
         return loadAcpPage(pageUrl, limit + 1);
       }
       testWriteFile('errPageRes.txt', page);
-      throw new Error(`Error loading page ${pageUrl} limit exceeded ${maxlimit}. Ending scrape session and writing errored page to disk.`);
+      throw new Error(`Unexpected page loaded, retry ${pageUrl} limit exceeded ${maxlimit}. Ending scrape session and writing errored page to disk.`);
     }
     return page;
   } catch (err) {
     if (limit !== maxlimit) {
+      if (err.status !== 502 && err.status !== 429) { // not Bad Gateway or Too Many Requests
+        return cheerio.load(err.response.res.text);
+      }
       log(`Error loading page ${pageUrl} attempt #${limit}, delaying next attempt by ${10000 * limit}ms`);
       await sleep(10000 * limit);
       return loadAcpPage(pageUrl, limit + 1);
