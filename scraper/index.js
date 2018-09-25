@@ -88,7 +88,7 @@ async function start() {
    */
   const forumData = await getForumStructure();
 
-  testWriteFile(`forumStruct(${timeStr}).json`, forumData);
+  testWriteFile(`categoryData(${timeStr}).json`, forumData);
 
   /**
    * Member backup.
@@ -99,12 +99,15 @@ async function start() {
   testWriteFile(`memberData(${timeStr}).json`, members);
 
   /**
-   * Thread info backup.
+   * Thread and post info backup.
    */
   const threadIds = Array.from({ length: threadCount + 1 }, (_, i) => i).slice(1);
-  const postInfo = await asyncPool(1, threadIds, getPostsFromThread);
+  const threadInfo = await asyncPool(1, threadIds, getThreadInfo);
+  const postInfos = [].concat(...threadInfo.map(thread => thread.__postInfos));
+  threadInfo.forEach(info => delete info.__postInfos);
 
-  testWriteFile(`postData(${timeStr}).json`, postInfo);
+  testWriteFile(`threadData(${timeStr}).json`, threadInfo);
+  testWriteFile(`postData(${timeStr}).json`, postInfos);
 }
 
 /**
@@ -116,10 +119,8 @@ async function getForumStructure() {
   const forumIds = manForumPage('#fselect option').map(function() { return Number(manForumPage(this).val()); }).get();
 
   const forumAcpData = await asyncPool(3, forumIds, getAcpForumInfo);
-  const parentForumIds = Array.from(new Set(forumAcpData.filter(data => data.parentId).map(data => data.parentId)));
-  const forumIndexData = [].concat(...await asyncPool(3, parentForumIds, getForumInfo));
 
-  return forumAcpData.map(acpData => Object.assign({}, acpData, forumIndexData.find(indexData => indexData.id === acpData.id)));
+  return forumAcpData;
 }
 
 /**
@@ -129,7 +130,7 @@ async function getAcpForumInfo(forumId) {
   log(`Getting forum ACP info for forum index ${forumId}`);
   const forumAdmUrl = `${forumParams.url}adm/index.php?i=acp_forums&sid=${acpSessionId}&mode=manage&f=${forumId}&action=edit`;
   const forumAdmPage = await loadAcpPage(forumAdmUrl);
-  return {
+  const forumData = {
     id: forumId,
     parentId: Number(forumAdmPage('#parent').val()),
     type: forumAdmPage('#forum_type option[selected="selected"]').text(),
@@ -137,9 +138,20 @@ async function getAcpForumInfo(forumId) {
     desc: forumAdmPage('#forum_desc').val(),
     link: forumAdmPage('#forum_link').val(),
   };
+
+  // convert to nodebb format
+  const forumDoc = {
+    _cid: forumData.id,
+    _name: forumData.name,
+    _description: forumData.desc,
+    _path: forumData.link || undefined,
+    _parentCid: forumData.parentId === 0 ? null : forumData.parentId,
+  }
+
+  return forumDoc;
 }
 
-async function getForumInfo(forumId) {
+/* async function getForumInfo(forumId) {
   log(`Getting forum last post info for forum index ${forumId}`);
   const mainPage = await loadForumPage(`${forumParams.url}x-f${forumId}/`);
   return mainPage('.forums .row')
@@ -170,12 +182,12 @@ async function getForumInfo(forumId) {
         throw err;
       }
     }).get();
-}
+} */
 
 /**
  * Get post info from thread.
  */
-async function getPostsFromThread(threadId) {
+async function getThreadInfo(threadId) {
 
   const firstPageUrl = `${forumParams.url}x-t${threadId}.html`;
   const firstPage = await loadForumPage(firstPageUrl);
@@ -195,13 +207,15 @@ async function getPostsFromThread(threadId) {
   const posterIds = firstPage('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
     .map(function() { return firstPage(this).attr('href') || '' })
     .get()
-    .map(url => url.split('&u=')[1] || '');
+    .map(url => url.split('&u=')[1] || 0)
+    .map(id => Number(id));
   const posterNames = firstPage('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
     .map(function() { return firstPage(this).text() })
     .get();
   const postTimes = firstPage('.author time')
     .map(function() { return firstPage(this).text() })
-    .get();
+    .get()
+    .map(dateStr => new Date(dateStr).getTime());
 
   if (firstPage('.pagination ul').length) {
     const postQtyPerPage = firstPage('.postbody').length;
@@ -218,27 +232,38 @@ async function getPostsFromThread(threadId) {
       posterIds.push(...page('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
         .map(function() { return page(this).attr('href') || '' })
         .get()
-        .map(url => url.split('&u=')[1] || ''));
+        .map(url => url.split('&u=')[1] || 0)
+        .map(id => Number(id)));
       posterNames.push(...page('.avatar-username-inner .username, .avatar-username-inner .username-coloured')
         .map(function() { return page(this).text() })
         .get());
       postTimes.push(...page('.author time')
         .map(function() { return page(this).text() })
-        .get());
+        .get()
+        .map(dateStr => new Date(dateStr).getTime()));
     }
   }
 
   const postContent = await asyncPool(5, postIds, (postId) => getPostContent(forumId, postId));
-  return postIds.map((val, idx) => {
-    return {
-      postId: val,
-      forumId,
-      poster: posterNames[idx],
-      posterId: posterIds[idx],
-      time: postTimes[idx],
-      content: postContent[idx],
-    };
-  });
+  return {
+    _tid: threadId,
+    _uid: posterIds[0],
+    _content: postContent[0],
+    _guest: posterNames[0],
+    _cid: forumId,
+    _title: threadName,
+    _timestamp: postTimes[0],
+    __postInfos: postIds.map((val, idx) => {
+      return {
+        _pid: val,
+        _tid: threadId,
+        _content: postContent[idx],
+        _uid: posterIds[idx] || undefined,
+        _guest: posterNames[idx],
+        _timestamp: postTimes[idx],
+      };
+    }),
+  };
 }
 
 async function getPostContent(forumId, postId) {
@@ -266,23 +291,49 @@ async function getMember(userId) {
     const userProfile = userPage('.profile .group .clear-after');
     let userAvatar = userPage('.profile .avatar-bg').css('background-image').slice(4).slice(0, -1);
     userAvatar = userAvatar === 'https://groups.tapatalk-cdn.com/static/image/no_avatar.png' ? null : userAvatar;
+    const birth = {
+      year: parseInt(userPageAdmProf('select[name="bday_year"]').val()),
+      month: parseInt(userPageAdmProf('select[name="bday_month"]').val()),
+      day: parseInt(userPageAdmProf('select[name="bday_day"]').val()),
+    };
+    let birthStr = '';
+    birthStr += birth.month ? `${birth.day}/${birth.month}` : '';
+    birthStr += birth.year ? `/${birth.year}` : '';
     const user = {
       id: userId,
       name,
       avatar: userAvatar,
-      email: userPageAdm('#user_email_search').val(),
+      email: userPageAdm('#user_email_search').val() || `u${userId}@fakemail.network`,
       reg: dateConv(userProfile.filter(function() { return userPage(this).text().includes('Joined') }).find('.right').text()),
       sig: userPageAdmSig('textarea[name="signature"]').val(),
-      int: userProfile.filter(function() { return userPage(this).text().includes('Interests') }).length ? userProfile.filter(function() { return userPage(this).text().includes('Interests') }).find('.right').html().replace(/<br>/g, '\n') : "",
-      birth: {
-        year: parseInt(userPageAdmProf('select[name="bday_year"]').val()),
-        month: parseInt(userPageAdmProf('select[name="bday_month"]').val()),
-        day: parseInt(userPageAdmProf('select[name="bday_day"]').val()),
-      },
+      loc: userProfile.filter(function() { return userPage(this).text().includes('Location') }).length ? userProfile.filter(function() { return userPage(this).text().includes('Location') }).find('.right').html().replace(/<br>/g, '\n') : "",
+      birth: birthStr,
     };
-    return user;
+    
+    // translate to nodebb format
+    const adminUsers = ['Bomber', 'Aim', 'Frelia', 'Shuryou', 'Lurch', 'SpaceMonkeySteve'];
+    const modUsers = ['Asator', 'Azureink', 'Heat Sonata', 'Kemix1006', 'Rogan', 'Ktbandit', 'Twi', 'Raikou', 'Morisha', 'Sage'];
+    let level = '';
+    level = adminUsers.includes(user.name) ? 'administrator' : level;
+    level = modUsers.includes(user.name) ? 'moderator' : level;
+    const userDoc = {
+      _id: user.id,
+      _email: user.email,
+      _username: user.name,
+      _joindate: user.reg.getTime(),
+      _location: user.loc,
+      _signature: user.sig,
+      _picture: user.avatar,
+      _birthday: user.birth,
+      _level: level,
+    }
+    return userDoc;
   }
-  return { id: userId };
+  return {
+    _id: userId,
+    _email: `u${userId}@fakemail.network`,
+    _username: `u${userId}`,
+  };
 }
 
 /**
