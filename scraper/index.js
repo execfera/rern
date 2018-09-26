@@ -101,13 +101,18 @@ async function start() {
   /**
    * Thread and post info backup.
    */
-  const threadIds = Array.from({ length: threadCount + 1 }, (_, i) => i).slice(1);
-  const threadInfo = await asyncPool(1, threadIds, getThreadInfo);
-  const postInfos = [].concat(...threadInfo.map(thread => thread.__postInfos));
-  threadInfo.forEach(info => delete info.__postInfos);
+  const threadIdStart = 101;
+  const threadIdLimit = 100;
+  const threadIds = Array.from({ length: threadCount }, (_, i) => i + 1).slice(threadIdStart - 1);
+  while (threadIds.length) {
+    const procThreadIds = threadIds.splice(0, threadIdLimit);
+    const threadInfo = await asyncPool(1, procThreadIds, getThreadInfo);
+    const postInfos = [].concat(...threadInfo.map(thread => thread.__postInfos));
+    threadInfo.forEach(info => delete info.__postInfos);
 
-  testWriteFile(`threadData(${timeStr}).json`, threadInfo);
-  testWriteFile(`postData(${timeStr}).json`, postInfos);
+    testWriteFile(`threadData(${procThreadIds[0]}-${procThreadIds[procThreadIds.length-1]})(${timeStr}).json`, threadInfo);
+    testWriteFile(`postData(${procThreadIds[0]}-${procThreadIds[procThreadIds.length-1]})(${timeStr}).json`, postInfos);
+  }
 }
 
 /**
