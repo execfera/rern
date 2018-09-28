@@ -374,7 +374,7 @@ async function loadForumPage(pageUrl, limit = 1) {
     return page;
   } catch (err) {
     if (limit !== maxlimit) {
-      if (err.status !== 502 && err.status !== 429) { // not Bad Gateway or Too Many Requests
+      if (err.status === 404) { // not Bad Gateway or Too Many Requests
         return cheerio.load(err.response.res.text);
       }
       log(`Error loading page ${pageUrl}, attempt #${limit} delaying next attempt by ${20000 + 10000 * limit}ms`);
@@ -402,7 +402,7 @@ async function loadAcpPage(pageUrl, limit = 1) {
     return page;
   } catch (err) {
     if (limit !== maxlimit) {
-      if (err.status !== 502 && err.status !== 429) { // not Bad Gateway or Too Many Requests
+      if (err.status === 404) { // not Bad Gateway or Too Many Requests
         return cheerio.load(err.response.res.text);
       }
       log(`Error loading page ${pageUrl} attempt #${limit}, delaying next attempt by ${10000 * limit}ms`);
