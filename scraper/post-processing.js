@@ -15,7 +15,7 @@ function mergeStuff(dataType, mapKey) {
       return obj;
     }, {});
   console.log(`writing data into ${dataType}Data.json...`);
-  fs.writeFileSync(`${dataType}Data.json`, JSON.stringify(arrayConcat, null, 2));
+  fs.writeFileSync(`./output/${dataType}Data.json`, JSON.stringify(arrayConcat, null, 2));
 }
 
 mergeStuff('post', '_pid');
@@ -23,7 +23,7 @@ mergeStuff('thread', '_tid');
 mergeStuff('member', '_id');
 mergeStuff('category', '_cid');
 
-const memberData = JSON.parse(fs.readFileSync('memberData.json', 'utf8'));
+const memberData = JSON.parse(fs.readFileSync('./output/memberData.json', 'utf8'));
 for (const _uid in memberData) {
   memberData[_uid]._uid = _uid;
   delete memberData[_uid]._id;
@@ -38,4 +38,4 @@ for (const _uid in memberData) {
   }
   delete memberData[_uid].birthday;
 }
-fs.writeFileSync('memberData.json', JSON.stringify(memberData, null, 2));
+fs.writeFileSync('./output/memberData.json', JSON.stringify(memberData, null, 2));
