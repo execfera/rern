@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>RNG</title>
+  <link rel="icon" href="https://execfera.github.io/rern/banner/icon-fav.gif">
+</head>
+<body>
+    <style>
+        body { display: flex; align-items: center; flex-direction: column; background: #efebe9; min-height: 100vh; margin: 0; padding: 0; }
+        .container { width: 90vw; background: #fff; min-height: 100vh; }
+        .content { margin-left: 12px; }
+        .mini { color:grey; font-size:0.7em; }
+        table { width: calc(100% - 72px); margin-left: 24px; }
+        .lastpadding { height: 12px; }
+        h3:not(.normal) { cursor: pointer; }
+      </style>
+      <script>function random(number) { return ((Math.random() * number) << 0) + 1; }</script>
+      <div class="container">
+        <div class="title">
+          <hr><center><b><font size="7">RNG</font></b></center><hr><br/>
+        </div>
+        <div class="content">
+          <h3 class="normal">Pickpocket:</h3>
+          <ul>
+            <li>Roll a <button onclick="alert(random(6))">d6</button>. Adjust this by 1-2 in either direction based on RP.
+              <br>
+              <ul>
+                <li>1-2: No result.</li>
+                <li>3: Low amount of zenny given out by a single regular virus.</li>
+                <li>4: High amount of zenny given out by a single regular virus.</li>
+                <li>5: Chip drop by the affected virus.</li>
+                <li>6: Rare chip drop by the affected virus, if one exists, otherwise give out a regular chip.</li>
+              </ul>
+            </li>
+            <br>
+          </ul>
+          <h3 class="normal">Other RNGs:</h3>
+          <br>
+          <div><button onclick="alert(random(2))">d2</button> <button onclick="alert(random(3))">d3</button> <button onclick="alert(random(6))">d6</button> <button onclick="alert(random(10))">d10</button> <button onclick="alert(random(20))">d20</button> <button onclick="alert(random(100))">d100</button> <button onclick="alert(random(200))">d200</button>  </div>
+          <h3 class="normal">Roll a specific number:</h3>
+          <br>
+          <input type="text" id="customRoll">
+          <button onclick="alert(random(document.querySelector('#customRoll').value))">Custom Roll</button>
+          <br>
+      
+          <div class="lastpadding"></div>
+        </div>
+      </div>
+      
+</body>
+</html>
