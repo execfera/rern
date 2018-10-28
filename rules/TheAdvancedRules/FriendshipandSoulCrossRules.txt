@@ -1,0 +1,105 @@
+[b]Friendship System[/b]
+
+The Friendship System measures your characters' relationship with another character. The system is based on Friendship Points, which is the quantitative measure of your relationship at the current time. 
+
+Gaining Friendship Points (FXP) can be done by team busting, netbattles, or non-combat interactions. Team busting is the most basic way to gain points. For each area, there is a ratio of how many viruses you would need to delete with your friends to gain a point. All ratios round up.
+[quote=][u]Virus:Points Area[/u]
+      5:1       ACDC
+      4:1       Scilabs
+      3:1       Electown, Yoka, Netopia, Dentech, Beach Street, Okuden, Kotobuki
+      2:1       Sharo, Yumland, Netfrica, Netvegas, Hades Isle, NAXA
+      1:1       Undernet
+Battle 5, 10, 15, and 20 Minibosses get a x2 modifier.
+Rouge Nets get x1.5 to base FXP earned for deleting viruses.
+Chaos Nets get x2 to base FXP earned for deleting viruses.
+Undernet get x3 to base FXP earned for deleting viruses.[/quote]
+At the end of each battle, players will be rewarded with FXP based on the events that transpired. The moderator will tell you with who and how much FXP you gain. Note that FXP between two Navis is always the same amount, and must be kept track of in your signature.[ul]
+
+[li]Certain actions can merit extra FXP. These actions would be determined by the moderator's own judgment, and should be based on an action AND reaction (or a pair of posts).[/li]
+
+
+[li]Interaction between operators can result in 1 FXP per pair of quality back and forth posts.[/li]
+
+
+[li]Noncombat interaction between Navis can result in 1 or 2 FXP per pair of quality back and forth posts.[/li]
+
+
+[li]When both Navis and Operators are present for interaction, the result can be up to 3 FXP per pair of quality back and forth posts.[/li]
+
+
+[li]To get FXP from Real World threads, use [url=https://rockman-rogue.net/topic/3006/real-world-fxp-tallying]the Real World FXP tallying thread.[/url]
+
+[/li][/ul]
+[b]Using FXP[/b]
+
+Crosses are earned based on FXP. Once you achieve a certain amount of points, you may apply for the Cross. Gaining the Cross removes no points.
+[quote=FXP needed for each Cross level]Level 1 : 30
+Level 2 : 70
+Level 3 : 150
+Level 4 : 250
+Level 5 : 400[/quote]
+[b]Applying for a Cross[/b]
+
+ExampleMan and AverageMan's Friendship is at 30 FXP. They apply for a level 1 Cross, which requires at least 30 FXP. It is approved, no points are "used up", so they still retain their FXP. Once they attain 70 FXP, they can apply for a level 2 Cross.
+
+[b]General Soul Cross Rules[/b]
+[quote=Cross Level Bonuses][b]Level 1:[/b]
+
+[i]Bonuses:[/i] +10 to all chips of the element of the other Navi, cosmetic changes. 80 total cross points which can be used toward making cross signature attack(s).
+
+[b]Level 2:[/b]
+
+[i]Bonuses:[/i] +15 to same-element chips, +20 HP while crossed, a Speed upgrade (caps at 6 unless otherwise mentioned), and 160 total cross points which can be used toward making cross signature attack(s).
+
+[b]Level 3:[/b]
+
+[i]Bonuses:[/i] +20 to same-element chips, +40 HP while crossed, one Speed upgrade (caps at 7 unless otherwise mentioned), the total cross points is now equal to 240 total cross points, which can be used toward making cross signature attack(s).
+
+[b]Level 4:[/b]
+
+[i]Bonuses:[/i] +30 to same-element chips, +60 HP while crossed, two Speed upgrades (caps at 8 unless otherwise mentioned), and 360 total cross points, which can be used toward making cross signature attack(s).
+
+[b]Level 5[/b]
+
+After you have registered the Cross successfully, you must complete a special  mission in order to receive a Joint Attack Chip. This Joint Attack Chip will allow you to register a Joint attack; details on these are listed below.
+
+[i]Bonuses:[/i] +50 to same-element chips, +100 HP while crossed, two Speed upgrades (caps at 8 unless otherwise mentioned), 500 total cross points, which can be used toward making cross signature attack(s). and access to the creation of a specialized Joint Attack which utilizes the abilities of both Navis.[/quote][ul]
+
+[li]Activating (or deactivating) a Cross uses one action.[/li]
+
+
+[li]While Crossed, your element is overridden to the element of the Navi you are Crossing with. You can choose whether or not to override your Subtype with the Subtype of the Navi you are Crossing with, but this decision is permanent and must be stated when registering your Cross.[/li]
+
+
+[li]Bonus damage from Crosses does not stack on multi-hits.[/li]
+
+
+[li]The bonus damage from the Cross overrides the bonus damage your Navi would get from it's own level and Element.[/li]
+
+
+[li]There is no limit on how many Crosses you can have.[/li]
+
+
+[li]Each Cross can only be used once every three battles. [/li]
+
+
+[li]There is no turn limit on how long a Cross lasts inside one battle.
+
+[/li][/ul]
+[b]Faction Crosses[/b]
+
+Crosses of your same faction gain the benefit of reduced requirements of FXP for each cross. That is, if you are in the NetPolice, any other NP member cross that you've worked towards (player or NPC) will require less FXP to level up.
+[quote=Faction FXP needed for each Cross level]Level 1 : 25
+Level 2 : 60
+Level 3 : 120
+Level 4 : 210
+Level 5 : 320[/quote]
+[b][Joint Attacks][/b][ul]
+[li]Have a damage cap of 1000 (nerf up to 1500).[/li]
+[li]Combine the abilities of both Navis.[/li]
+[li]Both Navis do not have to be present to use.[/li]
+[li]Cannot be passive.[/li]
+[li]Cannot use Object/Object Armor passive effects.[/li]
+[li]Can only be used while Crossed.[/li]
+[li]Forcefully expend the Cross, burning it out until the Navi jacks out.
+[/li][/ul]

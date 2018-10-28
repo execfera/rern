@@ -1,0 +1,113 @@
+[b]Virus Busting[/b]
+
+Obtaining a new virus battle in a thread must be done with an OOC notice explicitly requesting a new battle. Note that this may or may not result in an actual virus battle, as there may be some setup leading into one, or even another scenario entirely provided by the Moderator, that you may choose to follow.
+
+Each participant takes turns to attack a virus, then a Moderator controls the viruses and calculates the damage dealt to everyone involved (including the viruses).
+
+Multiple players in a battle do not need to post in a set order, but they must wait until a Moderator posts before starting the next turn. You can perform a maximum of 3 actions in one turn until you start buying Speed upgrades, which raise the number of actions you use each turn. [b]You must post a detailed Turn Summary indicating the actions you've taken during the turn.[/b]
+
+[url=https://rockman-rogue.net/topic/1439/signature-attack-system-3-5/10]List of Standard Actions Able to Be Done in Battle[/url]
+
+[b]NetBattling[/b]
+
+When two Player-controlled Navis are NetBattling, the usual virus busting rules apply, except that the Navis are fighting each other. Both players submit their turn summaries via PM to their moderator before they post. Once the moderator gets both players' turn summaries, he then allows them to make their RP posts. This prevents either player from changing their strategy after reading their opponent's actions. Whether or not an attack scores a hit depends on who roleplayed their turn better. Again, there is no set posting order, except that a Moderator must post last for the next turn to begin.
+
+===========================================
+
+Accuracy in RERN follows a simple table of percent-to-hit: 
+
+S = 100% (Auto-hit)
+A = 70% chance to hit
+B = 60% chance to hit
+C = 50% chance to hit
+D = 40% chance to hit
+E = 30% chance to hit
+
+So with an S-rank accuracy chip, you always hit. With an E-rank accuracy chip, you miss 70% of the time-- on average. These numbers are not the final total, however; there is a [b]modifier[/b] applied on top of these base percentages. That modifier is based on the [s]effort[/s] quality of your post! If you make an exceptionally well-written post, one that really fits your characters, or is cleverer than most, you will get a bonus to your chance to hit, while enemies will receive a deficit.
+
+You can either [b]gain up to 25%, or lose up to 25%[/b] in accuracy based on the quality of your post. So a perfect example of writing in battle would have a 95% chance to hit with an A-rank accuracy chip. But what about losing accuracy? That usually only applies if you're not following the [url=https://rockman-rogue.net/topic/1438/posting-bumping-rules]Posting Rules[/url]. So making one-line-of-text posts, describing your actions as *navi slashes*, not making a rudimentary check for typos... those are the kind of things that reduce your accuracy. RERN does not discriminate for not being the best at writing! We just ask that you make an effort. 
+
+There is one other thing this table applies to, and that is [b]Dodging[/b]. Dodges start at a base 50% chance to dodge, or C-rank. In order for a dodging character to be hit, [b]two[/b] rolls are made by a moderator instead of one. First they roll the attacker's chance to hit, based on the table above and your RP quality. Then, [b]if the attack would normally be a hit[/b], they roll your dodge chance for success/failure. Regardless of the outcome of your dodge roll, each dodge is only good against a single attack. However, it won't be used up until an attack would actually hit you.
+
+===========================================
+
+[b]Using non-Battlechip, non-Signature Attack, non-Buster weapons[/b]
+
+If you use part of your Navi that isn't the buster to attack, you deal only 1 damage.
+
+[b]Battlechips and Folders[/b]
+
+When listing your Battlechips in your forum signature, only 30 of them can fit in your equipped folder. You are allowed to own more than 30 chips, but these ones are left outside your equipped folder, and cannot be used until they are put in. The only time that your folder can be edited is when your Navi is not in battle. Your folders refresh after every battle. It takes one action to use a chip by slotting it into a PET.
+
+Regardless of the design of your navi, or their number (or lack) of visible hands, all navis are considered to have the capacity to wield up to two offensive battlechips or wielded defences (See [url=https://rockman-rogue.net/topic/532/defense-layering]Defense Layers[/url]) at a time.  This means that if your navi has a shield active, and a multi-use sword chip active, they must dispel one of these and relinquish it, if they want to use a new chip.  Some chips may require the use of both wielding slots to activate, forcefully dispelling any other active chips (Example: GiantHook).
+
+This limit applies absolutely only to the use of battlechips and other wielded gear, but it may also (though not necessarily) interfere with other actions, such as the use of signatures, or the functioning of your navi's buster, dependant on circumstance and roleplay; use common sense.
+
+[b]Deletion and EJOs[/b]
+
+If a Moderator announces that your Navi has been Emergency Jacked-Out, you've been kicked off the network for reaching zero HP. You'll lose some Zenny or a chip or two, but your Navi will be able to fight as usual if you jack back in. However, deletion is a more serious matter; if your Navi is deleted, it is gone and cannot be used again. Note that deletions only happen in absolute extreme circumstances.
+
+[b]Between-battle Recovery[/b]
+
+Between battles, you can use Subchips, particularly the EnergyPack set, to heal your Navi of damage it may have received in earlier battles. There is no limit on how many Subchips you can use between battles, so if you want to use 50 MiniEnergyPacks before your next fight, go for it. Subchips are, however, the ONLY means to heal yourself outside of a battle. Sigs, Battlechips, and whatever else you may have to heal yourself with can't be used outside of a battle, so keep that in mind next time you're running low on HP.
+
+[b]Consecutive Battles[/b]
+
+When battling in the Network, the more battles you win without jacking out results in bigger, harder battles, with greater rewards. After the fifth, tenth, fifteenth, and twentith battles, your Navi will encounter a powerful boss battle, which can lead to all sorts of bonus rewards. However, when team busting consecutively, every time a new Navi joins the battle, or a Navi leaves the battle, the 'battle counter' resets to one.
+
+[b]Moving from Area to Area[/b]
+
+You are allowed to be in only one place at one time. The Operator can exist ONLY in the Real World, and the Navi only in the Cyberworld. When you wish to leave the current area you are in, you must make a post SAYING so. If you are in the ACDC Net and you wish to jack into another town's net, you must post that you are doing so.
+
+[b]Purchasing[/b]
+
+Leaving your Navi to fend for itself while you buy Battlechips and upgrades has a penalty. Because you are not at your PET, you cannot send your Navi chips or other forms of assistance for a period of time. For each post you make outside of the thread you were in originally, your Navi goes a turn unoperated. If you should choose to do this between battles, the next battle starts up immediately and your Navi is left unoperated for each post you make outside of the thread you were in originally.
+
+[b]Minimum Moderation Limit[/b][ul]
+[li] In events, we will set a limit upon how many people [b]must[/b] post before it can be modded. [/li]
+
+[li] If no one posts for three days, it will be modded as if their moves were all dodges, and the battle goes on. This goes the same for when a number below the minimum number of people post.[/li]
+
+[li] When the minimum number needed to post do so, the moderator can then mod the event, regardless of whether the other people in the event have posted, [i][b]after[/b][/i] a 12 hour window imposed so that the other people in the event still do have a chance to post.[/li]
+
+[li] If an event happens where a member must leave due to RL reasons, or several members cannot post, the mod may feel free to lower the number for minimum postage. If a Navi is deleted, they may do so as well.
+[/li][/ul][b]Upgrades During Battle[/b]
+
+During battle, one cannot have upgrades take effect. For example, Joe just got his new Sig Attack approved, but he's in the middle of a battle! That new Sig Attack cannot be used until the end of this battle, and thus, the next battle. The same goes for HP Memories, Buster Upgrades, etc etc. Any changes you have approved for sigs or new upgrades you obtain midbattle cannot be used until the end of battle.
+
+[b]Escaping[/b]
+
+[quote=Escape Calculation]25% Base escape chance + (10% x # of 'Escaping' actions) +/- RP quality/Circumstances[/quote]
+Simply put, every action you put toward 'Escaping' gives you 10% towards actually getting away on top of the 25% base chance. So with 3 actions used to Escape, you have a 55% chance of escaping. Of course, you can escape with the Escape subchip, which boosts your chances to 100% no matter what.
+
+[b]Turn Splicing[/b]
+
+A Turn Splice is the action of splitting up your turn and only using a certain number of your available actions as opposed to all of them. A moderator will then reply to the turn-splice, telling you what happened as a result of these actions, and then will allow you to make another post with the rest for this turn. Turn Splicing is mainly useful for the enhanced ability to react; namely, you can see what happens with your attacks without having to use up an entire turn. Any status debuffs that occur during the span of a turn splice will take effect during the remainder of that turn, rather than on the turn following. Multiple instances of effects will, of course, carry over to the next turns as usual.
+[ul]
+
+[li] You can cut a turn into as many splices as you have actions. (So you could make one post for each action, at maximum.)[/li]
+
+[li] When you turn splice, the enemies are allowed to use their action(s) that turn, up to the amount of actions you use in a splice. So if you're fighting an enemy with three actions and do a two-action splice, they get to do two things as well.[/li]
+
+[li] If you are team battling, your allies are not required to turn splice when you do. In the case of them not doing so, any enemies you are fighting are allowed to freely use all their actions before you can use the rest of your splice.[/li]
+
+[li] In order to use a turn splice, you must simply put something like "--Turn Splice--" at the beginning of your summary. Remember to only list the actions you're using in the current part of the turn when doing so, however.
+
+[/li][/ul]
+[quote=Example]Naviman has four actions.
+
+1st post: Naviman decides to declare a turn-splice, using two of his available actions for this turn.
+2nd post: The moderator replies, and the enemies Naviman is fighting get to use up to two of their actions as well.
+3rd post: Naviman decides to use the rest of his actions for the turn.
+4th post: The moderator replies again, and the enemies are allowed to use whatever actions they have not used this turn. The turn then ends, and the process repeats.[/quote]
+
+
+[b]Passive Abilities and Role Play[/b]
+
+Here, a player will have access to one or more of several passive abilities that they may use, or choose not to use, in their RP experiences.[ul]
+[li] Passive Program Effects: These are effects like FloatShoes and Undershirt. By default, they are assumed to always be [b]on[/b]. If you wish to turn a Program's effect off for Role Play purposes, simply RP the moment of deactivation, and then make a small note in your summary at the bottom of each post thereafter. When you wish to reactivate, simply RP turning the NCP back on, and note it in that post. You need not worry about it thereafter, as this its default state.[/li]
+
+[li] Passive Signature Effects: These are assumed to be off unless role played. You need to make a note of them in your turn summary, and, for most types of effects, should also role play them in your post. If you do not, they are assumed to be not in use.[/li]
+
+[li] Chips with multiple turn durations: For the sake of clarity, a player should mention chips that remain active for multiple turns in their summary, and in their RP.
+[/li][/ul]

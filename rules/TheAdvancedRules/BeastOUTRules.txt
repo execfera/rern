@@ -1,0 +1,29 @@
+A BeastOUT is obtained by defeating a Cybeast and absorbing it's power into your Navi. At that point in time you must register your BeastOUT. 
+
+A BeastOUT is registered with two things: an appearance change and Beast Sigs. Beast Sigs are special signature attacks that ignore three standards: cooldowns, point caps, and the points themselves. Beast Sigs use different standards.[ul]
+[li]Beast Sigs have no cooldowns. As long as you are capable of using the Beast Sig, it can be used. Multiple uses in the same turn is allowed where possible.[/li]
+[li]Beast Sigs have only a single point cap: 1000 points. Any effect or combination of effects that cost no more than 1000 points can be made into a Beast Sig.[/li]
+[li]There are [b]no[/b] passive Beast Sigs, only actives. Object/Armor passive effects are also not allowed.[/li]
+[li]Beast Sigs do not use standard sig points. It would be better to say that registering a Beast Sig is actually just registering a [i]template[/i] for a Beast Sig. BeastOUTs utilize expendable points earned within battle, and activating a Beast Sig requires the user to have at least as many points as the Beast Sig requires, so using a 200 point Beast Sig requires the user to have at least 200 Beast Sig Points (BSP) stored.
+[/li][/ul]Gaining BSP is done in two ways: one, upon activating your BeastOUT, you gain an amount of BSP equal to your current normal active sig cap (i.e. a level 20 player would start with 220 BSP upon activating BeastOUT). Two, for every 1 point of damage you deal in battle, you gain 1 BSP. Damage dealt by Beast Sigs do not grant BSP. Note that BSP does [b]not[/b] carry over between battles, so you will always start with only your BSP gained from your active cap. 
+
+There are certain sig effects exclusive to Beast Sigs. You can reference them [url=https://rockman-rogue.net/topic/1439/signature-attack-system-3-5]here[/url].
+
+You are limited in the number of Beast Sigs you can register for your BeastOUT, with a scale that allots you more Beast Sigs the higher your level is.
+[quote=Beast Sig Slots]Levels 0-10 = 1 Beast Sig
+Levels 11-20 = 2 Beast Sigs
+Levels 21-30 = 3 Beast Sigs
+Levels 31-40 = 4 Beast Sigs
+Levels 41+ = 5 Beast Sigs[/quote]
+
+Whenever you use a Beast Sig, you will be afflicted with BeastOVER. It is just too much to ask of a single Navi to fully harness the power of a Cybeast, and BeastOVER shows the results of trying to do so. In effect, BeastOVER is a Glitch-like in nature, in that what it does happens at the moderator's discretion. The major difference between BeastOVER and Glitch, though, is that BeastOVER has no positive effects. It can range in function from a harmless appearance change to a crippling nerf. BeastOVER effects last as long as you are in BeastOUT, but the severity of the effects are affected by both the strength of the Beast Sig you are using, and how well you RP the use of the Beast Sig. Good RP can lessen the effects of BeastOVER, and great RP can go so far as to negate it. The higher the level of BeastOVER, the stronger the effect, and the more exceptional your RP needs to be to overcome it.
+[quote=BeastOVER]0-200 point Beast Sig = BeastOVER level 1
+201-400 point Beast Sig = BeastOVER level 2
+401-600 point Beast Sig = BeastOVER level 3
+601-800 point Beast Sig = BeastOVER level 4
+801-1000 point Beast Sig = BeastOVER level 5[/quote]
+A BeastOUT will also override your Element (or Cross's Element) into the Element of the Cybeast whom the BeastOUT is based on.
+
+Activating a BeastOUT requires 1 action to do so. A BeastOUT can last up to the end of the battle it is used in, and can be voluntarily canceled (unless a severe BeastOVER has trapped you in BO state). After using a BeastOUT for a battle, it must enter into cooldown for the next 5 battles.
+
+CrossBeast is a fusion of a Soul Cross and BeastOUT. By activating one while the other is already active, the two will combine in such a way that you gain your Cross's subtype, the BeastOUT's element, and retain the power of both. In effect, the Cross's bonuses just combine with the BeastOUT's. Caps for bonuses such as extra actions are determined by the BeastOUT, not the Cross.

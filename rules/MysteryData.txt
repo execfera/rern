@@ -1,0 +1,25 @@
+[b]Mystery Data[/b]
+
+Mystery Data (MD) are small, floating crystals of varying colors scattered throughout the networks. When you see a MD, protect it, it's got loot inside!
+
+MD show up in battles. They [i]can[/i] be destroyed (By enemies or by you!), shielded, buffed, or even picked up and carried around.  A player may attempt to use an action to access a Mystery Data in the middle of a battle, rather than trying to protect it until the end, however there are other risks involved in doing so.  They forfeit the chance to use an untrap on the data, and even if they open it successfully, they may not claim their rewards until they have won the battle.
+
+Any Mystery Data may be trapped, but players may elect to use an Untrap subchip to prevent this risk, if they are not in combat. Traps aside, the rewards you gain from Mystery Data get better (or worse) depending on your RP as well. In team threads, each thread participant must give their consent to opening an MD (in OOC or IC), whether in or out of battle. [b]Their rewards are given to each participating Navi.[/b]
+
+[b]Data Types[/b][ul]
+[li][b][color=green]Green[/color][/b]
+The most common type of MD, Green Mystery Datas (GMDs) are usually composed of junk data that has clumped together over time to form something useful. They can contain Zenny or a low-level Chip. [/li]
+
+[li][b][color=Blue]Blue[/color][/b]
+Blue Mystery Datas (BMDs) are a bit more uncommon than GMDs, being the second most commonly-seen type.  They can contain Zenny or a mid-level Chip.[/li]
+
+[li][b][color=Purple]Purple[/color][/b]
+Purple Mystery Datas (PMDs) are the first of the 'rare' sort of MD. They can contain a large amount of Zenny or a high-level chip.[/li]
+
+[li][b][color=Red]Red[/color][/b]
+Red Mystery Datas (RMDs) are exceptionally rare Mystery Data; finding them usually means plumbing the deepest deeps of the deep deep deep internets. They can contain a huge amount of Zenny or a rare and powerful chip.[/li]
+
+[li][b][color=Gold]Yellow[/color][/b]
+Yellow Mystery Datas (YMDs) are the most ellusive and hardest to find MDs on the net.  Rarer and more valuable even than Reds, a navi would need equal amounts of determination and luck to find one of these, and they are only seen rarely in the very darkest, most dangerous nets.  Those fortunate and skilled enough will find superlative amounts of Zenny or the rarest and most powerful of chips.
+
+[/li][/ul]

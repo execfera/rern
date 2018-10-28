@@ -1,0 +1,136 @@
+[b]Support Program Rules[/b]
+
+A Support Program is a Navi's best buddy! It can be anything from your sidekick to your shirt, and can be acquired through a mission starting at [b]level 5.[/b]
+
+Your Support Program starts out at level 0 with a single action each turn, a 10 damage attack, and 40 HP. It can do the following with this action:[ul]
+[li]Attack [Action] (Your SP attacks an enemy you command. Attack is either your SP's element (if it has one) or Normal.)[/li]
+[li]Defend [Action] (Your SP blocks one attack that your Navi, fellow SP, or ally would take, taking the damage onto itself instead.)[/li]
+[li]Subtype Ability [May or may not require an Action] (Your SP uses its subtype ability. This ability acts just as a normal subtype ability would, with the exception that your SP can use it through your Navi, so a Break Subtype SP could add Break to its master's attacks the same way Break Subtypes add Break to their attacks.)[/li]
+[li]Dodge [Action] (Your Support Program attempts to dodge attacks by dodging in some way or form.)[/li]
+[li]Equipping [Action] (Your Navi, fellow SP, or Ally and Support Program enter a state where they are acting together. If an SP is carrying, lifting, holding, riding on, or other direct supportive action for the Navi/fellow SP/Ally, they are considered Equipped. If the Navi/fellow SP/Ally is likewise carrying, holding, wielding, wearing, or riding the SP, the SP is considered Equipped. Note that the SP functions the same as if it was not Equipped, so it still has HP, actions, attack power, an element, a subtype, and so on.)[/li]
+[li]Signature Attack [Action] (Your support program uses a signature attack that was created and registered for its use.  Your SP's signature point cap = its Navi's cap.  All signature attack rules apply.)
+[/li][/ul]Your SP starts out being present unless you desire it to be not out.  Summoning or unsummoning an SP takes one action per SP. You can summon or unsummon your SP between battles.
+
+You increase your SP's abilities and stats by spending Bugfrags. You gain Bugfrags by deleting viruses, and defeating Navigators who possibly carry Bugfrags themselves. [ul]
+[li]You will begin gathering BugFrags starting once your navi reaches level 5.[/li]
+[li]You gain 1 Bugfrag/per 20 HP of the Viruses you and your allies destroy. This is per virus, and is rounded up.[/li]
+[li]Bugfrags gained for defeating a Navigator will vary. Not all will have them.[/li]
+[li]Hostile SPs do not drop Bugfrags when defeated.
+[li]If multiple SPs are present, then the Bugfrags are divided evenly among them.[/li]
+[/li][/ul]You may acquire an SP through a mission provided by the GNA, NetPolice, NetMafia, or NeoShogunate if you are aligned with a faction. [b]You must be level 5 or higher[/b] to undertake one of these missions.[ul]
+[li]SP's grant 1 level to their Navi master for every 5 levels the SP has. This is for each SP the Navi has, not total, so a level 8 SP and a level 7 SP would grant two levels, not three.[/li]
+[li]Your SP's level can't go above your Navi's level.[/li]
+[li]If your SP is defeated, it takes three battles after the current one to regenerate and resume at full health.[/li]
+[li]You can unsummon your SP between battles in order for it to regain HP. 1/2 of its max HP per battle, so not using it for two battles will fully heal it.
+[/li][/ul]You may design Signature Attacks to be used by your SP from your own pool of points, but you must include that the Signature Attack is designated to your SP while registering the attack.  Your Navi's current point cap applies to your SPs Signature Attacks as well, regardless of your SP's level.
+
+[b]Support Program Base Statistics:[/b]
+
+[b]Level:[/b] 0
+[b]HP:[/b] 40
+[b]Attack:[/b] 10
+[b]Actions:[/b] 1
+
+[b]Support Program Basic Abilities:[/b]
+
+[b]Hit Point+:[/b] V1: +10 to Max HP for SP. [+1 Level to SP] [Cost: 10 Bugfrags]
+[b]Hit Point+:[/b] V2: +10 to Max HP for SP. [+1 Level to SP] [Cost: 20 Bugfrags]
+[b]Hit Point+:[/b] V3: +10 to Max HP for SP. [+1 Level to SP] [Cost: 30 Bugfrags]
+[b]Hit Point+:[/b] V4: +10 to Max HP for SP. [+1 Level to SP] [Cost: 40 Bugfrags]
+[b]Hit Point+:[/b] V5: +10 to Max HP for SP. [+1 Level to SP] [Cost: 50 Bugfrags]
+[b]Hit Point+:[/b] V6: +10 to Max HP for SP. [+1 Level to SP] [Cost: 60 Bugfrags]
+[b]Hit Point+:[/b] V7: +10 to Max HP for SP. [+1 Level to SP] [Cost: 70 Bugfrags]
+[b]Hit Point+:[/b] V8: +10 to Max HP for SP. [+1 Level to SP] [Cost: 80 Bugfrags]
+[b]Hit Point+:[/b] V9: +10 to Max HP for SP. [+1 Level to SP] [Cost: 90 Bugfrags]
+[b]Hit Point+:[/b] V10: +10 to Max HP for SP. [+1 Level to SP] [Cost: 100 Bugfrags]
+[b]Hit Point+:[/b] V11: +10 to Max HP for SP. [+1 Level to SP] [Cost: 110 Bugfrags]
+[b]Hit Point+:[/b] V12: +10 to Max HP for SP. [+1 Level to SP] [Cost: 120 Bugfrags]
+[b]Hit Point+:[/b] V13: +10 to Max HP for SP. [+1 Level to SP] [Cost: 130 Bugfrags]
+[b]Hit Point+:[/b] V14: +10 to Max HP for SP. [+1 Level to SP] [Cost: 140 Bugfrags]
+[b]Hit Point+:[/b] V15: +10 to Max HP for SP. [+1 Level to SP] [Cost: 150 Bugfrags]
+[b]Hit Point+:[/b] V16: +10 to Max HP for SP. [+1 Level to SP] [Cost: 160 Bugfrags]
+[b]Hit Point+:[/b] V17: +10 to Max HP for SP. [+1 Level to SP] [Cost: 170 Bugfrags]
+[b]Hit Point+:[/b] V18: +10 to Max HP for SP. [+1 Level to SP] [Cost: 180 Bugfrags]
+[b]Hit Point+:[/b] V19: +10 to Max HP for SP. [+1 Level to SP] [Cost: 190 Bugfrags]
+[b]Hit Point+:[/b] V20: +10 to Max HP for SP. [+1 Level to SP] [Cost: 200 Bugfrags]
+
+[i][HP Does not cap, just practicality limits from putting up to v100 in here.][/i]
+
+[b]Damage+:[/b] V1: +5 Damage to SP attack. [+1 Level to SP] [Cost: 10 Bugfrags]
+[b]Damage+:[/b] V2: +5 Damage to SP attack. [+1 Level to SP] [Cost: 20 Bugfrags]
+[b]Damage+:[/b] V3: +5 Damage to SP attack. [+1 Level to SP] [Cost: 30 Bugfrags]
+[b]Damage+:[/b] V4: +5 Damage to SP attack. [+1 Level to SP] [Cost: 40 Bugfrags]
+[b]Damage+:[/b] V5: +5 Damage to SP attack. [+1 Level to SP] [Cost: 50 Bugfrags]
+[b]Damage+:[/b] V6: +5 Damage to SP attack. [+1 Level to SP] [Cost: 60 Bugfrags]
+[b]Damage+:[/b] V7: +5 Damage to SP attack. [+1 Level to SP] [Cost: 70 Bugfrags]
+[b]Damage+:[/b] V8: +5 Damage to SP attack. [+1 Level to SP] [Cost: 80 Bugfrags]
+[b]Damage+:[/b] V9: +5 Damage to SP attack. [+1 Level to SP] [Cost: 90 Bugfrags]
+[b]Damage+:[/b] V10: +5 Damage to SP attack. [+1 Level to SP] [Cost: 100 Bugfrags]
+[b]Damage+:[/b] V11: +5 Damage to SP attack. [+1 Level to SP] [Cost: 110 Bugfrags]
+[b]Damage+:[/b] V12: +5 Damage to SP attack. [+1 Level to SP] [Cost: 120 Bugfrags]
+[b]Damage+:[/b] V13: +5 Damage to SP attack. [+1 Level to SP] [Cost: 130 Bugfrags]
+[b]Damage+:[/b] V14: +5 Damage to SP attack. [+1 Level to SP] [Cost: 140 Bugfrags]
+[b]Damage+:[/b] V15: +5 Damage to SP attack. [+1 Level to SP] [Cost: 150 Bugfrags]
+[b]Damage+:[/b] V16: +5 Damage to SP attack. [+1 Level to SP] [Cost: 160 Bugfrags]
+[b]Damage+:[/b] V17: +5 Damage to SP attack. [+1 Level to SP] [Cost: 170 Bugfrags]
+[b]Damage+:[/b] V18: +5 Damage to SP attack. [+1 Level to SP] [Cost: 180 Bugfrags]
+
+[b]Speed+:[/b] V1: +1 Max action for SP. [+5 Levels to SP] [Cost: 100 Bugfrags]
+[b]Speed+:[/b] V2: +1 Max action for SP. [+5 Levels to SP] [Cost: 200 Bugfrags]
+[b]Speed+:[/b] V3: +1 Max action for SP. [+5 Levels to SP] [Cost: 300 Bugfrags]
+[b]Speed+:[/b] V4: +1 Max action for SP. [+5 Levels to SP] [Cost: 400 Bugfrags]
+[b]Speed+:[/b] V5: +1 Max action for SP. [+5 Levels to SP] [Cost: 500 Bugfrags]
+
+[b]Support Program Element Strike Abilities:[/b]
+(Only one Element Strike Ability can be equipped at a time. Buying a new one overwrites and erases the old ability.)
+
+[b]Fire Strike:[/b] Changes SP's Regular Attack to Fire element. [+0 Level to SP] [Cost: 25 Bugfrags]
+
+[b]Aqua Strike:[/b] Changes SP's Regular Attack to Aqua element. [+0 Level to SP] [Cost: 25 Bugfrags]
+
+[b]Elec Strike:[/b] Changes SP's Regular Attack to Elec element. [+0 Level to SP] [Cost: 25 Bugfrags]
+
+[b]Wood Strike:[/b] Changes SP's Regular Attack to Wood element. [+0 Level to SP] [Cost: 25 Bugfrags]
+
+[b]Support Program Effect Strike Abilities:[/b]
+(Only one Effect Strike Ability can be equipped at a time. Buying a new one overwrites and erases the old ability. Levels do not stack across replacing upgrades, so the SP will never gain more than 1 level from this.)
+
+[b]Splash Strike:[/b] SP's Regular Attack deals 1 instance of Splash damage. [+1 Level to SP] [Cost: 75 Bugfrags]
+
+[b]Spread Strike:[/b] SP's Regular Attack deals 1 instance of Spread damage. [+1 Level to SP] [Cost: 100 Bugfrags]
+
+[b]Knockback Strike:[/b] SP's Regular Attack has Knockback. [+1 Level to SP] [Cost: 25 Bugfrags]
+
+[b]Glitch Strike:[/b] SP's Regular Attack has Glitch. [+1 Level to SP] [Cost: 25 Bugfrags]
+
+[b]Slashing Strike:[/b] SP's Regular Attack has Slashing. [+1 Level to SP] [Cost: 25 Bugfrags]
+
+[b]Break Strike:[/b] SP's Regular Attack has Break. [+1 Level to SP] [Cost: 50 Bugfrags]
+
+[b]Impact Strike:[/b] SP's Regular Attack has Impact. [+1 Level to SP] [Cost: 50 Bugfrags]
+
+[b]Phasing Strike:[/b] SP's Regular Attack has Phasing. [+1 Level to SP] [Cost: 50 Bugfrags]
+
+[b]Seeking Strike:[/b] SP's Regular Attack has Seeking. [+1 Level to SP] [Cost: 50 Bugfrags]
+
+[b]Disarm Strike:[/b] SP's Regular Attack has Disarm. [+1 Level to SP] [Cost: 75 Bugfrags]
+
+[b]Homing Strike:[/b] SP's Regular Attack has Homing. [+1 Level to SP] [Cost: 75 Bugfrags]
+
+[u][b]Support Program 'Special' Abilities:[/b][/u]
+
+[b]Flight:[/b] [i]Planeswalking[/i]: Grants protection from Terrain effects as if SP had Floatshoes. The SP does not necessarily float. [+3 Level to SP] [Cost: 100 Bugfrags]
+
+[b]Flight:[/b] [i]Fly[/i]:  Allows an SP to fly and ignore panels as if it had Omnishoes. [b]Prerequisite:[/b] [i]Planeswalking[/i]. [+5 Level to SP] [Cost: 200 Bugfrags]
+
+[b]Brace[/b]: Allows the SP to block one attack per round for half damage. This effect operates automatically when Defending, allowing the SP to take half normal damage from the first hit it takes for the Navi once per turn. Subsequent hits while Defending deal full damage. [color=red]This does not mean Bracing and then Defending gives you two uses of brace per turn.[/color] [+2 Level to SP] [Cost: 75 Bugfrags]
+
+[b]Second Chance:[/b] Ability to survive a killing hit at 1 HP. [+3 Level to SP] [Cost: 100 Bugfrags]
+
+[b]Chip Preset:[/b] Allows an SP to use a designated chip directly from the Operator. The preset chip can only be changed when jacked out. [+3 Level to SP] [Cost: 100 Bugfrags]
+
+[b]Support Program .GMO's[/b]
+
+Every five (5) levels that your SP gains, you may register a new .GMO for your SP. Normal .GMO rules apply.
+
+Support Programs are registered [url=https://rockman-rogue.net/category/68/profile-edits-appearance-changes]here.[/url] Future upgrades to your SP are made in its original registration topic. If desired, purchased abilities can later be deleted via registration in that SP's topic with the requirement that the SP must be restored to at least its previous level via additional upgrade purchases.

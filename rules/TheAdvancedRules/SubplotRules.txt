@@ -1,0 +1,60 @@
+There comes a time in any roleplay where you really want to knuckle down and make some hard changes to your character, or resolve a past conflict that's been looming for a while, or have them advance personally, or just have a really awesome situation you want to throw a character into.
+
+This is where subplots come in.
+
+Whether big or small, a subplot means that for once you get to call the shots on where the story will go. You might not get to roll the mechanic changes (A mod will still do that), but you will get to say what happens, register bosses, sometimes you can even have a say on what rewards come out of it, though that is usually not the main point.
+
+Some general rules about subplots:[ul]
+[li]You must be at least level 5 to begin a subplot.[/li]
+[li]You cannot effect the entire net world on a grand scale with a subplot (So, for instance, you couldn't tame a Cybeast or take Electown offline for an hour.)[/li]
+[li]You cannot exact changes on another player's characters without their consent. Both of you posting in your subplot registration topic is the best way to clarify this.[/li]
+[li]You must describe your entire subplot's events in detail. What happens to who, when, where, and how-- at least, should you succeed.[/li]
+[li]You may not use site NPCs in your subplot.[/li]
+[li]You may suggest rewards to be given out by any bosses in your subplot, although whether or not you will receive them depends on how well you RP in the associated boss battle. The mod staff may reject possible rewards entirely if they are too powerful for the situation or do not fit it.[/li]
+[li]You may work in rewards through other methods in your subplot; we're not against you receiving one last chip from a dying mentor, for instance, or any other methods that seem viable to the staff.
+[/li][/ul]For your subplot, you are allowed to register as many characters or bosses for that subplot as you require; for this, the forms you use are very similar to the ones you use when [url=https://rockman-rogue.net/topic/1440/registration-rules]registering a new character[/url], with the exception that any navis (Boss or no) must have the following listed:
+
+[code][b]Name:[/b]
+[b]HP:[/b]
+[b]Level:[/b]
+[b]Element:[/b]
+[b]Subtype:[/b]
+[b]Actions:[/b]
+[b]Appearance:[/b]
+[b]Personality:[/b]
+--Buster--
+[b]Attack:[/b]
+[b]Rapid:[/b]
+[b]Charge:[/b]
+[b]Element Upgrade:[/b]
+[b]Effect Upgrade:[/b]
+--Navicust--
+[b]Points:[/b] (Used/Total)
+[b]Equipped Programs:[/b]
+[b]Unused Programs:[/b]
+--Folder--
+(Put up to 30 battlechips here. You can give any navis you register multiple folders if you so choose, or not even a full folder. You may also give them a 'pack' of reserve chips that the moderator can swap into or out of their folder as the plot or characterization requires.)
+--Signature Attacks--
+[b]Cap:[/b]
+[b]Points:[/b] (Used/Total)[/code]
+
+List signatures in the following format (Or at least something very similar):
+
+[code][b]Name[/b]
+Description:
+Effects:
+Cost:
+Cooldown:
+[/code]
+
+So a completed sig would look something like this.
+
+[b]Rain of Examples[/b]
+Description: ExampleMan gives a loud yell, prompting several examples to rain down upon the target and anything nearby.
+Effects: 40 damage(40), Blast 3(x3 to sig cost).
+Cost: 40x3 = 120
+Cooldown: 3 turns
+
+Navis you register for your subplot must follow the normal rules the very same way a player does; in essence you're creating an NPC the very same way the mods do... from scratch. So if the navi you're registering is a level 32, you have to actually give him upgrades to make him reach that level-- you can't simply declare him level 32.
+
+[url=https://rockman-rogue.net/category/70/subplot-registration]You register subplots here.[/url]

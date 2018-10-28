@@ -1,0 +1,149 @@
+[b][u]Elements[/u][/b]
+When choosing your Navi or Support Program type, be mindful of elemental weaknesses. You will take extra damage from attacks containing your weak element--usually twice as much as normal.
+
+[img]https://execfera.github.io/rern/sub/null.png[/img] [color=grey]Normal[/color] 
+No weaknesses. No chip boosts. No associated Terrain.
+[img]https://execfera.github.io/rern/sub/aqua.png[/img] [color=blue]Aqua[/color]
+Weak to Elec. Boosts Aqua chips. Associated Terrain: Ice, Sea, Snow
+[img]https://execfera.github.io/rern/sub/fire.png[/img] [color=red]Fire[/color]
+Weak to Aqua. Boosts Fire chips. Associated Terrain: Lava, Coal, Furnace
+[img]https://execfera.github.io/rern/sub/wood.png[/img] [color=green]Wood[/color]
+Weak to Fire. Boosts Wood chips. Associated Terrain: Grass, Mud, Soil 
+[img]https://execfera.github.io/rern/sub/elec.png[/img] [color=orange]Elec[/color]
+Weak to Wood. Boosts Elec chips. Associated Terrain: Magnet, Metal, Solar
+
+
+Navis and SPs of the four elements (Fire, Aqua, Elec, Wood) receive bonuses for using Battlechips that are the same element as they are.
+
+Base: +5 to same element.
+L5: +5 to same element. +5 additional to same element if attack only hits one opponent.
+L10: +10 to same element. +5 additional to same element if attack only hits one opponent.
+L15: +10 to same element. +10 additional to same element if attack only hits one opponent.
+L20: +15 to same element. +10 additional to same element if attack only hits one opponent.
+
+The first number applies to every hit of ALL chips, multi-hitters and multi-targeters included (for example, AquaNeedle and Flameline). The second number applies if the chip only launches ONE attack and ONE target. (for example, Thunder). The list does not expand beyond what is shown here.
+
+Any chips with Blast, Nova, Line, Chain, Line-Chain, Cone, Fighter, Long, Wide, LifeSword, Group/Group (Arc), To-All, Spin, Spray, Variable, or any other effect that is a multi-hit and/or multi-target will never receive the single target damage bonus, as they will cover a large area with their damage field regardless of what you actually do with them. It is possible for unintended targets or targets the player is unaware of to be caught within and damaged by these kinds of attacks (as sometimes there are no stated upper limit on targets). A chip that launches only ONE attack at ONE target will receive the single target damage bonus.
+
+[b][u]Subtypes[/u][/b]
+Navis and SPs must take one of the following subtypes. A Navi's/SP's Subtype grants it use of a passive ability that is constantly in effect unless you specify otherwise, as well as an active ability that either takes an action, or modifies one of your existing actions. Each Navi or SP can only equip 1 passive and 1 active ability from their subtype at a time, but  you can freely switch out their equipped abilities when jacked out. Please list all currently equipped subtype abilities in your signature for moderators' reference.
+
+[quote=Sword][img]https://execfera.github.io/rern/sub/sword.png[/img] Emphasizing bladed combat, Sword Navis/SPs are often the ones leading the charge, their trusty weapons at their sides. Aggressive, precise, and deadly, they never fail to distinguish themselves even among those who use flashier techniques.
+
+[i]Passive:[/i] Sword Mastery: All Slashing attacks gain an additional Accuracy rank. Accuracy with slashing attribute attacks can surpass A rank.
+[i]Passive:[/i] Lunge: All Slashing attacks directly following a Movement or Feint bypass the target's outermost defense from layers 3, 4, or 5 (does not damage the defense). Passive actions do not qualify towards this ability.
+
+[i]Active:[/i] Swordplay: Free action parry/dodge after 2 consecutive Slashing attacks. (Once Per Turn)
+[i]Active:[/i] Riposte: Imbue as a free action on a Dodge action to follow up with an automatic counterattack, negated by Impact, for 40 + (Level) Slashing damage at melee range with base B accuracy. This ability will activate after imbued regardless of the Dodge's result. (Once Per Turn)[/quote]
+
+[quote=Melee][img]https://execfera.github.io/rern/sub/melee.png[/img] These brutes are masters of hand to hand combat, as well other forms of close combat. Unlike Sword Navis/SPs, the Melee type is more about crushing opponents with strength rather than finesse. Nevertheless, Melee types can get their jobs done.
+
+[i]Passive:[/i] Melee Mastery: All Melee attacks gain an additional Accuracy rank. Does not apply to Slashing attacks. Accuracy with Melee type attacks can surpass A rank.
+[i]Passive:[/i] Iron Jaw: Halves the damage of the first attack in each turn taken at Melee range. Does not trigger if a defense is hit (even if that defense is broken).
+
+[i]Active:[/i] Bash: Add Impact to the next action as a free action. (Once Per Turn)
+[i]Active:[/i] Roundhouse: As a free action, imbue to a single-target Melee Battlechip to give it Wide Attack (2). (Once Per Turn)[/quote]
+
+[quote=Wind][img]https://execfera.github.io/rern/sub/wind.png[/img] A Wind Subtype's advantage comes from a certain amount of control over the virtual environment itself, which can be used to either augment their own movements or manipulate the positions of enemies and other objects.
+
+[i]Passive:[/i] Gust: All your instances of Knockback and Pull are twice as effective, all your instances of Microburst and Gravity have their risk of self-injury negated, and all your instances of Knockback, Pull, Microburst, and Gravity are imbued with Wind Type. 
+[i]Passive:[/i] Slipstream: Your Movements deal 10 + (Level/2) damage at base B accuracy in a Nova 2 range to targets you pass by. The same target can't be hit more than once per use of this ability, passive actions do not qualify towards this ability, and this ability can only be triggered once per action.
+
+[i]Active:[/i] Airstep: As an action, create a stationary updraft centered on yourself with an area of effect of Blast 2. All non-Anchored entities within the updraft will be propelled into High Altitude. The updraft will persist until the end of the turn, and any entities that enter the updraft after its creation will also be propelled into High Altitude. (Once Per Turn)
+[i]Active:[/i] Turbulence: As a free action, generate a hands-free frontal defense that repels the first Shot or Lobbed type attack that targets you. The repelled attack can be randomly redirected to an enemy, with an unmodifiable accuracy of rank D. This ability is nullified and bypassed by Seeking, repels all hits of an applicable Multi-Hit attack, and is a layer 5 type defense. (Once Per Turn)[/quote]
+
+[quote=Speed][img]https://execfera.github.io/rern/sub/speed.png[/img] The fastest programs on the net. Speed type Navis/SPs are capable of running circles around their opponents, making them hard to hit, and hard predict. With a sufficient arsenal, a Speed type program can ambush and overwhelm most opponents before they even know what hit them.
+
+[i]Passive:[/i] High Gear: Increases base evasion chance (Dodge, Feint, Movement) by 10% for all attempts, and grants immunity to Slow. Does not apply to the Self Slow nerf effect.
+[i]Passive:[/i] Scramble: After a successful Dodge, gain 1 Movement as a free action for the next turn. After a failed Dodge, gain 1 Feint as a free action for the next turn.
+
+[i]Active:[/i] Afterburner: Sacrifice 1 action from the next turn to add 1 additional action to this turn. Sacrificed action carries over between battles. Can't be used on subsequent turns. (Once Per Turn)
+[i]Active:[/i] Overclock: Imbue on a target as a free action. This target is then allowed to upgrade a Movement during the current turn to enable travel as far as line of sight permits, and increase its Base Evasion Rate to 50%. (Once Per Turn)[/quote]
+
+[quote=Cursor][img]https://execfera.github.io/rern/sub/cursor.png[/img] Expert marksmen, Cursor Navis/SPs rely in large part on ranged weapons. A powerful Cursor user is a dangerous foe indeed, able to take down enemies from a distance with frightening precision and accuracy.
+
+[i]Passive:[/i] Marksmanship: Increased accuracy by 1 rank with Shot type attacks, even when under the influence of status down effects. Accuracy with Shot type attacks can surpass A rank.
+[i]Passive:[/i] Launcher: All direct damaging dealing non-Gun Battlechips can be used as a single-use, single-target Shot-type attack with A accuracy. Chips used through Launcher cannot be Reloaded.
+
+[i]Active:[/i] Snipe: Add Seeking to the next action as a free action. (Once Per Turn)
+[i]Active:[/i] Reload: As a free action at the end of the turn, regenerate one used single-use Gun Battlechip used during this turn. The same Battlechip can't be Reloaded twice. (Once Per Turn)[/quote]
+
+[quote=Break][img]https://execfera.github.io/rern/sub/break.png[/img] Break Navis/SPs are known as demolition experts, armed with powerful weapons that are capable of smashing through defenses, inanimate objects, and pretty much whatever happens to be in their way. Naturally, Break users inspire fear in even the stoutest hearts.
+
+[i]Passive:[/i] Mass Destruction: All chips with area of effect abilities (Blast, Nova, Splash, Spread) have their area of coverage upgraded one level.
+[i]Passive:[/i] Blastproof: All Blast and Nova attacks that originate from the user, including attacks from Objects summoned by the user, have no effect on the user.
+
+[i]Active:[/i] Smash: Add Break to the next action as a free action. (Once Per Turn)
+[i]Active:[/i] Fracture: As a free action, imbue on an attack with the Break attribute for the ability to create 5% Cracked terrain on-hit, centered on where the attack first hits a target. (Once Per Turn)[/quote]
+
+[quote=Summon][img]https://execfera.github.io/rern/sub/summon.png[/img] Masters of legions of objects and tinkering, Summon types can call forth barriers, weapons, companions, or any number of other creations for their own use. They are masters at their craft, so the best quality Objects come from Summon types.
+
+[i]Passive:[/i] Mobilize: Summoned Objects have a one-use Movement action.
+[i]Passive:[/i] Self-Destruct: When reduced to 0 HP, your summoned Objects explode in a Nova 2 radius for (max HP)/2 damage. The summoner can disable or re-enable this per object as a free action, using direct contact. Objects consumed by triggering their Damage Method do not activate this ability.
+
+[i]Active:[/i] Masterwork: You may add 20 + (Level) HP to an object's max HP as a free action. This can not be used on the same object more than once. (Once Per Turn)
+[i]Active:[/i] Crafting: As a free action, create an Object with 20 + (Level) HP, Normal property, and with damage methods Throw, Knockback, Microburst, Pull, Gravity, and Telekinesis. (Once Per Turn)[/quote]
+
+[quote=Shadow][img]https://execfera.github.io/rern/sub/shadow.png[/img] Cunning masters of stealth, Shadow type Navis/SPs can hide in plain sight, strike, then fade back into the darkness in which they dwell. In the most fortified of locations are not safe from these master infiltrators. Opponents and allies alike are sometimes not even sure a Shadow Navi/SP is present or not.
+
+[i]Passive:[/i] Assassin: The first attack against an enemy whose last attack wasn't against you deals 20% bonus damage. This ability can trigger again if the enemy performs another attack that does not target you.
+[i]Passive:[/i] Trap Mastery: All enemy traps and Decoys are immediately identified upon use, and all traps will not trigger against you unless you specifically allow it when the trap's trigger conditions are otherwise met. Traps are not nullified by this ability.
+
+[i]Active:[/i] Clone Technique: As a free action, create a Decoy of yourself. (Once Per Turn)
+[i]Active:[/i] Substitution Technique: Imbue as a free action on a Dodge and select one target. Upon successfully evading, swap positions with that target. The swapped target does not take the triggering evaded attack. Allies must consent to this effect for themselves or their Objects to be affected. (Once Per Turn)[/quote]
+
+[quote=Ground][img]https://execfera.github.io/rern/sub/ground.png[/img] Ground type Navis/Sps are happy with their feet planted firmly to the earth. They are capable of taking advantage of the terrain around them, as well as masters of harnessing the terrain around them to bend to their will. Short of flying, most opponents simply aren't safe when there's a Ground type user nearby.
+
+[i]Passive:[/i] Pathfinder: All Ground attacks gain an additional Accuracy rank. Accuracy with Ground attribute attacks cannot surpass A rank.
+[i]Passive:[/i] Preserver: All terrain changes created by you can resist one instance of being overridden, unless you allow the change. Geomancer and other effects that forcibly consume terrain may instead consume the override resistance, if you choose.
+
+[i]Active:[/i] Geomancer: As a free action, imbue to a non-elemental chip attack to have it take on the element of the terrain you are standing on. Converts 10% of the used terrain to Normal per target of the attack. This ability fails and converts all applicable terrain if there is not enough convertable terrain for the imbued attack. (Once Per Turn)
+[i]Active:[/i] Tectonic Shift: As a free action, select two terrain types currently on the field and swap them, including positions. (Example: 5% A, 10% B becomes 5% B, 10% A) This counts as a terrain change. Restricted terrain types cannot be selected. (Once Per Turn)[/quote]
+
+[quote=Guts][img]https://execfera.github.io/rern/sub/guts.png[/img] Guts type Navis/SPs are hardy. So hardy, in fact, that they have no problem biting off more than they can chew. They are more than willing to take the brunt of the action to protect their squishier allies. 
+
+[i]Passive:[/i] Vigor: HP Memories grant an extra 5 HP per upgrade. SP HP Upgrades grant +5 HP every other upgrade, starting with the first. If this ability is lost, the bonus HP is taken off the maximum, not the current (if applicable).
+[i]Passive:[/i] Resilient: Nullifies the effect of Pull and Knockback, halves the effect of Microburst and Gravity, and you are more resistant to being knocked down. 
+
+[i]Active:[/i] Gatling Attack: Free action Buster Shot/SP regular attack after two consecutive Buster Shots/SP regular attacks. (Once Per Turn)
+[i]Active:[/i] Intimidation: As a free action, unleash a Stun with an area of effect of Nova 1 + (Level/20) with base B accuracy. This effect caps at Nova 4. (Once Per Turn)[/quote]
+
+[quote=Shield][img]https://execfera.github.io/rern/sub/shield.png[/img] Shield type Navis/SPs are the defenders of the Net. They are experts are on the fly, improvised defense. They are usually well protected even in the most hostile of net conditions. Unfortunately, they usually aren't the most agile of programs due to the sheer amount of protective gear they carry.
+
+[i]Passive:[/i] Shield Bash: Equipped Shields have the ability to reflect attacks for half damage at the cost of an extra hit after defending. This ability fails if the Shield does not have enough hits remaining. If an attack makes the Shield take double hits, then double hits must also be expended to use this ability.
+[i]Passive:[/i] Sturdy Defense: If an attack would destroy an undamaged Barrier or Casing in one hit, the defense will withstand it with 1 HP left. This does not work if it hits an elemental or defense piercing weakness, and does not apply to X-hit Barriers and Casings.
+
+[i]Active:[/i] Reinforce: Add 1 + (Level/20) Hits to an existing shield as a free action. The same shield can't be Reinforced more than once. (Once Per Turn)
+[i]Active:[/i] Overcoat: As a free action, add 20 + (Level) HP to an existing Barrier or Casing. The same defense can't be Overcoated more than once. (Once Per Turn)[/quote]
+
+[quote=Recover][img]https://execfera.github.io/rern/sub/recover.png[/img] Gifted in the art of healing themselves and allies, Recover Navis/SPs are able to add staying power to themselves and others. Although they lack the offensive options of the other types, Recover Navis/SPs can turn the tide of battle, as healing an ally may, in the end, prove far more effective than dealing damage.
+
+[i]Passive:[/i] Medical Mastery: All signature actions using the Healing effect and Recovery chips restore 20% more HP.
+[i]Passive:[/i] Overhealer: The user can heal up to 20% past the target's HP limit. Overhealed HP does not carry over between battles.
+
+[i]Active:[/i] IV: As a free action, attach an IV pack to an ally that heals 5 HP per action. The IV pack breaks upon taking a hit and can't be used for the rest of the battle afterwards on that ally. (Once Per Turn)
+[i]Active:[/i] Panacea: As a free action, you gain one instance of Status Cure. This can be added to an action, or used freely on its own. (One Per Turn)[/quote]
+
+[quote=Bug][img]https://execfera.github.io/rern/sub/bug.png[/img] Bug type Navis/SPs are the weirdos of the Net. Oddly coded, oddly executed, and just plain odd. Their lack of cohesive programming makes them useful in that many Navis have little in the way to combat their strange brand of fighting. Bug type Navis/SPs rarely have to fight their opponents in top form due to negative statuses.
+
+[i]Passive:[/i] Contagious: Targets afflicted with Glitch by the user can afflict other targets with a new instance of Glitch upon physical contact. Contagious targets can't transmit to the same other target more than once, and the user can not transmit or be afflicted with any instances of Glitch via this effect.
+[i]Passive:[/i] Floating Point Error: For each instance of Glitch on you, enemy accuracy is reduced by 2% against you. This ability can stack for up to 10 instances of Glitch.
+
+[i]Active:[/i] Hack: As a free action, you gain one instance of Glitch. This can be added to an attack, or used freely on it's own. (Once Per Turn)
+[i]Active:[/i] Glitch Eater: As a free action, remove one Glitch of your choice from any target and gain Strengthen 20. (Once Per Turn)[/quote]
+
+[quote=Team][img]https://execfera.github.io/rern/sub/team.png[/img] Team type Navis/SPs are everybody's friends. The amount of support they grant to a group of Navis is unparalleled. Whether it's protecting others, or helping them out, or just plain cheering them on, a group of programs with a Team type will almost always fare better than a group without. Sadly, the trade off is that on their own, they are vulnerable.
+
+[i]Passive:[/i] One for All: Damage inflicted to an ally is evenly split between you and them. An ally must consent to this effect before it counts them as an ally. You can only have 1 ally connected to you at any time.
+[i]Passive:[/i] Tag Along: When a Teleport effect is activated, the user can take one ally along if the user and target are touching each other. Can also be used if this ability is called by the ally. This ability can not be used without the consent of both the user and ally, and can not be stacked or chained for more than two people.
+
+[i]Active:[/i] All for One: Navis and SPs may transfer a Battlechip from your folder to an allied target as a free action. Note: SPs with this ability may receive one Battlechip directly from the Operator each turn. (Once Per Turn)
+[i]Active:[/i] Unify: As a free action, imbue this ability on an allied target (yourself included) to enable them to use one signature attack belonging to any other ally in the battle. Cooldown is triggered for the owner as normal, active signature attacks require an action while passive signature attacks don't, and both the imbuing and activation must have the consent of all involved parties to succeed. (Once Per Turn)[/quote]
+
+[quote=Variable][img]https://execfera.github.io/rern/sub/variable.png[/img] Variable Navis/SPs are the jacks of all trades. They fare well in almost every situation, but they don't necessarily excel. If a Navi is nonspecializing, you can bet it'll be a Variable Navi. The plus to this is their unparalleled flexibility.
+
+[i]Passive:[/i] Debuff: Support chips with a + in their names, Buff, and Strengthen may be used on an opponent as damage reduction instead. Support chips reduce all damage for the rest of the battle, Buff reduces all damage up to its given point, and Strengthen reduces damage for the next single attack. Only one instance of Debuff can be on each target at any given time.
+[i]Passive:[/i] Adaptive: Each of your GMOs can be given an element, set at registration. While an elemental GMO is equipped, you can interact with terrain like you were that element in addition to your original element. This ability does not confer additional elemental weaknesses related to the GMO equipped, only how you interact with terrain types.
+
+[i]Active:[/i] Buff: Add (Level + 10) damage to any one hit from a chip attack or SP's regular attack as a free action. (Once Per Turn)
+[i]Active:[/i] Transform!: Imbue as a free action on a GMO change to improve all accuracy and evasion rolls by 1 rank for the next 3 actions. (Once Per Turn)[/quote]

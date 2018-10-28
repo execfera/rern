@@ -1,0 +1,251 @@
+If you've never played the games, or just want a refresher course on what the various terms we use around here mean, then look no further.
+
+Note: RE:RN takes place roughly 37 years after MMBN6.
+
+[b][size=100]The Glossary[/size][/b]
+
+[b]-Operator (Network Operator, Net-Op)[/b]
+
+An 'Operator' is the person sitting on the real-world end of a PET-Navi connection, especially while netbattling. Every Operator has a PET, but not all people with PETs are Operators.
+
+[b]-PET (PErsonal Terminal)[/b]
+
+PET is short for PErsonal Terminal. A PET is a small, hand-held device that is, all at once, a cell phone, e-mail server, internet browser, webcam, camera, music player, and pretty much a laptop. The makes and models of PETs vary from year to year, and they can be modded extensively. 
+
+Note: The standard PET model is currently the LINK-II.
+
+[b]-Navi (Navigator)[/b]
+
+Short for 'Network NAVIgator', a Navi is a (semi-)sentient program that lives inside your PET when it is not actively trundling about on a network. Navis come in three varieties: Normal Navis, which are basic out-of-the-box navis that can be accurately described as 'semi-sentient'; Custom Navis, which are what you, the player uses, which are fully sentient; and Heelnavis, which mix the performance-tweaking of Custom Navis with the anonymity and unchangeable appearances of Normal Navis. Navis serve as a constant companion, and can do a lot of different things. For example, they can...
+
+-Act as a secretary, answering any calls you get.
+-Tell you when you have new messages in your e-mail.
+-Act as an alarm clock and/or reminder of upcoming appointments.
+-Give advice on many different things.
+-Act as a search engine, scowering the various networks until they find what you're looking for.
+-And perhaps most importantly, Navis battle viruses.
+
+[b]-Emblem (Navi Emblem)[/b]
+
+An Emblem is a coin that represents the very core of a navi, containing all of their personality, memories, likes, dislikes, etcetera. If destroyed, a navi is 'Deleted'. While backups are possible in some cases, the navi can never truly be called the same. Something is always, always missing. The Emblem's design is unique to each custom Navigator as well, while generic Navigators all sport one of several default Emblem designs.
+
+[b]-Graphic Model Override (GMO)[/b]
+
+A GMO is used to give your Navi a different look. This can range from something as simple as a change of clothes, to a completely new form, and even to something as complicated as a complete transformation.
+
+[b]-Graphic Model Base (GMB)[/b]
+
+This is the default registered form of a Navigator. A GMO overrides this.
+
+[b]-Hit Points (HP)[/b]
+
+A navi's Hit Points, or HP, is their write-protection. What this means is that you couldn't send a delete command to any navi with even one HP left and expect it to do anything besides piss them off. This also means a Navigator is not always necessarily deleted at 0 HP.
+
+[b]-Emergency Jack-Out (EJO)[/b]
+
+An Emergency Jack-Out happens when a navi's HP hits 0, or in other words when their write-protection is breached. This is done to protect them from being deleted, since all it would take to execute a navi at 0 HP is a simple delete command or, failing that, a shot to the Emblem.
+
+[b]-Navi Customizer (NC, Navi Cust)[/b]
+
+A Navi Customizer is a program installed in a PET that allows you to semi-permanently 'mod' your Navi out with NCPs.
+
+[b]-Navi Cust Program (NCP)[/b]
+
+NCPs, or Navi Cust Programs, are programs for the Navi Customizer. They have a variety of effects, from increasing HP to giving effects like a free barrier at the start of a battle, or flight capability.
+
+[b]-Buster[/b]
+
+Your 'Buster' is your navi's inherent way of chipping away at an opponent. It starts out weak, but can become beastly once you invest in it. A buster has infinite 'ammo', and can be anything from a Sword to a shotgun to a ping-pong-ball-shaped-YoYo.
+
+[b]-BattleChip (Chip)[/b]
+
+A "Chip" as we use it is shorthand for 'Battlechip', or a small, SD-card-like thing that stores Chip Data, or an attack, on it. Chip data is copied (or 'drops') from viruses.
+
+[b]-Dark BattleChip (DarkChip)[/b]
+
+They do not exist in this continuum.
+
+[b]-SubChip[/b]
+
+Subchips are small, one-use-only executables that can be activated to gain their listed effect. They then burn out.
+
+[b]-Folder[/b]
+
+Your effective 'cache' of battlechips that can be used in a given battle. Once you have used your entire Folder of chips, your Navi's cache will need to be emptied before you can re-use those chips. (Cache clearing happens automatically after a battle.) A folder can have up to 30 chips in it.
+
+[b]-Pack[/b]
+
+Your 'Pack', short for 'backpack' (though it is not always IN a backpack) is basically all your chips (that aren't in your Folder) that you have with you at any given time. Chips can be freely swapped between your Folder and your Pack whenever you are not in a battle.
+
+[b]-Zenny (Z)[/b]
+
+Money. Moolah. Dough. Bread. Cheddar. Pounds, Dollars, etc etc. Zenny is what makes the world go 'round. You get it primarily from viruses.
+
+[b]-Signature Attacks/Abilities (Sigs)[/b]
+
+Signature attacks are customized sub-functions of a navi that can be tapped into at any given time to receive their effect, but have to 'recharge' for a while afterward, feeding off of spare CPU cycles to refresh themselves so they can be used again. Passive Sigs are signatures that are considerably more optimized, allowing them to be toggled on or off at will. They are also much more costly (In points) to make. For full details, see the sig rules.
+
+[b]-Cross[/b]
+
+A cross is the result of one Navi's friendship with another; namely, both friends' programs, as a quirk of being exposed to each other for long enough, 'evolve' a new form, that of a Cross Form. Cross forms (or 'Crosses') take on the aspects of the opposite navi, so if a fire navi got a cross with an aqua navi, the navi would be aqua element while 'Crossed' (In their Cross Form). Only one Cross can be active at a time.
+
+[b]-Support Program (SP)[/b]
+
+Support Programs, or SPs, are sub-processes that are 'hooked' to a navi once made, drawing off of their power. Support Programs eat the raw code contained within Bugfrags to grow stronger, rather than being upgraded traditionally.
+
+[b]-BugFrag (Frags)[/b]
+
+Bugfrags, short for 'Bug Fragments', are chunks of viruses that are particularly heavy with SP-consumable code. Only SPs can properly tell what part of a virus' remains fit this description, which is why finding Bugfrags without an SP is effectively impossible.
+
+[b]-Virus(es)[/b]
+
+Viruses are programs, some sentient, some not, that attack navis, disrupt the function of devices, tear up networks, and do various other nefarious things. They come in a large, large variety, with EX-class viruses being stronger than their normal counterparts.
+
+[b]-Meta-Virus(es)[/b]
+
+Meta-Viruses are unusual and rare viral entities that are an amalgamation of several other normal viruses. Some are seemingly natural while others are clearly engineered. None should be taken lightly as they make for strong and dangerous foes, compared to regular viruses. 
+
+[b]-Virus Busting (Busting)[/b]
+
+Virus Busting is the act of sending a Navi out for the sole purpose of deleting viruses. 'Busting' is the shorthand version.
+
+[b]-NetBattle[/b]
+
+A Netbattle specifically is a fight between two navis, as opposed to a navi fighting viruses.
+
+[b]-Netbattler[/b]
+
+A Netbattler is someone who spends much of their time Netbattling, or in other words fighting viruses and other navis with their own.
+
+[b]-Cybeast[/b]
+
+A Cybeast (A portmanteau of Cyber and Beast) is a gigantic, powerful, monstrous animal, either mythological or real, that exists on the networks. There are more Cybeasts than there seem to be at first glance, and several have been created over the years, rather than sprouting up of their own accord.
+
+[b]-Beast Virus(es)[/b]
+
+These are viruses that have become corrupted and mutated by the mere presence of and prolonged proximity to a Cybeast. They are stronger than normal viruses, and share traits with the Cybeast they were mutated by.
+
+[b]-BeastOUT[/b]
+
+A BeastOUT is what happens as a result of a Cybeast's power infesting a Navi that defeated it in battle. BeastOUTs power up a navi for a short while by allowing them to channel the power of the Cybeast infesting them, but can leave them drained or even crippled for a while afterward.
+
+[b]-NetWar[/b]
+
+The one point in time where the Netpolice and Netmafia fought openly, the Great Net War, as it is now known, was fought in Electown. Neither faction particularly likes to talk about it.
+
+[b]-NetMafia[/b]
+
+A psuedo-criminal faction, the Netmafia is openly suspected of many, many underhanded dealings-- recently, their acts have become bolder due to some anti-NP public relations work and the GNA's arrangements, putting the Police and Mafia on roughly equal footing. Lead by Coda.
+
+[b]-NetPolice[/b]
+
+The Netpolice are a special, net-crime-oriented arm of the law that is not native to any one particular country, instead being 'native' only to their digital HQ. They have members all across the globe. Lead by Liege.
+
+[b]-Officials[/b]
+
+The Officials were a group of specially-licensed netbattlers that existed approximately 30 years ago. They are now defunct, and their duties have largely been taken over by the GNA and the NetPolice.
+
+[b]-Sci-Lab (Science Laboratories)[/b]
+
+The leading world developer in PET, Navi, and other Network technologies, Scilabs is renowned for the quality of their work, be it either on custom navis or on new things altogether.
+
+[b]-NAXA (Netopian Aerospace eXploration Administration)[/b]
+
+The in-universe equivalent of NASA, the National Aeronautics and Space Administration. Their Headquarters is, of course, in Netopia.
+
+[b]-Administrators (Not the GNA) (Nor those people with gold names)[/b]
+
+The Administrators were the people who first designed, built, and ran the global network of the MMBN universe, together with their custom made Navigators. They were part of an international networking standards committee, and represented every nation around the globe. Administrators were very common at that time, but as they improved the net, they slowly phased themselves out. They would eventually be removed from their positions as network caretakers entirely by the newly formed GNA. It has been many decades since then, and the last living Administrator has long since passed on from old age. 
+
+Only a few organizations, such as the GNA and Sci-Labs, still have anything close to detailed information on the Administrators  Beyond this, they are only touched upon in a chapter or two of any modern history textbooks, or a few pages in relevant history archives.
+
+[b]-Admin Navis (Not the GNA) (Nor the navis of those people with orange names)[/b]
+
+The Admin Navis, or Administrator's Navigators, were the virtual counterparts of their human Administrators, and were built with a suite of utilities and functions designed to assist the Administrators in building, policing, and maintaining the networks in ways no modern Navigator can emulate. When the Administrators were relieved of their positions, no more Navigators with administrative capabilities were produced. They, like their Operators, were now unnecessary in the face of a fully automated network system. The pre-existing Admin Navis have since dwindled in number over the decades, and only a very few of them still exist in the modern era, where they are basically no different from any other Navigator.
+
+Only a few organizations, such as the GNA and Sci-Labs, still have anything close to detailed information on the Administrator's Navigators. Beyond this, they are barely a footnote in modern history textbooks and history archives.
+
+[b]-Network[/b]
+
+A Network is a group of interconnected computers and/or servers. Larger networks require modems, routers, and switches, all three of which are generally built into one box these days, to direct network traffic to its proper destination. Nothing more to it than that.
+
+[b]-Global Network (Internet)[/b]
+
+The Global Network is pretty much comprised of every single network that exists on the entire planet. You might also know it as the Internet.
+
+[b]-National Networks[/b]
+
+The National networks are places like Yumland Net, Sharo Net, etc, and are comprised of all the computers, servers, routers, and other net-connected devices in that country at any given time.
+
+[b]-Rogue Networks[/b]
+
+The Rogue Networks are, to put it simply, an older version of the internet that the current one is stacked right on top of. Such as it is, the Rogue Networks understandably have the same layout as the current internet-- as far as the national and local networks go, anyway. As far as actual pathways, landmarks, terrain, strength of viruses, and whatever other miscellany you can think of? Not a chance. The Rogue Networks are a completely different beast from the Normal Networks, which is why the GNA has placed  [url=http://z10.invisionfree.com/RockmanChaosNetwork/index.php?showtopic=6626]a set of restrictions[/url] on who can enter.
+
+[b]-Chaos Networks[/b]
+
+The Chaos Networks, down further still than the Rogue Networks, are even more of a virus-infested, corroded, abysmally dark place. They were the original (non-beta) version of the internet as a whole, which is why their structure and makeup varies wildly from any other network there is. It is rumored that, at some point in the past, there was a great viral outbreak which led to the Chaos Networks, as they are now known, being sealed off... while the Chaos Networks are 'known' to many, very few civilians will ever see them, and even GNA ventures into the Chaos Networks are few and far between... The [url=http://z10.invisionfree.com/RockmanChaosNetwork/index.php?showtopic=6626]requirements[/url] to enter the Chaos Networks are, understandably, even more strict than those of the Rogue Networks.
+
+[b]-The Undernet[/b]
+
+The Undernet is a seedy, criminally-run network hosted entirely off of hacked computers, servers that should no longer be online, and other such bootleg or 'ghost' devices. Due to its' criminal reputation, complete lack of maintenance, (Rather than fix what is already there, net analysts have surmised that whoever or whatever runs the Undernet simply adds more hosts for it) and the fact that the GNA does not even patrol in the Undernet, much less acknowledge it as a network proper, the Undernet is by far the most dangerous network of all, home to nearly ancient, incredibly powerful, and highly evolved viruses... as well as some of the strongest criminals and shady types the entire Net over.
+
+[b]-GNA (Global Network Administration)[/b]
+
+The GNA, or Global Network Administration, is a commercial organization that attempts to manage the chaos that is the Global Network (a.k.a.: the Internet). The GNA is the only network service provider in the world, as they have been for the last several decades since they took over the day-to-day operation of the Global Network from the Administrators of the now defunct global networking protocols and standards committee. The GNA is in good standing with the various governments of the world, as they offer their services to everyone at ludicrously low rates that only vary by type of service, and not location. They pride themselves on adherence to a strict corporate ethics code and complete political neutrality. The GNA is perfectly willing to act as intermediaries for anything and everything, with their reputation serving to stifle any issues other organizations might experience in attempting the same thing. This is likely the reason they have maintained their global monopoly on the network as they have. They are based out of Internet City.
+
+[b]-CyberPanel (Panel)[/b]
+
+A Panel is a single tile or square on the network 'floor', each representing a particular part of a device or server.
+
+[b]-Internet City (Network)[/b]
+
+The 'Commercial District' of the Internet, Internet City is an all-in-one stop for pretty much everything you could imagine, from entertainment to programs to shows to games... Even many real world commodities are sold in Internet City, albeit at a raised price for shipping. Which isn't to say the place is all fun and games; many groups call Internet City their home, and there are a multitude of back alleys between the tall, glimmering buildings that form Internet City's skyline...
+Internet City is also known for being the largest network area out of any other space that has a virus content of 0.
+ 
+[b]-NetSquare[/b]
+
+The NetSquare (Just one) is the hub for all global network activity, a connecting point with gateways to every network on the planet, and the crown jewel of Internet City. Not surprisingly, the NetSquare is owned and operated by the GNA.
+
+[b]-Netopia[/b]
+
+The in-universe equivalent of America and Europe. NAXA is based here. NetVegas and the Colosseum are also notable locations within this nation. The Officials had their HQ located here in the past before they disbanded.
+
+[b]-Electopia[/b]
+
+The in-universe equivalent of Japan. Understandably, Scilabs is based here. The real world locations of ACDC, ElecTown, Yoka, Beach, and Dentech are all located here. If you visit any of them, you are in Electopia.
+
+[b]-Netfrica[/b]
+
+The in-universe equivalent of Africa.
+
+[b]-Yumland[/b]
+
+The in-universe equivalent of India and China. (We do not recognize Choina here.)
+
+[b]-Sharo[/b]
+
+The in-universe equivalent of Russia. Renowned for their military. There is a NAXA branch here.
+
+[b]-NetVegas[/b]
+
+The in-universe equivalent of Las Vegas, placed within Netopia.
+
+[b]-Dentech[/b]
+
+A well-known Electopian university, famous for its technological studies.
+
+[b]-Hades[/b]
+
+A small island just off-shore of Electopia, infamously known for its harsh terrain and semi-active volcano. Oran Isle is part of the island chain Hades resides in. Unlike Hades, Oran does not sport a working Network any longer.
+
+[b]-NanoPengi[/b]
+
+A company based in Electopia that is the world leader in PET and BattleChip technology. They are responsible for the creation of the LINK-II PET, among other technologies.
+
+[b]-Belfast Avatars[/b]
+
+A company based in central Netopia that is entirely concerned with developing cutting edge graphics technology and media. They developed the GMO system used in all current generation Navigators, and most cyber media use their video and image codecs.
+
+[b]-Halstead Dataworks[/b]
+
+A company based in southern Netopia that specializes in data storage, hosting, and related activities. The GNA, among other organizations, contracts them to host the BBSes, and various major corporations use them as a cheap and reliable database repository.

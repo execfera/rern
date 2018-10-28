@@ -1,0 +1,20 @@
+[b]Network Difficulty Ratings[/b]
+
+[quote]Beginner: ACDC
+Easy: Scilabs, Electown
+Normal: Yoka, Netopia, Dentech, Beach Street
+Hard: Sharo, Yumland, Netfrica, Netvegas, Hades Isle
+Very Hard: Rogue Networks (Though their individual difficulty scales as above)
+Insane: Chaos Networks (Though their individual difficulty scales as above)
+Assisted Suicide: Undernet[/quote]
+
+Note that these are loose guidelines. You can skip around and go to whatever networks you wish, barring the Rouge and Chaos Nets, which have special unlock conditions.
+
+[b]Area Advancement Methods[/b][ul]
+[li]Normal Networks - You can jack into the normal networks at any time; they are the default, so to speak, and used by everyone. The Normal networks give tier 1 chip rewards.[/li]
+[li]Rogue Networks - The Rogue Networks are the first layer 'down' below the Normal Networks, and cannot be accessed normally. The viruses here are stronger than what you will face on the Normal Networks, as well. The Rogue Networks give tier 2 chip rewards.
+[i]Requirements: Reach level 20 [b]OR[/b] Reach level 15 and take a special mission from the GNA/NP/NM to gain access [b]OR[/b] Reach Battle 20 in a Normal Network, and then defeat the boss there.[/i][/li]
+[li]Chaos Networks - The deepest abyss of all the networks, the Chaos Networks are the hardest to access, and the most deadly, filled with the second-strongest viruses that exist. Their requirements are, understandably, more difficult to reach. The Chaos Networks give tier 3 chip rewards.
+[i]Requirements: Reach level 40 [b]OR[/b] Reach level 35 and take a special mission from the GNA/NP/NM to gain access [b]OR[/b] Reach Battle 20 in a Rogue Network, and then defeat the boss there.[/i][/li]
+[li]The Undernet - The Undernet is a lone network all in a class of its own, run exclusively on hacked computers, servers that were thought to have crashed or been taken down, and various other 'bootleg' devices. Authorities have tried to take down the Undernet once or twice in its' existence, but yet it always mysteriously reappears. Due to its nature, there are no special requirements to access, but the Undernet contains the strongest viruses known to exist. The Undernet gives the strongest chip rewards.
+[/li][/ul]Keep in mind that the requirements are either-or, so you can enter the Rogue or Chaos networks at any time once you have completed at least one of their three requirements. You also do not need to go through the 'normal' version of the net every time you wish to access the rogue or chaos version, either; you can just directly jack into the 'lower' network.

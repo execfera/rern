@@ -1,0 +1,177 @@
+[hr][size=75][b]Notes About Terrain[/b][/size][hr]
+[b]Liquid Terrain Types:[/b] Includes Lava, Sea, Onsen, and Poison. Players as well as NPC's and Enemies may Submerge and swim in any form of Liquid Terrain as a movement action. It may also be noted that entire battles may take place under the liquid's surface (you can fight while submerged). However, doing so is not without risks as damage can be, and usually is, incurred while swimming. Proper Navi Customizer gear and certain Elements can nullify, reduce, or increase this damage. Unlike Burrow, attacking does not force the user to exit a Submerged state. See individual terrain types for more details.
+
+[b]Passable Solid Terrain Types:[/b] Includes Normal, Ice, Grass, Soil, Solar, Furnace, Coal, Holy, and Cursed. Players with the right kind of signature ability or battlechip may burrow into the ground by utilizing them.
+
+[b]---Special Cases---[/b]
+-- Sand, Snow, and Mud may be Burrowed into without special signatures or chips as a move action. These are considered Semi-Solid.
+-- Metal cannot be burrowed into.
+-- Only Elec Navis may burrow into Magnetic panels. All others are repelled.
+-- Glass Terrain shatters if burrowed into, causing damage to the character making the attempt.
+-- Cracked Terrain will collapse if burrowed into, causing damage to the character making the attempt.
+-- Traps vary. Use caution.
+
+
+[b]The Dangers of Subterranean Movement:[/b] When burrowed or submerged, players should be wary of sudden terrain changes. When terrain undergoes a shift, characters caught below ground are forced to the surface, and sustain 50 Null damage. This cannot be avoided with the use of defenses, so watch out. Also, all Ground attacks (like Gaia and Shockwave) and many other attacks used in certain situations can still hit a character who is burrowed or submerged from above the ground. Players should also be careful not to use certain elemental or other specified type attacks when submerged or burrowed into elemental terrains. For example, using an ElecSword while swimming in Sea Terrain (BAD idea)... Or using a Bubbler while immersed in Lava (this can't end well...). These actions generally result in 50 points of damage to the Burrowed/Submerged fighters, whether it's you, the enemy, or both. The 50 damage is static, and does not increase even if the underground enemy takes up more than 1 panel of space.
+
+[b]Dynamic Environments:[/b] In RE:RN, you won't always find yourself on a simple battlegrid made of panels and littered with enemies to delete. There will be times when you'll find yourself on slopes, in valleys, in buildings, on boats in the digital sea, or even cruising through an information highway on a data transport at unreal speeds. In these situations, you may find the terrain is quite a bit more complex that you're used to from the MMBN games (if you've played them), with multiple layers of terrain being possible along with various landforms and cityscapes. While basic rules for terrain still hold true in these situations, they may work a bit differently in practice.
+
+[b]High Altitude:[/b] A state of being where-in a character is high enough above the ground that Ground Attacks, even the tallest of Towers, can no longer reach them. Characters in this state are safe from terrain multiplied damage as well. That means characters that have Omnishoes that are hovering over the ground or standing upon it are still vulnerable. Short range attacks, such as most melee and sword chips, are completely ineffective against a High Altitude target, unless the attacker is also at High Altitude; the revere is also true: A High Altitude attacker will need to drop out of this state to attack a target on the ground with close range attacks. A character hit by a Seeking attack is not forced to ground-level, but the Seeking attack ignores the benefits the Target's High-Altitude status provides.
+
+[b]Improvisation:[/b] Terrain isn't always just for standing on or swimming through. A player who wishes to may attempt to interact with a given terrain type in more creative ways, such as: throwing coals on Coal Terrain, throwing snowballs on Snow Terrain, splashing water on people on either of the aquatic terrain types, and so on. The results of such actions will vary by situation, but they can at least be performed. There re many more ways to interact with Terrain that have been stated here. You are encouraged to be creative.
+
+[b]Terrain Changes:[/b] Terrain may be changed in many ways, including panel cracking, panel breaking, elementally triggered changes, effect triggered changes, or a regular terrain change effect. In most cases, the effect that prompts the change will work if it connects with the panel(s) or something sitting atop it. However, there are also some changes that only work if a minimum damage threshold is met. In those cases, the attack must have either a specified element or a specified effect, and a minimum source damage must be associated with that element or effect for the change to trigger. Anything less, and it will not.
+
+[hr][size=75][b]Terrain List[/b][/size][hr]
+[b]Normal[/b][ul]
+[li] Standard Terrain.[/li]
+[li] No special effects.[/li]
+[li] Deals Null Element damage w/ Panel Shot.
+[/li][/ul][b][color=red]Lava[/color][/b][ul]
+[li] Causes Wood Elementals to lose 10 HP per action spent standing on them, and 20 HP per action when submerged in it.[/li]
+[li] Causes other Non-Fire Elementals to lose 5 HP per action spent standing on them, and 10 HP per action spent completely submerged in it (head under magma).[/li]
+[li] Fire elementals may swim in Lava without penalty or problem.[/li]
+[li] Connecting with an Aqua element attack will make the panel explode, adding 100% of the attack's Source Aqua Damage to the Final damage, and returning the panel to normal.[/li]
+[li] Deals Fire Damage when used w/ Panel Shot.
+[/li][/ul][b][color=#34282C]Coal[/color][/b][ul]
+[li] Fire Elementals gain +20 Strengthen while on this Terrain each turn, but the effect must be allocated to Fire Element attacks only. As with normal Strengthen, it pools until used. However, any Strengthen gained from Coal vanishes if the character moves off of it.[/li]
+[li] Non-Fire Elementals suffer from Burn the turn after they come into contact with Coal Terrain. (Burn deals 5 Fire Damage per action for one turn or until cured.)[/li]
+[li] Aqua Elemental attacks greater than 100 Damage change Coal panels to Soil.[/li]
+[li] Fire Elemental attacks greater than 100 Damage change Coal panels to Lava.[/li]
+[li] Deals Fire Damage when used w/ Panel Shot.
+[/li][/ul] [b][color=#C11B17]Furnace[/color][/b][ul]
+[li] Fire attacks that strike this panel splash to all adjacent panels for 1/5th the original Fire damage. This effect does not chain across multiple Furnace panels.[/li]
+[li] Furnace Panels generate a constant heat mirage effect above themselves, reducing visibility (-10% accuracy) for Non-Fire Elementals, and increasing stealth (+10% evasion) against Non-Fire Elementals.[/li]
+[li] Aqua attacks that strike this panel vaporize into steam, further reducing accuracy for Non-Fire elementals the following turn (-20% total), and reducing Fire elemental's accuracy by 10%. This steam cloud cools quickly, and is not damaging. This does not void the Aqua attack's damage.[/li]
+[li] Changes to Metal Terrain when hit with an Aqua attack of 100 damage or greater.[/li]
+[li] Echolocation nullifies the effects of the steam cloud and heat mirage for the user, and Seeking just ignores it.[/li]
+[li] Deals Fire Damage when used w/ Panel Shot.
+[/li][/ul] [b][color=blue]Sea[/color][/b][ul]
+[li] Causes Fire Elementals to lose 10 HP per action spent standing on them, and 20 HP per action when submerged in it.[/li]
+[li] Causes other Non-Aqua Elementals to lose 5 HP per action spent completely submerged in it (head underwater).[/li]
+[li] Aqua elementals may swim in Sea without penalty or problem.[/li]
+[li] Changes to Ice when an Ice type Aqua attack is used on it.[/li]
+[li] Ice type Aqua attacks gain 50% Freeze chance.[/li]
+[li] Special Rule Exception: Terrain changes between Sea and Onsen do not inflict damage upon submerged entities, nor do they eject submerged entities to the surface. Both terrain types are a minor setting change to what is essentially water.[/li]
+[li] Adds 100% of Source Elec Damage to Final Damage.[/li]
+[li] Deals Aqua Damage when used w/ Panel Shot.
+[/li][/ul] [b][color=#009966]Onsen[/color][/b][ul]
+[li] Exists only as an alternate to Sea in Yoka Net.[/li]
+[li] This Aqua panel type is not harmful to any Elemental type, including Fire.[/li]
+[li] Submerging partially in an Onsen panel will recover 3 HP per action spent in it. This effect ignores Elemental types.[/li]
+[li] Fully submerging in Onsen terrain negates the healing effect for Non-Aqua Elementals.[/li]
+[li] This Terrain type cannot co-exist with adjacent Sea Terrain. If any Sea Terrain exists in an adjacent panel, Onsen panels will change to Sea Terrain. Spliced Sea and Onsen terrain changes that directly touch are not possible.[/li]
+[li] Exception: In Yoka Network, Sea Terrain that touches adjacent Onsen Terrain will convert into Onsen Terrain.[/li]
+[li] Special Rule Exception: Terrain changes between Sea and Onsen do not inflict damage upon submerged entities, nor do they eject submerged entities to the surface. Both terrain types are a minor setting change to what is essentially water.[/li]
+[li] Adds 100% of Source Elec Damage to Final Damage.[/li]
+[li] Deals Aqua Damage + Blast1 Blind when used w/ Panel Shot.
+[/li][/ul] [b][color=deepskyblue]Ice[/color][/b][ul]
+[li] Causes Non-Aqua Elementals to slide semi-uncontrollably, increasing Evasion by +10% for everyone, but reducing accuracy by -20% for Non-Aqua Elementals only.[/li]
+[li] Aqua Elementals gain the evasion bonus without the accuracy penalty, assuming they are not floating or flying.[/li]
+[li] 25% chance that Aqua attacks will Freeze the target, but reverts to Normal when triggered.[/li]
+[li] 100% chance that Ice type Aqua attacks will Freeze the target, but reverts to Normal when triggered.[/li]
+[li] Adds 100% of Source Elec Damage to Final Damage.[/li]
+[li] Changes to Sea Panel when hit with Fire.[/li]
+[li] Deals Aqua Damage + Freeze when used w/ Panel Shot.
+[/li][/ul] [b][color=#99ccff]Snow[/color][/b][ul]
+[li] Snow panels do not conduct electricity.[/li]
+[li] Non-Aqua Elementals suffer a loss of mobility on Snow (-10% Evasion and reduced movement speed).[/li]
+[li] Wind attacks executed on Snow Panels add 100% of all Source damage and, if Null, gain the Aqua Element.[/li]
+[li] When hit with a Wind Type attack, Snow panels change to Ice for one turn. Following that turn, they revert to Snow again.[/li]
+[li] 25% chance that normal Aqua attacks will Freeze the target, but reverts to Normal when triggered.[/li]
+[li] 100% chance that Ice type Aqua attacks will Freeze the target, but reverts to Normal when triggered.[/li]
+[li] When hit with a Fire element attack, Snow panels change permanently to Ice. This also generates a cloud of frosty mist over the affected panels the following turn that reduces visibility (-10% accuracy) for Non-Aqua Elementals, increases stealth (+10% evasion) against Non-Aqua Elementals, and increases the chances of being frozen by any Aqua or Wind effects/attacks that affect targets on those panels to 100% until it dissipates.[/li]
+[li] Deals Aqua Damage + Freeze when used w/ Panel Shot.
+[/li][/ul] [b]Metal[/b][ul]
+[li] Cannot be Broken or Cracked. This includes high damage Break and Impact attacks, attacks with Panel Break or Panel Crack, or Panel Change effects that produce Cracked or Broken terrain, such as PanelOut. Geddon is an exception to this, and will crack/break panels as usual. PanelShot still works by virtue of flinging the panel itself, but no other method of prying up a Metal Panel will work.[/li]
+[li] This Terrain cannot be Burrowed into.[/li]
+[li] Adds 100% of Source Elec Damage to Final Damage.[/li]
+[li] Aqua attacks greater than 100 Damage change Metal panels to Cracked Terrain immediately.[/li]
+[li] Fire attacks greater than 100 Damage change Metal panels to Furnace Terrain immediately.[/li]
+[li] Deals Elec Damage + Break when used w/ Panel Shot.
+[/li][/ul] [b][color=orange]Magnet[/color][/b][ul]
+[li] Magnetic fields pull at Non-Elec Elementals, making it very hard to move from a Magnet Panel. This effect causes a -30% Evasion penalty, and a 50% chance that an attempt to move off of the panel will fail (+/- 25% RP modifier) for all Non-Elec Elementals.[/li]
+[li] Only Elec Elementals may burrow into Magnetic panels. All others are repelled.[/li]
+[li] Wood Attacks change Magnet terrain to Normal.[/li]
+[li] Deals Elec Damage + Seeking when used w/ Panel Shot.
+[/li][/ul] [b][color=6CC417]Solar[/color][/b][ul]
+[li] Heals Elec Elementals for 5 HP per action.[/li]
+[li] Adds 100% of Source Wood Damage to Final Damage.[/li]
+[li] Wood Elemental attacks change Solar Panels to Cracked Panels.[/li]
+[li] Deals Elec Damage + Stun when used w/ Panel Shot.
+[/li][/ul] [b][color=green]Grass[/color][/b][ul]
+[li] Heals Wood Elementals for 5 HP per action.[/li]
+[li] A Fire element attack burns up Grass, adding an extra 100% of the Source Fire Damage, and changing the terrain to Soil.[/li]
+[li] Deals Wood Damage when used w/ Panel Shot.
+[/li][/ul] [b][color=#8A4117]Soil[/color][/b][ul]
+[li] Wood Elementals are able to move faster over natural soil, and gain +10% Evasion on this Terrain type. Does not apply if floating or flying over it.[/li]
+[li] Adds 100% of Source Wood Damage to Final Damage, and changes to Grass when hit with a Wood Attack.[/li]
+[li] Aqua Elemental attacks greater than 100 Damage change Soil panels to Mud.[/li]
+[li] Fire Elemental attacks greater than 100 Damage change Soil panels to Coal.[/li]
+[li] Deals Wood Damage when used w/ Panel Shot.
+[/li][/ul] [b][color=#993300]Mud[/color][/b][ul]
+[li] Non-Wood Elementals suffer a -10% Evasion penalty and a slight movement speed penalty on this terrain.[/li]
+[li] Non-Wood Elemental Elementals moving across this terrain have a 25% chance (with +/-25% RP modifiers) to slip and fall or get stuck in the mud. In either case, it takes 1 move action to get free again.[/li]
+[li] This Terrain type automatically satisfies Aqua Boost conditions for Wood Element chip attacks.[/li]
+[li] Wood Element attacks change this terrain to Soil.[/li]
+[li] Deals Wood Damage + Slow when used w/ Panel Shot.
+[/li][/ul] [b][color=brown]Sand[/color][/b][ul]
+[li] Sand is difficult to move across, and thus greatly reduces movement speed and adds a -20% Evasion penalty.[/li]
+[li] Sand may be burrowed into without special signatures or chips as a move action. [/li]
+[li] Anyone burrowing completely into or tunneling through Sand is subject to the Blind status effect until the turn after they they exit. This effect is a Snare effect, and cannot be cured or removed until after exiting the Sand.[/li]
+[li] Adds 100% of all Source damage to attacks with Wind Attribute, regardless of element, but reverts to normal when triggered.[/li]
+[li] Wind/Fan effects cause a Sandstorm for 3 turns, and reverts to normal panels when time has elapsed. A Sandstorm inflicts 5 Null damage per action to affected parties, and Blindness. Fire Elemental attacks have Slashing for free when a Sandstorm is present, as they change the sand in the air to Glass shards.[/li]
+[li] Wind Type attacks cause Blindness when used on Sand. The Sand changes to Normal Terrain afterwards.[/li]
+[li] Fire attacks change Sand Panels into Glass Panels.[/li]
+[li] Special Rule Exception: Terrain changes between Sand and QuickSand do not inflict damage upon burrowed entities, nor do they eject burrowed entities to the surface. Both terrain types are a minor setting change to what is essentially sand.[/li]
+[li] Deals Null Damage + Blind 1 when used w/ Panel Shot.
+[/li][/ul] [b][color=brown]QuickSand (Restricted)[/color][/b][ul]
+[li] Sand panel with a 2-turn Hold Snare (a type of Trap not subject to Nulify) built in.[/li]
+[li] Snare triggers against physical contact, both above and below ground.[/li]
+[li] Target(s) Snared by this panel will slowly sink into the sand. They sink faster if they struggle.[/li]
+[li] Snares are not subject to removal by Nullification, and Status Cure will not cancel the Hold effect of this Snare, although a Terrain Change will.[/li]
+[li] Reverts to Sand Terrain when the Snare effect expires (after 2 turns).[/li]
+[li] Special Rule Exception: Terrain changes between Sand and QuickSand do not inflict damage upon burrowed entities, nor do they eject burrowed entities to the surface. Both terrain types are a minor setting change to what is essentially sand.[/li]
+[li] This panel type cannot be generated by Signatures.[/li]
+[li] Deals Null Damage + Hold 1 when used w/ Panel Shot.[/li]
+[li] Aside from the above, refer to Sand for this terrain's information.
+[/li][/ul] [b][color=gray]Glass[/color][/b][ul]
+[li] Using a Non-Ice Type (IE: Regular) Aqua attack on Glass causes it to become slippery the following turn. Fire reverses the effect.[/li]
+[li] Causes all characters to slip and slide, reducing Accuracy and Evasion by -10%. Water worsens the effect to -20% Accuracy and Evasion for Non-Aqua Elementals.[/li]
+[li] Wet glass panels may cause poorly RP'ed or heavily hit characters to loose balance and fall, losing 1 to 2 actions to recover. Aqua Elementals are immune to this.[/li]
+[li] Glass Panels will shatter and become broken if an attack dealing the equivalent of 200 damage in one hit strikes them. This damage threshold is cut in half for Ground, Break, and Impact to a minimum threshold of 25 when all 3 are present.[/li]
+[li] Shattered panels cause 25 Null + Slashing damage in a Nova 2 area of effect. This is per panel shattered adjacent or diagonal to a target, and the damage caps at 200 (if all 8 panels around a target are shattered at once).[/li]
+[li] Shatters and becomes Broken if burrowed into, causing 50 Null + Slashing damage to the character making the attempt, and the usual 25 Null + Slashing splash damage.[/li]
+[li] Deals Null Damage + Spread 1 Effect Damage when used w/ Panel Shot.
+[/li][/ul] [b][color=purple]Poison (Restricted)[/color][/b][ul]
+[li] Deals 10 damage per action spent standing on it, and 20 per action spent submerged in it.[/li]
+[li] Heals Zombies (anyone under the effects of Anti-Recover) for 10 HP per action, standing or submerged.[/li]
+[li] Deals Null damage + Poison(20) when used w/ Panel Shot.[/li]
+[li] This panel type cannot be generated by Signatures.
+[/li][/ul] [b][color=#ff7777]Holy (Restricted)[/color][/b][ul]
+[li] Halves Final Damage received.[/li]
+[li] Deals Null Damage + Life Drain when used w/ Panel Shot.[/li]
+[li] This panel type cannot be generated by Signatures.
+[/li][/ul] [b][color=purple]Cursed (Restricted)[/color][/b][ul]
+[li] Doubles Final Damage received.[/li]
+[li] Deals Null Damage to SELF when used w/ Panel Shot.[/li]
+[li] This panel type cannot be generated by Signatures.
+[/li][/ul] [b][color=gray]Cracked (Restricted)[/color][/b][ul]
+[li] Changes to Broken when stepped on. There is a chance whatever stepped on them may fall in when they collapse.[/li]
+[li] Attempting to burrow into Cracked Panels will cause them to collapse, dealing 50 Null Damage to the character making the attempt.[/li]
+[li] Changes to Broken when hit with Break, Impact or Drop attacks over 100 Damage, in addition to panel cracking.[/li]
+[li] Deals Null Damage + Splash 1 Effect Damage when used w/ Panel Shot.[/li]
+[li] This panel type can be generated by Signatures, but only in smaller quantities.
+[/li][/ul] [b][color=gray]Broken (Restricted)[/color][/b][ul]
+[li] A hole in the ground, but not bottomless.[/li]
+[li] Reverts to Normal after a time, if no-one is in the pit.[/li]
+[li] Dodges can fail if RP isn't acceptable, doubles dodge penalties for bad RP.[/li]
+[li] Takes 1 to 4 Movement actions to climb back out if you fall or jump in, depending on your mode of climbing out.[/li]
+[li] This panel type can be generated by Signatures, but only in smaller quantities.
+[/li][/ul] [b]Missing (Restricted)[/b][ul]
+[li] A [u][b]permanent[/b][/u] hole in the ground.[/li]
+[li] Cannot be changed with Terrain Change abilities.[/li]
+[li] Dodges can fail if RP isn't acceptable, doubles dodge penalties for bad RP.[/li]
+[li] EJO if you fall in.[/li]
+[li] This panel type cannot be generated at all. It can only be encountered naturally.
+[/li][/ul]

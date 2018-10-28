@@ -1,0 +1,20 @@
+[b]E-Mail Rules[/b]
+[ul]
+[li]Each player receives one topic in the [url=https://rockman-rogue.net/category/52/e-mail]E-mail Forum[/url].[/li]
+[li]This topic is their Inbox.[/li]
+[li]The following format should be adhered to when creating your Inbox: Title: (name)@(something).com Description: Which network it is hosted on (No UnderNet/NetSquare)[/li]
+[li]If you want to email someone, just make a new post in their topic. To reply to someone emailing you, quote the text and write the reply in the same inbox.
+[/li][/ul]
+[b]Homepage Rules[/b]
+[ul]
+[li]Each player receives one topic in the [url=https://rockman-rogue.net/category/55/homepages]Homepage Forum.[/url]
+[/li][/ul]Homepage Post Format
+[code]Topic Title: (Your Name)'s Homepage
+Topic Description: [Private or Public] [Network hosted on] (No UnderNet/NetSquare)
+
+First Post: Describe your homepage in as much or little detail as you want.
+Second/Third/Etc. Post(s) (optional): Make a handy "Journal" of the beginning of different events on your homepage, make a post for tracking your upgrades or other player info, make a post just for back story editing, etc.[/code]
+
+[b]BBS Rules[/b]
+
+Normal posting rules apply on all BBS. You can post in the first person, in character, as both your Operator and your Navi, but please keep it all in a single post, and 'sign' your posts with the characters names, so that people know who they are talking to in the BBS.

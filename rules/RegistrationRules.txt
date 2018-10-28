@@ -1,0 +1,50 @@
+[b][color=red]READ ME: Registering a character that has been used in either a video game, cartoon, manga, anime, TV show, or an otherwise copyrighted work is NOT ALLOWED IN ANY WAY, SHAPE, OR FORM.[/color][/b]
+
+Registrations are to be posted in the following format:
+
+[code][b]Operator[/b]
+Name:
+Age:
+Gender:
+Appearance: (Written description. Pictures/sprites ARE allowed, but you must have a verbal description. Three sentences minimum.)
+Personality: (How your Operator acts in general. Three sentences minimum.)
+PET Modifications: (IE, wheels to let the Navi control where the PET goes or a scope to help pinpoint areas of interest. Most common modification is a simple color scheme, like black with silver trim. No PETs with completely different shapes, such as a watch, or weapon-shaped PETs allowed.)
+
+[b]NetNavi[/b]
+Name:
+Gender:
+Element: (Fire, Aqua, Wood, Elec, or Normal)
+Subtype: (Sword, Wind, Cursor, Break, Recovery, Melee, Speed, Summon, Shadow, Ground, Guts, Shield, Bug, Team or Variable)
+Appearance: (Written description. Pictures/sprites ARE allowed, but you must have a verbal description. Three sentences minimum.)
+Personality: (How your Navi acts in general. Three sentences minimum.)
+Custom Weapon: (Your weapon replaces a NormalNavi's buster and does exactly the same damage as everyone else.) 
+Signature Attack: (See the Signature Attack Rules topic for specific details.[/code]
+
+[url=https://rockman-rogue.net/topic/1439/signature-attack-system-3-5/10][u](Signature Attack Rules are here.)[/u][/url]
+
+Everyone starts off with:[ul]
+[li]0 zenny.[/li]
+[li]2 MiniEnergy Subchips.[/li]
+[li]100 HP[/li]
+[li]3 Actions[/li]
+[li]1/1/1 Buster Stats[/li]
+[li]A basic set of Battlechips consisting of a Cannon, a Shotgun, and a RageClaw1.[/li]
+[li]80 Signature Points.[/li]
+[li]40 NaviCust Points.[/li]
+[li]A basic NaviCust pack consisting of an Undershirt and your choice of one of the following: HP+50, Shield, SetLava, SetCoal, SetFurnace, SetSea, SetIce, SetSnow, SetMetal, SetMagnet, SetSolar, SetGrass, SetSoil, SetMud, SetSand, SetGlass, or ResetStage.
+[/li][/ul]In addition to these, all new registrations may choose a fourth chip from this list (Sorted by element/type):
+
+Fire: HeatShot, FireHit1
+Aqua: Bubbler, AquaNeedle1
+Wood: CactBall1, RollingLog1
+Elec: ZapRing1, MaruBlaster1
+Null: ShockWave, MiniBomb, AirShot1, Vulcan1
+Support: Recover30, Barrier, Guard1, PanelGrab
+
+Post your registration in the [url=https://rockman-rogue.net/category/65/new-users-rebirths][u]New Users[/u][/url] section of the Registration area. Once it has an "Approved" or "Accepted" by either an [color=darkorange][b]Administrator[/b][/color] or an [color=green][b]Official[/b][/color], you post your Operator and NetNavi profiles in the respective areas. [url=https://rockman-rogue.net/category/102/navi-profiles][u]Navi Profiles[/u][/url] & [url=https://rockman-rogue.net/category/73/operator-profiles][u]Operator Profiles[/u][/url]
+
+Additional Notes:[ul]
+[li]No Real World weapons. (By which we mean the Navi can and SHOULD have a weapon, but the Operator should not.)[/li]
+[li]No main-series references in your registration. (IE: "About as tall as Mega Man", or "Has Search Man's gun.")[/li]
+[li]For that matter, no main-series references in your backstory, either. (You don't have to make a backstory, but if you do, no main-series references.)
+[/li][/ul][b]Once approved, keeping all of your important stats and information in your forum signature is required. For more information, read the [url=https://rockman-rogue.net/topic/1442/signature-creation-rules-custom-bbcodes][u]Forum Signature[/u][/url] rules thread.[/b]

@@ -1,0 +1,40 @@
+[b][u]Determining Navi Level[/u][/b]
+
+[b]Your starting level is zero.[/b]
++1 Level for 5 Battle Chips (Only Chips in your folder count, so max of 30 Chips/6 levels)
++1 Level for NaviCust space expansion bought
++1 Level for each HP Memory bought
++2 Levels for each Speed upgrade bought
++1 Level for every 5 Levels your SP has
++1 Level for each PowerUP bought
++1 Level for having an Effect Upgrade equipped
+
+NOTE: If you drop a level for whatever reason (usually Battlechips), you will NOT lose the upgrades associated with that level. They are already integrated into your Navi; dropping one level won't make them suddenly disappear.
+
+[b][u]NaviCustomizer[/u][/b]
+
+Each Navi starts with 40 points for NaviCust programs. Upgrades providing additional points can be bought from the Navi Shop run by Suitachi in the Science Labs.
+
+The basic NaviCust pack includes an UnderShirt, along with a choice of one of the following programs: HP+50, Shield, Set Sand, Set Lava, Set Ice, Set Sea, Set Grass, Set Solar, Set Glass, or ResetStage.
+
+The full list of NaviCust programs can be found [url=https://rockman-rogue.net/topic/6236/navicustomizer-programs]here.[/url]
+
+[b][u]Navi Stats[/u][/b]
+
+Attack - Adds 1 to Attack. (Maximum 5)
+Charge - Adds 1 to Charge. (Maximum 5)
+Rapid- Add 1 to Rapid. (Maximum 5)
+HP - The amount of damage you can take before you are deleted/jacked out.
+Speed- The number of actions you can perform in a single turn. (Maximum 6)
+
+[u][b]Buster[/b][/u]
+
+The Navi's buster is the failsafe weapon installed on nearly every Navi. A buster may not deal a large amount of damage per hit, but it never runs out of ammunition. All Navis can use the standard buster attack, which requires one action per shot, and half and full charged attacks, which cost one and two actions to charge and a second and third to fire. Buster charges can be held indefinitely, but are limited to a maximum of two at any point in time, and do not carry over between battles.
+
+Normal Attack - 1 Action - No Element or Subtype bonuses :: (Attack + Rapid) x 5
+Half Charge Attack - 2 Actions - Element and Subtype bonuses, if they apply :: (Attack + Charge) x 10
+Full Charge Attack - 3 Actions - Element and Subtype bonuses, if they apply :: (Attack + Charge) x 20
+
+Your buster is built on 3 components: PowerUPs, Element Upgrades, and Effect Upgrades. A PowerUP allows you to increase your buster's Attack, Rapid, or Charge by one point, an Element Upgrade can change the element of your buster's Normal and Charge Attacks, and an Effect Upgrade can infuse special abilities like Spread and Break into your Normal and Charge Attacks. PowerUPs and Effect Upgrades each grant 1 level to your Navi.
+
+NOTE: Your Navi can only have 1 Element Upgrade and 1 Effect Upgrade equipped at any one time. Buying a new Element Upgrade or Effect Upgrade when you already have one will overwrite and erase the old one and automatically equip the new one. Levels gained from Effect Upgrades do not stack, so you will never have more than 1 level coming from them at any given point.

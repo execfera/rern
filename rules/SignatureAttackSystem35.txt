@@ -1,0 +1,537 @@
+[size=75][b][u]Signature Attack System Version 3.5[/u][/b][/size]
+
+(Original Concept: PaladinGC)
+
+[b]-- MAIN RULES --[/b]
+[ul]
+[li] At level 0, players will start with an initial pool of 80 Sig Points to make signature attacks (referred to as Sigs) from.[/li]
+[li] This point pool can be boosted by increments of 40 Sig Points by buying Process Upgrades at Suitachi's Navi Shop or the Commercial Area's Navi Net-Shop. Your level dictates your maximum amount of Process Upgrades, e.g. a level 4 can only buy 4 Process Upgrades.[/li]
+[li] There is no limit as to how many Sigs you can make, just that their total Sig Point cost must be equal to or less than your current Sig Point pool.[/li]
+[li] There are two types of Sigs:[/li]
+
+[ul][li] Active Sigs: Require an action to activate, and are subject to Cooldown.[/li]
+[li] Passive Sigs: Do not require an action to activate, and can be activated once per turn. They cost 4 times the cost of a regular Sig Point, and have a different maximum limit.[/li][/ul]
+[li] Each individual Sig cannot exceed a set maximum limit of Sig Points spent, determined by your level. This limit increases every 5 levels, dictated below.[/li][/ul]
+
+[table][tr][td][b]Level Range[/b][/td][td][b]Max Active Sig Cap Allowed[/b][/td][td][b]Max Active Sig Cap Allowed (with Nerfs)[/b][/td][td][b]Max Passive Sig Cap Allowed[/b][/td][/tr][tr][td]0-4[/td][td]60[/td][td]90[/td][td]15[/td][/tr][tr][td]5-9[/td][td]100[/td][td]150[/td][td]20[/td][/tr][tr][td]10-14[/td][td]140[/td][td]210[/td][td]25[/td][/tr][tr][td]15-19[/td][td]180[/td][td]270[/td][td]30[/td][/tr][tr][td]20-24[/td][td]220[/td][td]330[/td][td]35[/td][/tr][tr][td]25-29[/td][td]260[/td][td]390[/td][td]40[/td][/tr][tr][td]30-34[/td][td]300[/td][td]450[/td][td]45[/td][/tr][tr][td]35-39[/td][td]340[/td][td]510[/td][td]50[/td][/tr][tr][td]40-44[/td][td]380[/td][td]570[/td][td]55[/td][/tr][tr][td]45-49[/td][td]420[/td][td]630[/td][td]60[/td][/tr][tr][td]50-54[/td][td]460[/td][td]690[/td][td]65[/td][/tr][tr][td]55+[/td][td]500[/td][td]750[/td][td]70[/td][/tr][/table]
+
+[b]-- COOLDOWN --[/b]
+[ul]
+[li] Cooldown (CD) is the amount of full turns that you are not allowed to use your Active Sig. They are calculated by dividing your Active Sig's cost total by 40, and rounding it up to the nearest whole number.[/li]
+[li] 1 CD means spending one whole turn unable to re-use a Sig. If, for example, you have an Active Sig with 5 TCD, that means you will have to spend 5 turns following the end of the current turn before you can re-use it. Each turn, the CD count reduces by 1 naturally. You need to keep track of it for each Sig separately.[/li]
+[li] If you manage to reduce an Active Sig's CD to 0 through Sig Chill, Custom NCPs, or other effects, you still cannot use it again until the beginning of the following turn.[/li]
+[li] The cooldown of all your Sigs refreshes when the current battle ends, unless specified by the moderator.[/li][/ul]
+
+[b]-- NERFS --[/b]
+[ul]
+[li] An Active Sig can also employ negative "Nerfs" in order to do two things:[/li]
+
+[ul][li] Act as "additional Sig Points" towards adding more effects to your Sig, up to another limit. These additional points count towards Cooldown calculation.[/li]
+[li]Act to reduce the Cooldown of a sig, by reducing the effective point total in terms of Cooldown calculation. These do not reduce the amount of normal Sig Points that you use originally.[/li][/ul]
+[li] Points contributed from Nerfs cannot exceed 50% of your original Sig's normal point cost. You may utilize part of a Nerf's point contribution instead of all of it to conform to this rule.[/li]
+[li] Passive Sigs cannot make use of Nerfs.[/li][/ul]
+
+[b]-- SINGLE SIG MULTIPLIED DAMAGE CLAUSE --[/b]
+[ul]
+[li] Under no circumstances may a single Sig, supported or unsupported by passive abilities, generate AND exploit a situation where damage inflicted on a target is increased from its normal use. This includes, but is not limited to:[/li]
+
+[ul][li] Terrain Change and Elemental Damage.[/li]
+[li] Defensive Buffs and Defense Breaker.[/li]
+[li] Zombie and Recovery (any form).[/li]
+[li] Any other possible damage multiplication combination.[/li][/ul]
+[li] If you wish to deal heavy damage, do so over several actions with a combination of attacks, but not in a single attack or multiple attacks in a single action.[/li][/ul]
+
+[b]-- MISCELLANEOUS --[/b]
+[ul]
+[li] Passive Sigs activate at different times based on where in your summary/roleplay you place them. If you don't roleplay or place your passives at a specific time in your summary, the moderator is allowed to decide when it activates. If a passive is not placed in your summary at all, it is assumed that you have deactivated it for the turn.[/li]
+[li] Multiple use Sigs can be emulated by making multiple instances of the same Sig.[/li]
+[li] Under no circumstances may Sigs summon actual viruses. They can be simulated using Objects, but not completely, and are subject to Object rules.[/li]
+[li] Any positive/negative effects or Objects created through Sigs do not carry over between battles, unless specified by the Moderator. This does not include Locks inflicted by Nerfs or the To-All range modifier, which explicitly state otherwise.[/li][/ul]
+
+[b]-- EXAMPLES --[/b]
+[ul][li]NaviMan is level 0, and thus has 80 Sig Points. His Sig limits are 60 Sig Points for an Active Sig, 90 Sig Points for an Active Sig with Nerfs, and 15 Sig Points (before Passive multiplier) for a Passive Sig. He makes the following Sigs.[/li]
+
+[ul][li] Active Sig: Faux Cannon: 40 Null Damage (40 points), Shot-Type.  (40 Sig Points, 1 CD).
+[color=#003399](Standard Sig with damage that falls within the limits.)[/color][/li]
+
+[li] Passive Sig: Auto-Targeting: Take Aim (10 points). (10 x 4, 40 Sig Points).
+[color=#003399](A small passive effect.)[/color][/li][/ul]
+Total points spent: 40 + 40 = 80/80.
+
+[li]NaviMan levels up to level 10, and purchases 5 Process Upgrades. He thus has (80 + 5*40) Sig Points, or 280. His Sig limits are 140 Sig Points for an Active Sig, 210 Sig Points for an Active Sig with Nerfs, and 25 Sig Points for Passive Sigs (before Passive multiplier). He makes the following Sigs.
+
+[ul][li] Active Sig: Faux Cannon 2: 60 Null Damage (60 points), Shot-Type, Sacrifice 15HP (20 nerf points). (40 Sig Points, 20 Nerf Points, 2 CD)
+[color=#003399](Sig with one nerf effect to increase the Sig's effects. The total points add up to 60, making it 60/40 = 1.5, rounded up to 2 CD)[/color][/li]
+
+[li] Active Sig: Faux Cannon+: 60 Null Damage (60 points), Shot-Type, Sacrifice 15HP (20 nerf points). (60 Sig Points, 20 points of Cooldown reduction, 1 CD)
+[color=#003399](Sig with one nerf effect to reduce the cooldown. The total points add up to 60, so it would normally be 2 CD, but the 20 nerf points reduce the calculated point total down to 40, making it 1 CD.)[/color][/li]
+
+[li] Active Sig: Faux Wrecker: 130 Null Damage (130 points), Break (20 points), Thrown-Type, Self-Slow2 (2 instances, 1 round: 80 nerf points). (120 Sig Points, 30 Nerf Points, 30 points of Cooldown reduction, 3 CD)
+[color=#003399](Sig with both nerf effects to break the standard limit and reduce the cooldown. Sig Points spent do not exceed 140, and the total is below 210, and Nerf Points account for a max of 50% of the spent Sig Points. The total points from Sig Points and Additional Nerf Points reaches 150, but we reduce it back down to 120 for Cooldown calculation with additional nerfs, making it 3 CD instead of 4. Note that we only actually use 60 of the 80 Nerf points, since using all 80 would break the 50% limit.)[/color][/li]
+
+[li] Passive Sig: Auto-Targeting: Take Aim (10 points). (10 x 4, 40 Sig Points).
+[color=#003399](NaviMan retains this sig and leaves it unchanged.)[/color][/li][/ul]
+Total points spent: 40 + 60 + 120 + 40 = 260/280.[/li][/ul]
+--------------------------------------------------------------------------------
+[size=75][b][u]Core Signature Attributes[/u][/b][/size]
+
+[b]Damage[/b]: [color=red]1 damage = 1 point[/color] [Damage. This needs explaining?]
+[color=#003399]Example Notation: 40 Null 
+Explanation: 40 Damage, Null lement; though including the words Damage and Element are unnecessary.[/color]
+
+[b]Healing[/b]: [color=red]Convert using this formula: Every 30 points of heal = 40 sig points in cost (And towards cap.)[/color] [Accuracy is set to S when healing yourself or a consenting ally. Accuracy is set to A when healing an enemy.]
+[color=#003399]Example Notation: 30 Healing[/color]
+
+[b]Shot Type Attack Attribute[/b]: [color=red]Free[/color] [Attack Accuracy is set to A. Attack is direct. All guns, bows, and the majority of projectile weapons, etc.]
+[color=#003399]Example Notation: [Insert long list of sig effects here]; Shot Attack
+Explanation: This doesn't need to be included every single time. If no attack type is listed, this is assumed to be the type you are using by default. If it is obvious it isn't, we may ask you to add the appropriate type.[/color]
+
+[b]Melee Type Attack Attribute[/b]: [color=red]Free[/color] [Attack Accuracy is set to B against targets at close range, but is completely useless against targets at long range. Attack is direct, and delivered at close range, but may be permitted to move the user up to a Movement's worth of distance over unobstructed terrain directly towards the target to deliver the attack. This attribute would include knuckles, swords, hammers, etc.]
+[color=#003399]Example Notation: [Insert long list of sig effects here]; Melee Attack[/color]
+
+[b]Thrown Type Attack Attribute[/b]: [color=red]Free[/color] [Attack Accuracy is set to C. Attack is indirect, and may hit targets covered against direct attacks. This would include bombs, boomerangs, and anything that is toss-able. Generally travels in an arc, giving people more time to evade (that's why the accuracy is lower).]
+[color=#003399]Example Notation: [Insert long list of sig effects here]; Thrown Attack[/color]
+
+[b]Ground Type Attack Attribute[/b]: [color=red]Free[/color] [Attack Accuracy is set to B against targets standing upon the ground, but is set to D or lower against airborne foes if it is even capable of hitting them at all. Attack is indirect, and may hit targets covered against direct attacks. This would include shockwaves, towers, spires, spikes, waves, anything that travels along the ground, or rises from it.]
+[color=#003399]Example Notation: [Insert long list of sig effects here]; Ground Attack[/color]
+
+[b]Drop Type Attack Attribute[/b]: [color=red]Free[/color] [Attack Accuracy is set to B against targets flying in the air, but is set to D or lower against ground based foes if it is even capable of hitting them at all. Attack is indirect, and may hit targets covered against direct attacks. This would include falling rocks, lightning bolts, meteors, hail, anything that falls directly out of the air or drops from the ceiling.]
+[color=#003399]Example Notation: [Insert long list of sig effects here]; Drop Attack[/color]
+
+[b]Null Element Attribute[/b]: [color=red]Free[/color] (Not stackable) [Attack has no elemental attribute. Unless you state that you're using an Element when you register, this is assumed to be the default.]
+[color=#003399]Example Notation: 40 Null 
+Explanation: 40 Damage, Null Element; though including the words Damage and Element are unnecessary. I just repeated myself....[/color]
+
+[b]Same Element Attribute[/b]: [color=red]Free[/color] (Not stackable) [All signatures of your Navi's own element can be that element for free, same as null. You do have to state that they are elemental though.]
+[color=#003399]Example Notation: 40 Fire 
+Explanation: 40 Damage, Fire Element; though including the words Damage and Element are unnecessary.[/color]
+
+[b]Off Element Attribute[/b]: [color=red]20[/color] (Not stackable) [You pay for the other elements. No exceptions.]
+[color=#003399]Example Notation: 20 Aqua 
+Explanation: 20 Damage, Aqua Element; though including the words Damage and Element are unnecessary. As you can see, this attack is 20 damage less than the other examples to cover for the cost of the off element.[/color]
+
+[b]Ice Type[/b]: [color=red]20[/color] [This effect can only be applied to signatures that include the Aqua Element, and only to portions of the signature associated with that element. This is the alternate setting for all Aqua Element attacks. This means the attack is ice based, and will cause freeze effects on Ice and Snow terrains, and will change Sea to Ice, and freeze things underwater. Does not affect Onsen. When applied to Defenses and Objects, the vulnerability shifts to Fire from Elec.]
+
+[b]Wind Type[/b]: [color=red]20[/color] [This allows an attack to trigger terrain and object effects that are activated by Wind.]
+
+[b]Multi-Target Attribute[/b]: [color=red]The cost for one target, times the total number of targets.[/color]  [Simply dealing the full damage and effects to more than one target.]
+[color=#003399]Example Notation: (20 Null) x 2 Targets
+Explanation: It's a 20 damage attack with no element to two targets. We prefer Algebraic form when writing sig effect summaries, so that's how it's shown. This example signature is worth 40 points.[/color]
+
+[b]Multi-Hit Attribute[/b]: [color=red]The cost for one hit, times the total number of hits.[/color] [Simply dealing the full damage and effects more than once to a single target.]
+[color=#003399]Example Notation: (20 Null) x 2 Hits
+Explanation: It's a 20 damage attack that hits the same target twice. Again, written in Algebraic form. This example signature is worth 40 points.[/color]
+
+[b]Random Attribute[/b]: [color=red]Highest effect set cost.[/color] [Random signatures are created by setting aside a pool of points. This pool is used to form sets of effects that is each equal to or less than the value of the pool. The effect sets are then put into a roll table, and the Moderator will determine what effect is applied by using an RNG. Cannot be used as a nerf.]
+
+[b]Spread[/b]: [color=red]1/2 of points spent; only applies to damage effects. (IE: 40 damage = 20 points towards cap.)[/color] [Deals full damage to an additional target after attack connects. This is not guaranteed to hit. Spread effects are concerned with the direction the spread triggers in, not how far it is from source point to target.]
+[color=#003399]Example Notation: 20 Null + Spread2
+Explanation: It's a 20 damage attack that spreads in two different directions when it hits something. You'll tell us how the attack spreads in your attack description. This example signature is worth 40 points.[/color]
+
+[b]Splash[/b]: [color=red]1/4 of points spent; only applies to damage effects. (IE: 40 damage = 10 points towards cap.)[/color] [Deals half damage to an additional target after attack connects. This is not guaranteed to hit. Splash effects are concerned with the direction the splash triggers in, not how far it is from source point to target.]
+[color=#003399]Example Notation: 20 Null + Splash4
+Explanation: It's a 20 damage attack that splashes in four different directions when it hits something. It costs the same as the above spread attack. This example signature is worth 40 points.[/color]
+
+[color=green][b]Blast #[/b][/color]: [color=red](Cost of Sig)*# = Total Sig Cost w/ Blast #[/color] [color=green][Causes a spherical explosion centered on the target, expanding outwards (#-1) panels in all directions. The number of enemies this may hit is limited only by their size, and location relative to each other. The larger the blast area, the more potential targets may be affected. The player cannot dictate what targets are affected by the blast, only the moderator can. Be warned, this effect is indiscriminate, and players may blow either themselves or allies up by accident if caution isn't exercised. Blast has a minimum effect of Blast 2 and a maximum of Blast 4. Blast is limited to effects that can directly affect a target, i.e. no objects, terrain changes, etc.][/color]
+[color=#003399]Example Notation: 20 Null + Blast2
+Explanation: It's a 20 damage attack that explodes in a 3 panel wide sphere. It can cause friendly fire, so be careful. This example signature is worth 40 points.[/color]
+
+[color=green][b]Nova #[/b][/color]: [color=red](Cost of Sig)*# = Total Sig Cost w/ Nova #[/color] [color=green][Causes a spherical explosion centered on the user, expanding outwards (#-1) panels in all directions. This effect is identical to Blast with the exception of the user being completely unharmed by the blast. Everything around the user is affected normally, without exception. The tradeoff for being excluded from the blast's effect is that this effect cannot be used at range; it must be centered on the user. Nova has a minimum effect of Nova 2 and a maximum of Nova 4. Nova is limited to effects that can directly affect a target, i.e. no objects, terrain changes, etc.][/color]
+[color=#003399]Example Notation: 20 Null + Nova2
+Explanation: It's a 20 damage attack that explodes in a 3 panel wide sphere, but leaves the user at the center untouched. Same warning as above, only you don't blow yourself up. This example signature is worth 40 points.[/color]
+
+[b]To-All-Clause[/b]: [color=red]Free[/color] [Sig attack targets all enemies, all allies, or both, but [color=red]inflicts NC Lock, Buster Lock, Folder Lock, and Sig Lock on the user for two turns[/color] when the signature is used. This effect carries over from battle to battle and thread to thread until the duration has expired. See Nerfs for more details on Lock effects. [b]You must purchase a To-All Signature Upgrade for 5,000 Zenny to be able to use this effect. The upgrade is only good for one use before burning out.[/b]
+
+[color=green][b]Trigger:[/b] [/color] [color=red]Free.[/color] [color=green][A pre-requisite effect for several other effects. All triggers specify event-driven activation conditions, who the activator should be, and who the resulting effects should target; all of which is specified during registration of the signature they belong to, if applicable. For more information, see: Delayed Damage Attribute, Time Delayed Attribute, Trap Activated Attribute, and Counter Activated Attribute. Current statistical values, such as HP count, statuses, folder composition, NC makeup, etc etc etc cannot be used as a trigger specifically. This applies to all effects that require triggers.][/color]
+[color=#003399]Written as: Attribute(Trigger): Effects.
+Example: Time Delay(2 Turns): 150 Fire + Knockback + Blast3
+Explanation: The attribute is written first, in this case it's Time Delay. It is delayed for 2 Turns, at which point it triggers, so 2 Turns is written in the parenthesis after. After the colon, the string of effects triggered will be written. In this case it's a large scale flame based explosion that deals a ton of damage over a large area and sends things flying. Very nasty.[/color]
+
+[color=green][b]Delayed Damage Attribute:[/b] [color=red]Free, but requires a Trigger.[/color] [color=green][The Trigger condition for this effect is successfully connecting an attack with the target. If the attack misses or is blocked by a defense, this effect will not trigger. Once triggered, this effect works in one of two ways, which is chosen and specified at the time of registration. The first method is dealing damage over time to the target either by turn or by number of actions taken by the target until a maximum specified quantity of damage is dealt to the target. The second method simply deals a large quantity of damage to the target after a specified amount of time in target actions, user actions, or turns have passed. This damage based effect is considered a status effect, and thus ignores the effects of defenses raised after the attack that delivered this delayed damage effect hits the target. Delayed Damage, being a status effect, also completely ignores the damage reducing effects of HardBody, StoneBody, and IronBody. Effects that work within Delayed Damage are strictly limited to Damage, Healing, Drain, Splash, Spread, Nova, Blast, and an Elemental Attribute. In the case of an Elemental Attribute, Delayed Damage is subject to reduction or boosting by PlanarBody (resistance to element X, weakness to element Y) effects, and potential nullification by ElementBody (total immunity to a single element) effects. In the case of all AoE effects, nearby secondary targets apply defenses normally as only the originally afflicted target's defenses are rendered worthless at this point. As this effect counts as a Status Effect, it can be removed using Status Cure before the full effect has run its course. Other effects may operate along-side delayed damage as they normally would next to regular damage and healing.][/color]
+[color=#003399]Pro-Tip: This is the effect that allows you to mimic damage over time effects such as Poison or Burn.[/color]
+
+[color=green][b]Trap Activated Attribute:[/b] [color=red]Free, but requires a Trigger.[/color] [color=green][After activation, the portion of the signature tied to this effect enters a wait state until the specified trigger conditions are met. Trigger conditions for the trap are limited to actions that may be taken by the user, an ally, an enemy, an object, or any combination there-of, and must be declared during registration of the signature. Only actions taken by someone or something may trigger a trap, while the consequences of actions taken will not trigger a trap. A trap will only trigger once, and the accuracy of the resulting effect is based upon the RP quality of whoever or whatever acted first chronologically to trigger the trap and the makeup of the effects triggered by the trap. Once triggered, the trap then executes its effect automatically upon the target(s) designated by the signature's creator at the time the trap was registered. If multiple valid targets of the same priority exist on the field simultaneously, the effect targets whichever is closer first, or the result is determined by RNG if a perfect tie exists. Only one Trap type effect may be active per source (meaning the character or object that set the trap) at a time, and is considered a global effect (meaning anyone, anywhere on the field may trigger the trap at any time) tied to the source. A trap is destroyed if the source is hit with a Nullify effect. No traps will ever trigger against an attack with the Nullify effect included. Be warned, specifying too general a trigger and too broad a targeting parameter can be a trap user's undoing. Glitch may interfere with or change currently active Trap parameters. A Trap cannot have a Dodge (specifically the act of evading an attack) of any kind as a specified trigger (that includes Teleporting dodges). Movement, however, is a valid trigger, which includes Teleporting (relocation is movement), and any Dodge involving movement.][/color]
+[color=#003399]Written as: Attribute(Trigger): Effects.
+Example: Trap(Damage Dealing Aqua Attack): (100 HP Barrier) Then (190 Elec + Stun)
+Explanation: The attribute is written first, in this case it's a Trap. The Trigger for this trap is the enemy using a damage dealing aqua attack. After the colon, the string of effects triggered will be written. In this case, a barrier is generated to intercept the incoming attack, and a return blast of stunning electricity is dealt to the attacker.
+Pro-Tip: Traps are situational, but very effective as they trigger upon the initiation of an action, and execute before the trigger does. Simply set one, and it will trigger when the conditions are met all on it's own. You can only have one trap active at a time, so think carefully on what you really want. Nullify will remove traps, so watch out for that.[/color]
+
+[color=green][b]Counter Activated Attribute:[/b][/color] [color=red]Free, but requires a Trigger.[/color] [color=green][This effect is a lot like a Trap, except the trigger for a Counter is the effect of an action taken instead of the action itself. Unlike Traps, multiple Counters may be active per source at the same time, but the source must be physically able to make good on a Counter at the time the trigger condition is met to be able to use it. Thus, any status downs suffered by the source may adversely affect the execution of a Counter. This cannot be bypassed by summoning something else to execute the Counter for the source. As with Traps, the composition of the effects that make up the Counter and the RP quality of who or whatever triggered it will affect the Counter's accuracy. Counters are destroyed by the Impact effect if the source of the Counter(s) is hit by an Impact attack that deals more than 10 points of damage to the source. No Counter will ever trigger against an attack, or the results of an attack with the Impact effect included. Glitch may interfere with or change currently active Counter parameters. A Counter cannot have a missed attack as a specified trigger. The destruction or damaging of a defense cannot serve as a valid Trigger for the creation of any General Defense.][/color]
+[color=#003399]Written as: Attribute(Trigger): Effects.
+Example: Counter(Slashing Damage): 90 Null + Impact + Knockback
+Explanation: The attribute is written first, in this case it's a Counter. The Trigger for this trap is a sword attack actually hitting you. After the colon, the string of effects triggered will be written. In this case, a 90 damage barrier busting punch is delivered that knocks your harasser back outside of attack range which can cause the rest of their sword attacks to just plain miss.
+Pro-Tip: Counters are like Traps, except they trigger against the effect of an action instead of the initiation of an action. You are allowed to have as many of them as you like, and they can be extremely useful. Be warned, they are nullified by Impact.[/color]
+
+[color=green][b]Time Delayed Attribute:[/b][/color] [color=red]Free, but requires a Trigger.[/color] [color=green][Upon activation, a Time Delayed set of signature effects enters a wait state until a specified number of actions and/or turns have passed. There are two Trigger targeting parameter options available for this kind of Signature, and which one the user plans to utilize must be chosen at the time of registration. The first option allows the user to pre-define a targeting scheme with general parameters when they register the Signature (automatic). The second option allows the user to specify one or more target(s) on-the-fly when they first activate the signature (manual). In both cases, the target(s) may not be changed once set. Users may also opt to choose between safe-mode operation which aborts the attack if targeting parameters have been rendered invalid, and forced-fire operation which launches the attack at the last known coordinates of a valid target regardless of the target being present any longer. Note that a simple reference point on, below, or above the field is a valid target.][/color]
+[color=#003399]Written as: Attribute(Trigger): Effects.
+Example: Time Delay(2 Turns): 150 Fire + Knockback + Blast3
+Explanation: This was explained earlier. See: Trigger. It's still very nasty...
+Pro-Tip: Time Delay is what you use when you want a whole slew of effects to go off at once, or you;d like to be somewhere else when the effect goes off. There is no specific counter to this kind of effect. Careful planning is required to get the most out of Time Delay.[/color]
+
+[b]Multi-Stage Attribute:[/b] [color=red]Free.[/color] [This attribute denotes a signature broken into multiple steps, known as stages. A Multi-Stage signature does not depend on any special triggers, and simply runs multiple separate effect sets consecutively in the order specified. What effects take place at each stage is registered when the signature is registered, and the order the stages execute in cannot be altered on-the-fly.]
+[color=#003399]Example: (Movement + 20 Fire) Then (10 Null + Slashing x3 Hits) Then (40 Fire + Knockback)
+Explanation: A 3 stage attack. The user starts off by moving to the target and hitting them with a 20 fire damage attack. They follow this up with 3 quick slashes to the same enemy. Then the final hit is delivered which blasts the enemy with fire and knocks them backwards. If you're into anime-style attack combos, then this is your effect. Each of the groups of effects are in parenthesis, and separated by the word 'Then' to denote the change of stages from one to the next.
+Pro-Tip: Unfortunately, you cannot use this to generate and exploit a damage multiplication situation, as that is game breaking. It does have more subtle uses, however.[/color]
+
+[b]Split-Effect[/b]: [color=red]Average of any two effect costs.[/color] [Applies a single instance of one of two chosen effects that are both registered with the signature attack.  Each effect has an equal chance of being applied and only one of the two effects is applied per instance of Split-Effect.  The chance of either effect being applied is unaffected by RP or any other factors.  The cost of the individual effects may not exceed your signature caps.]
+--------------------------------------------------------------------------------------------
+[size=75][b][u]General Abilities[/u][/b][/size]
+
+[b]Status Cure[/b]: [color=red]30[/color] (Per instance, Per target) [Cures one debuff per instance. This effect can work even if the user's current debuffs would otherwise deny them use of the effect.  Cannot be used to cure Nerf Effects]
+
+[b]Life Drain[/b]: [color=red]1 point of drain = 2 sig points.[/color] [Deals damage, and absorbs as health. Health absorbed equals damage actually dealt. If target's HP is less, the lesser amount is absorbed. This works on all targets that have HP, including objects, but not HP defenses.]
+[color=#003399]Pro-Tip: While an element can be added to a life drain attack to boost damage, the amount of HP healed by the attacker is capped at whatever they purchased when they made the sig. Chips are not subject to this limitation. This effect can completely turn the tide of battle in a duel.[/color]
+
+[b]Resurrection[/b]: [color=red]1000[/color] [Raises a navi or support program from the dead.]
+[color=#003399]Note: This effect is designed for J.C.A. use only. You will never see it used in normal signatures. Additionally, you cannot use it on characters that have not been defeated.[/color]
+
+[color=green][b]Teleport[/b]:[/color] [color=red]80[/color] [color=green][Area-Grab effect. Warps the user to another location instantly, and potentially increases or decrease attack accuracy for the next action by up to 10% based on roleplay alone. The user must be able to see, or have recently seen, the target destination to be able to teleport there safely. Teleporting confers a base evasion value of 75%, and roleplay can increase or decrease this value by up to 25%.][/color]
+[color=#003399]Pro-Tip: Telefragging yourself causes object collision damage equal to the HP of the object you teleported into, and the object is destroyed if your HP is higher. If not, you are either EJO'd or returned to the point where you teleported from at 1 HP remaining (which usually results in getting hit, and EJO'd anyway). If it is a solid structure, you take a flat rate 200 HP damage, and are ejected back to where you attempted to teleport from. Teleporting into a space occupied by a creature is automagically redirected to the nearest space between you and it. Do be careful.[/color]
+
+[color=green][b]Knockback[/b]:[/color] [color=red]10[/color] [color=green][Knocks the target back a panel or two.][/color]
+[color=#003399]Pro-Tip: If you need to move something away that doesn't wish to be moved, then this is the best and cheapest way to do it. You have a bit of range control when using this, as you may stack Knockback with itself for more distance. This is the reverse effect of Pull.[/color]
+
+[color=green][b]Microburst[/b]:[/color] [color=red]40[/color] [color=green][Hits the target hard enough to send them flying. Capable of pushing objects great distances as well. This effect may also be used to enhance dodges, for rapid movement, and acceleration, but it places a strain on the Navi employing it in this manner. Repeated use as propulsion will result in self injury.][/color][color=#003399]Pro-Tip: This is what you use when you want to send something flying, and don't care if it ever comes back. Fair warning... This can be used to eject things from the battle, resulting in loss of rewards, so use it wisely. Can be fun though. This is the reverse effect of Gravity.[/color]
+
+[color=green][b]Pull[/b]:[/color] [color=red]10[/color] [color=green][Brings a target one movement space closer to the source. Use of this effect on anchored objects may move the user instead of the target.][/color]
+[color=#003399]Pro-Tip: If you need to move something towards you that doesn't wish to be moved, then this is the best and cheapest way to do it. You have a bit of range control when using this, as you may stack Pull with itself for more distance. This is the reverse effect of Knockback.[/color]
+
+[color=green][b]Gravity[/b]:[/color] [color=red]40[/color] [color=green][Draws a target into melee range of the source at high speeds. Can be used at any range, and can draw in and slingshot objects around the source as well. Use of this effect on anchored objects may move the user instead of the target. This effect may also be used to enhance dodges, for rapid movement, and acceleration, but it places a strain on the user employing it in this manner. Repeated use as propulsion will result in self injury.][/color]
+[color=#003399]Pro-Tip: Use this effect with great caution and forethought, as the potential to injure or KO yourself is very high. This effect is the reverse of Microburst.[/color]
+
+[color=green][b]Telekinesis[/b]:[/color] [color=red]80[/color] (Per object/target) [color=green][Allows the player to lift an object without touching it. The object may be held in place, moved, or even sent flying as a weapon. The effect lasts for one round on objects that simply float, and ceases function once an object is thrown at a target. Homing cannot be applied to objects launched with Telekinesis. Objects that are thrown at a target break on a successful attack.][/color][color=#003399]Pro-Tip: This effect has a great deal of utility when objects are present, and zero utility when there are none.[/color]
+
+[b]Chip Break[/b]: [color=red]100[/color] (Per chip, per target) [Randomly denies the target the use of one of their battlechips this turn. The chip is considered used, and is useless for the remainder of this battle.]
+
+[b]Chip Steal[/b]: [color=red]200[/color] (Per chip, per target) [Steals an enemy's battlechip that they have selected for use this turn, and then allows you to use it against them.]
+
+[color=green][b]Disguising Illusion[/b]:[/color] [color=red]50[/color] (Per target, Per turn) [color=green][Creates an illusion around the target designed to deceive and mislead others by presenting a false image of the target. The illusion can affect light and sound, but not touch, altering the appearance and voice of the target but not physically changing their size or proportions. This illusion is observed by all potential targets simultaneously, but those that cannot see or hear will be immune to any direct effects. The design of the illusion is set when registered, and can only be changed when editing the signature itself. It may be anything the player can reasonably describe, and the effect is based on how well the description is employed in battle. Some enemies may be unaffected by the illusion. Effects generated by this ability are at the Moderator's discretion, not the player's. Seeking damage nullifies the illusion and auto-targets the user.][/color]
+[color=#003399]Pro-Tip: Disguise yourself as an enemy! Disguise an enemy as you! Any applicable target can be disguised, and a convincing illusion can have a significant impact on a battle.[/color]
+
+[color=green][b]Hallucinating Illusion[/b]:[/color] [color=red]50[/color] (Per target, Per turn) [color=green][Presents an illusion to the target designed to alter the target's perception of their environment and surroundings. The illusion can affect light and sound, but not touch, and can distort or transform anything and everything the target is capable of perceiving through those two senses. Everything presented by this illusion is only perceived by the affected target or targets, and all those not targeted will not receive any direct effects from the illusion. The design of the illusion is set when registered, and can only be changed when editing the signature itself. It may be anything the player can reasonably describe, and the effect is based on how well the description is employed in battle. Some enemies may be unaffected by the Illusion. Effects generated by this ability are at the Moderator's discretion, not the player's. Seeking damage nullifies the illusion and auto-targets the user.][/color]
+[color=#003399]Pro-Tip: Against a single target, hallucinations are unmatched in scale. Absolutely everything the target can see or hear on the battlefield can be affected by the illusion, so don't hold back on making the most of this effect.[/color]
+
+[color=green][b]Small Area Illusion[/b]:[/color] [color=red]50[/color] (Per Illusion, Per turn) [color=green][Creates an illusion at a point specified by the user designed to present false entities to others. The illusion can affect light and sound, but not touch, creating intangible environments, entities, and noises within the affected area. The size of the created illusion can cover up to 1/8th of the field, and the generated illusion area can collectively move freely around the field if it is designed to do so. Potential targets can observe the illusion externally or be within it, but if they cannot see or hear then no direct effects will occur on that target. The design of the illusion is set when registered, and can only be changed when editing the signature itself. It may be anything the player can reasonably describe, and the effect is based on how well the description is employed in battle. Some enemies may be unaffected by the Illusion. Effects generated by this ability are at the Moderator's discretion, not the player's. Seeking damage nullifies the illusion and auto-targets the user.][/color]
+[color=#003399]Pro-Tip: So long as it fits within the illusion area, there is no limit on what or how much can be made. A complete change in environment, multiple entities, and more can all coexist in the same illusion if you can make it fit.[/color]
+
+[color=green][b]Glitch[/b]:[/color] [color=red]20[/color] (per instance, per turn) [color=green][For each instance of Glitch in an attack, the Moderator decides upon one simple statistical effect and/or one RP-flavor side effect (it can be either or both). The simple statistical effect can be positive or negative, and the type of effect can be almost anything. Multiple instances of glitch can cause the effects to worsen, cause the effects to run for longer periods of time, or generate additional individual effects. RP-flavor effects can be anything, but are generally harmless.][/color]
+[color=#003399]Pro-Tip: Mod's discretion: the effect! This effect ranges the full gamut from harmlessly funny, to downright lethal... to someone. The more Glitch you stack in one attack, the more potent and/or varied the effect becomes.[/color]
+---------------------------------------------------------------------------------------
+[size=75][b][u]Defense Piercing and Nullification[/u][/b][/size]
+
+[b]Slashing[/b]: [color=red]Free[/color] [Bypasses and nullifies Shadow, but reduces your accuracy by 1 rank. Costs nothing.]
+
+[b]Break[/b]: [color=red]20[/color] [Deals double damage to HardBody, StoneBody, and IronBody. Deals double damage to Guards, Shields, Armors, and can bypass them if excess damage is dealt. In the case of X-Hit Shields, Guards, and Armors, a Break attack counts as 2 hits. Deals double damage to objects.]
+
+[b]Impact[/b]: [color=red]20[/color] [Bypasses Counters. Bypasses and deals double damage to Damage Reduction. Deals double damage to Barriers and Auras, and can bypass them if enough damage is dealt.]
+
+[b]Phasing[/b]:  [color=red]20[/color] [Allows the attack to pass through objects, viruses, and Navis to hit a target beyond without dealing damage to whatever it passes through. Shields, Guards, Barriers, Armor, and other Non-Object defenses still stop Phasing attacks. Deals additional damage to Objects and Casings if specifically targeted.]
+
+[b]Seeking[/b]: [color=red]20[/color] [Bypasses and nullifies Invis, High Altitude, Decoy, and all forms of Illusion. A character in High Altitude that is hit by a Seeking attack is not forced to ground-level, but the Seeking attack ignores the benefits the Target's High-Altitude status provides.]
+
+[b]Nullify[/b]:  [color=red]20[/color] [Removes Traps.]
+
+[b]Homing[/b]: [color=red]40[/color] [If dodged, can return next turn to attack target a second time.. Limit one per sig.]
+-----------------------------------------------------------------------------------------
+[size=75][u][b]General Defenses[/b][/u][/size]
+
+[b]X-hit Shield[/b]: [color=red]20[/color] (per hit nullified) [Generates a solid-armor Shield that blocks one hit regardless of power. Break attacks count as two hits against X-Hit Shields, and may break through to deal full damage if it reduces the Shield's X-Hit value past zero. Other forms of defense nullification do not work on Shields.]
+
+[b]HP Barrier[/b]: [color=red]1:1 ratio; 20 HP Minimum[/color] [Generates an energy-based Barrier defense that absorbs a certain amount of damage before dissipating. Northwind instantly destroys HP Barriers, but does not break through to deal damage. Impact deals double damage to HP Barriers, and may break through to deal damage if it reduces the Barrier's HP value to Zero. If more Impact damage is dealt than the health of the barrier, the overspill is NOT blocked, and the leftover hits the navi.]
+
+[b]HP Casing[/b]: [color=red]1:1 ratio; 20 HP Minimum[/color] [Generates a physical casing that absorbs its' HP value in damage before breaking. Casings are weak against Break attacks, which deal double damage to the casing. If more Break damage is dealt than the health of the casing, the overspill is NOT blocked, and the leftover hits the navi. Casings cannot stop Piercing or Phasing attacks. Objects may be fused with an HP Casing. Telekinesis does not work on Casings.]
+
+[color=green][b]Decoy[/b]:[/color] [color=red]20[/color] (Per Decoy, Per turn) [color=green][Creates a tangible body clone to confuse opponents. The Decoy can move and speak freely in its attempt to deceive enemies, and the effectiveness of this is based on RP quality. While tangible, if the Decoy is hit by an attack it will vanish unless RP is extremely good. In either case the attack will still pass through the Decoy and hit anything behind it, and the Decoy itself has no actions with which to attack, defend, or evade. Some enemies can see through the Decoy. The created Decoy can't be any bigger or smaller than a Navi could. The Decoy's appearance is set upon registration, and can only be changed when editing the signature itself. Seeking damage nullifies the Decoy and auto-targets the user.][/color]
+
+[b]Shadow[/b]: [color=red]80[/color] (per round) [Generates an intangibility effect on the user, causing all attacks against the user to pass through and deal 0 damage. The intangibility makes it more difficult to attack at a distance, adding a 20% accuracy penalty to all ranged attacks. Slashing attacks against the user rend through this intangibility, bypassing the effect and immediately negating it.]
+
+[b]Invisibility:[/b] [color=red]80[/color] (per round) [Generates an invisibility effect around the user, causing the accuracy of all attacks that would target you to be reduced by 50%. Seeking attacks ignore this effect, and negate it if they connect. Position-based AoE effects can also ignore this effect, provided the Invis user is in range of the AoE.]
+[color=#003399]Pro-Tip: A position-based AoE attack is any AoE attack that can hit additional targets that are not included in the original targeting, due to their position. This includes, but is not limited to: Cone Attack, Wide Attack, Long Attack, Group Attack, Fighter Range, LifeSword Range, Line Attack, Beam Attack, Piercing, Spin Attack, X-Range Attack, To-All (Indiscriminate), Blast, Nova, and any forms of Spread and Splash that denote a direction, instead of a nearby target. This means that it does not include Trick-Shot Spread, Chain, or Line-Chain.[/color]
+
+[b]HardBody[/b]: [color=red]40[/color] (Per Round) [Reduces all Non-Break damage by Half. Break damage bypasses and deals double damage.]
+
+[b]SteelBody[/b]: [color=red]80[/color] (Per Round) [Reduces all Non-Break damage to zero. In exchange, your actions become sluggish, reducing all attack accuracy by 10% and base evasion rate by 20%, to a minimum of 5%.  You also become grounded for the duration. Break damage bypasses this effect and adds 100% to Source damage.]
+
+[b]Damage Reduction[/b]: [color=red]5[/color] (Per instance, per turn) [Reduces damage taken from attacks by 1 per instance of this effect (Ex. DR 3 subtracts 3 from all damage). Impact damage bypasses and deals double damage.]
+
+
+Note: There are more defenses listed in later sections.
+------------------------------------------------------------------------------------------
+[size=75][b][u]General Buffs[/u][/b][/size]
+
+[b]Sig Chill[/b]: [color=red]40[/color] [Lower CD on a target's sig currently on CD by 1 per instance of this effect.]
+
+[b]Haste[/b]: [color=red]40[/color] (Per round, per target) [Increases the effectiveness of ALL dodges for one character by 1 Rank. Cannot exceed Rank A.]
+
+[b]Imbue Element[/b]: [color=red]20 (40 if off-elemental)[/color] [Allows you to add an element to a Null Element attack. The element must be declared when you register this ability, and can only target a Null Element attack. You cannot use this ability on a Rapid Buster Attack (known as a Buster Shot), but it may be used on any Null-Element offensive or defensive ability. You cannot imbue multiple elements on a single attack. It costs 20 if you are imbuing your element, and costs 40 if it is any other element. You cannot select Null as a choice.  Elemental Bonuses do not apply to attacks affected by this effect]
+
+[b]Strengthen[/b]: [color=red]Add 1:1 Damage[/color] [This ability allows you to add damage to a single Chip or Charged Buster attack. The damage does not stack over multiple hits or multiple targets and does not duplicate itself for multiple targets, or multiple hits, but the damage is split-able. This ability cannot be used to imbue Effects, only damage.]
+[color=#003399]Protip: Strengthen does assume the elemental and defense breaking properties of the attack it is used on, but it does not work with AoE. If you try to make it work with AoE, you have to pay into it for each target you plan to hit as it will be divided among all targets.[/color]
+
+[b]NC Resistance[/b]: [color=red]20[/color] (Per target, per use) [Guards against NC disruptions once. Works the same as an X-Hit defense.]
+
+[b]NC Immunity[/b]: [color=red]60[/color] (Per target, per turn) [Guards against NC disruptions for one turn.]
+
+[b]NC Guard[/b]: [color=red]250[/color] (Per target, per battle [Guards against NC disruptions for the rest of the battle.]
+
+[b]Folder Resistance[/b]: [color=red]20[/color] (Per target, per use) [Guards against Folder disruptions once. Works the same as an X-Hit defense.]
+
+[b]Folder Immunity[/b]: [color=red]60[/color] (Per target, per turn) [Guards against Folder disruptions for one turn.]
+
+[b]Folder Guard[/b]: [color=red]250[/color] (Per target, per battle [Guards against Folder disruptions for the rest of the battle.]
+
+[b]Sig Resistance[/b]: [color=red]20[/color] (Per target, per use) [Guards against Sig disruptions once. Works the same as an X-Hit defense.]
+
+[b]Sig Immunity[/b]: [color=red]60[/color] (Per target, per turn) [Guards against Sig disruptions for one turn.]
+
+[b]Sig Guard[/b]: [color=red]250[/color] (Per target, per battle [Guards against Sig disruptions for the rest of the battle.]
+
+[b]Buster Resistance[/b]: [color=red]20[/color] (Per target, per use) [Guards against Buster disruptions once. Works the same as an X-Hit defense.]
+
+[b]Buster Immunity[/b]: [color=red]60[/color] (Per target, per turn) [Guards against Buster disruptions for one turn.]
+
+[b]Buster Guard[/b]: [color=red]250[/color] (Per target, per battle [Guards against Buster disruptions for the rest of the battle.]
+
+[b]SP Resistance[/b]: [color=red]20[/color] (Per target, per use) [Guards against SP disruptions once. Works the same as an X-Hit defense.]
+
+[b]SP Immunity[/b]: [color=red]60[/color] (Per target, per turn) [Guards against SP disruptions for one turn.]
+
+[b]SP Guard[/b]: [color=red]250[/color] (Per target, per battle) [Guards against SP disruptions for the rest of the battle.]
+
+[b]Accuracy Enhancement[/b]: [color=red]40[/color] (per instance, per target, per turn) [Increases chance to hit for all attacks for one turn by 1 rank. Accuracy cannot be increased above A Rank in this way.]
+--------------------------------------------------------------------------------------------
+[size=75][b][u]General Debuffs[/u][/b][/size]
+Status Effects and other Non-Damaging Debuffs are delivered in the same manner as other attacks, and often along with them, however they will ignore all conventional defences and continue through to apply to the target without negating or damaging any defence layers they pass through.  The exception to this is any defence that bears the Status Guard effect.  Defences with Status Guard block debuffs and prevent them from applying to the target, provided that the status attack actually would connect with it first.  In the case of a Status attack breaking a defence with Status Guard, regardless of whether the attack continues through or not, the Status Effect is still blocked before the defence expires.
+
+[color=#003399]Example:  A navi has a Shield with Status Guard and a Barrier without it.  They are struck with a Shot-Type attack that deals damage, as well as Blind.  The damage of the attack is stopped by the Barrier, which survives, however, the Blind effect continues through the defence layers until it strikes the Shield, which blocks it.  In a second case, the attack is actually a Drop Attack: the damage is again stopped by the Barrier, but in continuing through, the Blind effect does not come into contact with the Shield before reaching the navi, and thus the navi is afflicted with Blind.[/color]
+
+All Debuffs take effect at the beginning of the next turn [i]after[/i] they are used, or immediately if the victim splices their turn.
+
+[b]Sig Burn[/b]: [color=red]40[/color] [Increase CD on a Sig currently on CD by 1 per burn, or force a passive signature into cooldown.]
+
+[b]NC Uninstall[/b]: [color=red]60[/color] (Per program) [removes one program from the NC, at random. The program cannot be re-installed until the end of battle. No exceptions.]
+
+[b]Full NC Uninstall[/b]: [color=red]400[/color] (Per target) [removes ALL programs from the NC. The programs cannot be re-installed until the end of battle.]
+
+[b]NC Crash[/b]: [color=red]120[/color] (Per Round, Per Target) [Disables an enemy's NC for X turns. Does not uninstall, however. Cannot be cured, and is only blocked by NC Guard/Resistance/Immunity.]
+
+[b]Folder Crash[/b]: [color=red]120[/color] (Per Round, Per Target) [Disables an enemy's ability to use New battlechips for X turns. Cannot be cured, and is only blocked by Folder Guard/Resistance/Immunity.]
+
+[b]Sig Crash[/b]: [color=red]120[/color] (Per Round, Per Target) [Disables an enemy's ability to use Sig Attacks for X+1 turns. Forces all sigs into a mandatory cooldown period, even passives. Cannot be cured, and is only blocked by Sig Guard/Resistance/Immunity.]
+
+[b]Buster Crash[/b]: [color=red]120[/color] (Per Round, Per Target) [Disables an enemy's ability to use the Buster for X turns. Cannot be cured, and is only blocked by Buster Guard/Resistance/Immunity.]
+
+[b]SP Crash[/b]: [color=red]120[/color] (Per Round, Per Target) [Disables an enemy's SPs for X turns. Does not uninstall, however. Cannot be cured, and is only blocked by SP Guard/Resistance/Immunity.]
+
+[b]Slow[/b]: [color=red]40[/color] (Per round, per target) [Reduces the effectiveness of ALL dodges for one character by 1 Rank. Evasion capability cannot drop below Rank E.]
+
+[b]Stun[/b]: [color=red]30[/color] (Per action, per target) [Cancels one action. Stuns of longer duration than 1 can be broken. Ease of breaking stun-lock increases as duration increases.]
+
+[b]Blind[/b]: [color=red]60[/color] (Per round, per target) [Hinders the target's senses, reducing accuracy by 50%]
+
+[color=green][b]Confusion[/b]:[/color] [color=red]80[/color] (Per round, per target) [color=green][All actions taken have a large chance of failure, or hitting the wrong target, be it an attack or healing][/color]
+
+[b]Silence[/b]: [color=red]80[/color] (Per round, per target) [Prevents Chip use.]
+
+[color=green][b]Sleep[/b]:[/color] [color=red]50[/color] (Per round, per target) [color=green][Immobilized until effect ends. Effect expires early if hit by anything. Events transpiring around the sleeping target may awaken it.][/color]
+
+[color=green][b]Freeze[/b]:[/color] [color=red]50[/color] (Per round, per target) [color=green][Freezes a portion of the target, locking up part of their coding and leaving them unable to attack, meaning unable to use Battlechips, Sigs, and the Buster. The method of "Freezing" can vary, and possibly not even involve ice, but it will always have a way of being broken by the target. Target may still move.][/color]
+
+[color=green][b]Hold[/b]:[/color] [color=red]50[/color] (Per round, per target) [color=green][Holds target in place, locking up part of their coding and making dodges and Movement actions completely ineffective. The method of "Holding" can vary and can use differerent materials to bind the target, but it will always have a way of being broken. Target may still attack.][/color]
+
+[b]Zombie[/b]: [color=red]120[/color] (Per turn) [Reverses a Navi's data encoding type in such a way that Healing effects deal damage and Poison effects recover HP. Hitting a target that has been Zombified with this effect will return them to normal.]
+---------------------------------------------------------------------------------------
+[size=75][b][u]Buster Based Damage[/u][/b][/size]
+
+[color=#003399]--- Buster Based Effects allow players to customize their damage and effect values based on the current power ratings of the buster. If the buster gains power, the effects increase with it. The reverse is also true: if the buster loses power, so do these effects. Also be warned that these effects, and the entire signature that they are a part of, will not function at all if the buster is burned out, crashed, or locked down in any way. Think carefully before investing.
+-- PaladinGC[/color]
+
+[b]Shot Base[/b]: [color=red]40 points for every ((Attack + Rapid) * 5)[/color] [Unlike Buster Shots and Charged Shots, Shot Base damage can be modified by effects as if it were a normal signature attack. This effect only produces Damage based upon the buster's stats, and should also not be confused with a normal buster attack of any kind.]
+
+[b]Charge Base[/b]: [color=red]160 points for every ((Attack + Charge) * 20)[/color] [Unlike Buster Shots and Charged Shots, Charge Base damage can be modified by effects as if it were a normal signature attack. This effect only produces Damage based upon the buster's stats, and should also not be confused with a normal buster attack of any kind.]
+
+[b]Spectral Base[/b]: [color=red]60 points for every ((Attack + Rapid + Charge) * 5)[/color] [Unlike Buster Shots and Charged Shots, Spectral Base damage can be modified by effects as if it were a normal signature attack. This effect only produces Damage based upon the buster's stats, and should also not be confused with a normal buster attack of any kind.]
+
+[b]Support Base[/b]: [color=red]20 points for every ((Rapid + Charge) * 2)[/color] [This effect only produces Healing based upon the buster's stats, and should also not be confused with a normal buster attack of any kind. It can be modified with signature effects just like the other Buster Base abilities.]
+-------------------------------------------------------------------------------------------
+[size=75][b][u]Standard Action[/u][/b][/size]
+
+[color=#003399]--- Standard Action Effects allow players to construct sigs out of actions they would normally take during a turn. This does not in any way mean that they are given more actions a turn. It also does not imply that a signature can be used without using an action. Only Passives take no actions to use. These effects can be used both on Active and Passive signatures, but can be denied during or after registration if mis-used. 
+-- PaladinGC[/color]
+
+[color=green][b]Dodge[/b]: [color=red]40[/color] [A free dodge with a max movement range equivalent to a 5 foot step. The base evasion value of a Dodge is 50%, and roleplay can increase or decrease this value by up to 25%.][/color]
+[color=#003399]Pro-Tip: Dodges are the go-to for avoiding damage, not for covering distance. The best you will get out of a Dodge is a panel or two, which is peanuts here at RE:RN.[/color]
+
+[color=green][b]Feint[/b]: [color=red]30[/color] [This is for those times when you need to move a little and you need to be harder to hit while doing so. The amount of distance you can cover with this is double what a Dodge provides, and half of what a full Movement will get you. The base evasion rate of this action is 25%, and roleplay can increase or decrease this value by up to 25%.][/color]
+[color=#003399]Pro-Tip: This action is usually good for positioning yourself for an attack on a nearby opponent (one who is just outside melee range, or one who is in melee range that you would like to hit from a different direction) while trying not to get hit. Anything more would need a full Movement. Anything less would be better served with a Dodge.[/color]
+
+[color=green][b]Movement[/b]: [color=red]20[/color] [Any movement that is complicated or protracted enough to require an action to accomplish. Movement can be used to get into trouble (move in close) or get out of it (retreat!), or do other cool stuff (run up walls if you feel like it). Moving decreases the chance of attacks hitting you by a base value of 5%, which will increase or decrease by up to 25% based on the quality of your role play and the way you moved.][/color]
+[color=#003399]Pro-Tip: Movements are best used for crossing a large distance, flanking an opponent, circling completely around an opponent in melee range, or landing a fall that may have otherwise damaged you. There are many other uses, but this should give you an idea.[/color]
+
+[b]Buster Shot[/b]: [color=red]30[/color] [A simple Null Element buster shot. It cannot be imbued with elements or effects, and counts as one hit of ((Attack + Rapid) * 5). It has a base accuracy of A.]
+
+[b]Buster Charge[/b]: [color=red]40[/color] [One buster charge. Can be used to fuel more powerful shots from the buster, or consumed in other ways using the Charge Burner nerf effect.]
+
+[b]Charged Attack[/b]: [color=red]40[/color] [Consumes 1 to 2 Buster Charges to fire a Charged Shot from your Buster. It takes on the elemental properties of your Navi, and, like all normal Buster attacks, cannot be tampered with. It has a base accuracy of A.]
+
+[color=green][b]Take Aim[/b]: [color=red]10[/color] [This is the physical act of taking aim at a target. It adds 1 or more Ranks to your accuracy for one attack, depending on how well it is role-played out. Cannot exceed rank A. You obviously cannot stack this free action with itself for a single attack/shot. Extras are wasted.][/color]
+
+[b]Burrow[/b]: [color=red]30[/color] (Per round) [Allows you to hide underground. Panel Breaking, Terrain Change, Bombs, and Ground attacks can still hit you. Attacking causes you to exit this state.]
+
+[color=green][b]Disarm[/b]: [color=red]40[/color] [Attack has a high chance of breaking a target's weapon or knocking it from their grasp. Excellent RP may well land the weapon in your own hands, but the RP sample in question would have to be extremely good. Critical failures are possible...][/color]
+--------------------------------------------------------------------------------------------
+[size=75][b][u]Object Summoning[/u][/b][/size]
+
+-- By default, Objects deal their max HP in damage [("Object Damage") when thrown (EX: with RageClaw), moved with Telekinesis, or shot at something with Microburst/Gravity. Object Damage takes on the Object's Element as well, if applicable. If they hit a target when utilized in this way, they break. If they miss, the object survives.
+-- Objects launched with Knockback or Pull will deal only the damage of the attack that launches them, and will also take that same damage. If you launch a 100-max-HP object with a 70 + Knockback attack, it will deal 70 damage and take 70 damage.
+-- These two behaviors listed above can be overridden with Object Properties or Battlechip-specific Damage Methods.
+-- Signature-summoned Objects do not have a turn limit of existence, unless the player chooses so.
+-- Objects are not allowed to entrap other targets upon summon. For an example, you cannot summon a cage onto or around another navi, or encase them in an object, or create a box around them. If you wish to stop the movement of another navi, choose either the Hold or Freeze effects (Or a combination of the two). If you wish to encase [i]yourself[/i] in an object, use the Equipable property.
+-- Objects, regardless of where they came from, are considered neutral combatants and are not affected by triggers that target Allies or Enemies.
+
+[b]===Basic Object Signature Effects===[/b]
+
+[b]Health/HP:[/b] [color=red]1 per HP[/color] [The health of the object. Objects [u][b]must have at least 1 HP[/b][/u], and are destroyed when their HP is reduced to 0.]
+
+[b]Active Sig Ability:[/b] [color=red]Normal Active Cost[/color] [Something the object does once, either when it is created, or under other specified circumstances (See 'Trigger' under Core Signature Attributes for details.) EX: Makes a one-hit barrier when summoned, or deals 40 Elec damage to its' attacker when first attacked.]
+
+[b]Passive Sig Ability:[/b] [color=red]3x Active Cost[/color] [Something the object does automatically each turn. As long as the object lives, the passive is active. When the object is destroyed, the passive also deactivates.
+EX: A passive that deals 10 damage every turn (Passive damage 10) would cost 30 points.]
+
+[b]===Object Properties===[/b]
+Object properties help define the behavior of a summoned object. They are always active, and their prices do not need to be tripled like passive sig abilities. Object properties affect 1 object per payment of their cost, and must be attached to the creation of an object in your signature. They cannot be used to 'imbue' their properties onto other objects.
+
+[b]Null Element Attribute[/b]: [color=red]Free[/color] (Not stackable) [Object has no elemental attribute. If no element is listed, this is the default.]
+
+[b]Same Element Attribute[/b]: [color=red]Free[/color] (Not stackable) [Object may be of your Navi's own element, rather than null, for free. This must be stated when registered.]
+
+[b]Off Element Attribute[/b]: [color=red]20[/color] (Not stackable) [Object may be of an element other than your Navi's own element or null, at cost.]
+
+[b]Flying:[/b] [color=red]100[/color] [The object is not bound to the ground. It may fly or float above the ground.]
+
+[b]Equipable[/b]: [color=red]20[/color] [The object is able to be attached to a navi with their consent.  Equipping and unequipping the object each require an action.  When summoned, the object may come automatically equipped or unequipped to the user of the signature attack.  The object is unequipped if targetted with Telekinesis.]
+
+[b]Anchored:[/b] [color=red]40[/color] [Binds the object to the ground. It is immobile: unable to move through the use of outside forces, such as Microburst effects or Gravity. Telekinesis still moves anchored objects.]
+
+[b]Light:[/b] [color=red]Free[/color] [Causes the object to be more lightweight than usual. This makes it easier to handle, easier to move, and more susceptible to attempts to move it, including by effects such as Knockback, Microburst, or Telekinesis.]
+
+[b]Heavy:[/b] [color=red]20[/color] [Causes the object to be heavier than usual. This makes the object deal Impact as Object Damage when thrown. The object may be thrown, but becomes unable to be moved by effects such as Knockback and Pull. Telekinesis still moves heavy objects, as does Microburst/Gravity.]
+
+[color=#003399] Example:  Summon 50HP 'Breach Holder', Anchored, On Summon(Knockback + Nova3), Trap(When Destroyed): (30 Healing, Summoner), Passive: (2-Hit Shield, Self)
+Explanation: Summons a 50Hp, anchored object which attacks once with a broad knockback when summoned.  It passively generates a 2-hit shield in front of itself each turn, and when it gets destroyed, sends a small amount of healing to the navi that summoned it.  This example object summon would cost: (50) for Hp, (40) for Anchored property, (30) for the one time nova knockback attack, (40) for the one time trigger heal, and (40x3) for the passive 2-hit shield, giving a total signature cost of 280 Sig Points for the summon, and thus a 7 turn cooldown.[/color]
+--------------------------------------------------------------------------------------------
+[size=75][b][u]Terrain Changes[/u][/b][/size]
+
+[color=#003399]--- Terrain Changes do exactly what they say they do: they change the terrain. Merely select a terrain type, and the size of the area you want to change to that type. You can even dictate how, and possibly where, the terrain change takes place. It's all in how you describe it. Just know that Terrain is public domain, and anyone can take advantage of it.
+-- PaladinGC[/color]
+
+RESTRICTION: 
+-- Holy, Poison, Missing, Cursed, Quicksand, and Trap terrain types are off-limits.
+-- Cracked and Broken terrain changes are limited to Large Area and below.
+-- Cannot be used as a passive effect.
+
+[b]Small-area Terrain Effect[/b]: [color=red]10[/color] [A panel or two. About 1/8 of the field, tops.]
+
+[b]Medium-area Terrain Effect[/b]: [color=red]20[/color] [Seeds. Usually about 1/6 to 1/4 of the field.]
+
+[b]Large-area Terrain Effect[/b]: [color=red]40[/color] [Zones and lines. Usually 1/3 to 2/3 the field.]
+
+[b]Stage Change[/b]: [color=red]100[/color] [The entire battlefield.]
+
+[b]Spliced Terrain Change[/b]: [color=red]2x Chosen Area Cost[/color] [This is an add-on effect to Terrain Change that allows you to mix and match terrain types within a clearly defined area. The trade-off is that these specialized settings are harder to generate, and tax the signature system a bit more heavily than normal.]
+---------------------------------------------------------------------------------------------
+[size=75][b][u]Nerfing Sig Effects[/u][/b][/size]
+
+[color=Crimson][b]Nerfs are advanced, optional effects.  They are negative effects that will hamper your navi, in exchange for other benefits.  As such, they can be hazardous if used improperly: It is entirely possible to cause lasting and costly-to-repair damage to your navi by the over-use of some of these effects, while others can negate or prevent the use of other actions, or even the signature they are attached to, if used without care.  You have been warned: exercise caution with these effects.[/b][/color]
+
+[color=Crimson][b]Nerfs are a form of extra points for your signatures, which do not deplete your available sig pool and which allow you to push a signature ability past the limits normally determined by its level.  The amount of nerf points used cannot ever exceed 50% of the actual sig pool points you put towards the signature, but they can be used in multiple ways:
+
+1. Nerfs can be used to reduce the cooldown of your signature.  Used this way, they can reduce the value of your signature for calculating its cooldown, resulting in a lower cooldown overall.  This can let you use a powerful signature more frequently.
+
+2. Nerfs can be used to empower your signature, acting as 'bonus' points for you to spend which don't deplete your remaining signature pool.  This can let you exceed your normal power limits for a single signature.
+
+You may use both types of nerfing in a single signature, but the total of nerf points used may still not exceed 50% of the points used from your sig pool for that signature.[/b][/color]  
+
+[quote=For example:] If your normal signature cap is [b]180[/b], you could make a signature that deals [b]180[/b] direct damage.  It would have a cooldown of [b]5 turns[/b].  If you took [color=red][b]60[/b][/color] points of nerf, you could reduce the cooldown to [b]3 turns[/b], as its effective value would now be [b]120[/b].  You could then also take another [color=red][b]30[/b][/color] points of nerf and spend them to increase the damage of the signature to [b]210[/b].  This would raise the cooldown again, up to [b]4 turns[/b], as the effective value becomes [b]150[/b].  We cannot spend any more nerfing of either type at this point, since we have used [color=red][b]90[/b][/color] points of nerfs, which is 50% of the [b]180[/b] sig pool points we are investing.[/quote]
+[color=crimson][b]It should be noted that if the nerfs used in a signature do not work out evenly, causing overflow, this is fine.  The excess nerf value cannot be used if it would exceed the 50% limit, but that does not prevent it from being present in the signature, if that is the specific nerf you wish to use.[/b][/color]
+
+[quote=For example:]  A player has an [b]80[/b] point signature which they wish to apply nerfs to, in order to empower it to a [b]120[/b] point signature.  The nerfs they wish to use, however, are Charge Time ([color=red][b]30[/b][/color] Points), and Recovery Time ([color=red][b]30[/b][/color] Points), for thematic reasons.  This is perfectly acceptable.  They will have the value of [color=red][b]60[/b][/color] points of nerf, but they will only spend [color=red][b]40[/b][/color] of it, in keeping with the 50% limit.  They will still suffer the full effects of both nerfs when using the signature.[/quote]
+[color=red][b]Warning: Nerf effects cannot be removed with Status Cure, and are not prevented by Status Guard.  They cannot be used with passive signatures at all, nor can they be used to lower a signature's cooldown to zero.[/b][/color]
+
+[b]Charge Time[/b]: [color=red]Add 30 to cap per action.[/color] [A nerf. Requires extra actions to prepare attack or boost the attack's effect. Cannot be placed in a signature with free dodges in it. Cannot be used on the same turn with another signature with free dodges in it. Actions used to charge must occur directly before the sig using this nerf.]
+
+[b]Recovery Time[/b]: [color=red]Add 30 to cap per action.[/color] [A nerf. Requires extra actions to recover from the use of an attack Cannot be placed in a signature with free dodges in it. Cannot be used on the same turn with another signature with free dodges in it. Actions burnt must occur directly after the sig using this nerf. ]
+
+[b]Charge Burner[/b]: [color=red]Burn 1 Buster Charge to gain 30 Cap[/color] (per instance) [This ability uses Buster Charges as fuel. Keep in mind, this ability must be taken once for EACH charge you plan to power a given signature with, and you must have the required number of charges to use the signature at all. Only 2 charges can be stored at once, so this nerf can only be used twice on the same sig. Also, keep in mind that should your buster be disabled, this signature becomes useless as well. Applies immediately upon use of sig.]
+
+[b]Sacrifice[/b]: [color=red]Pay 15 HP to add 20 to cap[/color]  (Per instance) [Navi uses own lifeforce to power attack. 15 HP for 20 Cap. Stackable with itself. Does not stack with multihits. Applies immediately upon use of sig.]
+
+[b]Self Slow[/b]: [color=red]Add 40 to cap[/color] (Per round, per instance) [Reduces the effectiveness of ALL dodges for your Navi by 1 Rank. Cannot exceed Rank E. Players may not use this nerf more times than the number of ranks between their current dodge rank and rank E per turn. If they possess multiple signatures with this effect that add up to be higher than the allowed instances per turn, they cannot use them. Applies for the duration of the next turn after the use of this nerf.]
+
+[b]Off-Target[/b]: [color=red]Add 40 to cap[/color] (Per round, per instance) [Reduces the accuracy of ALL attacks made by your Navi by 1 rank. Players may not use signatures with this nerf if it would result in an overall accuracy drop greater than 2 ranks. Applies for the duration of the next turn after the use of this nerf.]
+
+[b]NC Lock[/b]: [color=red]Gain Points equal to occupied NC space to cap per instance.[/color] [Self inflicted NC Crash. Cannot be cured or prevented by any action other then duration expiration. This effect does not wear of at the end of battle, and will carry over from battle to battle and thread to thread. It also stacks. If for any reason this effect is stacked upon itself with more than 7 turns of duration, your Navi Customizer is permanently crashed, and must be repaired at Sci-Lab for a fee. This is cumulative. Duration: +2 turns, applies on the next turn after the use of this nerf.]
+
+[b]Folder Lock[/b]: [color=red]Gain 80 Points to cap per instance.[/color] [Self inflicted Folder Crash. Cannot be cured or prevented by any action other then duration expiration. This effect does not wear of at the end of battle, and will carry over from battle to battle and thread to thread. If for any reason this effect is stacked upon itself with more than 7 turns of duration, your Chip Slot-In System is permanently crashed, and must be repaired at Sci-Lab for a fee. This is cumulative. Duration: +2 turns, applies on the next turn after the use of this nerf.]
+
+[b]Sig Lock[/b]: [color=red]Gain 80 Points to cap per instance.[/color] [Self inflicted Sig Crash. Cannot be cured or prevented by any action other then duration expiration. This effect does not wear of at the end of battle, and will carry over from battle to battle and thread to thread. It also stacks. If for any reason this effect is stacked upon itself with more than 7 turns of duration, your Signature Attack System is permanently crashed, and must be repaired at Sci-Lab for a fee. This is cumulative. Duration: +2 turns, applies on the next turn after the use of this nerf.]
+
+[b]Buster Lock[/b]: [color=red]Gain 10 Points per equipped PowerUP and Buster Effect Upgrade to cap per instance.[/color] [Self inflicted Buster Crash. Cannot be cured or prevented by any action other then duration expiration. This effect does not wear of at the end of battle, and will carry over from battle to battle and thread to thread. It also stacks. If for any reason this effect is stacked upon with itself more than 7 turns of duration, your Buster System is permanently crashed, and must be repaired at Sci-Lab for a fee. This is cumulative. Duration: +2 turns, applies on the next turn after the use of this nerf.]
+--------------------------------------------------------------------------------------
+[size=75][b][u]Planeswalker Effects[/u][/b][/size]
+
+[color=#003399]--- Planeswalker Effects allow the players to add some fun, yet risky, variety to their signature line-ups. All planeswalker effects rely on the Terrain found in the networks as a guide for what they do. A key, if you will. The effects will change to match their corresponding Terrain Type, which can be fun, and deadly effective.  At the same time, none of these effects will operate on Non-elemental Terrain types: In these cases, or when a character is at High Altitude, or otherwise not in contact with an elementally aligned terrain, all planar effects shut off.  If a signature carries other parts not related to planar effects, these continue to operate normally.  In edge cases and non-standard situations, moderator discretion decides whether the character can maintain their planar effects.
+
+-- PaladinGC, with updated text from Rogan[/color]
+
+REMINDER:
+- Cannot Function if flying at high altitude or hovering over missing or broken panels.  
+- Applies ONLY to a signature if it is part of that signature, and cannot ever be used to augment another signature, buster, or chip. 
+- Cannot be used in conjunction with a Terrain Change Effect in the same signature.
+
+[b]Elemental Rage:[/b] [color=red]80[/color] [Grants this sig attack the element of the terrain your Navi is standing on when executed.]
+
+[s][b]Effect Rage:[/b] [color=red]60[/color] (Per Instance. Effect duration varies.) [Grants this sig attack the inherent offensive effects of the terrain your Navi is standing on when executed.][/s]
+
+[s][b]Planar Skill:[/b] [color=red]60[/color] (Per Round) [Grants this sig attack the inherent defensive effects of the terrain your Navi is standing on when executed.][/s]
+
+[b]Planar Body:[/b] [color=red]40[/color] (Per round) [Grants your Navi an elemental damage reduction armor that reduces elemental damage by half, but renders them weak against one type of element, as though they were a navi of that element. DOES NOT FUNCTION on non-elemental terrain types, and will vanish if terrain shifts to non-elemental. Immune to Break. Counts as a Body Effect.]
+
+[b]Planar Barrier:[/b] [color=red]1 point = 1 Barrier HP; 20 HP Minimum[/color] [Grants your Navi an elemental barrier that picks up the elemental properties of the terrain you are currently standing on, including weaknesses. The Barrier is strong against its own element, and takes only half damage from it, but receives +100% source damage from its weak element, and does not block overspill if more damage is dealt than the remaining health of the Barrier.  DOES NOT FUNCTION on non-elemental terrain types, and will vanish if terrain shifts to non-elemental. Immune to Northwind and Impact. Counts as a Barrier.]
+
+[b]Planar Shield:[/b] [color=red]20 per hit negated[/color] [Summons an elemental Shield that picks up the elemental properties of the terrain you are currently standing on, including weaknesses. The Shield is strong against its own element, and completely negates any damage from it if blocked successfully, but attacks of the elemental weakness count as two hits against Planar Shields, and may break through to deal full damage if it reduces the Shield's X-Hit value past zero. DOES NOT FUNCTION on non-elemental terrain types, and will vanish if terrain shifts to non-elemental. Immune to Break. Counts as a Shield.]
+
+[b]Planar Casing:[/b] [color=red]1 point = 1 Casing HP; 20 HP Minimum[/color] [Summons an elemental armor casing for your Navi that picks up the elemental properties of the terrain you are currently standing on, including weaknesses. The Casing is strong against its own element, and takes only half damage from it, but receives +100% source damage from its weak element, and does not block overspill if more damage is dealt than the remaining health of the Casing. DOES NOT FUNCTION on non-elemental terrain types, and will vanish if terrain shifts to non-elemental. Immune to Break. Counts as a Casing.]
+--------------------------------------------------------------------------------------
+[size=75][u][b]Beast Effects[/b][/u][/size]
+Beast Effects are exclusive to Beast Sigs. They can not be used anywhere else.
+
+[b]Action Boost[/b]: [color=red]300 BSP[/color]  [Gives the user an extra action for the duration of their BeastOut. A Beast Sig only using this effect does not require an action to use. The user can not gain more than 3 total extra actions, from this effect or any other source.]
+
+[b]Element Boost[/b]: [color=red]1:10 BSP ratio[/color] [Grants 1 point of damage for every 10 points spent. Adds damage to all Battlechips of the user's element for the duration of the user's BeastOut. Stacks with damage boosts from other sources, but can not add more than 100 extra damage from this effect alone. Extra damage applied to a single hit of a multi-hit attack.]
+
+[b]HP Boost[/b]: [color=red]1:2 BSP ratio[/color]  [Grants 1 HP for every 2 points spent. Adds extra HP to the user's current and maximum HP for the duration of the user's BeastOut. This effect does not reduce the amount of damage the user has taken, and does not stack past 500 extra HP.]
+
+[b]Buster Boost[/b]: [color=red]100 BSP[/color]  [Grants an extra stat point to the user's buster for every instance of this effect, for the duration of the user's BeastOut. The stats raised must be registered with the Beast Sig, and can not change outside a re-registration. The max stats for the user's buster can not exceed 10/5/5.]
+
+[b]Warp Attack[/b]: [color=red]100 BSP[/color]  [Imbue, as a free action, this effect onto a Battlechip. Using the Battlechip makes the user teleport in front of the target, attack, then teleport back to the original position. The user must be able to see the target to attack with this effect. The user can only teleport to the front of the target, not behind or to the sides. This effect does not stack.]
+--------------------------------------------------------------------------------------
+[size=75][b][u]The BANNED List[/u][/b][/size]
+
+[color=#003399]--- Banned effects are not allowed in signature attacks, both for obvious reasons, and some for reasons that may not be as obvious to everyone. However, if it lives here, it breaks the game so hard that we didn't even want to salvage it. 
+-- PaladinGC[/color]
+
+[b]Possession[/b]: [Allows you to control the target for a set time.]
+[b]Redirect[/b]: [Allows the redirection of multiple missed attacks to a single target. See below for more info.]
+[b]Damage Stacker[/b]: [Allows attack boosts to stack with multiple hit attacks. Exclusive to Attack+ battle chips.]
+[b]Autohit[/b]:  [S Rank Accuracy. Hits target. Restricted to healing and battle chips only.]
+[b]Subtype Change[/b]: [Allows you to change your Subtype. Get a Cross if you wish to do this.]
+[b]Element Change[/b]: [Allows you to change your Element. Get a Cross or BeastOut if you wish to do this.]
+[b]NaviCust Enhancer[/b]: [Increases the effectiveness of NCP's.]
+[b]Buster Enhancer[/b]: [Increases buster stats. Restricted to Buster type battle chips.]
+[b]Elemental Immunity[/b]: [Grants immunity to a specified damage type. Exclusive to viruses.]
+[b]Empower[/b]: [Grants a damage boost to all attacks, be they Multi-hit, AoE, or Single Target, for an entire turn. This has been done away with.]
+[b]Charm[/b]: [Forces a character to exclusively attack his allies.]
+[b]Instant Kill[/b]: [We never even considered adding this.]
+
+[color=#003399]A note about Redirect: You can mimick the effect with Spread and Homing, but doing so will be very very expensive. Power has a price. -- PaladinGC[/color]

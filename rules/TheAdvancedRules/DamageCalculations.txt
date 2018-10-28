@@ -1,0 +1,106 @@
+[size=75][u][b]Damage Calculations[/b][/u][/size]
+
+[b]Terms:[/b][ul]
+[li][b]Base Damage:[/b] Refers to the initial, unmodified damage number on any damage source, whether it is from a Battlechip, Buster Shot (Basic/Charged), or Signature Attack.[/li]
+[li][b]Source Damage:[/b] Refers to the Base Damage, which has been modified by any Source Modifiers.[/li]
+[li][b]Final Damage:[/b] Refers to the Source Damage, which has been modified by any Environmental or Target Modifiers.[/li]
+[li][b]Source Modifier:[/b] Any damage modifiers that apply to the source of the attack, whether it is from a Navi, an Object, or a Virus.[/li]
+[li][b]Environmental Modifier:[/b] Any damage modifiers that apply to the environment surrounding the target of the attack. Usually applies to Terrain.[/li]
+[li][b]Target Modifier:[/b] Any damage modifiers that apply to the target of the attack, whether it is a Navi, an Object, or a Virus.[/li][/ul]
+[b]Formulas:[/b][ul]
+[li]Source Damage = Base Damage + Source Modifiers[/li]
+[li]Final Damage = Source Damage + Environmental Modifiers + Target Modifiers[/li][/ul]
+[b]NOTE: All listed damage modifiers are listed in order of application.[/b]
+
+[b]Source Modifiers (Battlechip)[/b][ul]
+[li]Chip-Specific Damage Modifiers[/li]
+--- Aura Boost (AuraHead)
+--- Terrain Boost (LavaCannon, Wave, HolyDream, etc.). Exceptional Note: Does not include Sand Boost (SandWorm), which is an Environmental Modifier.
+--- Gigas Charge (GigasArm)
+--- Delayed Use Boost (BugCharge, CustomSword)
+--- Elapsed Time Boost (CustomVolt)
+--- 2x Exponential Boost (GunDelSol)
+--- Demon Blade (Muramasa)
+--- Variable Mode (VariableSword, NeoVariableSword)
+--- Piledriver (PileDriver)
+--- CrossBlast (SoulBlast)
+[li]Innate Navi Element Boost (applies to all hits, reduced effect if multi-target)[/li]
+[li]SoulCross/BeastSig Element Boost (applies to first hit of every attack)[/li]
+[li]Attack+/ColorPoint Chips (applies to all hits of a single chip)[/li]
+[li]Variable Passive [Debuff] (Attack+) (applies to all hits until debuff expires, is cured, or overridden)[/li]
+
+[li]Strengthen (applies to total damage until expended, may be redistributed across hits)[/li]
+[li]Variable Passive [Debuff] (Buff) (applies to total damage until expended)[/li]
+[li]Variable Passive [Debuff] (Strengthen) (applies to next single attack from first hit, until expended)[/li]
+[li]Non-Standard/Glitch Buffs and Debuffs, unless otherwise specified[/li][/ul]
+[b]Source Modifiers (Buster)[/b][ul]
+[li]Buster Boost (BusterUp/BusterBooster/BeastSig)[/li]
+[li]Buster Override Chips (TrainArrow, Plasma, BodyBurn, etc.)
+--- Note: Innate Navi Element Boost applies to Buster Override Chips.[/li]
+[li]Navi+ Chips[/li]
+[li]Variable Passive [Debuff] (Attack+) (applies to all hits until debuff expires, is cured, or overridden)[/li]
+[li]Strengthen (Charged Buster only) (applies to total damage until expended, may be redistributed across shots)[/li]
+[li]Variable Passive [Debuff] (Buff) (applies to total damage until expended)[/li]
+[li]Variable Passive [Debuff] (Strengthen) (applies to next single attack from first hit, until expended)[/li]
+[li]Non-Standard/Glitch Buffs and Debuffs, unless otherwise specified[/li][/ul]
+[b]Source Modifiers (Signature Attack)[/b][ul]
+[li]Variable Passive [Debuff] (Attack+) (applies to all hits until debuff expires, is cured, or overridden)[/li]
+[li]Strengthen (applies to total damage until expended, may be redistributed across hits)[/li]
+[li]Variable Passive [Debuff] (Buff) (applies to total damage until expended)[/li]
+[li]Variable Passive [Debuff] (Strengthen) (applies to next single attack from first hit, until expended)[/li]
+[li]Non-Standard/Glitch Buffs and Debuffs, unless otherwise specified[/li][/ul]
+[b]Environmental Modifiers[/b]
+
+These modifiers apply for any attack target that is currently in contact with or floating on the relevant terrain type. For targets to be exempt from terrain-based environmental modifiers, they must be explicitly listed as Flying, or High Altitude. Exceptional Note: Sand Boost (SandWorm series chips), is an Environmental Modifier, due to its similarity to these effects.
+[ul][li]Lava: Adds 100% Source Aqua Damage, converts affected panels to Normal immediately.[/li]
+[li]Sea: Adds 100% Source Elec Damage.[/li]
+[li]Onsen: Adds 100% Source Elec Damage.[/li]
+[li]Ice: Adds 100% Source Elec Damage.[/li]
+[li]Snow: Adds 100% Source Damage on attacks with Wind-Type attribute, converts all damage to Aqua if attack element is Null.[/li]
+[li]Metal: Adds 100% Source Elec Damage.[/li]
+[li]Solar: Adds 100% Source Wood Damage, converts affected panels to Cracked immediately.[/li]
+[li]Grass: Adds 100% Source Fire Damage, converts affected panels to Soil immediately.[/li]
+[li]Soil: Adds 100% Source Wood Damage, converts affected panels to Grass immediately.[/li]
+[li]Sand: Adds 100% Source Damage on attacks with Wind-Type attribute, converts affected panels to Normal after 3 turns.[/li]
+[li]Holy: Adds a 0.5x multiplier to Final Damage, rounded up.[/li]
+[li]Cursed: Adds a 2x multiplier to Final Damage. [/li][/ul]
+[b]Target Modifiers[/b]
+
+These modifiers generally apply last during calculations.
+[ul][li]Ethereal Fields/Wielded Gear/Armor: Redirects all damage to the relevant defense. Refer to [url=https://rockman-rogue.net/topic/532/defense-layering]Defense Layering[/url] for more information.[/li]
+[li]Element Weakness: Adds 100% Source Damage for an attack of the opposite element.[/li]
+[li]Shadow Passive [Assassin]: Adds 20% Source Damage for an attack on an enemy whose last attack target was not the source Navi.[/li]
+[li]Bubble Trap: Adds 100% Source Elec Damage and clears the effect immediately.[/li]
+[li]Snare: Adds 100% Source Fire Damage and clears the effect on the following turn.[/li]
+[li]Non-Standard/Glitch Buffs and Debuffs, unless otherwise specified.[/li]
+
+[li]Damage Reduction: Decreases Source Damage by the specified amount. Adds 100% Source Damage instead if attack has Impact attribute.[/li]
+[li]HardBody: Adds a 0.5x multiplier to Final Damage, rounded up. Adds 100% Source Damage instead if attack has Break attribute.[/li]
+[li]StoneBody: Decreases all Final Damage to 1. Adds 100% Source Damage instead if attack has Break attribute.[/li]
+[li]IronBody/MetalBody: Decreases all Final Damage to 0. Adds 100% Source Damage instead if attack has Break attribute.[/li]
+[li]ElementBody: Decreases all Final Damage to 0 if attack is the same element.[/li]
+[li]ElementArmor/Planar Body: Adds a 0.5x multiplier to Final Damage, rounded up. Adds 100% Source Damage instead if attack is of the opposite element.[/li]
+
+[li]Cursed Body: VoodooDoll: Decreases all Final Damage to 1. Immune to all effects except Object Erasure.[/li]
+[li]Prismatic Body: Prism: Decreases all Final Damage to 0. Adds 100% Source Damage instead if attack has Break attribute. Decrements HP by 1 every time an attack is launched from a hit.[/li]
+[li]Invincibility: Fanfare: Decreases all Final Damage to 0.[/li][/ul]
+[b]Addendum: Unmodifiable Damage[/b]
+
+These damage sources cannot be changed by the stated modifier types, unless otherwise stated. Overall exceptions are the objects VoodooDoll and Prism, which have priority over all damage.
+[ul][li]Self-Damage: ZeusHammer and JusticeOne (Ignores all modifiers and Undershirt, deals 250/100 Null damage to user upon activation)[/li]
+[li]Attribute Lock: GunDelSol (Ignores all Source Modifiers except 2x Exponential Boost)[/li]
+[li]Gravity Crush: Whirlpool (Ignores all modifiers and Undershirt, instantly deletes if it connects and HP threshold requirement is met)[/li]
+[li]Cursed Mind: VoodooDoll (Ignores all Target Modifiers)[/li]
+[li]Object Erasure (Ignores all modifiers and instantly deletes if it connects with an object)[/li]
+
+[li]Poison (Ignores all modifiers if it connects)[/li]
+[li]Burn (Ignores all modifiers, except for Wood-type Element Weakness if it connects)[/li]
+[li]Sandstorm (Ignores all Source and Environmental Modifiers)[/li]
+[li]Glass Terrain Shatter (Ignores all Source and Environmental Modifiers)[/li]
+[li]Static Terrain Damage (Ignores all modifiers, deals 50 Null damage to affected Submerged/Burrowed entities)[/li]
+--- Terrain Changes or using attacks that trigger them, except otherwise stated (Onsen, QuickSand)
+--- Using attacks that trigger Terrain-related Environmental Modifiers, except otherwise stated
+[li]Specific Terrain Damage (Ignores all modifiers)[/li]
+--- Contact with Lava, Sea, and Poison
+--- Submerge/Burrow with Lava, Sea, Glass, Poison and Cracked
+[li]Non-Standard/Glitch Debuffs, unless otherwise specified (Varies according to mod)[/li][/ul]

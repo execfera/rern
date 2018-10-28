@@ -1,0 +1,79 @@
+From all of us here at Rockman.EXE Rogue Network, RERN for short, welcome! You'll find that we are very friendly and that it is easy to find your place in the RP environment. While our rules may seem intimidating at first, we are happy to help you along until you are posting like a pro.
+
+We only have a few standard conditions here. First, don't metagame with your MMBN knowledge. Our RP takes place nearly 40 years after the end of MMBN6, so don't talk too much about characters from the games/anime, please.
+
+While we don't require epic wordsmithing every single post, we do ask that you use complete sentences, and try to use proper grammar and spelling whenever possible. Generally speaking, the better your post is, the more likely your actions will succeed. Conversely, the poorer your post quality is, the more likely your actions will fail. [size=4]For more information on that and how a battle works, please refer to the [url=https://rockman-rogue.net/topic/1432/battling-rules]Battling Rules[/url] thread.[/size]
+
+Avoid godmoding. Godmoding basically means stating in your post that you are successful in your action, leaving no room for doubt. In most cases, a mod will either ask you to remove godmoding, or most likely ignore the action completely.
+
+[size=4]If you need help, just ask, and someone will be able to walk you through the first steps of joining the site and RP. Anyone with a colored name is a staff member, and all of them are equally willing to help you via PM or [url=https://discord.me/roguenetwork]in the chat.[/url][/size]
+
+========================================
+
+The first thing you need to do is register your Navi and Operator. You get to create and play as a NetOp and a NetNavi totally of your own design. Your NetOp will interact with other Operators, send e-mails, talk to your Navi, as well as purchase and use chips and upgrades. Your Navi will be the carry the bulk of your RP, as it will conduct all forms of combat, whether it be PvE or PvP, as well as interact with other Navis and Operators.
+
+One of the largest decisions when it comes to your Navi is what Element and Subtype it will be. These  decisions mostly grant advantages and disadvantages in combat, but more importantly, they help form your Navi's theme. [size=4]For a listing of what each Element and Subtype does, please refer to the [url=https://rockman-rogue.net/topic/1433/elements-and-subtypes]Element and Subtype rules[/url] thread.[/size]
+
+Other important things to consider for both of your characters are defining traits, to make them who they are, their personality and appearance, and maybe even something to make them special.
+
+[size=4][url=https://rockman-rogue.net/topic/1440/registration-rules][b]The blank form for new characters is here.[/b][/url][/size]
+
+then
+
+[size=4][url=https://rockman-rogue.net/category/65/new-users-rebirths][b]Register your characters here.[/b][/url] The link also contains registration rules. If you violate them, you will be asked to correct the errors before you can enter the game.[/size]
+
+Each player is responsible for keeping track of their own Navi's stats in their signature. For more information, please refer to the [url=https://rockman-rogue.net/topic/1442/signature-creation-rules-custom-bbcodes]Forum Signature[/url] rules thread.
+
+========================================
+
+Once registered and approved by an Admin or Official, you're ready to start roleplaying. Typically, this involves a real world thread with your Operator, where he or she will jack their Navi into a net thread. Later, you can make threads with other players, and virusbust together, if you so choose.
+
+A moderator will be along soon (if not, you may bump your topic once per 24 hours, further details [url=https://rockman-rogue.net/topic/1442/signature-creation-rules-custom-bbcodes]here.[/url]), to RP as a group of viruses. This moderator will decide how much damage you take, how much damage you deal, and generally whether you're successful in what you try to do.
+
+After writing the RP section of your post, a turn summary is also required.  It's essentially a recap of what actions your Navi took during that turn.  Here's an example:
+
+[quote]ACTIONS
+1.  [chip=Cannon] @ MetoolA
+2. Rapid buster shot: 8 damage null shot attack (Acc: A)  @ MetoolB
+3. Dodge[/quote]
+
+This will go on until your navi's HP or the enemy's reaches 0, or until one your navi or the enemy flees. If your Navi succeeds, then the moderator will issue a reward, which can include things like Zenny or Battlechips. If your Navi's HP reaches 0, then it is instantly jacked out, and you will lose an amount of Zenny, or possibly a Battlechip.
+
+[size=4]For more detailed rules for how a battle works, please refer to [url=https://rockman-rogue.net/topic/1432/battling-rules]the Battling Rules[/url] thread.[/size]
+
+Accuracy & Evasion
+
+To-Hit percentage system:
+
+S = 100% (Auto-hit)
+A = 70%
+B = 60%
+C = 50%
+D = 40%
+E = 30%
+
++/- 25% based on RP quality (YES, RP is 50% of your accuracy.)
+
+--------------------------------------------
+
+Dodge Table:
+S: (Does not exist)
+A: 70%
+B: 60%
+C: 50%
+D: 40%
+E: 30%
+
++/- 25% based on RP quality (YES, RP is 50% of your dodge.)
+
+Dodge: All normal dodges are C-Rank. 
+
+========================================
+
+Besides battling, there are a few other things for you to try. Posting on BBS boards and sending email, as well as meeting other Operators in the real world, can help build relationships with other Op/Navi pairs, which can lead to group RPing, team busting, trading, or even PvP duels.
+
+Other important topics for new players to check out include the [url=https://rockman-rogue.net/topic/1435/navi-levels-cust-stats-and-buster]Navi Level[/url] and [url=https://rockman-rogue.net/topic/1439/signature-attack-system-3-5/1]Signature Attack[/url] rules threads. These can start off simple, but can become complex rather quickly, so I once again urge any new player to PM one of the staff or check [url=https://discord.me/roguenetwork]the chat[/url] if you need further help.
+
+========================================
+
+Once again, welcome! We look forward to meeting you, and hope you enjoy yourself!
