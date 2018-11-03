@@ -37,13 +37,15 @@
 
           const zennyBase = (40 + areaModifier*10) * (undernetModifier ? 12 : 1) * (undernetModifier ? 1 : zennyNetTierMultiplier);
           const zennyReward = zennyBase * (battleCount + 2) * rpQuality;
-          const fxpReward = (areaModifier + battleCount) * fxpNetTierMultiplier * (battleCount % 5 === 0 ? 3 : 1);
+          const fxpReward = (areaModifier + battleCount) * fxpNetTierMultiplier + (battleCount % 5 === 0 ? 3 : 1);
+          const fxpRewardRounded = Math.ceil(fxpReward);
           const fragReward = 3 + fragNetTierBonus;
 
           document.querySelector('#resultBaseZenny').textContent = zennyBase;
           document.querySelector('#resultZenny').textContent = zennyReward;
           document.querySelector('#resultFrag').textContent = fragReward;
           document.querySelector('#resultFXP').textContent = fxpReward;
+          document.querySelector('#resultFXPRound').textContent = fxpRewardRounded;
 
           console.log('')
           console.log('calculateReward');
@@ -145,7 +147,7 @@
               <ul>
                 <li><span id="resultZenny"></span> Zenny (base <span id="resultBaseZenny"></span>z)</li>
                 <li><span id="resultFrag"></span> BugFrags per Virus (add 2 per exact kill)</li>
-                <li><span id="resultFXP"></span> FXP</li>
+                <li><span id="resultFXP"></span> FXP (rounded up to <span id="resultFXPRound"></span>)</li>
               </ul>
             </li>
           </ul>
