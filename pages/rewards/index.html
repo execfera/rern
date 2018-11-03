@@ -23,7 +23,7 @@
           const netTier = Number(document.querySelector('#netTier option:checked').value);
           const rpQuality = Number(document.querySelector('#rpQuality option:checked').value);
           let zennyNetTierMultiplier = 1; // undernet defaults
-          let fxpNetTierMultiplier = 3;
+          let fxpNetTierMultiplier = 1;
           let fragNetTierBonus = 7;
 
           if (!undernetModifier) {
@@ -37,25 +37,20 @@
 
           const zennyBase = (40 + areaModifier*10) * (undernetModifier ? 12 : 1) * (undernetModifier ? 1 : zennyNetTierMultiplier);
           const zennyReward = zennyBase * (battleCount + 2) * rpQuality;
-          const fxpBase = (areaModifier + battleCount);
-          const fxpReward = fxpBase * fxpNetTierMultiplier + (battleCount % 5 === 0 ? 3 : 0);
+          const fxpBase = (areaModifier + 1);
+          const fxpReward = (fxpBase + battleCount - 1) * fxpNetTierMultiplier + (battleCount % 5 === 0 ? 3 : 0);
           const fxpRewardRounded = Math.ceil(fxpReward);
           const fragReward = 3 + fragNetTierBonus;
 
-          document.querySelector('#resultZenny').textContent = `${zennyBase} [BaseZenny] * (${battleCount} [BattleNumber] + 2) * ${rpQuality} [RPQuality] = ${zennyReward} Final Zenny`;
+          document.querySelector('#resultZenny').textContent = `${zennyBase} base zenny, multiplied by (Battle Number + 2) (${battleCount} + 2 = ${battleCount + 2}), multiplied by RP Quality Modifier ${rpQuality} = ${zennyReward} Final Zenny`;
           document.querySelector('#resultFrag').textContent = `${fragReward} BugFrags per Virus, add 2 per Exact Kill`;
           document.querySelector('#resultFXP').textContent = 
-            `${fxpBase} Base FXP` +
+            `${areaModifier + 1} Base FXP` +
+            (battleCount > 1 ? `, adding ${battleCount - 1} for consecutive battles` : '') + 
             (fxpNetTierMultiplier !== 1 ? `, multiplied by ${fxpNetTierMultiplier}x for network tier` : '') +
-            (fxpReward % 1 !== 0 ? `, rounded up` : '') +
-            ` = ${fxpRewardRounded} Total FXP`;
-
-          console.log('')
-          console.log('calculateReward');
-          console.log('zennyBase', zennyBase);
-          console.log('zennyNetTierMultiplier', zennyNetTierMultiplier);
-          console.log('fxpNetTierMultiplier', fxpNetTierMultiplier);
-          console.log('fragNetTierBonus', fragNetTierBonus);
+            (battleCount % 5 === 0 ? `, adding 3 for boss battle` : '') +
+            (fxpReward % 1 !== 0 ? ` = ${fxpReward}, rounding up` : '') +
+            (battleCount > 1 || fxpNetTierMultiplier !== 1 || battleCount % 5 === 0 || fxpReward % 1 !== 0 ? ` = ${fxpRewardRounded} Total FXP` : '');
         }
 
         function init() {
