@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Reward Calculator</title>
+  <link rel="icon" href="https://execfera.github.io/rern/banner/icon-fav.gif">
+</head>
+<body>
+    <style>
+        body { display: flex; align-items: center; flex-direction: column; background: #efebe9; min-height: 100vh; margin: 0; padding: 0; }
+        .container { width: 90vw; background: #fff; min-height: 100vh; }
+        .content { margin-left: 12px; }
+        .mini { color:grey; font-size:0.7em; }
+        table { width: calc(100% - 72px); margin-left: 24px; }
+        .lastpadding { height: 12px; }
+        h3:not(.normal) { cursor: pointer; }
+      </style>
+      <script>
+        function calculateReward() {
+          const areaModifier = Number(document.querySelector('#area option:checked').value);
+          const undernetModifier = document.querySelector('#area option:checked').textContent.trim() === "Undernet";
+          const battleCount = Number(document.querySelector('#battleNum option:checked').textContent.trim());
+          const netTier = Number(document.querySelector('#netTier option:checked').value);
+          const rpQuality = Number(document.querySelector('#rpQuality option:checked').value);
+          let zennyNetTierMultiplier = 1; // undernet defaults
+          let fxpNetTierMultiplier = 3;
+          let fragNetTierBonus = 7;
+
+          if (!undernetModifier) {
+            switch (netTier) {
+              case 1: zennyNetTierMultiplier = 1; fxpNetTierMultiplier = 1; fragNetTierBonus = 0; break;
+              case 2: zennyNetTierMultiplier = 3; fxpNetTierMultiplier = 1.5; fragNetTierBonus = 2; break;
+              case 3: zennyNetTierMultiplier = 6; fxpNetTierMultiplier = 2; fragNetTierBonus = 4; break;
+              default: break;
+            }
+          }
+
+          const zennyBase = (40 + areaModifier*10) * (undernetModifier ? 12 : 1) * (undernetModifier ? 1 : zennyNetTierMultiplier);
+          const zennyReward = zennyBase * (battleCount + 2) * rpQuality;
+          const fxpReward = (areaModifier + battleCount) * fxpNetTierMultiplier * (battleCount % 5 === 0 ? 3 : 1);
+          const fragReward = 3 + fragNetTierBonus;
+
+          document.querySelector('#resultBaseZenny').textContent = zennyBase;
+          document.querySelector('#resultZenny').textContent = zennyReward;
+          document.querySelector('#resultFrag').textContent = fragReward;
+          document.querySelector('#resultFXP').textContent = fxpReward;
+
+          console.log('')
+          console.log('calculateReward');
+          console.log('zennyBase', zennyBase);
+          console.log('zennyNetTierMultiplier', zennyNetTierMultiplier);
+          console.log('fxpNetTierMultiplier', fxpNetTierMultiplier);
+          console.log('fragNetTierBonus', fragNetTierBonus);
+        }
+
+        function init() {
+          document.querySelectorAll('#area, #battleNum, #netTier, #rpQuality').forEach(el => {
+            el.addEventListener('change', () => calculateReward());
+            el.querySelector('option:first-child').selected = true;
+          });
+          document.querySelector('#rpQuality option:nth-child(3)').selected = true;
+          calculateReward();
+        }
+
+        window.onload = init;
+      </script>
+      <div class="container">
+        <div class="title">
+          <hr><center><b><font size="7">Reward Calculator</font></b></center><hr><br/>
+        </div>
+        <div class="content">
+          <h3 class="normal">Rewards:</h3>
+          <ul>
+            <li>Area:
+              <select id="area">
+                <option value="1" selected>ACDC</option>
+                <option value="1">Kotobuki</option>
+                <option value="1">Yoka</option>
+                <option value="1">Electown</option>
+                <option value="1">Okuden</option>
+
+                <option disabled>--------</option>
+
+                <option value="2">Netopia</option>
+                <option value="2">Netfrica</option>
+                <option value="2">Beach</option>
+                <option value="2">SciLab</option>
+                <option value="2">Dentech</option>
+
+                <option disabled>--------</option>
+                
+                <option value="3">NetVegas</option>
+                <option value="3">Hades</option>
+                <option value="3">Sharo</option>
+                <option value="3">NAXA</option>
+                <option value="3">Yumland</option>
+
+                <option disabled>--------</option>
+
+                <option value="1">Undernet</option>
+              </select>
+            </li><li>
+              Battle Number:
+              <select id="battleNum">
+                <option selected>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+              </select> 
+            </li><li>
+              Net Tier (ignored if Undernet): 
+              <select id="netTier">
+                <option value="1" selected>Normal</option>
+                <option value="2">Rogue</option>
+                <option value="3">Chaos</option>
+              </select> 
+            </li><li>
+              RP Quality:
+              <select id="rpQuality">
+                <option value="1">1 - Very Poor RP</option>
+                <option value="2">2 - Poor RP</option>
+                <option value="3" selected>3 - Average RP</option>
+                <option value="4">4 - Good RP</option>
+                <option value="5">5 - Very Good RP</option>
+              </select>
+            </li>
+            <br>
+            <li>Result:
+              <ul>
+                <li><span id="resultZenny"></span> Zenny (base <span id="resultBaseZenny"></span>z)</li>
+                <li><span id="resultFrag"></span> BugFrags per Virus (add 2 per exact kill)</li>
+                <li><span id="resultFXP"></span> FXP</li>
+              </ul>
+            </li>
+          </ul>
+          <br>
+      
+          <div class="lastpadding"></div>
+        </div>
+      </div>
+      
+</body>
+</html>
