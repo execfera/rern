@@ -280,7 +280,7 @@
 					}
 					/* maxbat = netmax[$('#vlist_battle').val()-1];
 					minbat = netmin[$('#vlist_battle').val()-1]; */
-					$('#vlist_terrain').append("Virus Count: ", netmin[$('#vlist_battle').val()-1]*netnavi, "-", maxbat*netnavi, " &#124; ");
+					$('#vlist_terrain').append("Virus Count: ", minbat, "-", maxbat, " &#124; ");
 					if (netarea === "Undernet") $('#vlist_terrain').append("Zenny: ", netzenny["Undernet"][0], "-", netzenny["Undernet"][1]);
 					else if (netarea === "All");
 					else $('#vlist_terrain').append("Zenny: ", netzenny[netarea][0]*(netrank+1), "-", netzenny[netarea][1]*(netrank+1));
