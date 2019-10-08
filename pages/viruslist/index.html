@@ -218,9 +218,10 @@
 				"NetVegas": [70, 350, 280],
 				"Undernet": [600, 3000, 2400]
 			}
-			var netmin = [3, 4, 4, 5, 0, 6, 6, 7, 7, 0, 9, 10, 9, 10, 0, 11, 12, 13, 14];
-			var netmax = [4, 5, 6, 7, 0, 7, 7, 8, 9, 0, 10, 11, 12, 13, 0, 14, 15, 16, 16];
-			var minbat, maxbat;
+			/* var netmin = [3, 4, 4, 5, 0, 6, 6, 7, 7, 0, 9, 10, 9, 10, 0, 11, 12, 13, 14];
+			var netmax = [4, 5, 6, 7, 0, 7, 7, 8, 9, 0, 10, 11, 12, 13, 0, 14, 15, 16, 16]; */
+      var minbat = 3;
+      var maxbat = 5;
 			var virusClone = false;
 			
 			function listDeinit() {
@@ -277,8 +278,8 @@
 						if (i === netland[netarea].length-1) $('#vlist_terrain').append(landentry, " &#124; "); 
 						else $('#vlist_terrain').append(landentry, ", "); 
 					}
-					maxbat = netmax[$('#vlist_battle').val()-1];
-					minbat = netmin[$('#vlist_battle').val()-1];
+					/* maxbat = netmax[$('#vlist_battle').val()-1];
+					minbat = netmin[$('#vlist_battle').val()-1]; */
 					$('#vlist_terrain').append("Virus Count: ", netmin[$('#vlist_battle').val()-1]*netnavi, "-", maxbat*netnavi, " &#124; ");
 					if (netarea === "Undernet") $('#vlist_terrain').append("Zenny: ", netzenny["Undernet"][0], "-", netzenny["Undernet"][1]);
 					else if (netarea === "All");
