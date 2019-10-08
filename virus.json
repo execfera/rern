@@ -226,7 +226,7 @@
 	"Shrubby": {
 		"family_note": "Shrubby viruses take cover when they are not attacking. Shrubby viruses teleport from behind cover when attacking, but never at any other time. If there is nothing on the field to use as cover against an enemy, and the only other viruses on the field are Shrubbies or viruses that cannot provide cover against attacks, they will stop attacking and attempt to flee starting next turn. Later versions of the Shrubby virus carry rockcube chip data, and will use that to make new cover when none is available.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/1/#post-50064",
-		"family_area": ["ACDC", "Okuden Valley", "Dentech", "Yumland"],
+		"family_area": ["ACDC", "Okuden Valley", "Dentech"],
 		"virus": [{
 			"name": "Shrubby",
 			"hpts": 50,
@@ -779,7 +779,7 @@
 	"ElecOgre": {
 		"family_note": "ElecOgre viruses attack by charging electricity between their horns, and then shooting thunderbolts at everything in sight the following action. They cannot move or dodge while charging. ElecOgres move by floating through the air, and are fully flight capable. ElecOgre is considered a high tier virus type, and should be used sparingly.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/1/#post-50080",
-		"family_area": ["SciLab", "NAXA", "NetVegas"],
+		"family_area": ["NAXA", "NetVegas"],
 		"virus": [{
 			"name": "ElecOgre",
 			"hpts": 120,
@@ -1115,7 +1115,7 @@
 	"Basher": {
 		"family_note": "Basher viruses are the top-tier of the stationary gunnery viruses with an unmatched single-shot damage output among the normal viruses. They are also the rarest of their class, and appear only after battle 5. They also never appear in large numbers in a normal battle, meaning the ratio of total viruses to Bashers should be at least 4 to 1. The attack cycle of Bashers is 2 actions long, regardless of which attack they use. The first attack requires one action to charge before firing, and the second attack executes twice in succession. If they are stunned, they resume their attack cycle where it was halted once the stun wears off. They don't move, and don't dodge.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/2/#post-50088",
-		"family_area": ["Netopia", "Sharo"],
+		"family_area": ["Sharo"],
 		"virus": [{
 			"name": "Basher",
 			"hpts": 120,
@@ -1227,7 +1227,7 @@
 	"Slimey": {
 		"family_note": "Slimey viruses were produced to be sources of major traffic lag. While a Slimey virus is on the battlefield, all Navis and SPs suffer from a passive Slow-like effect that imposes a -10% Evasion AND Movement Speed penalty. This effect is not a status ailment, and cannot be cured. This effect does not stack with itself if more than one Slimey is on the field at once. As this does not count as a true Slow effect, up to two instances of Slow may stack on top of this effect for a total penalty of -30% Evasion/Movement Speed. This effect expires when all Slimey viruses on the field are deleted or flee. Slimey viruses are very slow to move and dodge, but every move they make that is not a dodge counts as an attack. Slimeys deal damage by touching an opponent, thus touching a Slimey directly results in damage to any non-Slimey the virus considers hostile.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/2/#post-51095",
-		"family_area": ["Sharo", "NetVegas"],
+		"family_area": ["Sharo", "NetVegas", "Beach"],
 		"virus": [{
 			"name": "Slimey",
 			"hpts": 90,
@@ -1283,7 +1283,7 @@
 	"Boomer": {
 		"family_note": "Boomers cannot be damaged from any direction in the forward hemisphere so long as they carry their boomerang. Any attacks from the rear hemisphere or Break attacks hit normally. Boomers launch their boomerang when they attack, leaving themselves open to counter attacks. Boomers move by floating through the air, and are immune to the effects of Anchor. They are, however, still subject to the effects of terrain. They cannot be forced to submerge into liquid terrain, nor can they be buried in solid terrain. Boomers are horrible at dodging, as they generally rely on their Rang-Guard ability.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/2/#post-51096",
-		"family_area": ["SciLab", "Okuden Valley", "Dentech", "Yumland"],
+		"family_area": ["SciLab", "Okuden Valley", "Dentech"],
 		"virus": [{
 			"name": "Boomer",
 			"hpts": 60,
@@ -1563,7 +1563,7 @@
 	"Kilby": {
 		"family_note": "Kilby viruses try to stay at least 3 panels away from their enemy at all times, and dodge back and forth constantly. Kilby viruses only attack once per turn, and when they do, they teleport to a position flanking their target, and stab them with a Bamboo Lance. This lance strikes at Long Sword range, and may hit two targets at once. After attacking, they teleport back to the panel they were standing upon when they first began their attack sequence. They are mindlessly oblivious to the hazards of terrain. Kilby Omega viruses attack differently. Instead of attacking from the side, they attack 3 separate targets from behind with Bamboo Lance. They also teleport before and after the attack, just as lesser Kilby do, and only attack once per turn. They are mindlessly oblivious to the hazards of terrain.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/2/#post-51127",
-		"family_area": ["Yumland"],
+		"family_area": ["Yumland", "Okuden Valley", "Dentech"],
 		"virus": [{
 			"name": "Kilby",
 			"hpts": 90,
@@ -2123,7 +2123,7 @@
 	"Magneaker": {
 		"family_note": "Magneaker viruses move and dodge slowly. Magneakers attack by launching MagBombs by default. When there is a stunned enemy on the field, however, they will instead charge at the stunned opponent with surprising speed. They are quick to react to the presence of stunned enemies, and execute this attack with very little delay. The DashAttack counts as a dodge against opponents attacking from any angle except dead-on or from directly behind the Magneaker. Magneakers do not charge at un-stunned enemies, unless there is a stunned target in-line with them. Magneakers have Omnishoes while executing a charge attack.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/2/#post-51155",
-		"family_area": ["Electown", "Yoka", "Dentech"],
+		"family_area": ["Electown", "Dentech", "SciLab"],
 		"virus": [{
 			"name": "Magneaker",
 			"hpts": 70,
@@ -2291,7 +2291,7 @@
 	"ColorUFO": {
 		"family_note": "ColorUFOs are able to temporarily steal chip data from their enemy, preventing the use of that battlechip until the end of the battle. ColorUFOs only attack once per turn, maximum, and spend the rest of the turn dodging. This attack is guaranteed to hit unless the target dodges when they attempt their attack, meaning it can be evaded with luck. The attack ignores every form of defence, including any form of stealth. ColorUFOs move and dodge at slightly better than average rates. They are capable of full flight. If there is no valid target with a chip for the UFO to attempt to steal, they will instead zap one target with a particle beam.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/3/#post-51193",
-		"family_area": ["SciLab", "Netopia", "NAXA", "NetVegas"],
+		"family_area": ["SciLab", "NAXA", "NetVegas"],
 		"virus": [{
 			"name": "RedUFO (V1)",
 			"hpts": 80,
@@ -2501,7 +2501,7 @@
 	"Yort": {
 		"family_note": "Yort viruses are dangerous top-tier viruses, and should only appear starting at battle 6 or later in any given thread. They move and dodge at high speed, and possess OmniShoes. In addition to this, Yorts are able to block enemy attacks with their own attack: the Yo-Yo. Any non-breaking attack that strikes the Yo-Yo is nullified instantly, and the Yo-Yo is neither slowed nor stopped by them. Thus, head-to-head combat against Yorts is suicide unless the opponent is able to produce a Break attack of 40 or more damage to destroy the Yo-yo. Yorts cannot regenerate a destroyed Yo-Yo, and are completely helpless without it. If a Yort is deprived of its weapon, it will Escape after 2 turns. Yorts cannot damage other Yorts. If two Yo-yos collide in mid-air, they mutually annihilate each other. Yorts can't move while attacking. Yort attacks are faster than the battlechip version of Yo-Yo and have greater range, but have a tiny delay before the attack in exchange. Yo-Yos are immune to every effect (including Glitch) except Break. AoE effects can reach past a Yo-Yo, but do nothing to stop it. Yo-Yos self destruct if the Yort that fired them is deleted.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/3/#post-51197",
-		"family_area": ["SciLab", "Kotobuki Town", "Netopia", "Beach", "NAXA", "NetVegas"],
+		"family_area": ["Netopia", "Beach", "NAXA", "NetVegas"],
 		"virus": [{
 			"name": "Yort",
 			"hpts": 90,
@@ -2613,7 +2613,7 @@
 	"KillerEye": {
 		"family_note": "KillerEyes do not move or dodge during battle, though they can move under their own power between battles. They can, however, turn in place. KillerEyes are a passive threat, not an active one. They direct their sensor eye in the general direction of a sensed threat, and emit a laser trip beam for the enemy to run across. If the enemy does run into the beam, they fire their Sensor Beam attack at the speed of light, which is practically guaranteed to hit, before recharging for an action.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/3/#post-51199",
-		"family_area": ["Dentech", "NAXA", "NetVegas"],
+		"family_area": ["NAXA", "NetVegas"],
 		"virus": [{
 			"name": "KillerEye",
 			"hpts": 100,
@@ -2669,7 +2669,7 @@
 	"Momogra": {
 		"family_note": "Momogras move by tunneling through the ground. They poke their heads up just far enough from time to time to see where the enemy is, but they are still protected from most forms of attack. Drop attacks, Bomb attacks (which fall out of the air after being thrown), and Ground attacks damage them in this state. Other attacks executed from a high angle/altitude also work. All movements performed by a Momogra are considered a dodge, as they occur underground, and out of sight. Momogras only attack in response to having an attack launched in their direction, and only if they have an action remaining for that turn. Momogras attack by instantly tunneling to the panel behind the enemy, popping out of the ground, and striking with a shovel. A Momogra is completely vulnerable to any form of attack during its own atack, and until it moves again following that attack. The movement prior to the attack does not require an action, but movement afterwards does. The attack cannot execute if the panel behind the target is a liquid terrain type, Metal, Broken, or Missing. The attack also will not execute if there is something currently occupying the panel they would be attacking from. If the attack cannot execute, the Momogra will not move. In the case of Glass and Cracked terrain, the Momogras will still attempt to attack, but suffer the consequences of doing do as those panels will break and damage the Momogra, also causing the attack to fail. Momogra get 1 free movement per turn at the start of the turn before their first action.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/3/#post-51200",
-		"family_area": ["Electown", "Okuden Valley", "Hades Isle", "NetVegas"],
+		"family_area": ["Okuden Valley", "Hades Isle", "NetVegas"],
 		"virus": [{
 			"name": "Momogra",
 			"hpts": 60,
@@ -2725,7 +2725,7 @@
 	"Heavy": {
 		"family_note": "Heavy viruses move slowly, and only dodge when they attack. When a Heavy attacks, it teleports to a position to the left or right of the intended target, and proceeds to try to ram the target with a quick sideways motion. The number of times it will consecutively attempt to ram the target before teleporting back to its starting position depends entirely on the number of actions the virus has. Teleporting before and after the attack do not require an action. Movement and attacking are one and the same to this virus, thus even a non-attack collision with it is damaging.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/3/#post-51246",
-		"family_area": ["Yoka", "Kotobuki Town", "Netfrica", "NetVegas"],
+		"family_area": ["Yoka", "Kotobuki Town", "Netfrica", "Netopia"],
 		"virus": [{
 			"name": "Heavy",
 			"hpts": 75,
@@ -2774,7 +2774,7 @@
 	"Viney": {
 		"family_note": "Viney viruses do not move or dodge. Viney viruses require the presence of Grass, Soil, or Mud terrain in order to appear in battle, and they always appear on these terrain types. Vineys are rooted in place, and cannot be moved. The main body of a Viney is immune to any and all forms of attack except fire element damage, but the vines the viruses uses to attack with are vulnerable to all attacks. The virus attacks by using a group of thorny vines to creep up out of a nearby panel, then move towards the victim in hopes of capturing them. Once the vines make contact, they wrap around the victim, and hold them in place while causing damage. The vines can only be escaped from by the target if the target dedicates an action with decent roleplay attempting to escape. The vines may also be cut or burned in order to allow the target to escape, but in the case of fire, the target sustains double the fire damage of the attack used to burn the vines. Summoning the group of vines requires an action, moving the vines requires an action, and damage is dealt to a captured target for each action the Viney spends trying to hold the target in place. Both the vines and the virus itself are damage zones. Any damage either one sustains counts against the virus' HP. Both are subject to terrain effects and those effects stack as if the virus were in two places at the same time (because it basically is).",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/3/#post-51247",
-		"family_area": ["Okuden Valley", "Yumland", "Netfrica"],
+		"family_area": ["Okuden Valley", "Yumland", "Netfrica", "Dentech"],
 		"virus": [{
 			"name": "Viney",
 			"hpts": 80,
@@ -2830,7 +2830,7 @@
 	"Elebee": {
 		"family_note": "Elebee viruses move and dodge at a high rate of speed, and they are fully flight capable. Elebee viruses attack by flying at their target at high speed, and delivering an electric sting. This type of virus may opt to stop short of the target, and veer sharply in a new direction to avoid an attack. This requires the expenditure of a second action, but occurs very rapidly regardless. Movement and attacking are one and the same with regards to this virus, thus physical contact with them causes damage. Elebees can see through Invis.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/3/#post-51248",
-		"family_area": ["Electown", "Yoka", "NAXA"],
+		"family_area": ["Electown", "NAXA"],
 		"virus": [{
 			"name": "Elebee",
 			"hpts": 90,
@@ -3572,7 +3572,7 @@
 	"HauntedCandle": {
 		"family_note": "This virus attacks every action if able.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/4/#post-52696",
-		"family_area": ["Netfrica", "Hades Isle", "NetVegas"],
+		"family_area": ["Kotobuki Town", "Netfrica", "Hades Isle", "NetVegas"],
 		"virus": [{
 			"name": "HauntedCandle",
 			"hpts": 100,
@@ -3628,7 +3628,7 @@
 	"Kettle": {
 		"family_note": "Kettle do not attack unless and until they are attacked. This behavior does not count as a Counter or a Trap. It's simply what they do. Moving and dodging require actions, while retaliating against attacks does not. All Kettle have passive Regen. When this virus is attacked with non-Fire Damage below its max HP, it will boil over to attack nearby enemies with Aqua Damage equal to the damage taken. This effect does not damage allies. If the damage is greater than or equal to its current HP, the virus is also deleted after the counter attack. If not, the Kettle will regenerate a portion of its HP and continue on as normal. When this virus is attacked with Fire Damage, it will boil over to attack nearby allies dealing exactly its max HP in Aqua Damage. This effect will not damage enemies. The virus is automatically deleted after boiling over in this case.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/4/#post-52697",
-		"family_area": ["Yoka", "Netopia", "Beach"],
+		"family_area": ["Netopia", "Beach"],
 		"virus": [{
 			"name": "Kettle",
 			"hpts": 100,
@@ -3740,7 +3740,7 @@
 	"PulseBulb": {
 		"family_note": "PulseBulbs move and dodge at an average rate. They get one free movement every turn, and they must drop their MetalBody defense in order to attack. These viruses are able to see through Invis.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/4/#post-52699",
-		"family_area": ["SciLab", "Dentech", "NAXA"],
+		"family_area": ["NAXA"],
 		"virus": [{
 			"name": "PulseBulb",
 			"hpts": 120,
@@ -3908,7 +3908,7 @@
 	"SnakeArm": {
 		"family_note": "SnakeArm viruses are among the fastest moving viruses in MMBN, and thus have 2 free Movements each turn. They move by burrowing underground at high speed, and only occasionally pop out of the ground to get their bearings. They just about treat the ground as if it were water, and are normally only hittable by most forms of attack when they are above ground. They are able to move through any kind of terrain with the exception of Cracked, Broken, Missing, Glass, and Metal. They are not subject to the adverse effects of the terrain they are moving through, with the sole exception of Poison. As is normal, Snakearms are subject to damage by Ground attacks, terrain changes, etc while they are burrowed. SnakeArm can attack airborne targets, and their attack can pass over the terrain types they normally cannot burrow or swim through.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/4/#post-52702",
-		"family_area": ["Beach", "Netfrica"],
+		"family_area": ["NetVegas", "Hades Isle"],
 		"virus": [{
 			"name": "SnakeArm",
 			"hpts": 130,
@@ -4076,7 +4076,7 @@
 	"Octon": {
 		"family_note": "Octon are fairly large viruses, but instead of using that bulk for direct attacks, they contain a huge amount of elemental energy. They utilize this by forming balloons from their mouth capable of absorbing their chosen element. This does use up a lot of energy, so no more than one balloon per virus can be active at any one time. The balloon itself has an odd homing property, in that as long as it's within sight, it will always try to remain between its creator and the target.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/4/#post-52706",
-		"family_area": ["Electown", "Sharo"],
+		"family_area": ["Sharo"],
 		"virus": [{
 			"name": "Octon",
 			"hpts": 120,
@@ -4243,7 +4243,7 @@
 	"Dominerd": {
 		"family_note": "Dominerd viruses are extremely dangerous top tier viruses. No player should encounter one until at least battle 6. Dominerds are invisible unless attacking or blocking unless the only viruses present are all Dominerds. While non-dominerd viruses are present, Dominerds will block attacks against other viruses with their own bodies, and will take turns blocking these attacks. Dominerds have StoneBody, but must drop their defenses to attack an enemy. Dominerds will only start attacking when they are alone, or the only other viruses on the field are also Dominerds. All Dominerds carry and use stage changing chips. Dominerds do not intentionally use their Teleport abilities evasively, and tend to rely on Invisibility instead. Thus a strategy of attacking a Dominerd by forcing it to defend or countering when it attacks will negate any evasion bonus it may have gained from teleportation, as well as invis. Just shooting/swinging at without any strategy may often result in a miss.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/4/#post-54285",
-		"family_area": ["Dentech", "Hades Isle", "NetVegas"],
+		"family_area": ["Hades Isle", "NetVegas"],
 		"virus": [{
 			"name": "Dominerd",
 			"hpts": 100,
@@ -4976,49 +4976,49 @@
 			"name": "Genin",
 			"hpts": 60,
 			"elem": "Null",
-			"desc": "HP: 60<br>Attack: 30 Null + Slashing + Group Attack (MoonBlade) / 10 Null + Slashing x 3 Attacks x 2 Targets (Kunai)<br>Attack Accuracy: B / B<br>Attack Description: Counter attacks with either a spinning cut or a volley of Kunai.<br>Element: Null<br>Possible Rewards (Per Virus): Kunai1, MoonBlade1, Zenny<br>Special: This virus does not initiate attacks on it's own.<br>- Seeks cover behind objects when not attacking.<br>- If no objects are present, this viruses evasion is enhanced.<br>- Counters Battlechip use with Kunai once per turn.<br>- Counters Buster use with MoonBlade once per turn.<br>- Counters Sig Attack use with either Kunai, or Moonblade once per turn.<br>- Passive sigs that do damage or have an offensive effect will set off the counter.",
+			"desc": "HP: 60<br>Attack: 30 Null + Slashing + Group Attack (MoonBlade) / 10 Null + Slashing x 3 Attacks x 2 Targets (Kunai)<br>Attack Accuracy: B / B<br>Attack Description: Counter attacks with either a spinning cut or a volley of Kunai.<br>Element: Null<br>Possible Rewards (Per Virus): Kunai1, MoonBlade1, Zenny<br>Special: This virus does not initiate attacks on it's own.<br>- Seeks cover behind objects when not attacking.<br>- If no objects are present, this viruses evasion is enhanced.<br>- Counters Battlechip use with Kunai once per turn.<br>- Counters Buster use with MoonBlade once per turn.<br>- Counters Sig Attack use with either Kunai, or Moonblade once per turn.",
 			"rslt": ["Kunai1", "MoonBlade1"],
 			"rare": [0, 0]
 		}, {
 			"name": "Genin EX",
 			"hpts": 100,
 			"elem": "Null",
-			"desc": "HP: 100<br>Attack: 50 Null + Slashing + Group Attack (MoonBlade) / 10 Null + Slashing x 5 Attacks x 2 Targets (Kunai)<br>Attack Accuracy: B / B<br>Attack Description: Counter attacks with either a spinning cut or a volley of Kunai.<br>Element: Null<br>Possible Rewards (Per Virus): Kunai1, MoonBlade1, Zenny<br>Special: This virus does not initiate attacks on it's own.<br>- Seeks cover behind objects when not attacking.<br>- If no objects are present, this viruses evasion is enhanced.<br>- Counters Battlechip use with Kunai once per turn.<br>- Counters Buster use with MoonBlade once per turn.<br>- Counters Sig Attack use with either Kunai, or Moonblade once per turn.<br>- Passive sigs that do damage or have an offensive effect will set off the counter.",
+			"desc": "HP: 100<br>Attack: 50 Null + Slashing + Group Attack (MoonBlade) / 10 Null + Slashing x 5 Attacks x 2 Targets (Kunai)<br>Attack Accuracy: B / B<br>Attack Description: Counter attacks with either a spinning cut or a volley of Kunai.<br>Element: Null<br>Possible Rewards (Per Virus): Kunai1, MoonBlade1, Zenny<br>Special: This virus does not initiate attacks on it's own.<br>- Seeks cover behind objects when not attacking.<br>- If no objects are present, this viruses evasion is enhanced.<br>- Counters Battlechip use with Kunai once per turn.<br>- Counters Buster use with MoonBlade once per turn.<br>- Counters Sig Attack use with either Kunai, or Moonblade once per turn.",
 			"rslt": ["Kunai1", "MoonBlade1"],
 			"rare": [0, 0]
 		}, {
 			"name": "Genin2",
 			"hpts": 140,
 			"elem": "Null",
-			"desc": "HP: 140<br>Attack: 70 Null + Slashing + Group Attack (MoonBlade) / 10 Null + Slashing x 7 Attacks x 2 Targets (Kunai)<br>Attack Accuracy: B / B<br>Attack Description: Counter attacks with either a spinning cut or a volley of Kunai.<br>Element: Null<br>Possible Rewards (Per Virus): Kunai2, MoonBlade2, Zenny<br>Special: This virus does not initiate attacks on it's own.<br>- Seeks cover behind objects when not attacking.<br>- If no objects are present, this viruses evasion is enhanced.<br>- Counters Battlechip use with Kunai once per turn.<br>- Counters Buster use with MoonBlade once per turn.<br>- Counters Sig Attack use with either Kunai, or Moonblade once per turn.<br>- Passive sigs that do damage or have an offensive effect will set off the counter.",
+			"desc": "HP: 140<br>Attack: 70 Null + Slashing + Group Attack (MoonBlade) / 10 Null + Slashing x 7 Attacks x 2 Targets (Kunai)<br>Attack Accuracy: B / B<br>Attack Description: Counter attacks with either a spinning cut or a volley of Kunai.<br>Element: Null<br>Possible Rewards (Per Virus): Kunai2, MoonBlade2, Zenny<br>Special: This virus does not initiate attacks on it's own.<br>- Seeks cover behind objects when not attacking.<br>- If no objects are present, this viruses evasion is enhanced.<br>- Counters Battlechip use with Kunai once per turn.<br>- Counters Buster use with MoonBlade once per turn.<br>- Counters Sig Attack use with either Kunai, or Moonblade once per turn.",
 			"rslt": ["Kunai2", "MoonBlade2"],
 			"rare": [0, 0]
 		}, {
 			"name": "Genin2 EX",
 			"hpts": 180,
 			"elem": "Null",
-			"desc": "HP: 180<br>Attack: 90 Null + Slashing + Group Attack (MoonBlade) / 10 Null + Slashing x 9 Attacks x 2 Targets (Kunai)<br>Attack Accuracy: B / B<br>Attack Description: Counter attacks with either a spinning cut or a volley of Kunai.<br>Element: Null<br>Possible Rewards (Per Virus): Kunai2, MoonBlade2, Zenny<br>Special: This virus does not initiate attacks on it's own.<br>- Seeks cover behind objects when not attacking.<br>- If no objects are present, this viruses evasion is enhanced.<br>- Counters Battlechip use with Kunai once per turn.<br>- Counters Buster use with MoonBlade once per turn.<br>- Counters Sig Attack use with either Kunai, or Moonblade once per turn.<br>- Passive sigs that do damage or have an offensive effect will set off the counter.",
+			"desc": "HP: 180<br>Attack: 90 Null + Slashing + Group Attack (MoonBlade) / 10 Null + Slashing x 9 Attacks x 2 Targets (Kunai)<br>Attack Accuracy: B / B<br>Attack Description: Counter attacks with either a spinning cut or a volley of Kunai.<br>Element: Null<br>Possible Rewards (Per Virus): Kunai2, MoonBlade2, Zenny<br>Special: This virus does not initiate attacks on it's own.<br>- Seeks cover behind objects when not attacking.<br>- If no objects are present, this viruses evasion is enhanced.<br>- Counters Battlechip use with Kunai once per turn.<br>- Counters Buster use with MoonBlade once per turn.<br>- Counters Sig Attack use with either Kunai, or Moonblade once per turn.",
 			"rslt": ["Kunai2", "MoonBlade2"],
 			"rare": [0, 0]
 		}, {
 			"name": "Genin3",
 			"hpts": 220,
 			"elem": "Null",
-			"desc": "HP: 220<br>Attack: 110 Null + Slashing + Group Attack (MoonBlade) / 10 Null + Slashing x 11 Attacks x 2 Targets (Kunai)<br>Attack Accuracy: B / B<br>Attack Description: Counter attacks with either a spinning cut or a volley of Kunai.<br>Element: Null<br>Possible Rewards (Per Virus): Kunai3, MoonBlade3, Zenny<br>Special: This virus does not initiate attacks on it's own.<br>- Seeks cover behind objects when not attacking.<br>- If no objects are present, this viruses evasion is enhanced.<br>- Counters Battlechip use with Kunai once per turn.<br>- Counters Buster use with MoonBlade once per turn.<br>- Counters Sig Attack use with either Kunai, or Moonblade once per turn.<br>- Passive sigs that do damage or have an offensive effect will set off the counter.",
+			"desc": "HP: 220<br>Attack: 110 Null + Slashing + Group Attack (MoonBlade) / 10 Null + Slashing x 11 Attacks x 2 Targets (Kunai)<br>Attack Accuracy: B / B<br>Attack Description: Counter attacks with either a spinning cut or a volley of Kunai.<br>Element: Null<br>Possible Rewards (Per Virus): Kunai3, MoonBlade3, Zenny<br>Special: This virus does not initiate attacks on it's own.<br>- Seeks cover behind objects when not attacking.<br>- If no objects are present, this viruses evasion is enhanced.<br>- Counters Battlechip use with Kunai once per turn.<br>- Counters Buster use with MoonBlade once per turn.<br>- Counters Sig Attack use with either Kunai, or Moonblade once per turn.",
 			"rslt": ["Kunai3", "MoonBlade3"],
 			"rare": [0, 0]
 		}, {
 			"name": "Genin3 EX",
 			"hpts": 260,
 			"elem": "Null",
-			"desc": "HP: 260<br>Attack: 130 Null + Slashing + Group Attack (MoonBlade) / 10 Null + Slashing x 13 Attacks x 2 Targets (Kunai)<br>Attack Accuracy: B / B<br>Attack Description: Counter attacks with either a spinning cut or a volley of Kunai.<br>Element: Null<br>Possible Rewards (Per Virus): Kunai3, MoonBlade3, Zenny<br>Special: This virus does not initiate attacks on it's own.<br>- Seeks cover behind objects when not attacking.<br>- If no objects are present, this viruses evasion is enhanced.<br>- Counters Battlechip use with Kunai once per turn.<br>- Counters Buster use with MoonBlade once per turn.<br>- Counters Sig Attack use with either Kunai, or Moonblade once per turn.<br>- Passive sigs that do damage or have an offensive effect will set off the counter.",
+			"desc": "HP: 260<br>Attack: 130 Null + Slashing + Group Attack (MoonBlade) / 10 Null + Slashing x 13 Attacks x 2 Targets (Kunai)<br>Attack Accuracy: B / B<br>Attack Description: Counter attacks with either a spinning cut or a volley of Kunai.<br>Element: Null<br>Possible Rewards (Per Virus): Kunai3, MoonBlade3, Zenny<br>Special: This virus does not initiate attacks on it's own.<br>- Seeks cover behind objects when not attacking.<br>- If no objects are present, this viruses evasion is enhanced.<br>- Counters Battlechip use with Kunai once per turn.<br>- Counters Buster use with MoonBlade once per turn.<br>- Counters Sig Attack use with either Kunai, or Moonblade once per turn.",
 			"rslt": ["Kunai3", "MoonBlade3"],
 			"rare": [0, 0]
 		}, {
 			"name": "Genin Omega",
 			"hpts": 260,
 			"elem": "Null",
-			"desc": "HP: 260<br>Attack: 130 Null + Slashing + Group Attack (MoonBlade) / 10 Null + Slashing x 13 Attacks x 2 Targets (Kunai)<br>Attack Accuracy: B / B<br>Attack Description: Counter attacks with either a spinning cut or a volley of Kunai.<br>Element: Null<br>Possible Rewards (Per Virus): Kunai3, MoonBlade3, AntiDamage (RARE), Zenny<br>Special: This virus does not initiate attacks on it's own.<br>- Seeks cover behind objects when not attacking.<br>- If no objects are present, this viruses evasion is enhanced.<br>- Counters Battlechip use with Kunai once per turn.<br>- Counters Buster use with MoonBlade once per turn.<br>- Counters Sig Attack use with either Kunai, or Moonblade once per turn.<br>- Passive sigs that do damage or have an offensive effect will set off the counter.<br>- Can use AntiDamage once.",
+			"desc": "HP: 260<br>Attack: 130 Null + Slashing + Group Attack (MoonBlade) / 10 Null + Slashing x 13 Attacks x 2 Targets (Kunai)<br>Attack Accuracy: B / B<br>Attack Description: Counter attacks with either a spinning cut or a volley of Kunai.<br>Element: Null<br>Possible Rewards (Per Virus): Kunai3, MoonBlade3, AntiDamage (RARE), Zenny<br>Special: This virus does not initiate attacks on it's own.<br>- Seeks cover behind objects when not attacking.<br>- If no objects are present, this viruses evasion is enhanced.<br>- Counters Battlechip use with Kunai once per turn.<br>- Counters Buster use with MoonBlade once per turn.<br>- Counters Sig Attack use with either Kunai, or Moonblade once per turn.<br>- Can use AntiDamage once.",
 			"rslt": ["Kunai3", "MoonBlade3", "AntiDamage"],
 			"rare": [0, 0, 1]
 		}],
@@ -5239,7 +5239,7 @@
 	"Sparky": {
 		"family_note": "",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/5/#post-63546",
-		"family_area": ["Netopia", "Sharo", "NAXA"],
+		"family_area": ["Netopia", "Sharo", "NAXA", "SciLab"],
 		"virus": [{
 			"name": "Sparky",
 			"hpts": 100,
@@ -5407,7 +5407,7 @@
 	"KillPlant": {
 		"family_note": "",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/5/#post-84940",
-		"family_area": ["Okuden Valley", "Beach", "Yumland", "Netfrica"],
+		"family_area": ["Beach", "Yumland", "Netfrica", "Dentech"],
 		"virus": [{
 			"name": "KillPlant",
 			"hpts": 100,
@@ -5463,7 +5463,7 @@
 	"Miner": {
 		"family_note": "",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/6/#post-84981",
-		"family_area": ["ACDC", "SciLab", "Kotobuki Town", "Hades Isle"],
+		"family_area": ["SciLab", "Hades Isle"],
 		"virus": [{
 			"name": "Miner",
 			"hpts": 100,
@@ -6079,7 +6079,7 @@
 	"Megalian-F": {
 		"family_note": "All Megalian-F viruses are equipped with Omnishoes, and fight from the air. This virus type will spend an Action Dodging, and then Attack the following Action. If there are more than one Megalian (family does not matter) the viruses will work together, alternating their attack Actions or attacking as a group (mod's discretion). When attacking, both the head and the base can be damaged separately (if the Aura protecting the base has been destroyed).",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/6/#post-107216",
-		"family_area": ["Kotobuki Town", "Netfrica", "Hades Isle"],
+		"family_area": ["Netfrica", "Hades Isle"],
 		"virus": [{
 			"name": "Megalian-F",
 			"hpts": 130,
@@ -6135,7 +6135,7 @@
 	"Megalian-E": {
 		"family_note": "All Megalian-E viruses are equipped with Omnishoes, and fight from the air. This virus type will spend an Action Dodging, and then Attack the following Action. If there are more than one Megalian (family does not matter) the viruses will work together, alternating their attack Actions or attacking as a group (mod's discretion). When attacking, both the head and the base can be damaged separately (if the Aura protecting the base has been destroyed).",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/6/#post-107217",
-		"family_area": ["Electown", "Netopia", "NAXA"],
+		"family_area": ["NAXA", "SciLab"],
 		"virus": [{
 			"name": "Megalian-E",
 			"hpts": 130,
@@ -6191,7 +6191,7 @@
 	"Megalian-W": {
 		"family_note": "All Megalian-W viruses are equipped with Omnishoes, and fight from the air. This virus type will spend an Action Dodging, and then Attack the following Action. If there are more than one Megalian (family does not matter) the viruses will work together, alternating their attack Actions or attacking as a group (mod's discretion). When attacking, both the head and the base can be damaged separately (if the Aura protecting the base has been destroyed).",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/6/#post-107218",
-		"family_area": ["Okuden Valley", "Dentech", "Yumland"],
+		"family_area": ["Dentech", "Yumland"],
 		"virus": [{
 			"name": "Megalian-W",
 			"hpts": 130,
@@ -6247,7 +6247,7 @@
 	"Dynamite": {
 		"family_note": "",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/6/#post-107219",
-		"family_area": ["SciLab", "Netopia", "Beach"],
+		"family_area": ["Netopia", "Beach"],
 		"virus": [{
 			"name": "Dynamite1",
 			"hpts": 100,
@@ -6359,7 +6359,7 @@
 	"Satellite": {
 		"family_note": "",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/6/#post-107318",
-		"family_area": ["SciLab", "Netopia", "Sharo", "NAXA"],
+		"family_area": ["Netopia", "Sharo", "NAXA"],
 		"virus": [{
 			"name": "Satellite",
 			"hpts": 100,
@@ -6415,7 +6415,7 @@
 	"Marina": {
 		"family_note": "Marina family viruses will only appear if there is at least 10% Sea Terrain present at the start of combat. They do not have to appear on Sea Terrain, but at least 10% of the field must be Sea Terrain.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/6/#post-107319",
-		"family_area": ["Yoka", "Beach", "Sharo"],
+		"family_area": ["Sharo"],
 		"virus": [{
 			"name": "Marina",
 			"hpts": 120,
@@ -6470,7 +6470,7 @@
 	"Puffy-F": {
 		"family_note": "",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/6/#post-120888",
-		"family_area": ["Yoka", "Netfrica", "Hades Isle"],
+		"family_area": ["Yoka", "Netfrica", "Hades Isle", "Kotobuki Town"],
 		"virus": [{
 			"name": "Puffy-F",
 			"hpts": 100,
@@ -6638,7 +6638,7 @@
 	"Flashy": {
 		"family_note": "This virus is only encountered on battle 6 or later. This virus has the ability to fly, and its presence on or near panels does not trigger traps or cause panels to break. It is also more difficult to bury or submerge this virus. The virus is smart enough to counter a long-range attack it can see by teleporting out of the way and attacking. It does not do this at close range, and opts to dodge normally and attack with RingZap instead.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/7/#post-121361",
-		"family_area": ["Dentech", "NAXA", "NetVegas"],
+		"family_area": ["NAXA", "NetVegas"],
 		"virus": [{
 			"name": "Flashy",
 			"hpts": 100,
@@ -6861,7 +6861,7 @@
 	"Yellowgon": {
 		"family_note": "Yellowgons do not appear before Battle 6. They are extremely territorial among their own kind, so only one HoleDragon can appear per battle. Because they live among holes, they cannot appear without at least 5% Missing terrain.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/7/#post-127456",
-		"family_area": ["NAXA", "NetVegas"],
+		"family_area": ["NAXA"],
 		"virus": [{
 			"name": "Yellowgon",
 			"hpts": 200,
@@ -6973,7 +6973,7 @@
 	"Jelly": {
 		"family_note": "Jelly are floating, jellyfish-like viruses, that seem to simply float nonchalantly, yet are deceptively difficult to combat. Fortunately, their rarity ensures they they never appear before a Battle 6, and there are never more than 2 in a single battle. While their horizontal movement is terrible at best, they can easily adjust their altitude as needed. By default, however, they tend to hover a couple of feet above the ground. The exception to this is when they attack. Jelly attack by launching large waves of water at enemies The attack cycle of Jelly is 2 actions long. It requires one action to charge before firing. If they are stunned or otherwise temporarily disabled, they resume their attack cycle where it was halted once the stun wears off. When they attack, they drop to the ground in order to pump out as much liquid as possible. This allows them to harness the power of certain kinds of terrain to boost their attacks, but it also makes them immobile and vulnerable to ground-based attacks for the duration.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/7/#post-134062",
-		"family_area": ["Yoka", "Beach"],
+		"family_area": ["Beach"],
 		"virus": [{
 			"name": "Jelly",
 			"hpts": 220,
@@ -7029,7 +7029,7 @@
 	"HeatJelly": {
 		"family_note": "HeatJelly are floating, jellyfish-like viruses, that seem to simply float nonchalantly, yet are deceptively difficult to combat. Fortunately, their rarity ensures they they never appear before a Battle 6, and there are never more than 2 in a single battle. While their horizontal movement is terrible at best, they can easily adjust their altitude as needed. By default, however, they tend to hover a couple of feet above the ground. The exception to this is when they attack. HeatJelly attack by launching large waves of magma at enemies The attack cycle of HeatJelly is 2 actions long. It requires one action to charge before firing. If they are stunned or otherwise temporarily disabled, they resume their attack cycle where it was halted once the stun wears off. When they attack, they drop to the ground in order to pump out as much liquid as possible. This allows them to harness the power of certain kinds of terrain to boost their attacks, but it also makes them immobile and vulnerable to ground-based attacks for the duration.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/7/#post-134063",
-		"family_area": ["Hades Isle", "NetVegas"],
+		"family_area": ["Hades Isle"],
 		"virus": [{
 			"name": "HeatJelly",
 			"hpts": 220,
@@ -7085,7 +7085,7 @@
 	"EarthJelly": {
 		"family_note": "EarthJelly are floating, jellyfish-like viruses, that seem to simply float nonchalantly, yet are deceptively difficult to combat. Fortunately, their rarity ensures they they never appear before a Battle 6, and there are never more than 2 in a single battle. While their horizontal movement is terrible at best, they can easily adjust their altitude as needed. By default, however, they tend to hover a couple of feet above the ground. The exception to this is when they attack. EarthJelly attack by launching large waves of mud at enemies The attack cycle of EarthJelly is 2 actions long. It requires one action to charge before firing. If they are stunned or otherwise temporarily disabled, they resume their attack cycle where it was halted once the stun wears off. When they attack, they drop to the ground in order to pump out as much liquid as possible. This allows them to harness the power of certain kinds of terrain to boost their attacks, but it also makes them immobile and vulnerable to ground-based attacks for the duration.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/7/#post-134064",
-		"family_area": ["Beach", "Yumland"],
+		"family_area": ["Yumland"],
 		"virus": [{
 			"name": "EarthJelly",
 			"hpts": 220,
@@ -7309,7 +7309,7 @@
 	"Wonder": {
 		"family_note": "Wonder viruses drop down from way up high, execute a breath attack, and rise back up. Dropping and attacking is an action, while moving back upward is a second action. They may also adjust where on the battlefield they drop next while in High Altitude as a free action. These are the only actions this virus family performs.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/7/#post-134068",
-		"family_area": ["Yumland", "Netfrica"],
+		"family_area": ["Yumland", "Netfrica", "Dentech"],
 		"virus": [{
 			"name": "Wonder",
 			"hpts": 80,
@@ -7365,7 +7365,7 @@
 	"Anaconda-W": {
 		"family_note": "This virus is only encountered after battle 5. Limit 1 per battle. Each Anaconda is divided into 3 disconnected parts: the head, and two spiked tail sections: each of which takes up one entire panel. The head is the only part of the virus that can take damage, while the body segments are invincible. The virus is able to defend against attacks from up to two directions at a time by positioning the 3 parts of its body in various formations. Any Non-AoE or Non-Phasing attack that hits a body segment is completely stopped, and has no effect whatsoever. Attacks with area effect can still hit the head even if they strike the body first, and phasing attacks pass right through the body as if it were made of objects. An Anaconda's own attacks can always phase through its own body.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/7/#post-134070",
-		"family_area": ["Okuden Valley", "Beach", "Yumland"],
+		"family_area": ["Yumland"],
 		"virus": [{
 			"name": "Anaconda-W",
 			"hpts": 200,
@@ -7421,7 +7421,7 @@
 	"Anaconda-E": {
 		"family_note": "This virus is only encountered after battle 5. Limit 1 per battle. Each Anaconda is divided into 3 disconnected parts: the head, and two spiked tail sections: each of which takes up one entire panel. The head is the only part of the virus that can take damage, while the body segments are invincible. The virus is able to defend against attacks from up to two directions at a time by positioning the 3 parts of its body in various formations. Any Non-AoE or Non-Phasing attack that hits a body segment is completely stopped, and has no effect whatsoever. Attacks with area effect can still hit the head even if they strike the body first, and phasing attacks pass right through the body as if it were made of objects. An Anaconda's own attacks can always phase through its own body.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/7/#post-134072",
-		"family_area": ["Electown", "NAXA"],
+		"family_area": ["NAXA"],
 		"virus": [{
 			"name": "Anaconda-E",
 			"hpts": 200,
@@ -7477,7 +7477,7 @@
 	"Anaconda-F": {
 		"family_note": "This virus is only encountered after battle 5. Limit 1 per battle. Each Anaconda is divided into 3 disconnected parts: the head, and two spiked tail sections: each of which takes up one entire panel. The head is the only part of the virus that can take damage, while the body segments are invincible. The virus is able to defend against attacks from up to two directions at a time by positioning the 3 parts of its body in various formations. Any Non-AoE or Non-Phasing attack that hits a body segment is completely stopped, and has no effect whatsoever. Attacks with area effect can still hit the head even if they strike the body first, and phasing attacks pass right through the body as if it were made of objects. An Anaconda's own attacks can always phase through its own body.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/7/#post-134073",
-		"family_area": ["Kotobuki Town", "Netfrica", "Hades Isle"],
+		"family_area": ["Netfrica", "Hades Isle"],
 		"virus": [{
 			"name": "Anaconda-F",
 			"hpts": 200,
@@ -7533,7 +7533,7 @@
 	"MagmaDragon": {
 		"family_note": "This high tier virus is only encountered after battle 5. A PotDragon's pot is stationary during battle, as it remains above the panel the virus appeared on until battle is over or the virus is deleted, and will not fall even if the panel below it should be destroyed. PotDragons have two main attacks, each geared towards either ground or aerial targets. When executed, the pot tilts or falls over, and the dragon charges at the enemy before looping back and returning to the pot. When threatened, they will duck into the pot, which is both indestructible and capable of shielding them from all damage and effects except those that manage to fly into the mouth of the pot. Even Beam Attacks and Blast damage won't leave a mark.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/7/#post-134076",
-		"family_area": ["Hades Isle", "NetVegas"],
+		"family_area": ["Hades Isle"],
 		"virus": [{
 			"name": "MagmaDragon",
 			"hpts": 200,
@@ -7589,7 +7589,7 @@
 	"WaterDragon": {
 		"family_note": "This high tier virus is only encountered after battle 5. A PotDragon's pot is stationary during battle, as it remains above the panel the virus appeared on until battle is over or the virus is deleted, and will not fall even if the panel below it should be destroyed. PotDragons have two main attacks, each geared towards either ground or aerial targets. When executed, the pot tilts or falls over, and the dragon charges at the enemy before looping back and returning to the pot. When threatened, they will duck into the pot, which is both indestructible and capable of shielding them from all damage and effects except those that manage to fly into the mouth of the pot. Even Beam Attacks and Blast damage won't leave a mark.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/7/#post-134077",
-		"family_area": ["Beach", "NetVegas"],
+		"family_area": ["Beach", "Sharo"],
 		"virus": [{
 			"name": "WaterDragon",
 			"hpts": 200,
@@ -7645,7 +7645,7 @@
 	"ThunderDragon": {
 		"family_note": "This high tier virus is only encountered after battle 5. A PotDragon's pot is stationary during battle, as it remains above the panel the virus appeared on until battle is over or the virus is deleted, and will not fall even if the panel below it should be destroyed. PotDragons have two main attacks, each geared towards either ground or aerial targets. When executed, the pot tilts or falls over, and the dragon charges at the enemy before looping back and returning to the pot. When threatened, they will duck into the pot, which is both indestructible and capable of shielding them from all damage and effects except those that manage to fly into the mouth of the pot. Even Beam Attacks and Blast damage won't leave a mark.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/7/#post-134078",
-		"family_area": ["Netopia", "NAXA"],
+		"family_area": ["NAXA"],
 		"virus": [{
 			"name": "ThunderDragon",
 			"hpts": 200,
@@ -7813,7 +7813,7 @@
 	"ColdHead": {
 		"family_note": "ColdHeads alternate actions between attacking and guarding. These are the only actions ColdHeads may perform, and the first action of every battle is always guarding. ColdHeads will not break from this pattern unless forced to by status effects. ColdHeads cannot be lifted or thrown, even with Rageclaw.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/8/#post-134081",
-		"family_area": ["SciLab", "Sharo"],
+		"family_area": ["SciLab", "Sharo", "Hades Isle"],
 		"virus": [{
 			"name": "ColdHead",
 			"hpts": 60,
@@ -7869,7 +7869,7 @@
 	"HotHead": {
 		"family_note": "HotHeads alternate actions between attacking and guarding. These are the only actions HotHeads may perform, and the first action of every battle is always guarding. HotHeads will not break from this pattern unless forced to by status effects. HotHeads cannot be lifted or thrown, even with Rageclaw.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/8/#post-134082",
-		"family_area": ["Netopia", "Hades Isle"],
+		"family_area": ["Netopia", "Hades Isle", "Kotobuki Town"],
 		"virus": [{
 			"name": "HotHead",
 			"hpts": 60,
@@ -8086,7 +8086,7 @@
 	"Gabyoall": {
 		"family_note": "Gabyoall move and attack by spinning forward in whatever direction they choose. They can dodge as well as anything, but due to their confidence in their defense, they rarely do. Their sides are reinforced to protect against damage, though it's vulnerable to Impact, and it offers no protection from above. They can, however, assault enemies trying to exploit the latter by spinning and creating whirlwinds, or if there's just too many enemies near it for its own tastes.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/8/#post-10000463",
-		"family_area": ["Okuden Valley", "Kotobuki Town", "Dentech"],
+		"family_area": ["Kotobuki Town", "Dentech"],
 		"virus": [{
 			"name": "Gabyoall",
 			"hpts": 70,
@@ -8198,7 +8198,7 @@
 	"DeadHead": {
 		"family_note": "A purple HardHead. Aside from the color, it doesn't look any different from a HardHead, ColdHead, or HotHead.<br><br><br>Special Note: DeadHeads alternate actions between attacking and guarding. These are the only actions DeadHeads may perform, and the first action of every battle is always guarding. DeadHeads will not break from this pattern unless forced to by status effects. DeadHeads cannot be lifted or thrown, even with RageClaw. DeadHeads have permanent Zombie status, hence their name.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781761/8/#post-10001895",
-		"family_area": ["Electown", "Kotobuki Town", "Dentech"],
+		"family_area": ["Electown", "Dentech"],
 		"virus": [{
 			"name": "DeadHead",
 			"hpts": 50,
@@ -8590,7 +8590,7 @@
 	"FirePhoenix": {
 		"family_note": "FirePhoenixes are medium sized birds, constantly emitting fire from their body. Despite being able to fly, they lack some of the grace other flying viruses, and have only average dodging capability. Higher versions are truer to their name, and are capable of reviving themselves. However, a Wind-type attack will blow away their ashes before they can regenerate, and if they're deleted with an Aqua attack, the ashes don't form.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781585/1/#post-73412",
-		"family_area": ["Hades Isle"],
+		"family_area": ["Hades Isle", "Kotobuki Town"],
 		"virus": [{
 			"name": "FirePhoenix",
 			"hpts": 110,
@@ -9237,7 +9237,7 @@
 	"BigBang": {
 		"family_note": "A large spherical virus designed like a planet with its surface reflecting its element (red = fire, blue = aqua, green = wood, yellow = elec, grey = null). They are circled by two loose chains of large rocks. All other viruses in the vicinity orbit the BigBang in a circular pattern, slightly improving their dodge (+1 rank). While Navis are completely unaffected by this gravitational effect, objects and certain \"Other\" chips may also become affected (not guaranteed). BigBangs attack passively by slamming their orbiting debris into their targets. The closer a navi gets, the more likely the success of this attack. Melee range would be rank A with a 1 rank drop in accuracy with each panel separating the virus and the navi. Limit 1 per group.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781585/1/#post-121365",
-		"family_area": ["SciLab", "Dentech", "NAXA"],
+		"family_area": ["Dentech", "NAXA"],
 		"virus": [{
 			"name": "BigBang",
 			"hpts": 120,
@@ -9503,7 +9503,7 @@
 	"Super-X": {
 		"family_note": "The Super-X series of viruses are miniature super robots, all generally humanoid in appearance, but not reaching any higher than 3 feet tall or so. A Super's armor plating is fairly complete, with the only gaps being at the joints to allow for mobility. The inner machinery that can be seen at the joints is a dark gray, while the armor color is dependent on the version. Super-1 is the standard model with white armor, while Super-2 is the speedy model with blue, lightweight armor and Super-3 is the strong model with red, heavyweight armor. Super-Omega is the same as Super-1 in terms of design, but its armor is pure black. All Supers have yellow, opaque visors for eyes, secured by a finned crest that reaches around their heads. Supers don't have any immediately visible weapons, but that is a mere formality because a full arsenal of beam weaponry is stored within their bodies.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781585/1/#post-132415",
-		"family_area": ["NAXA"],
+		"family_area": ["NAXA", "Electown"],
 		"virus": [{
 			"name": "Super-X1",
 			"hpts": 100,
@@ -9559,7 +9559,7 @@
 	"Grinner": {
 		"family_note": "The Grinner virus possesses a body consisting of only one large solar panel, coated in colored metal with a design like a stoic, robotic face. The color of its body varies according to its strength. (yellow/orange/red/purple/blue/green/black). The virus attacks by opening its \"mouth\" to reveal its panel, then firing a beam of refracted light towards its enemies. When other solar panels are nearby, its attack will magnify additional light and become even more powerful. The Grinner moves very slowly, but is entirely invulnerable to attacks while its mouth is closed. It has been described jokingly as \"the energy efficient Dominerd\" due to the similarities between the viruses. The virus itself is electric, but its beam burns like fire, so wood navis need be wary.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781585/2/#post-132416",
-		"family_area": ["NAXA"],
+		"family_area": ["NAXA", "Electown", "SciLab"],
 		"virus": [{
 			"name": "Grinner",
 			"hpts": 100,
@@ -9671,7 +9671,7 @@
 	"Solarite": {
 		"family_note": "A reddish space rock with a diameter of around two feet, that is always giving off a soft glow. Solarite NEVER appears without an accompanying Lunaroid. Multiple Solarite may appear, but there will also be multiple Lunaroid with them. Each pair operates in a set pattern; one dodges by orbiting the other, while the other attacks, then vice versa on their next actions. Which attacks first is random, but they never deviate from the pattern.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781585/2/#post-10002341",
-		"family_area": ["Dentech", "Sharo", "NAXA"],
+		"family_area": ["Sharo", "NAXA"],
 		"virus": [{
 			"name": "Solarite",
 			"hpts": 80,
@@ -9727,7 +9727,7 @@
 	"Lunaroid": {
 		"family_note": "A bluish space rock with a diameter of around two feet, that is always giving off a soft glow. Lunaroid NEVER appears without an accompanying Solarite. Multiple Lunaroid may appear, but there will also be multiple Solarite with them. Each pair operates in a set pattern; one dodges by orbiting the other, while the other attacks, then vice versa on their next actions. Which attacks first is random, but they never deviate from the pattern.",
 		"family_url": "http://s10.zetaboards.com/RockmanChaosNetwork/topic/781585/2/#post-10002342",
-		"family_area": ["Dentech", "Sharo", "NAXA"],
+		"family_area": ["Sharo", "NAXA"],
 		"virus": [{
 			"name": "Lunaroid",
 			"hpts": 80,
