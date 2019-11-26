@@ -746,6 +746,13 @@
 			function GetVirusBounty(virusID) {
 				var hkey = virusID.slice(0,-3), htier = Number(virusID.slice(-1));
 				var hzenny = netzenny.Undernet[2], temp;
+        let multiplier = 1;
+        switch (htier) {
+          case 0: break;
+          case 2: multiplier = 3; break;
+          case 4: multiplier = 6; break;
+          case 6: break;
+        }
 				var hchips = [], hrares = [], hchips2 = [];
 				for (let i = 0; i < virusData[hkey].virus[htier].rslt.length; i++) {
 					if (!virusData[hkey].virus[htier].rare[i]) hchips.push(virusData[hkey].virus[htier].rslt[i]);
@@ -758,7 +765,7 @@
 					hrares = hrares.filter(e => hchips2.indexOf(e) === -1);
 					hchips2 = hchips2.filter(e => hchips.indexOf(e) === -1);
 					for (let i = 0; i < virusData[hkey].family_area.length; i++) {
-						temp = netzenny[virusData[hkey].family_area[i]][2] * (htier+1);
+						temp = netzenny[virusData[hkey].family_area[i]][2] * multiplier;
 						hzenny = temp <= hzenny ? temp : hzenny;
 					}
 				}
