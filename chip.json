@@ -7969,7 +7969,7 @@
 	},
 	"BreakSword": {
 		"dmg": 100,
-		"summ": "100 + Break + Slashing",
+		"summ": "100 + Break + Slashing + Wide Attack",
 		"desc": "Damage: 100 + Break + Slashing + Wide Attack<br>Accuracy: C<br>Description: Creates a sturdy but heavy blade that can cut through armor and shielding.<br>Duration: Until Overridden/Broken. Breaks automatically after 2 swings.<br>Element: Null",
 		"acc": "B",
 		"elem": "Null",
@@ -7978,7 +7978,7 @@
 	},
 	"BreakBlade": {
 		"dmg": 120,
-		"summ": "120 + Break + Slashing",
+		"summ": "120 + Break + Slashing + Long Attack",
 		"desc": "Damage: 120 + Break + Slashing + Long Attack<br>Accuracy: C<br>Description: Creates a sturdy but heavy blade that can cut through armor and shielding.<br>Duration: Until Overridden/Broken. Breaks automatically after 2 swings.<br>Element: Null",
 		"acc": "B",
 		"elem": "Null",
